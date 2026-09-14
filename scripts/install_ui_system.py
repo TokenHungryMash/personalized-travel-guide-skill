@@ -12,6 +12,7 @@ from pathlib import Path
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("export", type=Path)
+    parser.add_argument("--system", choices=("current-system", "canonical"), default="current-system")
     parser.add_argument(
         "--force-template",
         action="store_true",
@@ -25,7 +26,7 @@ def main() -> int:
     args = parser.parse_args()
     export = args.export.resolve()
     skill_assets = Path(__file__).resolve().parent.parent / "assets"
-    product = skill_assets / "canonical" / "product"
+    product = skill_assets / args.system / "product"
     if not product.exists():
         raise SystemExit(f"missing canonical product bundle: {product}")
     canonical_index_hash = hashlib.sha256((product / "index.html").read_bytes()).hexdigest()
@@ -39,7 +40,9 @@ def main() -> int:
             skipped_reference_media += 1
             continue
         relative = source.relative_to(product)
-        target = export / relative
+        if not args.include_reference_media and relative.parts[0] in {"media", "audit-routes"}:
+            continue
+        target = export / (".index.template.html" if relative.as_posix() == "index.html" and not args.include_reference_media else relative)
         target.parent.mkdir(parents=True, exist_ok=True)
         if relative.as_posix() == "index.html" and target.exists() and not args.force_template:
             continue
@@ -69,9 +72,10 @@ def main() -> int:
             json.dumps(marker, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
-    installed_index = export / "index.html"
+    installed_index = export / ("index.html" if args.include_reference_media else ".index.template.html")
     install_report = {
         "install_method": "official_installer",
+        "ui_system": args.system,
         "canonical_index_sha256": canonical_index_hash,
         "installed_index_sha256": hashlib.sha256(installed_index.read_bytes()).hexdigest() if installed_index.exists() else "",
         "canonical_template_installed": installed_index.exists() and hashlib.sha256(installed_index.read_bytes()).hexdigest() == canonical_index_hash,
@@ -86,7 +90,7 @@ def main() -> int:
     if skipped_reference_media:
         print(f"skipped {skipped_reference_media} Bali reference raster assets; continue working automatically until every destination-bearing field and image is replaced")
     print("CONTINUE: installer success is an intermediate milestone; render content, acquire images, audit and perform browser QA")
-    print(f"template {export / 'index.html'}")
+    print(f"template {installed_index}")
     print(f"installed {export / 'asset-manifest.template.json'}")
     print(f"installed {export / 'destination-profile.template.json'}")
     print(f"installed {export / 'render-bindings.template.json'}")

@@ -1,0 +1,1 @@
+window.BALI_ITINERARY=[];

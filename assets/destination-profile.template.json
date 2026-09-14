@@ -9,7 +9,7 @@
     "start_date": "YYYY-MM-DD",
     "end_date": "YYYY-MM-DD",
     "days": 0,
-    "rhythm": "relaxed | balanced | full",
+    "rhythm": "relaxed | standard | full",
     "travelers": "REPLACE_ME",
     "interests": [],
     "constraints": []
@@ -20,6 +20,8 @@
     "summary": "REPLACE_ME",
     "tags": []
   },
+  "time_anchors": [],
+  "dining_plan": [],
   "transport": {
     "status": "pending",
     "legs": []

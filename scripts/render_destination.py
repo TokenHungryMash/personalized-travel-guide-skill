@@ -78,16 +78,39 @@ def main() -> int:
     profile_path = args.profile.resolve()
     workbench = args.workbench.resolve()
     data = json.loads(profile_path.read_text(encoding="utf-8"))
+    manifest_path = workbench / "asset-manifest.json"
+    if manifest_path.is_file():
+        from audit_source_media import audit
+        conflicts = audit(data, json.loads(manifest_path.read_text(encoding="utf-8-sig")))
+        if conflicts:
+            raise SystemExit("Source media conflicts before render:\n" + "\n".join(conflicts[:12]))
     bindings_name = str(data.get("render_bindings_file", "render-bindings.json"))
     bindings_path = (profile_path.parent / bindings_name).resolve()
     if not bindings_path.exists():
         raise SystemExit(f"missing render bindings: {bindings_path}")
     bindings = json.loads(bindings_path.read_text(encoding="utf-8"))
     index = workbench / "index.html"
-    if not index.exists():
-        raise SystemExit(f"missing canonical workbench index: {index}")
+    template_index = workbench / ".index.template.html"
+    if not template_index.exists():
+        template_index = index
+    if not template_index.exists():
+        raise SystemExit(f"missing canonical workbench template: {template_index}")
 
-    canonical = Path(__file__).resolve().parent.parent / "assets" / "canonical" / "product"
+    system = bindings.get("ui_system", data.get("ui_system", "current-system"))
+    if system not in {"canonical", "current-system"}:
+        raise SystemExit("unknown UI system")
+    if system != data.get("ui_system", "current-system"):
+        raise SystemExit("profile and render bindings select different UI systems; regenerate bindings")
+    canonical = Path(__file__).resolve().parent.parent / "assets" / system / "product"
+    runtime_names = set(DESTINATION_RUNTIME_FILES)
+    locked_files = set(LOCKED_FILES)
+    if system == "current-system":
+        from _current_system_adapter import runtime_bindings
+        expected_runtime = runtime_bindings(data)
+        if bindings.get("runtime_files") != expected_runtime:
+            raise SystemExit("current-system runtime bindings do not match the source profile and approved adapter")
+        runtime_names = {r["path"] for r in expected_runtime}
+        locked_files = {p.name for p in canonical.iterdir() if p.suffix in {".css", ".js"}} - runtime_names
     install_report_path = workbench / "INSTALL_REPORT.json"
     if not install_report_path.exists():
         raise SystemExit("missing INSTALL_REPORT.json; install the workbench with install_ui_system.py")
@@ -97,17 +120,17 @@ def main() -> int:
         raise SystemExit("workbench was not created by the official installer")
     if install_report.get("canonical_index_sha256") != canonical_index_hash:
         raise SystemExit("installer report does not match the current canonical template")
-    if not install_report.get("canonical_template_installed") or digest(index) != canonical_index_hash:
-        raise SystemExit("index.html changed before official render; reinstall a fresh canonical workbench")
+    if not install_report.get("canonical_template_installed") or digest(template_index) != canonical_index_hash:
+        raise SystemExit("canonical template changed before official render; reinstall a fresh canonical workbench")
     locked_before: dict[str, str] = {}
-    for name in LOCKED_FILES:
+    for name in locked_files:
         candidate = workbench / name
         reference = canonical / name
         if not candidate.exists() or not reference.exists() or digest(candidate) != digest(reference):
             raise SystemExit(f"locked file differs before render: {name}")
         locked_before[name] = digest(candidate)
 
-    source = index.read_text(encoding="utf-8")
+    source = template_index.read_text(encoding="utf-8")
     styles_before = inline_styles(source)
     html_bindings = bindings.get("html", [])
     seen: set[str] = set()
@@ -156,6 +179,7 @@ def main() -> int:
         "data-handbook-destination-short": data.get("display_name", ""),
         "data-handbook-year": data.get("year", ""),
         "data-handbook-default-theme": data.get("default_theme", "rainforest"),
+        "data-handbook-id": data.get("handbook_id", data.get("destination", "")),
     }
     for attribute, value in metadata.items():
         escaped = str(value).replace("&", "&amp;").replace('"', "&quot;")
@@ -170,7 +194,11 @@ def main() -> int:
     source = source.replace("bali-booking-2026", "travel-handbook-booking-legacy")
     if inline_styles(source) != styles_before:
         raise SystemExit("render attempted to modify canonical inline <style> bytes")
-    index.write_text(source, encoding="utf-8")
+    pending_index = workbench / ".index.rendering.html"
+    pending_index.write_text(source, encoding="utf-8")
+    pending_index.replace(index)
+    if template_index.name == ".index.template.html":
+        template_index.unlink(missing_ok=True)
     installed_profile = (workbench / "destination-profile.json").resolve()
     if profile_path != installed_profile:
         shutil.copy2(profile_path, installed_profile)
@@ -178,7 +206,7 @@ def main() -> int:
     for record in bindings.get("runtime_files", []):
         name = str(record.get("path", ""))
         content = record.get("content")
-        if name not in DESTINATION_RUNTIME_FILES:
+        if name not in runtime_names:
             raise SystemExit(f"unregistered destination runtime: {name}")
         if not isinstance(content, str) or not content.strip():
             raise SystemExit(f"empty destination runtime content: {name}")
@@ -190,6 +218,7 @@ def main() -> int:
 
     report = {
         "destination": data.get("destination"),
+        "ui_system": system,
         "profile": str(profile_path),
         "bindings": str(bindings_path),
         "rendered_selectors": sorted(seen),

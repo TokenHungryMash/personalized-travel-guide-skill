@@ -72,7 +72,7 @@ def main() -> int:
     compact_plan = any(item.get("id") == "modules-language-notes" for item in json.loads((root / "research-plan.json").read_text(encoding="utf-8")).get("packs", []))
     if compact_plan:
         created += write_if_missing(root / "research/modules/practical.json", {"_draft": True, "food": {}, "preparation": preparation})
-        created += write_if_missing(root / "research/modules/language-notes.json", {"_draft": True, "language": language, "travel_notes": notes})
+        created += write_if_missing(root / "research/modules/language-notes.json", {"_draft": True, "language": language, "travel_notes": notes["groups"]})
     else:
         created += write_if_missing(root / "research/modules/preparation.json", preparation)
         created += write_if_missing(root / "research/modules/language.json", language)

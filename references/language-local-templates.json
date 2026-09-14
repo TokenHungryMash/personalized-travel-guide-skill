@@ -1,18 +1,308 @@
 {
   "japanese": {
     "keyword_groups": [
-      {"title":"交通与定位","items":[{"term":"駅","reading":"eki","meaning":"车站"},{"term":"出口","reading":"deguchi","meaning":"出口"},{"term":"乗り場","reading":"noriba","meaning":"乘车处／站台"},{"term":"乗り換え","reading":"norikae","meaning":"换乘"},{"term":"空港","reading":"kūkō","meaning":"机场"}]},
-      {"title":"餐厅与菜单","items":[{"term":"予約","reading":"yoyaku","meaning":"预约"},{"term":"二人","reading":"futari","meaning":"两位"},{"term":"辛くない","reading":"karakunai","meaning":"不辣"},{"term":"アレルギー","reading":"arerugī","meaning":"过敏"},{"term":"お会計","reading":"okaikei","meaning":"结账"}]},
-      {"title":"购物与支付","items":[{"term":"免税","reading":"menzei","meaning":"免税"},{"term":"現金","reading":"genkin","meaning":"现金"},{"term":"クレジットカード","reading":"kurejitto kādo","meaning":"信用卡"},{"term":"袋","reading":"fukuro","meaning":"袋子"},{"term":"領収書","reading":"ryōshūsho","meaning":"收据"}]},
-      {"title":"住宿与设施","items":[{"term":"チェックイン","reading":"chekku in","meaning":"入住"},{"term":"チェックアウト","reading":"chekku auto","meaning":"退房"},{"term":"荷物","reading":"nimotsu","meaning":"行李"},{"term":"カードキー","reading":"kādo kī","meaning":"房卡"},{"term":"タオル","reading":"taoru","meaning":"毛巾"}]},
-      {"title":"求助与紧急","items":[{"term":"病院","reading":"byōin","meaning":"医院"},{"term":"警察","reading":"keisatsu","meaning":"警察"},{"term":"紛失","reading":"funshitsu","meaning":"遗失"},{"term":"助けて","reading":"tasukete","meaning":"请帮忙"},{"term":"中国語","reading":"chūgokugo","meaning":"中文"}]}
+      {
+        "title": "交通与定位",
+        "items": [
+          {
+            "term": "駅",
+            "reading": "eki",
+            "meaning": "车站"
+          },
+          {
+            "term": "出口",
+            "reading": "deguchi",
+            "meaning": "出口"
+          },
+          {
+            "term": "乗り場",
+            "reading": "noriba",
+            "meaning": "乘车处／站台"
+          },
+          {
+            "term": "乗り換え",
+            "reading": "norikae",
+            "meaning": "换乘"
+          },
+          {
+            "term": "空港",
+            "reading": "kūkō",
+            "meaning": "机场"
+          }
+        ]
+      },
+      {
+        "title": "餐厅与菜单",
+        "items": [
+          {
+            "term": "予約",
+            "reading": "yoyaku",
+            "meaning": "预约"
+          },
+          {
+            "term": "二人",
+            "reading": "futari",
+            "meaning": "两位"
+          },
+          {
+            "term": "辛くない",
+            "reading": "karakunai",
+            "meaning": "不辣"
+          },
+          {
+            "term": "アレルギー",
+            "reading": "arerugī",
+            "meaning": "过敏"
+          },
+          {
+            "term": "お会計",
+            "reading": "okaikei",
+            "meaning": "结账"
+          }
+        ]
+      },
+      {
+        "title": "购物与支付",
+        "items": [
+          {
+            "term": "免税",
+            "reading": "menzei",
+            "meaning": "免税"
+          },
+          {
+            "term": "現金",
+            "reading": "genkin",
+            "meaning": "现金"
+          },
+          {
+            "term": "クレジットカード",
+            "reading": "kurejitto kādo",
+            "meaning": "信用卡"
+          },
+          {
+            "term": "袋",
+            "reading": "fukuro",
+            "meaning": "袋子"
+          },
+          {
+            "term": "領収書",
+            "reading": "ryōshūsho",
+            "meaning": "收据"
+          }
+        ]
+      },
+      {
+        "title": "住宿与设施",
+        "items": [
+          {
+            "term": "チェックイン",
+            "reading": "chekku in",
+            "meaning": "入住"
+          },
+          {
+            "term": "チェックアウト",
+            "reading": "chekku auto",
+            "meaning": "退房"
+          },
+          {
+            "term": "荷物",
+            "reading": "nimotsu",
+            "meaning": "行李"
+          },
+          {
+            "term": "カードキー",
+            "reading": "kādo kī",
+            "meaning": "房卡"
+          },
+          {
+            "term": "タオル",
+            "reading": "taoru",
+            "meaning": "毛巾"
+          }
+        ]
+      },
+      {
+        "title": "求助与紧急",
+        "items": [
+          {
+            "term": "病院",
+            "reading": "byōin",
+            "meaning": "医院"
+          },
+          {
+            "term": "警察",
+            "reading": "keisatsu",
+            "meaning": "警察"
+          },
+          {
+            "term": "紛失",
+            "reading": "funshitsu",
+            "meaning": "遗失"
+          },
+          {
+            "term": "助けて",
+            "reading": "tasukete",
+            "meaning": "请帮忙"
+          },
+          {
+            "term": "中国語",
+            "reading": "chūgokugo",
+            "meaning": "中文"
+          }
+        ]
+      }
     ],
     "phrase_groups": [
-      {"title":"问路与乘车","items":[{"sentence":"駅はどこですか？","reading":"Eki wa doko desu ka?","meaning":"车站在哪里？"},{"sentence":"この電車はここに行きますか？","reading":"Kono densha wa koko ni ikimasu ka?","meaning":"这班车去这个地方吗？"},{"sentence":"どこで降りますか？","reading":"Doko de orimasu ka?","meaning":"在哪一站下车？"},{"sentence":"ICカードは使えますか？","reading":"IC kādo wa tsukaemasu ka?","meaning":"可以使用交通卡吗？"},{"sentence":"空港まで何分ですか？","reading":"Kūkō made nanpun desu ka?","meaning":"到机场需要几分钟？"}]},
-      {"title":"点餐与忌口","items":[{"sentence":"二人ですが、席はありますか？","reading":"Futari desu ga, seki wa arimasu ka?","meaning":"两位，有座位吗？"},{"sentence":"英語のメニューはありますか？","reading":"Eigo no menyū wa arimasu ka?","meaning":"有英文菜单吗？"},{"sentence":"これにアレルギーがあります。","reading":"Kore ni arerugī ga arimasu.","meaning":"我对这个过敏。"},{"sentence":"辛くしないでください。","reading":"Karaku shinaide kudasai.","meaning":"请不要做辣。"},{"sentence":"お会計をお願いします。","reading":"Okaikei o onegaishimasu.","meaning":"请结账。"}]},
-      {"title":"购物与退税","items":[{"sentence":"これは免税ですか？","reading":"Kore wa menzei desu ka?","meaning":"这个可以免税吗？"},{"sentence":"カードで払えますか？","reading":"Kādo de haraemasu ka?","meaning":"可以刷卡吗？"},{"sentence":"別の色はありますか？","reading":"Betsu no iro wa arimasu ka?","meaning":"有其他颜色吗？"},{"sentence":"領収書をください。","reading":"Ryōshūsho o kudasai.","meaning":"请给我收据。"},{"sentence":"包んでもらえますか？","reading":"Tsutsunde moraemasu ka?","meaning":"可以帮我包装吗？"}]},
-      {"title":"住宿沟通","items":[{"sentence":"チェックインをお願いします。","reading":"Chekku in o onegaishimasu.","meaning":"我们想办理入住。"},{"sentence":"荷物を預かってもらえますか？","reading":"Nimotsu o azukatte moraemasu ka?","meaning":"可以寄存行李吗？"},{"sentence":"部屋にタオルがありません。","reading":"Heya ni taoru ga arimasen.","meaning":"房间里没有毛巾。"},{"sentence":"チェックアウトは何時ですか？","reading":"Chekku auto wa nanji desu ka?","meaning":"几点退房？"},{"sentence":"タクシーを呼んでください。","reading":"Takushī o yonde kudasai.","meaning":"请帮我叫出租车。"}]},
-      {"title":"求助与紧急","items":[{"sentence":"助けてください。","reading":"Tasukete kudasai.","meaning":"请帮帮我。"},{"sentence":"道に迷いました。","reading":"Michi ni mayoimashita.","meaning":"我迷路了。"},{"sentence":"財布をなくしました。","reading":"Saifu o nakushimashita.","meaning":"我的钱包丢了。"},{"sentence":"警察を呼んでください。","reading":"Keisatsu o yonde kudasai.","meaning":"请联系警察。"},{"sentence":"一番近い病院はどこですか？","reading":"Ichiban chikai byōin wa doko desu ka?","meaning":"最近的医院在哪里？"}]}
+      {
+        "title": "问路与乘车",
+        "items": [
+          {
+            "reading": "Eki wa doko desu ka?",
+            "meaning": "车站在哪里？",
+            "term": "駅はどこですか？"
+          },
+          {
+            "reading": "Kono densha wa koko ni ikimasu ka?",
+            "meaning": "这班车去这个地方吗？",
+            "term": "この電車はここに行きますか？"
+          },
+          {
+            "reading": "Doko de orimasu ka?",
+            "meaning": "在哪一站下车？",
+            "term": "どこで降りますか？"
+          },
+          {
+            "reading": "IC kādo wa tsukaemasu ka?",
+            "meaning": "可以使用交通卡吗？",
+            "term": "ICカードは使えますか？"
+          },
+          {
+            "reading": "Kūkō made nanpun desu ka?",
+            "meaning": "到机场需要几分钟？",
+            "term": "空港まで何分ですか？"
+          }
+        ]
+      },
+      {
+        "title": "点餐与忌口",
+        "items": [
+          {
+            "reading": "Futari desu ga, seki wa arimasu ka?",
+            "meaning": "两位，有座位吗？",
+            "term": "二人ですが、席はありますか？"
+          },
+          {
+            "reading": "Eigo no menyū wa arimasu ka?",
+            "meaning": "有英文菜单吗？",
+            "term": "英語のメニューはありますか？"
+          },
+          {
+            "reading": "Kore ni arerugī ga arimasu.",
+            "meaning": "我对这个过敏。",
+            "term": "これにアレルギーがあります。"
+          },
+          {
+            "reading": "Karaku shinaide kudasai.",
+            "meaning": "请不要做辣。",
+            "term": "辛くしないでください。"
+          },
+          {
+            "reading": "Okaikei o onegaishimasu.",
+            "meaning": "请结账。",
+            "term": "お会計をお願いします。"
+          }
+        ]
+      },
+      {
+        "title": "购物与退税",
+        "items": [
+          {
+            "reading": "Kore wa menzei desu ka?",
+            "meaning": "这个可以免税吗？",
+            "term": "これは免税ですか？"
+          },
+          {
+            "reading": "Kādo de haraemasu ka?",
+            "meaning": "可以刷卡吗？",
+            "term": "カードで払えますか？"
+          },
+          {
+            "reading": "Betsu no iro wa arimasu ka?",
+            "meaning": "有其他颜色吗？",
+            "term": "別の色はありますか？"
+          },
+          {
+            "reading": "Ryōshūsho o kudasai.",
+            "meaning": "请给我收据。",
+            "term": "領収書をください。"
+          },
+          {
+            "reading": "Tsutsunde moraemasu ka?",
+            "meaning": "可以帮我包装吗？",
+            "term": "包んでもらえますか？"
+          }
+        ]
+      },
+      {
+        "title": "住宿沟通",
+        "items": [
+          {
+            "reading": "Chekku in o onegaishimasu.",
+            "meaning": "我们想办理入住。",
+            "term": "チェックインをお願いします。"
+          },
+          {
+            "reading": "Nimotsu o azukatte moraemasu ka?",
+            "meaning": "可以寄存行李吗？",
+            "term": "荷物を預かってもらえますか？"
+          },
+          {
+            "reading": "Heya ni taoru ga arimasen.",
+            "meaning": "房间里没有毛巾。",
+            "term": "部屋にタオルがありません。"
+          },
+          {
+            "reading": "Chekku auto wa nanji desu ka?",
+            "meaning": "几点退房？",
+            "term": "チェックアウトは何時ですか？"
+          },
+          {
+            "reading": "Takushī o yonde kudasai.",
+            "meaning": "请帮我叫出租车。",
+            "term": "タクシーを呼んでください。"
+          }
+        ]
+      },
+      {
+        "title": "求助与紧急",
+        "items": [
+          {
+            "reading": "Tasukete kudasai.",
+            "meaning": "请帮帮我。",
+            "term": "助けてください。"
+          },
+          {
+            "reading": "Michi ni mayoimashita.",
+            "meaning": "我迷路了。",
+            "term": "道に迷いました。"
+          },
+          {
+            "reading": "Saifu o nakushimashita.",
+            "meaning": "我的钱包丢了。",
+            "term": "財布をなくしました。"
+          },
+          {
+            "reading": "Keisatsu o yonde kudasai.",
+            "meaning": "请联系警察。",
+            "term": "警察を呼んでください。"
+          },
+          {
+            "reading": "Ichiban chikai byōin wa doko desu ka?",
+            "meaning": "最近的医院在哪里？",
+            "term": "一番近い病院はどこですか？"
+          }
+        ]
+      }
     ]
   }
 }

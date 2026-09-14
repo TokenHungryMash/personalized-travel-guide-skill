@@ -1,13 +1,17 @@
 # Rendering and asset workflow
 
+New destination builds use `current-system` by default, including when the profile omits `ui_system`. Exact personal restoration uses [current-system.md](current-system.md). Legacy `canonical` builds require an explicit profile selection; installer, bindings and audit must agree with that selection.
+
 ## Official byte-safe renderer
 
-`build_render_bindings.py` is the destination-neutral canonical component generator. It reads the validated profile and emits all 11 registered fragments plus destination runtime bindings. `render_destination.py` is the byte-safe inserter between those bindings and the compressed canonical product. It does not serialize the document. It locates one registered destination-bearing root, replaces only its inner byte range and leaves the outer canonical element intact.
+Set `cover.show_summary: false` to omit the cover introduction paragraph while retaining `cover.summary` as research metadata. The default remains visible.
+
+`build_render_bindings.py` reads the validated profile and emits all 15 registered fragments plus destination runtime bindings. `render_destination.py` inserts those bindings into the selected product without whole-document serialization. It replaces only registered inner byte ranges and preserves the outer elements.
 
 Command:
 
 ```text
-python scripts/render_destination.py destination-profile.json workbench
+python scripts/render_profile.py destination-profile.json workbench
 ```
 
 The profile's `render_bindings_file` points to a JSON file with:
@@ -17,7 +21,9 @@ The profile's `render_bindings_file` points to a JSON file with:
 
 Allowed selectors are `.hero`, `.trip-pulse`, `#contents`, `.flight-band`, `#stay`, `#route`, `#sights`, `#shops`, `#move`, `#food`, `#booking`, `#words`, `#tips`, `.mobile-menu-panel` and the unique page-level `body > footer`. Bind every family needed by the product; partial bindings remain an unfinished workbench. Build fragments by cloning the matching canonical component subtree and rendering target records into it. Do not copy reference prose or venue records. The status strip, contents subtitle, mobile-directory identity and footer are destination-bearing surfaces and must be generated from the same profile rather than inherited from Bali.
 
-The renderer rejects duplicate/unregistered selectors, empty fragments, changed locked files and changed inline styles. It writes `RENDER_REPORT.json` and remains safe to rerun against a clean workbench. When replacing already rendered records, reinstall a clean workbench and rerender from the same profile/bindings rather than stacking transformations.
+`render_profile.py` validates and generates bindings before installing a clean template, then invokes the official renderer. Use this one command for first render and content repairs; it stops on the first failure. It preserves research, downloaded destination assets, generated maps and browser storage. It does not research, download, or claim interaction QA. The renderer rejects duplicate/unregistered selectors, empty fragments, changed locked files and changed inline styles and writes `RENDER_REPORT.json`.
+
+New builds default to `map_delivery: screenshots`: follow [real map screenshots](screenshot-map-workflow.md), capture and visually review every day before importing. A route list alone is not an offline map. The release gate rejects missing daily captures. Online maps are an explicit opt-in: set `map_delivery: online` and record the actual user request in `online_map_user_statement`; follow [online map workflow](online-map-workflow.md) and disclose that its basemap requires network. Never silently downgrade after a capture failure. Existing restores retain their map mode.
 
 ## Contract-compliant generic adapters
 
@@ -25,14 +31,18 @@ If a fragment-production helper is needed, it must be destination-neutral and re
 
 ## Image evidence pipeline
 
-1. Research the exact venue/product and record image declarations in the profile. Resolve assets per place, not as one destination-wide candidate pool.
+
+1. Research the exact venue/product and record image declarations in its owning research pack; compile them into the profile. Resolve assets per place, not as one destination-wide candidate pool.
+   - Use `file` for the relative asset path; the compiler also normalizes the accepted `local_file` alias before manifest/rendering. Put cover provenance (`source_page`, `download_url`, media class and identity observation) beside `cover.image`, not in an unconsumed sibling object.
 2. Download locally using available browser/network tools; do not infer identity from filename.
    - When direct image URLs are already declared, `fetch_declared_assets.py profile asset-root` may batch-download them. It never decides identity.
+   - The downloader creates a bounded delivery derivative for images over 1600 px or 2 MiB and records the source dimensions and derivative state in the fetch receipt. It does not change the declared media class or erase source provenance.
 3. Run `build_asset_manifest.py profile output-manifest`.
 4. Run `verify_assets.py profile manifest asset-root --machine-only --write` for file, decode, dimension and place-ID preflight. Rendering may proceed after this passes, producing an explicitly non-final `PREVIEW_READY` build.
 5. Run `build_asset_contact_sheet.py manifest asset-root contact-sheet.jpg` and inspect every selected image/source label in one batch. Open only flagged, ambiguous, Open Graph, third-party or watermark-risk files individually at full size; an exact official body photo that is clear in a sufficiently large contact-sheet cell does not require a second redundant opening.
 6. Only after inspection set `visually_confirmed: true`, `watermark_checked: true` and `subject_verified: true`.
-7. Run strict product audit.
+   - Save explicit decisions as a JSON array and pass `--review-records reviews.json` to `build_asset_manifest.py`. Each row contains `file`, `place_id`, `source_page`, `download_url`, `media_class`, `original_media_class`, `visual_subject_type` (copied unchanged from the declaration), `sha256` of the local file, `verification_evidence` (an existing local evidence path), `visual_confirmation_note`, and true `source_identity_bound`, `visually_confirmed`, `watermark_checked`. Use one row per actually reviewed asset. Changed bytes, provenance or media classification invalidate the review. A valid hash-bound visual review may supply the source identity observation from its concrete visual_confirmation_note; ordinary declarations still need source_identity_note. Unreviewed rows remain false; the old blanket `--visual-evidence` flag is rejected.
+7. After required QA, run check_handoff.py once; it includes the strict product audit and forward test.
 
 Evidence states are independent:
 
@@ -50,3 +60,5 @@ Use a bounded candidate budget. For each required image slot, inspect at most th
 ## Pending stays
 
 Pending accommodation renders `.hotel-card.stay-pending` with neutral copy and no property image, address, booking link or map link. Confirmed accommodation uses the normal gallery and requires at least two distinct verified exact-property images; use three when reliable assets are readily available. Changing status from pending to confirmed requires rerendering the complete `#stay` family.
+
+For a cover reusing a reviewed place image, `cover.derived_from` is the relative image **file path** (for example `assets/lake.jpg`), not a place ID. Review the whole candidate batch before repairing owning packs; batch changed declarations, recompile once, then fetch only changed candidates.

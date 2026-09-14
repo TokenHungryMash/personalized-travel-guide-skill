@@ -11,6 +11,10 @@ from pathlib import Path
 
 
 def e(value) -> str:
+    if isinstance(value, (list, tuple)):
+        return " · ".join(e(item) for item in value if item is not None and item != "")
+    if isinstance(value, dict):
+        raise ValueError("Display field must be text or a text list, not an object")
     return html.escape(str(value if value is not None else ""), quote=True)
 
 
@@ -26,6 +30,12 @@ def image_files(place: dict) -> list[str]:
         elif isinstance(image, str):
             result.append(image)
     return result
+
+
+def source_link(place: dict) -> str:
+    url = place.get("official_url") or place.get("source_url")
+    label = "官网" if place.get("official_url") else "来源"
+    return f'<a href="{e(url)}" target="_blank" rel="noreferrer">{label} ↗</a>'
 
 
 def gallery(place: dict, label: str = "") -> str:
@@ -119,19 +129,28 @@ def hero(profile: dict) -> str:
         return ".".join(parts[-2:]) if len(parts) >= 3 else str(value or "")
     start_date = compact_date(profile["trip"].get("start_date", ""))
     end_date = compact_date(profile["trip"].get("end_date", ""))
-    dates = cover.get("date_label") or (f'{start_date}—{end_date.split(".")[-1]}' if start_date[:2] == end_date[:2] else f'{start_date}—{end_date}')
+    dates = cover.get("date_label") or ("日期待定" if not start_date or not end_date or "pending" in (start_date, end_date) else (f'{start_date}—{end_date.split(".")[-1]}' if start_date[:2] == end_date[:2] else f'{start_date}—{end_date}'))
     nights = profile["trip"].get("nights")
     duration = f'{e(profile["trip"].get("days", ""))} 天' + (f'<br>{e(nights)} 晚' if nights is not None else '')
     route_label = cover.get("route_label") or profile.get("route_title", profile["display_name"])
     includes = cover.get("includes") or "住宿 · 餐饮 · 探索"
     image = cover.get("image", "")
+    summary_html = f'<p class="lede">{e(cover["summary"])}</p>' if cover.get("show_summary", True) else '<p class="lede" hidden></p>'
+    anchors = profile.get("time_anchors", [])[:4]
+    anchor_html = ""
+    if anchors:
+        cards = "".join(
+            f'<a href="{e(item.get("href", "#route"))}"><time>{e(item.get("time", "待确认"))}</time><b>{e(item.get("title", "行程确认"))}</b><small>{e(item.get("note", "出发前再次确认"))}</small></a>'
+            for item in anchors
+        )
+        anchor_html = f'<div class="audit-hard-times"><h3>出行时间锚点</h3><div>{cards}</div></div>'
     return (
         f'<img class="jungle-cover-image" src="{e(image)}" alt="{e(profile["display_name"])}旅行封面" fetchpriority="high"><div class="jungle-cover-shade" aria-hidden="true"></div>'
         f'<nav class="nav shell"><a class="brand" href="#top">{e(profile["display_name"])}旅行手册</a></nav>'
         f'<div class="hero-inner shell jungle-cover-copy"><p class="jungle-cover-kicker">{e(cover["kicker"])}</p><h1 class="{title_class}"><span>{e(title_lines[0])}</span><em>{e(title_lines[1])}</em></h1>'
-        f'<p class="lede">{e(cover["summary"])}</p></div>'
+        f'{summary_html}</div>'
         f'<div class="jungle-cover-bottom shell"><div class="jungle-cover-dates"><strong>{e(dates)}</strong><span>{duration}</span></div>'
-        f'<div><small>旅行路线</small><b>{e(route_label)}</b></div><div><small>内容包含</small><b>{e(includes)}</b></div></div>'
+        f'<div><small>旅行路线</small><b>{e(route_label)}</b></div><div><small>内容包含</small><b>{e(includes)}</b></div></div>{anchor_html}'
     )
 
 
@@ -200,6 +219,10 @@ def stays(profile: dict, places: dict[str, dict]) -> str:
     return '<div class="shell">' + heading('STAY', 'WHERE TO STAY', profile.get('stay_title', '住宿与旅行基地'), profile.get('stay_summary', '')) + ''.join(cards) + '<a class="back-to-contents" href="#contents">↑ 回到目录</a></div>'
 
 
+from _display_labels import transport_label, route_note
+from _outfit_advice import outfit_html
+from _route_screenshots import screenshots_html
+
 def route_stop(stop: dict, place: dict, index: int) -> str:
     return (
         f'<a class="route-stop" data-place-id="{e(place["id"])}" href="{e(map_url(place))}" target="_blank" rel="noreferrer">'
@@ -217,7 +240,8 @@ def route(profile: dict, places: dict[str, dict]) -> str:
             place = places[str(stop["place_id"])]
             stop_parts.append('<div class="route-map-segment">' + route_stop(stop, place, index))
             if index < len(stops):
-                stop_parts.append(f'<div class="route-leg"><span>{e(stop.get("transport_mode"))}</span><b>{e(stop.get("transfer_minutes"))} 分钟</b><small>{e(stop.get("distance_km"))} km · {e(stop.get("estimated_cost"))}</small></div>')
+                leg = stops[index]  # Incoming leg belongs to the next stop.
+                stop_parts.append(f'<div class="route-leg"><span>{e(transport_label(leg.get("transport_mode")))}</span><b>{e(leg.get("transfer_minutes"))} 分钟</b><small>{e(leg.get("distance_km"))} km · {e(leg.get("estimated_cost"))}</small></div>')
             stop_parts.append('</div>')
         periods = day["periods"]
         def render_period(label: str, key: str) -> str:
@@ -230,7 +254,8 @@ def route(profile: dict, places: dict[str, dict]) -> str:
             f'<details class="day-route-map"><summary class="route-mobile-summary"><span class="route-title"><small>MINI ROUTE</small><b>{e(day["theme"])}</b></span>'
             '<span class="route-glass-button"><span class="route-open-label">查看路线</span><span class="route-close-label">收起路线</span><i>＋</i></span></summary>'
             f'<div class="route-map-content"><div class="route-map-head"><span>MINI ROUTE</span><div><b>{e(day["theme"])}</b><small>时间、顺序、交通与停留</small></div></div>'
-            f'<div class="route-map-track">{"".join(stop_parts)}</div></div></details>'
+            + (f'<p class="route-distance-note">{e(route_note(day))}</p>' if route_note(day) else '')
+            + screenshots_html(day) + f'<div class="route-map-track">{"".join(stop_parts)}</div></div></details>'
         )
         photo = day.get("photo_advice", {})
         suitable = ''.join(f'<li>{e(item)}</li>' for item in photo.get("suitable_shots", []))
@@ -238,17 +263,21 @@ def route(profile: dict, places: dict[str, dict]) -> str:
             '<aside class="photo-note"><div class="photo-note-head"><span>PHOTO NOTES</span><div>'
             f'<b>{e(photo.get("title"))}</b><small>{e(photo.get("lighting"))}</small></div></div>'
             '<div class="photo-note-grid"><div><strong>适合拍摄</strong>'
-            f'<ul>{suitable}</ul></div><div><strong>人物拍摄提示</strong><p>{e(photo.get("portrait_tip"))}</p></div></div></aside>'
+            f'<ul>{suitable}</ul></div><div><strong>人物拍摄提示</strong><p>{e(photo.get("portrait_tip"))}</p></div></div>'
+            + outfit_html(photo) + '</aside>'
         )
         days_html.append(
             f'<details class="day"><summary><span class="day-index">{day_index:02d}</span><span><small>{e(day.get("date"))} · {e(day.get("area", ""))}</small>'
             f'<b>{e(day["theme"])}</b><em>{e(day.get("summary", ""))}</em></span><i>＋</i></summary><div class="day-detail">{detail}</div>{mini}{photo_block}</details>'
         )
-    phases = profile.get("journey_phases") or [{"title": profile.get("route_title", f'{profile["trip"]["days"]} 天行程'), "day_numbers": list(range(1, len(days_html)+1))}]
     blocks = []
-    for phase in phases:
-        selected = [days_html[i-1] for i in phase.get("day_numbers", []) if 1 <= i <= len(days_html)]
-        blocks.append(f'<div class="journey-block"><p class="journey-label">{e(phase.get("kicker", "ITINERARY"))}</p><h3>{e(phase["title"])}</h3><div class="days">{"".join(selected)}</div></div>')
+    phases = profile.get("journey_phases")
+    if phases and len(phases) > 1:
+        for phase in phases:
+            selected = [days_html[i-1] for i in phase.get("day_numbers", []) if 1 <= i <= len(days_html)]
+            blocks.append(f'<div class="journey-block"><p class="journey-label">{e(phase.get("kicker", "ITINERARY"))}</p><h3>{e(phase["title"])}</h3><div class="days">{"".join(selected)}</div></div>')
+    else:
+        blocks.append(f'<div class="journey-block journey-block-single"><div class="days">{"".join(days_html)}</div></div>')
     return '<div class="shell">' + heading('01', 'THE ROUTE', profile.get('route_title', f'{profile["trip"]["days"]} 天行程'), profile.get('route_summary', '')) + ''.join(blocks) + '<a class="back-to-contents" href="#contents">↑ 回到目录</a></div>'
 
 
@@ -265,7 +294,7 @@ def sight_card(place: dict) -> str:
         f'<span>{e(place.get("area", ""))}</span><div class="sight-title-row"><h3>{e(place["display_name"])}</h3>{rating_html}</div>'
         f'<b>{e(marker)}</b><div class="sight-facts"><span>建议停留 {e(place.get("duration_minutes"))} 分钟</span></div><p>{e(place.get("description", ""))}</p>'
         f'<p class="hours-line"><b>开放</b>{e(place.get("hours"))} · {e(place.get("closed_days"))}</p>'
-        f'<a href="{e(map_url(place))}" target="_blank" rel="noreferrer">Google Maps ↗</a><a href="{e(place.get("source_url"))}" target="_blank" rel="noreferrer">官网 ↗</a></div></article>'
+        f'<a href="{e(map_url(place))}" target="_blank" rel="noreferrer">Google Maps ↗</a>{source_link(place)}</div></article>'
     )
 
 
@@ -281,7 +310,7 @@ def shop_card(place: dict) -> str:
         f'<article class="shop-row" data-shopping-card data-place-id="{e(place["id"])}"><div class="shop-visual">{gallery(place, place.get("area", ""))}</div><div class="shop-copy">'
         f'<span>{e(place.get("area", ""))} · {e(place.get("category", ""))}</span><h3>{e(place["display_name"])}</h3><strong>{e(place.get("scheduled_label", place.get("route_fit", "备选 · 按区域顺路加入")))}</strong><p>{e(place.get("description", ""))}</p>'
         f'<p class="shop-brands"><b>值得逛 / 买</b>{e(place.get("brand_highlights", ""))}</p>'
-        f'<small>{e(place.get("buying_tip", ""))}</small><small>开放：{e(place.get("hours"))} · {e(place.get("closed_days"))}</small></div><div class="shop-actions"><a href="{e(map_url(place))}" target="_blank">地图 ↗</a><a href="{e(place.get("source_url"))}" target="_blank">官网 ↗</a></div></article>'
+        f'<small>{e(place.get("buying_tip", ""))}</small><small>开放：{e(place.get("hours"))} · {e(place.get("closed_days"))}</small></div><div class="shop-actions"><a href="{e(map_url(place))}" target="_blank">地图 ↗</a>{source_link(place)}</div></article>'
     )
 
 
@@ -292,7 +321,9 @@ def shops(profile: dict, places: dict[str, dict]) -> str:
         groups.append(f'<details class="shop-region"><summary><b>{e(group["title"])}</b><span>{e(group.get("subtitle", "商场与店铺"))}</span><i>＋</i></summary><div class="shop-list">{cards}</div></details>')
     souvenirs = [place for place in places.values() if place.get("type") == "souvenir"]
     souvenir_cards = ''.join(
-        f'<article class="shop-row souvenir-card" data-shopping-card data-place-id="{e(place["id"])}"><div class="shop-visual">{gallery(place)}</div><div class="shop-copy"><span>{e(place.get("category", "当地产品"))}</span><h3>{e(place["display_name"])}</h3>'
+        f'<article class="shop-row souvenir-card" data-shopping-card data-place-id="{e(place["id"])}"'+ (' style="display:block"' if not image_files(place) else '') + '>'
+        + (f'<div class="shop-visual">{gallery(place)}</div>' if image_files(place) else '')
+        + f'<div class="shop-copy"><span>{e(place.get("category", "当地产品"))}</span><h3>{e(place["display_name"])}</h3>'
         f'<p>{e(place.get("description", ""))}</p><p class="shop-brands"><b>为什么值得买</b>{e(place.get("why_buy", ""))}</p><p><b>适合送给</b>{e(place.get("best_for", ""))}</p>'
         f'<small>哪里买：{e(place.get("where_to_buy", ""))}</small><small>{e(place.get("buying_tip", ""))}</small></div></article>' for place in souvenirs
     )
@@ -302,10 +333,13 @@ def shops(profile: dict, places: dict[str, dict]) -> str:
 
 def experience_card(place: dict) -> str:
     risk = f'<p class="experience-risk"><b>风险评估</b>{e(place.get("risk_assessment"))}</p>' if place.get("hazardous") else ''
+    first_image = (place.get("images") or [{}])[0]
+    media_class = str(first_image.get("media_class", "")) if isinstance(first_image, dict) else ""
+    brand_class = " is-brand-asset" if media_class == "official_brand_asset" else ""
     return (
-        f'<article class="movement-card has-visual" data-experience-card data-place-id="{e(place["id"])}"><div class="movement-visual">{gallery(place, place.get("area", ""))}</div><div class="movement-copy"><span>{e(place.get("area", ""))} · {e(place.get("category", ""))}</span>'
+        f'<article class="movement-card has-visual{brand_class}" data-experience-card data-place-id="{e(place["id"])}"><div class="movement-visual">{gallery(place, place.get("area", ""))}</div><div class="movement-copy"><span>{e(place.get("area", ""))} · {e(place.get("category", ""))}</span>'
         f'<h3>{e(place["display_name"])}</h3><strong>{e(place.get("scheduled_label", place.get("distance_from_stay", "")))}</strong><p>{e(place.get("description", ""))}</p>{risk}'
-        f'<p class="hours-line"><b>开放</b>{e(place.get("hours"))} · {e(place.get("closed_days"))}</p><div><a href="{e(map_url(place))}" target="_blank">Google Maps ↗</a><a href="{e(place.get("source_url"))}" target="_blank">官网 / 预约 ↗</a></div></div></article>'
+        f'<p class="hours-line"><b>开放</b>{e(place.get("hours"))} · {e(place.get("closed_days"))}</p><div><a href="{e(map_url(place))}" target="_blank">Google Maps ↗</a>{source_link(place)}</div></div></article>'
     )
 
 
@@ -337,6 +371,21 @@ def restaurant_card(place: dict) -> str:
 
 def food(profile: dict, places: dict[str, dict]) -> str:
     model = profile["module_groups"]["food"]
+    dining_items = profile.get("dining_plan", [])
+    dining_plan = ""
+    if dining_items:
+        dining_rows = "".join(
+            f'<article class="dining-day"><div class="dining-when"><time>{e(item.get("date"))}</time><span>{e(item.get("meal"))}</span></div>'
+            f'<div class="dining-copy"><b>{e(item.get("title"))}</b><div class="dining-meta"><span>{e(item.get("category", ""))}</span><strong>{e(item.get("budget", ""))}</strong></div>'
+            f'<p>{e(item.get("note", ""))}</p></div></article>'
+            for item in dining_items
+        )
+        dining_note = profile.get("dining_plan_note", "预算为每人估算；动态价格、酒水、税费与服务费以现场为准。")
+        dining_plan = (
+            '<details class="audit-current-focus dining-plan"><summary><b>本次餐厅</b><span>展开 ＋</span></summary>'
+            '<div class="dining-plan-body"><header><a href="#booking">查看预约 <span aria-hidden="true">↗</span></a></header>'
+            f'<div class="dining-days">{dining_rows}</div><p class="dining-footnote">{e(dining_note)}</p></div></details>'
+        )
     primer = ''.join(f'<div><b>{e(item.get("term"))}</b><span>{e(item.get("meaning"))}</span><p>{e(item.get("note", ""))}</p></div>' for item in model["menu_primer"])
     guide = model["menu_guide"]
     guide_cards = ''.join(f'<article><h4>{e(item.get("title"))}</h4><p>{e(item.get("note"))}</p></article>' for item in guide["cards"])
@@ -348,7 +397,7 @@ def food(profile: dict, places: dict[str, dict]) -> str:
     snacks = model.get("local_snacks", [])
     if snacks:
         snack_cards = ''.join(
-            f'<article class="snack-card"><h3>{e(item.get("local_name") or item.get("name"))}</h3><small>{e(item.get("english_name", ""))}</small>'
+            f'<article class="snack-card"><h3>{e(item.get("name") or item.get("local_name"))}</h3><small>{e(item.get("local_name", ""))}</small>'
             f'<p>{e(item.get("description"))}</p><dl><div><dt>为什么要试</dt><dd>{e(item.get("why_try"))}</dd></div><div><dt>哪里找</dt><dd>{e(item.get("where_to_find"))}</dd></div></dl></article>'
             for item in snacks
         )
@@ -359,19 +408,30 @@ def food(profile: dict, places: dict[str, dict]) -> str:
             continue
         cards = ''.join(restaurant_card(places[str(item["place_id"])]) for item in items)
         chapters.append(f'<details class="food-chapter"><summary><b>{title}</b><i>＋</i></summary><div class="restaurant-grid">{cards}</div></details>')
-    return '<div class="shell">' + heading('05', 'FOOD GUIDE', profile.get('food_title', '餐饮指南'), profile.get('food_summary', '')) + ''.join(chapters) + '<a class="back-to-contents" href="#contents">↑ 回到目录</a></div>'
+    return '<div class="shell">' + heading('05', 'FOOD GUIDE', profile.get('food_title', '餐饮指南'), profile.get('food_summary', '')) + dining_plan + ''.join(chapters) + '<a class="back-to-contents" href="#contents">↑ 回到目录</a></div>'
 
 
 def checklist(items: list, css: str) -> str:
-    rows = ''.join(f'<li><label><input type="checkbox"><span>{index:02d}</span><div><b>{e(item.get("title"))}</b><em>{e(item.get("timing", ""))}</em><small>{e(item.get("note", ""))}</small></div></label></li>' for index, item in enumerate(items, 1))
+    rows = ''
+    for index, item in enumerate(items, 1):
+        title = item.get("item") or item.get("title") or ""
+        timing = item.get("timing") or ""
+        note = item.get("detail") or item.get("note") or ""
+        timing_html = f'<em>{e(timing)}</em>' if timing else ''
+        note_html = f'<small>{e(note)}</small>' if note else ''
+        priority = item.get('priority', '建议')
+        level = {'必须': 'must', '建议': 'recommended', '随缘': 'optional'}.get(priority, 'recommended')
+        badge = f'<em class="packing-priority is-{level}">{e(priority)}</em>'
+        rows += f'<li><label><input type="checkbox"><span>{index:02d}</span><div><b>{e(title)}</b>{badge}{timing_html}{note_html}</div></label></li>'
     return f'<ol class="{css}">{rows}</ol>'
 
 
 def booking(profile: dict) -> str:
     model = profile["module_groups"]["preparation"]
+    model = dict(model, confirm_ahead=sorted(model["confirm_ahead"], key=lambda item: {"必须": 0, "建议": 1, "随缘": 2}.get(item.get("priority"), 1)))
     blocks = (
-        f'<div class="prepare-block"><div class="prepare-heading"><span>01</span><div><h3>必备物品</h3><p>按类别勾选，进度会保存在这台设备。</p></div></div>{checklist(model["essentials"], "packing-checklist")}</div>'
-        f'<div class="prepare-block"><div class="prepare-heading"><span>02</span><div><h3>需要预约与确认</h3><p>按时间顺序处理真正会影响行程的事项。</p></div></div>{checklist(model["confirm_ahead"], "booking-checklist")}</div>'
+        f'<div class="prepare-block"><div class="prepare-heading"><span>01</span><div><h3>必备物品</h3><p>按必须、建议、随缘排序，依次准备。</p></div></div>{checklist(sorted(model["essentials"], key=lambda item: {"必须": 0, "建议": 1, "随缘": 2}.get(item.get("priority"), 1)), "packing-checklist")}</div>'
+        f'<div class="prepare-block"><div class="prepare-heading"><span>02</span><div><h3>需要预约与确认</h3><p>按必须、建议、随缘排序，依次确认。</p></div></div>{checklist(model["confirm_ahead"], "booking-checklist")}</div>'
     )
     return '<div class="shell">' + heading('06', 'BEFORE DEPARTURE', profile.get('preparation_title', '出发前准备'), profile.get('preparation_summary', '')) + blocks + '<a class="back-to-contents" href="#contents">↑ 回到目录</a></div>'
 
@@ -379,13 +439,18 @@ def booking(profile: dict) -> str:
 def words(profile: dict) -> str:
     model = profile["module_groups"]["language"]
     def language_set(keyword_groups: list, phrase_groups: list, label: str) -> str:
+        def item_record(item, primary):
+            if isinstance(item, dict):
+                return item
+            left, separator, right = str(item).partition("｜")
+            return {primary: left.strip(), "meaning": right.strip() if separator else ""}
         vocab = []
         for group in keyword_groups:
-            items = ''.join(f'<div><b>{e(item.get("term"))}</b>' + (f'<small>{e(item.get("reading"))}</small>' if item.get("reading") else '') + f'<span>{e(item.get("meaning"))}</span></div>' for item in group["items"])
+            items = ''.join(f'<div><b>{e(record.get("term"))}</b>' + (f'<small>{e(record.get("reading"))}</small>' if record.get("reading") else '') + f'<span>{e(record.get("meaning"))}</span></div>' for record in (item_record(item, "term") for item in group["items"]))
             vocab.append(f'<details class="vocab"><summary><h3>{e(group["title"])}</h3><span>{len(group["items"])} 词</span><i>＋</i></summary><div class="vocab-items">{items}</div></details>')
         phrases = []
         for group_index, group in enumerate(phrase_groups, 1):
-            items = ''.join(f'<div><span>{index:02d}</span><p><b>{e(item.get("sentence"))}</b>' + (f'<small>{e(item.get("reading"))}</small>' if item.get("reading") else '') + f'<em>{e(item.get("meaning"))}</em></p></div>' for index, item in enumerate(group["items"], 1))
+            items = ''.join(f'<div><span>{index:02d}</span><p><b>{e(record.get("sentence"))}</b>' + (f'<small>{e(record.get("reading"))}</small>' if record.get("reading") else '') + f'<em>{e(record.get("meaning"))}</em></p></div>' for index, record in enumerate((item_record(item, "sentence") for item in group["items"]), 1))
             phrases.append(f'<details class="phrase-group"><summary><span>{group_index:02d}</span><b>{e(group["title"])}</b><em>{len(group["items"])} 句</em><i>＋</i></summary><div class="phrase-grid">{items}</div></details>')
         return f'<div class="language-edition"><h3>{e(label)}</h3><div class="vocab-grid">{"".join(vocab)}</div><div class="phrase-title"><p class="eyebrow">HIGH-FREQUENCY PHRASES</p><h3>现场高频句</h3></div><div class="phrase-groups">{"".join(phrases)}</div></div>'
     content = language_set(model["keyword_groups"], model["phrase_groups"], model.get("local_label", "当地语言"))
@@ -397,7 +462,7 @@ def words(profile: dict) -> str:
 def tips(profile: dict) -> str:
     folds = []
     for group in profile["module_groups"]["travel_notes"]:
-        topics = ''.join(f'<div><h4>{e(item.get("title"))}</h4><p>{e(item.get("note"))}</p></div>' for item in group["items"])
+        topics = ''.join(f'<div data-tip-priority="{e(item.get("priority", ""))}"><h4>{e(item.get("title"))}</h4><p>{e(item.get("note"))}</p></div>' for item in group["items"])
         folds.append(f'<details class="tips-page tips-fold"><summary><span><small>{e(group.get("kicker", "LOCAL NOTES"))}</small><b>{e(group["title"])}</b><em>{e(group.get("summary", ""))}</em></span><i>＋</i></summary><div class="tips-fold-content"><div class="tips-grid">{topics}</div></div></details>')
     return '<div class="shell">' + heading('08', 'LOCAL TRAVEL NOTES', profile.get('notes_title', '到了当地，心里有数'), profile.get('notes_summary', '')) + ''.join(folds) + '<a class="back-to-contents" href="#contents">↑ 回到目录</a></div>'
 
@@ -422,7 +487,10 @@ def adapt_runtimes(profile: dict, canonical_root: Path) -> list[dict]:
     trip_mode_days = []
     for day in profile.get("itinerary", []):
         trip_stops = []
-        for stop in day.get("stops", []):
+        day_stops = day.get("stops", [])
+        for stop_index, stop in enumerate(day_stops):
+            # Source transfers arrive at a stop; Trip Mode shows them after it.
+            next_stop = day_stops[stop_index + 1] if stop_index + 1 < len(day_stops) else {}
             place = place_lookup.get(str(stop.get("place_id")), {})
             coordinates = place.get("coordinates")
             latitude = place.get("latitude")
@@ -437,9 +505,9 @@ def adapt_runtimes(profile: dict, canonical_root: Path) -> list[dict]:
                 "name": place.get("display_name", stop.get("place_id", "")),
                 "time": stop.get("arrival_time", ""),
                 "dwell_minutes": stop.get("dwell_minutes", 0),
-                "transport_mode": stop.get("transport_mode", ""),
-                "transfer_minutes": stop.get("transfer_minutes", 0),
-                "distance_km": stop.get("distance_km", 0),
+                "transport_mode": transport_label(next_stop.get("transport_mode", "")),
+                "transfer_minutes": next_stop.get("transfer_minutes"),
+                "distance_km": next_stop.get("distance_km"),
                 "estimated_cost": stop.get("estimated_cost", ""),
                 "practical_note": stop.get("practical_note", ""),
                 "time_guard": stop.get("time_guard", ""),
@@ -487,14 +555,23 @@ def main() -> int:
     profile = json.loads(args.profile.read_text(encoding="utf-8"))
     places = place_index(profile)
     bind_schedule_labels(profile, places)
-    canonical = Path(__file__).resolve().parent.parent / "assets" / "canonical" / "product"
+    system = profile.get("ui_system", "current-system")
+    if system not in {"current-system", "canonical"}:
+        raise SystemExit("unknown UI system")
+    canonical = Path(__file__).resolve().parent.parent / "assets" / system / "product"
     fragments = {
         ".hero": hero(profile), ".trip-pulse": trip_pulse(profile, places), "#contents": contents(profile), ".flight-band": transport(profile), "#stay": stays(profile, places),
         "#route": route(profile, places), "#sights": sights(profile, places), "#shops": shops(profile, places),
         "#move": experiences(profile, places), "#food": food(profile, places), "#booking": booking(profile),
         "#words": words(profile), "#tips": tips(profile), ".mobile-menu-panel": mobile_menu(profile), "body > footer": footer(profile),
     }
-    bindings = {"html": [{"selector": key, "inner_html": value} for key, value in fragments.items()], "runtime_files": adapt_runtimes(profile, canonical)}
+    if system == "current-system":
+        from _current_system_adapter import runtime_bindings, preparation_html
+        fragments["#booking"] = preparation_html(profile, fragments["#booking"])
+        runtime = runtime_bindings(profile)
+    else:
+        runtime = adapt_runtimes(profile, canonical)
+    bindings = {"ui_system": system, "html": [{"selector": key, "inner_html": value} for key, value in fragments.items()], "runtime_files": runtime}
     args.output.write_text(json.dumps(bindings, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"PASS generated {len(fragments)} canonical component families and {len(bindings['runtime_files'])} destination runtimes")
     return 0

@@ -1,0 +1,97 @@
+/* A focused editing sheet, matching the handbook's reading surfaces. */
+body.atlas-ui .itinerary-customizer{background:#17372e66!important;backdrop-filter:blur(10px)!important;z-index:670!important;padding:24px!important}
+body.atlas-ui .itinerary-customizer__panel{background:#fff!important;border:1px solid var(--color-rule)!important;border-radius:16px!important;box-shadow:0 24px 80px #19362b26!important;max-height:calc(100dvh - 48px)!important;width:min(740px,100%)!important;color:var(--color-ink)!important}
+body.atlas-ui .itinerary-customizer__head{padding:28px 32px 20px!important;border-bottom:1px solid var(--color-rule)!important;gap:24px!important;align-items:start!important}
+body.atlas-ui .itinerary-customizer__head small{font:600 10px/1.5 var(--font-body)!important;color:var(--color-muted)!important;letter-spacing:.12em!important;margin:0 0 8px!important}
+body.atlas-ui .itinerary-customizer__head h2{font:500 30px/1.4 var(--font-display)!important;margin:0!important;color:var(--color-ink)!important}
+body.atlas-ui .itinerary-customizer__close{background:#fff!important;border:1px solid var(--color-rule)!important;color:var(--color-ink)!important;box-shadow:none!important;flex-basis:40px!important;width:40px!important;height:40px!important;font-size:25px!important}
+body.atlas-ui .itinerary-customizer__body{padding:24px 32px 30px!important;gap:20px!important}
+body.atlas-ui .itinerary-customizer__intro{font:400 14px/1.8 var(--font-body)!important;color:var(--color-muted)!important}
+body.atlas-ui .itinerary-customizer__examples{display:flex!important;flex-wrap:wrap!important;gap:8px!important;overflow:visible!important}
+body.atlas-ui .itinerary-customizer__examples button{background:#f5f7f3!important;border:1px solid var(--color-rule)!important;border-radius:6px!important;color:var(--color-accent)!important;font:500 12px/1.6 var(--font-body)!important;white-space:normal!important;min-height:38px!important;padding:8px 12px!important}
+body.atlas-ui .itinerary-customizer__field span{font:600 13px/1.5 var(--font-body)!important;color:var(--color-ink)!important}
+body.atlas-ui .itinerary-customizer textarea{min-height:168px!important;border:1px solid #bdccc0!important;border-radius:8px!important;background:#fcfdfb!important;color:var(--color-ink)!important;box-shadow:none!important;font:400 16px/1.85 var(--font-body)!important;padding:16px!important;outline:none}
+body.atlas-ui .itinerary-customizer textarea:focus{border-color:var(--color-accent)!important;box-shadow:0 0 0 3px #235c4a15!important}
+body.atlas-ui .itinerary-customizer textarea::placeholder{color:#61736a!important;opacity:1!important}
+body.atlas-ui .itinerary-customizer__summary{gap:0!important;padding:16px 0!important;border-block:1px solid var(--color-rule)!important}
+body.atlas-ui .itinerary-customizer__summary span{background:transparent!important;border-radius:0!important;padding:0 12px!important;text-align:left!important}
+body.atlas-ui .itinerary-customizer__summary b{font:600 22px/1.5 var(--font-display)!important;color:var(--color-ink)!important}
+body.atlas-ui .itinerary-customizer__summary small{font:400 12px/1.6 var(--font-body)!important;color:var(--color-muted)!important}
+body.atlas-ui .itinerary-customizer__actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important}
+body.atlas-ui .itinerary-customizer__actions button{min-height:46px!important;padding:12px 16px!important;border-radius:6px!important;background:#fff!important;border:1px solid var(--color-rule)!important;color:var(--color-accent)!important;box-shadow:none!important;font:500 14px/1.5 var(--font-body)!important}
+body.atlas-ui .itinerary-customizer__actions .is-primary{background:var(--color-accent)!important;color:#fff!important}
+body.atlas-ui .itinerary-customizer__hint{font:400 12px/1.75 var(--font-body)!important;color:var(--color-muted)!important}
+body.atlas-ui .itinerary-customizer__status{font:500 13px/1.75 var(--font-body)!important;color:var(--color-rust)!important}
+/* Compact trip mode prioritizes today's stops. */
+body.atlas-ui #itinerary-customizer *{background-image:none!important;box-shadow:none!important;text-shadow:none!important}
+body.atlas-ui #itinerary-customizer :is(p,small,label,span,b,strong,time,h3){color:var(--color-ink)!important;opacity:1!important}
+body.atlas-ui #itinerary-customizer .custom-step{background:#fff!important;border:0!important;padding:0!important;margin:0 0 22px!important}
+body.atlas-ui #itinerary-customizer .custom-step>header{display:flex!important;align-items:center!important;gap:10px!important;margin-bottom:16px!important;flex-wrap:wrap!important}
+body.atlas-ui #itinerary-customizer .custom-step>header>b{background:#edf3e9!important;color:var(--color-accent)!important;border:1px solid #d2dfcc!important;border-radius:5px!important;padding:4px 7px!important;font:600 11px/1.4 var(--font-body)!important}
+body.atlas-ui #itinerary-customizer .custom-step>header>span{font:600 15px/1.5 var(--font-body)!important}
+body.atlas-ui #itinerary-customizer .custom-days{display:flex!important;flex-wrap:nowrap!important;gap:6px!important;overflow:auto!important;scrollbar-width:thin!important;padding:0 0 8px!important}
+body.atlas-ui #itinerary-customizer .custom-days>button{display:flex!important;align-items:center!important;gap:9px!important;flex:0 0 104px!important;min-width:104px!important;padding:10px!important;border:1px solid var(--color-rule)!important;border-radius:7px!important;background:#f4f7f1!important;min-height:62px!important}
+body.atlas-ui #itinerary-customizer .custom-days>button>b{font:500 15px/1.5 var(--font-display)!important;color:var(--color-muted)!important}
+body.atlas-ui #itinerary-customizer .custom-days>button>span{display:block!important;min-width:0!important}
+body.atlas-ui #itinerary-customizer .custom-days strong{display:block!important;font:600 12px/1.5 var(--font-body)!important}
+body.atlas-ui #itinerary-customizer .custom-days small{display:block!important;font:400 10px/1.5 var(--font-body)!important;white-space:nowrap!important}
+body.atlas-ui #itinerary-customizer .custom-days>button.is-active{background:var(--color-accent)!important;border-color:var(--color-accent)!important}
+body.atlas-ui #itinerary-customizer .custom-days>button.is-active :is(b,span,strong,small){color:#fff!important}
+body.atlas-ui #itinerary-customizer .custom-day-title{flex:1 0 100%!important;display:flex!important;gap:12px!important;align-items:center!important}
+body.atlas-ui #itinerary-customizer .custom-day-title>span{font-size:12px!important;color:var(--color-muted)!important;white-space:nowrap}
+body.atlas-ui #itinerary-customizer :is(input,select,textarea){background:#fcfdfb!important;color:var(--color-ink)!important;font:400 16px/1.7 var(--font-body)!important;border:1px solid #bdcdbf!important;border-radius:6px!important;padding:9px 11px!important;min-width:0!important}
+body.atlas-ui #itinerary-customizer .custom-day-title input{width:100%!important;min-width:0!important;flex:1!important}
+body.atlas-ui #itinerary-customizer .custom-restore{margin-left:auto!important;border:1px solid var(--color-rule)!important;border-radius:5px!important;background:#fff!important;color:var(--color-accent)!important;font:500 12px/1.6 var(--font-body)!important;padding:7px 11px!important}
+body.atlas-ui #itinerary-customizer .custom-period>header{display:flex!important;align-items:baseline!important;justify-content:space-between!important;padding:10px 0!important}
+body.atlas-ui #itinerary-customizer .custom-period>header b{font:500 17px/1.5 var(--font-display)!important}
+body.atlas-ui #itinerary-customizer .custom-period>header small{font:400 11px/1.5 var(--font-body)!important;color:var(--color-muted)!important}
+body.atlas-ui #itinerary-customizer .custom-period article{padding:14px!important;border:1px solid var(--color-rule)!important;border-radius:8px!important;background:#f9fbf7!important}
+body.atlas-ui #itinerary-customizer .custom-row-main{display:grid!important;grid-template-columns:24px 52px minmax(0,1fr) 28px!important;gap:10px!important;align-items:center!important}
+body.atlas-ui #itinerary-customizer .custom-row-main time{font:600 13px/1.6 var(--font-body)!important;color:var(--color-rust)!important}
+body.atlas-ui #itinerary-customizer .custom-row-main>span{min-width:0!important}
+body.atlas-ui #itinerary-customizer .custom-row-main b{display:block!important;font:600 15px/1.65 var(--font-body)!important}
+body.atlas-ui #itinerary-customizer .custom-row-main small{display:block!important;margin-top:5px!important;font:400 12px/1.7 var(--font-body)!important;color:var(--color-muted)!important}
+body.atlas-ui #itinerary-customizer :is(.custom-drag,.custom-delete){min-width:28px!important;width:28px!important;height:36px!important;background:transparent!important;color:var(--color-muted)!important;border:0!important;padding:0!important;line-height:1!important}
+body.atlas-ui #itinerary-customizer .custom-delete{font-size:22px!important;color:#874437!important}
+body.atlas-ui #itinerary-customizer .custom-gap{height:36px!important;display:grid!important;place-items:center!important}
+body.atlas-ui #itinerary-customizer .custom-gap>button{min-width:30px!important;width:30px!important;height:30px!important;padding:0!important;border:1px solid var(--color-rule)!important;background:#fff!important;color:var(--color-accent)!important;border-radius:50%!important;font:400 20px/1 var(--font-body)!important}
+body.atlas-ui #itinerary-customizer .custom-gap>button::before,body.atlas-ui #itinerary-customizer .custom-gap>button::after{display:none!important;content:none!important}
+body.atlas-ui #itinerary-customizer .custom-row-editor:not([hidden]){display:grid!important;grid-template-columns:1fr!important;gap:14px!important;padding:16px 0 0!important;margin-top:12px!important;border-top:1px solid var(--color-rule)!important}
+body.atlas-ui #itinerary-customizer .custom-row-editor label{display:grid!important;grid-template-columns:1fr!important;gap:6px!important;min-width:0!important}
+body.atlas-ui #itinerary-customizer .custom-row-editor label>span{font:500 12px/1.5 var(--font-body)!important}
+body.atlas-ui #itinerary-customizer .custom-inline-form{padding:16px!important;background:#f1f6ee!important;border:1px solid var(--color-rule)!important;border-radius:8px!important}
+body.atlas-ui #itinerary-customizer .custom-request{background:#edf3eb!important;border:1px solid #cddac8!important;border-radius:10px!important;padding:18px!important}
+body.atlas-ui #itinerary-customizer .custom-request-list article{background:#fff!important;border:1px solid var(--color-rule)!important;border-radius:6px!important;padding:12px!important}
+body.atlas-ui #itinerary-customizer .custom-request-list p{font:400 13px/1.7 var(--font-body)!important}
+@media(max-width:400px){body.atlas-ui #itinerary-customizer .custom-row-main{grid-template-columns:20px 46px minmax(0,1fr) 24px!important;gap:8px!important}body.atlas-ui #itinerary-customizer .custom-period article{padding:12px!important}}
+body.atlas-ui .trip-mode-header{padding-top:18px!important;gap:8px 20px!important}
+body.atlas-ui .trip-mode-topline strong{font-size:25px!important}
+body.atlas-ui .trip-mode-content{padding-top:20px!important}
+body.atlas-ui .trip-mode-intro{grid-template-columns:1fr 260px!important;padding-bottom:18px!important;margin-bottom:20px!important;gap:5px 28px!important}
+body.atlas-ui .trip-mode-intro h2{font-size:32px!important}
+body.atlas-ui .trip-overview>span{padding:6px 0!important}
+body.atlas-ui .trip-stop{padding:16px!important;gap:8px 12px!important}
+body.atlas-ui .trip-stop-copy strong{font-size:17px!important;margin:5px 0!important}
+body.atlas-ui .trip-stop-copy p{font-size:13px!important;line-height:1.75!important}
+body.atlas-ui .trip-time-guard{font-size:11px!important;margin-top:8px!important;padding:7px 9px!important}
+body.atlas-ui .trip-stop-actions a{min-height:34px!important;padding:6px 12px!important}
+body.atlas-ui .trip-day-map>summary{padding:15px 18px!important}
+body.atlas-ui .trip-photo-card{padding:18px!important}
+@media(max-width:800px){
+ body.atlas-ui .itinerary-customizer{padding:0!important;align-items:stretch!important}
+ body.atlas-ui .itinerary-customizer__panel{border:0!important;width:100%!important;max-height:100dvh!important;height:100dvh!important;border-radius:0!important;overflow-y:auto!important;scroll-padding-bottom:24px!important}
+ body.atlas-ui .itinerary-customizer__head{padding:20px 18px 16px!important;position:sticky;top:0;background:#fff;z-index:2}
+ body.atlas-ui .itinerary-customizer__head h2{font-size:25px!important}
+ body.atlas-ui .itinerary-customizer__body{padding:20px 18px calc(24px + env(safe-area-inset-bottom))!important;gap:18px!important}
+ body.atlas-ui .itinerary-customizer__actions{grid-template-columns:1fr!important}
+ body.atlas-ui .trip-mode-header{padding-top:14px!important}
+ body.atlas-ui .trip-mode-topline strong{font-size:23px!important}
+ body.atlas-ui .trip-mode-header>.trip-map-provider{margin:10px 0 8px!important}
+ body.atlas-ui .trip-mode-day{min-height:56px!important;padding:8px 10px!important}
+ body.atlas-ui .trip-mode-content{padding-top:16px!important}
+ body.atlas-ui .trip-mode-intro{margin-bottom:18px!important;padding-bottom:16px!important}
+ body.atlas-ui .trip-mode-intro h2{font-size:28px!important;margin:5px 0 4px!important}
+ body.atlas-ui .trip-overview{padding-top:12px!important;margin-top:10px!important}
+ body.atlas-ui .trip-day-map{margin-bottom:18px!important}
+ body.atlas-ui .trip-stop{padding:14px!important}
+}

@@ -1,115 +1,86 @@
 ---
 name: build-personalized-travel-guide-open-source
-description: Build a complete personalized eight-module travel-handbook webpage from user preferences and destination research, with itinerary, routes, sights, shopping, experiences, food, preparation, language, local notes, Google Maps links, responsive HTML and practical interactions.
+description: 生成、更新或还原个性化旅行手册网页，含八模块、旅行模式与记账；支持按需 Cloudflare 共享部署。
 ---
 
-# Build a complete travel handbook
+# Personalized travel handbook
 
-Create a destination-specific eight-module handbook inside the bundled canonical product. Preserve the responsive layout, Mini Routes, Trip Mode, itinerary adjustment, checklist persistence, themes and exact-place interactions.
+Build destination-specific content in the user’s workbench using the bundled `assets/current-system/product/` template. Do not write destination facts into the installed Skill or its template. Preserve the approved responsive interface, eight chapters, Mini Routes, Trip Mode, itinerary adjustment and saved state. The public template is an empty component scaffold, never evidence for a destination. Restoring it previews components; it is not a completed handbook.
 
-## Scope and references
+## 对话语言
 
-This public edition builds the editorial handbook only. It never searches, ranks, compares or recommends flights or hotels. User-supplied booked transport or accommodation facts may be displayed; otherwise keep the canonical pending state and continue.
+面向中文用户，安装说明、进度更新、问题说明、问卷交付和最终回复使用中文；代码、命令、路径及专有名词保留原样。用户明确要求其他语言时遵从用户。此要求约束对外回复，不声称控制宿主内部思考语言。
 
-Keep that boundary internal. Do not announce exclusions or discuss product architecture with ordinary users. For a new or preference-light request, use the bundled HTML questionnaire described in `references/first-use-intake.md`; do not substitute a host-native questionnaire. A genuinely complete pasted brief starts immediately. A brief containing only destination, duration/dates and travelers receives the single default-confirmation turn defined below. Tell users only that booked transport/accommodation screenshots or text may be supplied and otherwise remain pending.
+## Installation and questionnaire entry
 
-## User collaboration contract
+After an authorized installation or when asked to start/open the questionnaire, expose `assets/intake-questionnaire/index.html` immediately as an actual clickable file. If the host cannot link installed assets, copy this self-contained file to the user workspace and attach/link that copy. A statement that installation succeeded or an instruction to invoke the Skill again is not questionnaire delivery. Opening the file does not require Python, Pillow, Node, restoration or tests. Honor host security review; do not add full development tests to installation. Never claim the browser opened successfully without an observed result.
 
-This contract applies before any research or build action and is especially important on hosts that prefer native choice widgets:
+## Choose the task
 
-- Treat the user's current questionnaire output or written brief as the only intake source. Do not append risk lists, approval choices or host-native multiple-choice prompts.
-- A genuinely complete brief with preferences/constraints starts work immediately. When the brief contains only destination, duration/dates and travelers (for example, `东京 4 天 3 晚，情侣`), make exactly one lightweight confirmation turn: attach/open the bundled HTML questionnaire and ask whether the user wants to fill it or have all remaining choices follow mainstream defaults. If the user replies `不必要`, `不用填`, `按默认`, or equivalent, start immediately with defaults and ask nothing else.
-- For a genuinely new or incomplete request, offer only the bundled HTML questionnaire. Do not invent an alternative questionnaire or answer choices in chat. The default-confirmation above is the sole permitted routine follow-up.
-- Treat every run as independent. Do not mention or import prior destinations, old handbooks, host memory or unrelated conversation unless the user explicitly asks to reuse them.
-- Keep internal limitations, legacy defects, build mechanics and optional improvement ideas silent unless the user asks. Report only a real blocker that prevents safe completion.
-- Transport and accommodation are the sole routine addendum: briefly say that booked screenshots/details may be supplied and otherwise those cards remain pending; do not turn this into a recommendation or follow-up question.
+Read only the applicable route and the references needed for its current stage.
 
-Treat the directory containing this `SKILL.md` as the sole authority for the run. Resolve every script and reference from this same root. Never mix controllers, validators, templates or prompts from another installed skill with a similar name. If a persisted build was started from another skill root, stop with a concise root-conflict message instead of reconciling versions.
+| Request | Route |
+| --- | --- |
+| New handbook | Follow the three gates below in order. Read [Intake](references/first-use-intake.md), then [itinerary discussion](references/itinerary-discussion.md). |
+| Existing content change | Edit the owning research packs; use [rendering](references/rendering-and-assets.md) and affected [release checks](references/release-validation.md). Preserve unchanged research and valid evidence. |
+| Exact restoration | [Current system](references/current-system.md): restore and verify the bundled snapshot. |
+| UI/runtime repair or redesign | [Maintenance](references/internal-design-and-maintenance.md) and the affected section of [UI contract](references/product-ui-contract.md). |
+| Map change | For new handbook maps require [real map screenshots](references/screenshot-map-workflow.md). If the original capture fails after bounded authorized attempts, use [offline overview fallback](references/offline-map-fallback.md); never offer online maps as recovery. Preserve historical online-guide compatibility only. Licensed local raster-cache requests use [offline preview](references/offline-map-preview.md). Exact restores retain embedded maps. |
+| Authorized shared deployment | [Current system](references/current-system.md). Preserve the approved open/免码 sharing behavior and verify the changed cloud functions. |
+| Skill diagnosis or maintenance | Inspect relevant instructions/scripts and validate the changed contracts. Do not start destination research or regenerate a handbook. |
 
-Read only the reference needed for the current stage: [content model](references/content-model.md), [itinerary selection](references/itinerary-selection-logic.md) when choosing places and building days, [research pipeline](references/research-and-profile-pipeline.md), [data shapes](references/research-data-shapes.md), [image policy](references/image-and-source-policy.md), [rendering](references/rendering-and-assets.md), [release checks](references/release-validation.md), [gateway failure recovery](references/gateway-failure-recovery.md), or [first-use intake](references/first-use-intake.md).
+## Boundaries
 
-## Workflow
+- **New-handbook gate:** (1) collect the questionnaire output or an equivalent written brief; (2) show one compact daily itinerary proposal; (3) wait for the user to approve that displayed proposal. Do not research the full handbook, create a production workbench, download images, build maps or render HTML before gate 3. `按默认` completes intake only. The sole exception is an explicit instruction to skip discussion and generate directly.
+- A complete brief starts a compact itinerary proposal. Reuse approval already given in the current conversation. `不要讨论，直接生成` waives discussion; `按默认` waives the questionnaire, not route review. Record the actual approval/waiver in `itinerary-outline.md` when creating the workbench.
+- Use the current brief; reuse earlier destinations or personal records only when requested. Missing optional preferences use defaults. Transport/stays remain pending unless the user supplies bookings or a complete `trip-decisions.json`; this product does not research or compare flight/hotel options.
+- Resolve scripts and references from this Skill root. A persisted workbench from another root must resume with its original scripts; do not mix versions. Overseas destinations do not select the legacy international Skill. `ui_system: canonical` is for explicit legacy compatibility only.
+- Never invent venues, coordinates, hours, prices, ratings, source access or QA evidence. Verify changing facts or state uncertainty. Preserve asset provenance and repair actual failures rather than manufacturing passing records.
+- Before cloud deployment, ask once whether the user wants an access code to protect private information, unless their access-mode choice is already explicit in this conversation. Explain that anyone with an open link may access shared content; do not interpret deployment approval as approval for open access. When code protection is chosen, default to the bundled responsive access-code page plus a secure server session on both phones and computers; require no username and never use the browser-native HTTP Basic prompt unless the user explicitly requests it. Follow [cloud access choice](references/current-system.md) and wait for the choice before publishing.
+- Deployment and shared uploads follow existing user authorization. Communicate material limitations honestly; local/cloud data boundaries and the once-only deployment offer are in [intake](references/first-use-intake.md).
+
+## Production after route approval
+
+Default to one agent for research, itinerary decisions, authoring and verification. Do not spawn subagents unless the user explicitly requests them for this task; a request to optimize, speed up or use defaults is not permission. Concurrent tool calls and bounded asset downloads within that one agent remain allowed. Use [standard fast path](references/production-flow.md) and [source ownership](references/single-agent-production.md). Read [delegation](references/fast-build-orchestration.md) only after an explicit delegation request.
+
+Use a verified Python interpreter (on Windows see [runner setup](references/runner-command-contract.md)). Preserve the current approved inputs with `--brief-file` as described in the production flow so initialization does not drop interests, travelers or constraints. The commands below are relative to this Skill root:
 
 ```text
-python scripts/start_build.py <workbench> --destination <name> --country <country> --start-date YYYY-MM-DD --days N
+python scripts/start_build.py <workbench> --brief-file <current-brief.json> --destination <name> --country <country> --start-date YYYY-MM-DD --days N --itinerary-approved --user-statement "<verbatim user approval>"
 python scripts/advance_build.py <workbench>
 ```
 
-Use `.travel-build-state.json` as the controller. Research only the bounded batch printed by `research_status.py` (normally two independent packs), save and validate each before continuing. After one repeated pack failure, rerun with `--batch-size 1`; do not impose single-pack serialization on capable hosts. Fix named errors in the source pack; never patch final HTML. Missing optional preferences are not blockers. Keep unprovided transport and stay information pending.
+The controller supplies the next stage and current pack task. Use [pipeline](references/research-and-profile-pipeline.md) for pack ownership/dependencies, [content model](references/content-model.md) for module content, [selection](references/itinerary-selection-logic.md) for route decisions, and [data shapes](references/research-data-shapes.md) for unfamiliar fields. Read the reference needed for the current decision, not this entire list.
 
-### Non-stop completion guard
+Resolve place identity, coordinates, visible rating and image feasibility in the same visit under [Google lookup](references/google-place-lookup.md). Use [image policy](references/image-and-source-policy.md) for asset acceptance. Reuse facts across chapters and Trip Mode; do not create separate enrichment passes.
 
-`final_response_allowed` is a hard execution gate, not a progress label. Whenever the controller prints `FINAL_RESPONSE_ALLOWED: false` and `USER_INPUT_REQUIRED: false`, do not send a final answer, do not ask the user to say “继续”, and do not stop after reporting that a workspace, research pack or partial page exists. In the same turn, immediately execute `NEXT_COMMAND` or the bounded work in `next_required_action`, then reevaluate the controller. Continue until either `HANDOFF ALLOWED` is printed or a genuine external blocker requires new user authority. Workload, elapsed time, token use, unfinished research, missing optional fields and a desire to provide a progress update are never blockers.
+The compiled profile is the content source. Install/render through [official rendering](references/rendering-and-assets.md); repair owning packs rather than final HTML. Keep the product inventory and UI implemented by the bundle; authoring details live in the content model, not a second component-building task.
 
-Commentary may briefly report progress while work continues, but it never substitutes for the next tool call. A response that ends while `continuation_required` is true is a failed run.
+Offline maps default to exactly one full-day overview per itinerary day, preserving image resolution, full place labels and external navigation links. Do not automatically add local-area captures. Attempt the original street-map capture first; only evidenced failure permits the geographic offline-overview fallback. No online-map fallback.
 
-Use a short research loop on every host. Establish daily area outlines first; then shortlist candidates and perform only cheap identity, coordinate, image-URL, MIME and dimension feasibility checks. Freeze qualified places before writing the full itinerary or module bindings. Download and visually review only final selected images in one later asset stage. Keep only rejected candidates and source incidents in `.research-state/candidate-ledger.json`; normal candidates need no prose log. Generated task specs and named validator errors are the working contract. Do not preload every reference or read validator source merely to infer the JSON shape.
+## Completion and recovery
 
-When a host is prone to inventing pack shapes, run `validate_research_pack.py --scaffold <pack-id> --output <target-file>` once and fill that structure. The scaffold contains null placeholders, not facts, and never counts as a completed pack.
+[Release validation](references/release-validation.md) owns QA scope and the response states. Run `check_handoff.py <workbench>` after source, render and required QA work; it already runs the appropriate strict audit and forward test.
 
-Treat questionnaire interests as selection constraints, not decorative copy. Apply explicit preferences first; when the user delegates choices, use the audience tendency and bounded scoring in [itinerary selection](references/itinerary-selection-logic.md). Shortlist before deep research and run one coherence check over existing candidates; do not add a separate trend-search pass.
+- **In progress:** initialization, regression-test success and a completed research batch are intermediate results, not a stopping point. When `continuation_required: true` and `user_input_required: false`, send progress in commentary and execute the next action in the same turn; do not end with a final response or ask the user to say “继续”. Skill scripts report this condition but cannot enforce a host-level stop hook. Follow the controller's next action and repair named failures. A patch mismatch, bad JSON or failed optional source is a reason for a focused correction, not a request for the user to say “继续”.
+- **Waiting for review:** only after automatic gates pass, a recorded browser limitation or authorized pending human QA may allow a preview response. `final_response_allowed` permits that response; `handoff_allowed` remains false and QA stays pending.
+- **Complete:** claim full completion only after `HANDOFF ALLOWED`. Do not repeat passing checks without changed inputs or an unresolved concern.
 
-If a research request returns a platform-level 500 or sensitive-content rejection for ordinary travel material, do not repeat the same request or redelegate it unchanged. Preserve completed packs and follow [gateway failure recovery](references/gateway-failure-recovery.md).
+手册完成后，按 [intake](references/first-use-intake.md) 询问一次：“手册已完成。需要我帮你上传到云端，让同行人共享 PDF 文档、图片、链接和记账吗？”用户已授权部署时直接继续，不重复询问；未同意时保留本地版。云端交付必须包含附件文件与元数据、成员、账目、分摊及还款的共享，并按 [current system](references/current-system.md) 验证，不能仅上传静态网页便声称共享完成。
 
-## Research priorities and truthfulness
+Use [fetch recovery](references/fetch-recovery.md) for asset/map failures and [gateway recovery](references/gateway-failure-recovery.md) for platform failures. Stop repeating an unsuccessful method, preserve partial work, and diagnose its cause. A documented external blocker may require user input; workload alone does not.
 
-Spend effort in this order: real place identity and branch; geographic fit; official opening/ticket/reservation facts; recommendation value; exact-place imagery; optional Google rating.
+Skill/code maintenance is complete when the requested rules and their generated tasks agree, affected regression tests and `audit_skill_consistency.py` pass, and remaining limitations are stated. Continue through fixing failures caused by the change; a first patch is not completion. UI/runtime changes additionally use the maintenance QA scope. Do not regenerate a real destination to validate an instruction-only edit.
 
-Never invent a restaurant, attraction, address, coordinate, opening time, ticket, rating, review count, reservation rule, transfer time or exact price. Verify changing facts from credible current sources or use conservative wording and require departure-time reconfirmation.
+Use the single [production standard](references/production-standard.md). No edition selection or quality-tier question is needed.
 
-## Google rating lookup and stop-loss
 
-Google Maps ratings are a normal research target, but remain optional enhancement data rather than a completion requirement.
+### Paired delivery
+Use the self-contained offline HTML as the primary artifact, never the workbench index.html alone or a handbook ZIP. [Release validation](references/release-validation.md#export-acceptance-record) owns export creation, hash-bound acceptance and pending-review exceptions. Tell the user: “双击离线 HTML 即可在本地离线打开，无需解压；导航外链与共享功能需要联网。”
 
-- At the start of place research, open one ordinary exact-place Google result as a capability probe. If the page opens, treat Google as available for the run. Then query every rating-bearing sight and restaurant and record its Google score plus review count whenever visible. The stop-loss is not permission to sample only some venues or leave the remaining inventory blank after one success.
-- If one venue cannot be opened because of timeout, access or blocking failure, retry that same venue once with a shorter exact name or alternate canonical Google Maps/search entry. If it still cannot be opened, record one access failure and move to a different real venue. Stop the remaining Google lookup only after two different venues fail to open consecutively. Any successfully opened venue resets this consecutive-failure count; never discard ratings already collected.
-- When Google is available, attempt both score and review count for every rating-bearing sight and restaurant. Use a reliably displayed score even if its review count is absent; omit only the missing count.
-- A venue page that opens without a reliable score affects only that venue: omit its rating and continue. Do not treat a parsing miss as proof that Google is unavailable for other venues.
-- Do not repeat broad rating research after normal coverage. A focused rating-repair pass is allowed when an earlier run incorrectly stopped after a single venue failure; patch only rating records, then recompile, render and rerun the dependent gates instead of rebuilding the handbook.
-- Never block recommendations, planning, imagery, HTML rendering or handoff because a rating is absent.
-- Never guess a score or review count. Supplied ratings require an exact source URL and retrieval date; omit only the review count when Google does not expose it.
-- A handbook with no ratings at all is a valid complete output.
 
-## Required handbook content
 
-Keep the eight chapters:
+The [UI contract](references/product-ui-contract.md) owns priority labels and single-image layout; apply those existing components without a separate redesign pass.
 
-1. Itinerary — one day and Mini Route per trip day, ordered stops, realistic transfers, authored period descriptions and route-specific photography advice. Author each stop's practical visit note and time/queue fallback in the same pass; collect its verified coordinates during the normal place lookup. Trip Mode consumes these existing fields and must never trigger a second research pass.
-2. Sights — at least eight useful first-visit choices, split into scheduled and optional choices.
-3. Shopping — reputable shops or markets followed by an image-led souvenir section.
-4. Experiences — Standard mode targets three locally meaningful types with two choices each. If one complete type still lacks two truthful, coordinate-verified, image-qualified choices after its bounded source ladder, use constrained mode with two strong types and two choices each; record the failed type and sources in the candidate ledger instead of padding the chapter. Expand only on an explicit experience-heavy request.
-5. Food — destination-authored menu primer, exactly four local snacks, at least six dedicated-trip restaurants across four cuisine/scene labels, and two to four dependable local-chain fallbacks.
-6. Preparation — essential and confirm-ahead checklists with at least 24 useful items total.
-7. Language — five keyword and five phrase groups with five entries each, plus practical English fallback when relevant. Label that edition once as `英语备用`; group headings are plain Chinese without `(English)`、`（英语）` or `中英对照`, while English and its concise Chinese meaning stay inside the cards.
-8. Local notes — exactly five folds for weather, culture/etiquette, transport, safety and payment, with four practical topics each.
-
-Every named venue card needs an exact-place image. Before final selection, check each candidate's exact identity, coordinates and image feasibility together. Collect at most two image candidates per slot initially and inspect at most three source families for a commercial venue. Prefer exact official pages and official social/property listings before open-media search; Commons is not the default source for a commercial venue. If the bounded ladder fails, replace the venue once. Never use a generic category image, repeatedly cycle through venues, or keep retrying one throttled host.
-
-## Rendering and release
-
-`index.html` may be installed only by `install_ui_system.py` and changed only by `render_destination.py`. The compiled `destination-profile.json` is the sole content source. Follow the render commands in [rendering-and-assets.md](references/rendering-and-assets.md), then run:
-
-Cover headlines are editorial copy, not compressed trip metadata. Traveler count, duration and destination normally stay in the existing cover metadata; put them in the headline only when they form a natural concept. Prefer a concise mood, contrast or route idea over constructions like `双人六日 + 目的地 + 漫游`. This is a writing choice, not an extra research or generation pass.
-
-```text
-python scripts/audit_skill_consistency.py
-python scripts/audit_product.py <workbench> --strict
-python scripts/quick_forward_test.py <workbench>
-python scripts/check_handoff.py <workbench>
-```
-
-Complete only after `check_handoff.py` prints `HANDOFF ALLOWED`. A missing optional rating must never prevent that result. Required structural, factual, media or interaction failures still require correction.
-
-After asset machine preflight and official rendering, the controller may report `PREVIEW_READY: true` while visual review is pending. This permits an honest user preview, not a publication claim. Inspect one sufficiently large contact sheet, then open only flagged or ambiguous images individually. If every available visual surface fails at the host level, preserve the preview and pending flags; do not redownload images, repeat research or fabricate verification.
-
-## Trip Mode runtime contract
-
-Trip Mode has one phone-first vertical interface on every viewport; desktop centers the same narrow panel for recording and parity. It is generated from one injected per-day JSON payload, never destination-specific constants or DOM guesswork. Keep these behaviors together:
-
-- compact day tabs, overview, and richer stop cards with practical notes, transfer context and visible time/queue stop-loss;
-- one collapsed offline hand-drawn route per day, based only on verified stop coordinates, plus Google/Apple navigation with Google as the first-use default;
-- exact-place Xiaohongshu and map actions on stop cards, with no generic bottom Xiaohongshu button;
-- an expanded photography card with two or three route-specific shooting moments;
-- reference-photo upload stored locally as Data URLs, large tappable previews, full-screen viewing, per-photo deletion and clear-all memory.
-
-The runtime performs no network map rendering and no extra destination research. If coordinates are unavailable, fix the source place record rather than drawing false geography. Do not retain an older Trip Mode implementation, Bali shopping constants, Blob object-URL previews, desktop-only layout or a second map component beside this runtime.
+## Explicit cold starts
+When the user explicitly requests 冷启动/不复用/independent rebuild, use `start_build.py <new-empty-workbench> ... --cold-start`. Do not resume any matching old workbench. Reuse Skill code and the empty product template only; reacquire destination facts, images, maps and QA evidence. Do not copy a prior handbook’s research packs, authoring scripts, downloaded media or validation records. Retain prior builds unchanged.

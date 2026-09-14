@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import re
+import hashlib
 import subprocess
 import sys
 import tempfile
@@ -12,6 +14,7 @@ from pathlib import Path
 def main() -> int:
     root = Path(__file__).resolve().parent.parent
     skill = (root / "SKILL.md").read_text(encoding="utf-8")
+    google_lookup = (root / "references/google-place-lookup.md").read_text(encoding="utf-8")
     release = (root / "references/release-validation.md").read_text(encoding="utf-8")
     content = (root / "references/content-model.md").read_text(encoding="utf-8")
     init = (root / "scripts/init_research_workspace.py").read_text(encoding="utf-8")
@@ -19,8 +22,24 @@ def main() -> int:
     schema = json.loads((root / "assets/destination-profile.schema.json").read_text(encoding="utf-8"))
     contract = json.loads((root / "assets/research-pack-contract.json").read_text(encoding="utf-8"))
     validator = (root / "scripts/validate_research_pack.py").read_text(encoding="utf-8")
+    profile_validator = (root / "scripts/validate_destination_data.py").read_text(encoding="utf-8")
     compiler = (root / "scripts/compile_destination_profile.py").read_text(encoding="utf-8")
+    cloud_prepare = (root / "scripts/prepare_shared_cloud.py").read_text(encoding="utf-8")
+    cloud_worker = (root / "assets/current-system/cloudflare/worker.js").read_text(encoding="utf-8")
+    cloud_client = (root / "assets/current-system/cloudflare/cloud-shared.js").read_text(encoding="utf-8")
+    cloud_schema = (root / "assets/current-system/cloudflare/schema.sql").read_text(encoding="utf-8")
     failures: list[str] = []
+    bundle = root / 'assets/current-system'
+    manifest = json.loads((bundle / 'manifest.json').read_text(encoding='utf-8'))
+    for name, digest in manifest['files'].items():
+        path = bundle / name
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+            failures.append('bundle checksum mismatch: ' + name)
+    for field in ('time_anchors', 'dining_plan'):
+        if field not in init or field not in contract['packs']['framing']['example']:
+            failures.append('cold-start overview instructions missing: ' + field)
+    if 'expanded by default and collapsible' in skill or 'runtime performs no network map rendering' in skill:
+        failures.append('obsolete Trip Mode contract remains')
 
     checks = {
         "SKILL start_build command uses unsupported --end-date": "--end-date" in skill,
@@ -29,16 +48,33 @@ def main() -> int:
         "image range conflicts with populated inventory": "26–30 useful images" in skill or "18–22" in skill,
         "research seed restores hotel-proximity restaurants": "restaurants near selected stay area" in init,
         "pending transport copy blocks editorial generation": "ask the user for the missing booked information" in content,
-        "public edition lacks a run-level Google rating probe": "capability probe" not in skill,
-        "public edition lacks a two-venue consecutive access stop-loss": "two different venues fail to open consecutively" not in skill,
-        "public edition does not reset the Google failure streak after success": "resets this consecutive-failure count" not in skill,
-        "public edition lacks same-venue retry before stop-loss": "retry that same venue once" not in skill,
-        "public edition lacks gateway failure recovery routing": "gateway-failure-recovery.md" not in skill,
+        "Google protocol is not routed from the Skill": "references/google-place-lookup.md" not in skill,
+        "super edition lacks gateway failure recovery routing": "gateway-failure-recovery.md" not in skill,
         "generated food task still requires score and review count together": "only when the score and review count appear" in init,
-        "generated tasks do not require full accessible Google coverage": "look up every restaurant once" not in init,
-        "public edition still requires an all-rated restaurant batch": "an all-unavailable restaurant batch is incomplete" in init or "all restaurant" in init,
+        "generated tasks do not require full accessible Google coverage": "attempt every selected sight" not in init or "resolve every selected restaurant" not in init,
+        "super edition still requires an all-rated restaurant batch": "an all-unavailable restaurant batch is incomplete" in init or "all restaurant" in init,
+        "trip-decision importer is not wired before profile signing": "apply_trip_decisions" not in compiler,
+        "quality modes are not routed from the Skill": "references/production-standard.md" not in skill,
+        "cloud preparation does not require an upload namespace": "--uploads-kv-id" not in cloud_prepare or "kv_namespaces" not in cloud_prepare,
+        "cloud attachment metadata schema is missing": "CREATE TABLE IF NOT EXISTS tickets" not in cloud_schema,
+        "cloud attachment API is missing": "/api/tickets/file" not in cloud_worker or "/api/tickets/" not in cloud_worker,
+        "cloud attachment client adapter is missing": "window.CloudTicketVault" not in cloud_client,
+        "cloud PDF preview is blocked from same-origin framing": "SAMEORIGIN" not in cloud_worker,
+        "cloud preparation does not require an explicit access choice": "--access-mode" not in cloud_prepare or "ACCESS_MODE" not in cloud_prepare,
+        "code access is not a responsive form-backed secure session": any(token not in cloud_worker for token in ("ACCESS_CODE", "guide_access", "HttpOnly", "Secure", "SameSite=Lax", "<form")),
+        "cloud template still uses browser-native HTTP Basic auth": "WWW-Authenticate" in cloud_worker or "Basic realm=" in cloud_worker,
     }
     failures.extend(label for label, failed in checks.items() if failed)
+
+    # Validate navigable local references without requiring exact sentences.
+    for document in [root / "SKILL.md", *sorted((root / "references").glob("*.md"))]:
+        for target in re.findall(r"\[[^\]]*\]\(([^)]+)\)", document.read_text(encoding="utf-8")):
+            if "://" in target or target.startswith("#"):
+                continue
+            target = target.split("#", 1)[0]
+            if target and not (document.parent / target).is_file():
+                failures.append(f"broken reference in {document.relative_to(root)}: {target}")
+
 
     framing_paths = set(contract["packs"]["framing"]["required_paths"])
     profile_required = set(schema.get("required", []))
@@ -66,7 +102,7 @@ def main() -> int:
         workbench = Path(raw) / "cold-start"
         start = root / "scripts/start_build.py"
         init_script = root / "scripts/init_research_workspace.py"
-        start_result = subprocess.run([sys.executable, str(start), str(workbench), "--destination", "Contract City", "--country", "Contract Country", "--start-date", "2026-11-10", "--days", "5"], capture_output=True)
+        start_result = subprocess.run([sys.executable, str(start), str(workbench), "--destination", "Contract City", "--country", "Contract Country", "--start-date", "2026-11-10", "--days", "5", "--discussion-waived", "--user-statement", "fixture waiver"], capture_output=True)
         init_result = subprocess.run([sys.executable, str(init_script), str(workbench)], capture_output=True) if start_result.returncode == 0 else start_result
         if start_result.returncode or init_result.returncode:
             failures.append("dynamic cold-start task generation failed")

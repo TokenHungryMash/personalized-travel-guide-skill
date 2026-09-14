@@ -1,0 +1,24 @@
+/* Mature accordion + responsive dictionary grid */
+.words-section .vocab-grid .vocab[open]{background:#f3eee3!important;border-color:rgba(29,72,62,.18)!important}
+.words-section .vocab-grid .vocab[open]>summary{position:sticky!important;top:10px!important;z-index:12!important;border-radius:23px 23px 0 0!important;background:linear-gradient(112deg,#2d695c 0%,#214e45 48%,#173d36 100%)!important}
+.words-section .vocab-grid .vocab>.vocab-items{box-sizing:border-box!important;width:100%!important;max-width:none!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:0!important;margin:0!important;padding:22px 26px 26px!important;border:0!important;background:#f3eee3!important}
+.words-section .vocab-grid .vocab>.vocab-items>div{box-sizing:border-box!important;min-width:0!important;min-height:58px!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:12px!important;margin:0!important;padding:12px 15px!important;border:0!important;border-right:1px solid rgba(29,72,62,.13)!important;border-bottom:1px solid rgba(29,72,62,.13)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+.words-section .vocab-grid .vocab>.vocab-items>div:nth-child(3n){border-right:0!important}
+.words-section .vocab-grid .vocab>.vocab-items>div:nth-last-child(-n+3){border-bottom:0!important}
+.words-section .vocab-grid .vocab>.vocab-items b{min-width:0!important;color:#173f37!important;font:650 14px/1.35 Arial,sans-serif!important;overflow-wrap:anywhere!important}
+.words-section .vocab-grid .vocab>.vocab-items span{color:#6c7b74!important;font:400 13px/1.35 "PingFang SC","Microsoft YaHei",sans-serif!important;text-align:end!important}
+@media(max-width:900px) and (min-width:561px){
+.words-section .vocab-grid .vocab>.vocab-items{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.words-section .vocab-grid .vocab>.vocab-items>div:nth-child(3n){border-right:1px solid rgba(29,72,62,.13)!important}
+.words-section .vocab-grid .vocab>.vocab-items>div:nth-child(2n){border-right:0!important}
+.words-section .vocab-grid .vocab>.vocab-items>div:nth-last-child(-n+3){border-bottom:1px solid rgba(29,72,62,.13)!important}
+.words-section .vocab-grid .vocab>.vocab-items>div:nth-last-child(-n+2){border-bottom:0!important}
+}
+@media(max-width:560px){
+.words-section .vocab-grid .vocab[open]>summary{top:8px!important;border-radius:17px 17px 0 0!important}
+.words-section .vocab-grid .vocab>.vocab-items{grid-template-columns:1fr!important;padding:10px 16px 16px!important}
+.words-section .vocab-grid .vocab>.vocab-items>div,.words-section .vocab-grid .vocab>.vocab-items>div:nth-child(2n),.words-section .vocab-grid .vocab>.vocab-items>div:nth-child(3n){min-height:54px!important;border-right:0!important;border-bottom:1px solid rgba(29,72,62,.13)!important;padding:10px 4px!important}
+.words-section .vocab-grid .vocab>.vocab-items>div:last-child{border-bottom:0!important}
+.words-section .vocab-grid .vocab>.vocab-items b{font-size:14px!important}
+.words-section .vocab-grid .vocab>.vocab-items span{font-size:13px!important}
+}

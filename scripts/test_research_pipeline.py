@@ -51,14 +51,18 @@ def main() -> int:
         write(root / "research/places/experiences.json", buckets["experiences"])
         write(root / "research/places/restaurants.json", buckets["restaurants"])
         discovery = {"shopping": groups["shopping"], "experiences": groups["experiences"]}
-        if trip.get("experience_mode") == "expanded":
-            discovery["experience_mode"] = "expanded"
+        if trip.get("experience_mode") in {"expanded", "constrained"}:
+            discovery["experience_mode"] = trip["experience_mode"]
         write(root / "research/modules/discovery.json", discovery)
         write(root / "research/modules/practical.json", {"food": groups["food"], "preparation": groups["preparation"]})
         write(root / "research/modules/language-notes.json", {"language": groups["language"], "travel_notes": groups["travel_notes"]})
         call(scripts / "research_status.py", str(root))
         call(scripts / "compile_destination_profile.py", str(root))
         compiled = json.loads((root / "destination-profile.json").read_text(encoding="utf-8"))
+        # Place order is not semantic: compact packs group support nodes with
+        # sights, while imported profiles may put support nodes last.
+        compiled["places"] = sorted(compiled["places"], key=lambda p: p["id"])
+        source["places"] = sorted(source["places"], key=lambda p: p["id"])
         if compiled != source:
             raise SystemExit("compiled profile differs from source profile")
     print("PASS research queue and compiler round-trip a valid profile")

@@ -1,0 +1,10 @@
+{
+  "name": "旅行手册",
+  "version": "1.0.0",
+  "entry": "index.html",
+  "icon": "app-icon.png",
+  "offline": true,
+  "built": "2026-09-07",
+  "short_name": "手册",
+  "icons": []
+}

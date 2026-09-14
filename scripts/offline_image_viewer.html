@@ -1,0 +1,38 @@
+<style>
+#offline-image-viewer{width:calc(100vw - 24px);max-width:1500px;height:calc(100dvh - 24px);max-height:none;padding:0;border:1px solid #71877c;border-radius:14px;background:#f8f6ef;color:#183f34}
+#offline-image-viewer::backdrop{background:#10251ecc}
+#offline-image-viewer header{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:12px;border-bottom:1px solid #cbd2c8}
+#offline-image-viewer button{font:inherit;padding:8px 12px;border:1px solid #8ca096;border-radius:8px;background:white;color:#183f34}
+#offline-image-viewer strong{flex:1;min-width:140px;font:600 16px system-ui}
+#offline-image-viewer .offline-image-scroll{overflow:auto;height:calc(100% - 105px);padding:8px}
+#offline-image-viewer img{display:block;max-width:none;height:auto}
+#offline-image-viewer p{font:13px system-ui;margin:6px 12px}
+</style>
+<dialog id="offline-image-viewer" aria-label="离线地图大图">
+<header><strong>离线地图大图</strong><button type="button" data-map-zoom="1">适应</button><button type="button" data-map-zoom="2">2×</button><button type="button" data-map-zoom="3">3×</button><button type="button" data-map-close>关闭大图</button></header>
+<p>放大后可在图内左右、上下滚动；地图已随文件保存。</p>
+<div class="offline-image-scroll"><img alt="离线地图"></div>
+</dialog>
+<script>
+(() => {
+ const box=document.getElementById('offline-image-viewer'),picture=box.querySelector('img'),scroll=box.querySelector('.offline-image-scroll');
+ function prepareLinks(){
+  document.querySelectorAll('a[href^="data:image/"]').forEach(a=>{
+   if(!a.querySelector('img'))return;
+   a.dataset.offlineImage=a.getAttribute('href');
+   a.setAttribute('href','#offline-image-viewer');a.removeAttribute('target');
+  });
+ }
+ prepareLinks();new MutationObserver(prepareLinks).observe(document.body,{childList:true,subtree:true});
+ document.addEventListener('click',e=>{
+  const a=e.target.closest('a[data-offline-image]');if(!a)return;
+  e.preventDefault();picture.src=a.dataset.offlineImage;picture.alt=a.querySelector('img')?.alt||'离线地图';
+  box.querySelector('strong').textContent=picture.alt;picture.style.width='100%';
+  box.showModal();scroll.scrollTop=0;scroll.scrollLeft=0;
+ });
+ box.addEventListener('click',e=>{
+  const z=e.target.closest('[data-map-zoom]');if(z)picture.style.width=(Number(z.dataset.mapZoom)*100)+'%';
+  if(e.target.closest('[data-map-close]'))box.close();
+ });
+})();
+</script>

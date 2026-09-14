@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 from _build_state import STATE_NAME, evaluate, load_json, print_state, save
@@ -49,19 +52,25 @@ def main() -> int:
             commands = [
                 [sys.executable, str(scripts / "preflight_text_width.py"), str(profile)],
                 [sys.executable, str(scripts / "plan_incremental_validation.py"), str(root)],
-                [sys.executable, str(scripts / "install_ui_system.py"), str(root), "--force-template"],
-                [sys.executable, str(scripts / "build_render_bindings.py"), str(profile), str(root / "render-bindings.json")],
-                [sys.executable, str(scripts / "render_destination.py"), str(profile), str(root)],
+                [sys.executable, str(scripts / "render_profile.py"), str(profile), str(root)],
             ]
-        elif stage in {"research_in_progress", "profile_invalid", "assets_invalid", "visual_review_required", "automated_gates_required", "browser_qa_required"}:
+        elif stage in {"research_in_progress", "profile_invalid", "assets_invalid", "maps_required", "visual_review_required", "automated_gates_required", "browser_qa_required"}:
             print("OPEN WORK REMAINS: execute the bounded correction batch in next_required_action; --run will not fabricate researched facts or QA evidence")
+        elif stage == "offline_export_required":
+            commands = [[sys.executable, str(scripts / "package_handbook.py"), str(root)]]
+        elif stage == "offline_qa_required":
+            print("OPEN WORK REMAINS: test the exported artifact; do not manufacture offline QA evidence")
         elif stage == "assets_required":
             commands = [
-                [sys.executable, str(scripts / "fetch_declared_assets.py"), str(root / "destination-profile.json"), str(root)],
+                [sys.executable, str(scripts / "network_session.py"), str(root), "--run", "fetch_declared_assets.py", str(root / "destination-profile.json"), str(root)],
                 [sys.executable, str(scripts / "build_asset_manifest.py"), str(root / "destination-profile.json"), str(root / "asset-manifest.json")],
             ]
         for command in commands:
+            started_at = datetime.now(timezone.utc).isoformat()
+            started = time.monotonic()
             result = subprocess.run(command)
+            with (root / "build-command-timings.jsonl").open("a", encoding="utf-8") as stream:
+                stream.write(json.dumps({"stage": stage, "command": Path(command[1]).name, "started_at": started_at, "elapsed_seconds": round(time.monotonic() - started, 3), "exit_code": result.returncode}) + "\n")
             if result.returncode:
                 return result.returncode
         if commands:

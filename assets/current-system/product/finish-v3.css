@@ -1,0 +1,63 @@
+/* Category accents give function a distinct visual identity without reducing legibility. */
+:root{--surface-route:#f0f5ef;--surface-photo:#f5ede0;--surface-shop:#edf3ed;--ink-photo:#60482e;--ink-shop:#355a43}
+body.atlas-ui main#atlas-main details.atlas-fold>summary.atlas-fold-summary{display:flex!important;gap:22px!important;padding:20px 24px!important;background:#f0f4ee!important;min-height:100px!important}
+body.atlas-ui main#atlas-main details.atlas-fold>summary.atlas-fold-summary:hover{background:#e7efe5!important}
+body.atlas-ui main#atlas-main details.atlas-fold>summary.atlas-fold-summary>.atlas-fold-copy{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(100px,.6fr)!important;gap:7px 24px!important;align-items:center!important;flex:1!important;min-width:0!important}
+body.atlas-ui main#atlas-main .atlas-fold-copy>.atlas-fold-title{grid-column:1!important;grid-row:2!important;font-size:25px!important}
+body.atlas-ui main#atlas-main .atlas-fold-copy>.atlas-fold-kicker{grid-column:1!important;grid-row:1!important;position:static!important;inset:auto!important;text-align:left!important;transform:none!important;color:var(--color-muted)!important}
+body.atlas-ui main#atlas-main .atlas-fold-copy>.atlas-fold-meta{grid-column:2!important;grid-row:1/3!important;max-width:280px!important;font-size:13px!important;color:var(--color-muted)!important;justify-self:end!important;text-align:right!important}
+body.atlas-ui main#atlas-main .atlas-fold-copy:not(:has(.atlas-fold-meta)){grid-template-columns:1fr!important}
+body.atlas-ui main#atlas-main .atlas-fold-copy:not(:has(.atlas-fold-kicker))>.atlas-fold-title{grid-row:1/3!important}
+body.atlas-ui main#atlas-main .atlas-fold-media{flex:0 0 76px!important;width:76px!important;height:68px!important;margin:0!important;padding:0!important;display:block!important;position:static!important;overflow:hidden!important;border-radius:7px!important}
+body.atlas-ui main#atlas-main .atlas-fold-media img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+body.atlas-ui main#atlas-main .atlas-fold-mark{display:grid!important;place-items:center!important;position:static!important;flex:0 0 44px!important;width:44px!important;height:48px!important;margin:0!important;padding:0!important;background:#e1eade!important;border:1px solid #d2dfce!important;border-radius:7px!important}
+body.atlas-ui main#atlas-main .atlas-fold-mark svg{width:22px;height:22px;stroke:#456b4c;stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+body.atlas-ui main#atlas-main details>summary>.atlas-fold-icon,body.atlas-ui main#atlas-main details.day>summary>i,body.atlas-ui .trip-day-map>summary>i,body.atlas-ui .trip-shopping-tip>summary>i{display:none!important}
+body.atlas-ui main#atlas-main details>summary:has(>.atlas-chevron)::before,body.atlas-ui main#atlas-main details>summary:has(>.atlas-chevron)::after,body.atlas-ui .trip-day-map>summary::before,body.atlas-ui .trip-day-map>summary::after,body.atlas-ui .trip-shopping-tip>summary::before,body.atlas-ui .trip-shopping-tip>summary::after{display:none!important;content:none!important}
+body.atlas-ui .atlas-chevron{display:block!important;flex:0 0 24px!important;width:24px!important;height:24px!important;min-width:24px!important;position:static!important;margin:0!important;padding:0!important;border:0!important;background:none!important;fill:none!important;stroke:var(--color-accent)!important;stroke-width:1.6!important;stroke-linecap:round;stroke-linejoin:round;transform:rotate(0deg)!important;transition:transform .2s ease!important;align-self:center!important}
+body.atlas-ui details[open]>summary>.atlas-chevron{transform:rotate(180deg)!important}
+body.atlas-ui main#atlas-main details.day>summary>.atlas-chevron{grid-column:3!important;grid-row:1!important}
+body.atlas-ui main#atlas-main details.day>summary>.atlas-chevron path::before,body.atlas-ui main#atlas-main details.day>summary>.atlas-chevron path::after{display:none!important}
+body.atlas-ui .trip-photo-card{background:var(--surface-photo)!important;border:1px solid #dfceb3!important;border-radius:12px!important}
+body.atlas-ui .trip-photo-card header small,body.atlas-ui .trip-photo-card .trip-shot>b{color:var(--ink-photo)!important}
+body.atlas-ui .trip-photo-card h3{color:#493d2e!important}
+body.atlas-ui .trip-photo-card .trip-shot{border-color:#decfb9!important}
+body.atlas-ui .trip-photo-count{background:#eee1ca!important;color:var(--ink-photo)!important;border-radius:5px!important}
+body.atlas-ui .trip-photo-card .trip-photo-tools label{background:#fffaf1!important;border-color:#d6c6ab!important;color:#624a2e!important}
+body.atlas-ui .trip-photo-card .trip-upload-empty{background:#fffaf1!important;border-color:#cfbb9c!important;color:#685b48!important}
+body.atlas-ui .trip-shopping-tip{border:1px solid #cad9c9!important;border-radius:12px!important;background:var(--surface-shop)!important;box-shadow:none!important;margin:20px 0!important;padding:0!important;overflow:hidden!important}
+body.atlas-ui .trip-shopping-tip>summary{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;padding:20px!important;min-height:88px!important;background:var(--surface-shop)!important;color:var(--ink-shop)!important;border-radius:0!important;box-shadow:none!important;cursor:pointer}
+body.atlas-ui .trip-shopping-tip>summary>span{display:flex!important;flex-direction:column!important;gap:6px!important;flex:1!important;min-width:0!important}
+body.atlas-ui .trip-shopping-tip>summary small{font:600 10px/1.5 var(--font-body)!important;letter-spacing:.1em!important;color:#45644b!important}
+body.atlas-ui .trip-shopping-tip>summary b{font:500 21px/1.45 var(--font-display)!important;color:#294a34!important}
+body.atlas-ui .trip-shopping-body{padding:0 20px 20px!important;background:var(--surface-shop)!important;border:0!important}
+body.atlas-ui .trip-shopping-body p{font:400 14px/1.8 var(--font-body)!important;color:#465e4d!important;margin:0 0 16px!important}
+body.atlas-ui .trip-shopping-body a{display:inline-flex!important;align-items:center!important;min-height:40px!important;padding:9px 14px!important;border:1px solid #c0d0bf!important;border-radius:5px!important;background:#fff!important;color:var(--ink-shop)!important;font:500 12px/1.5 var(--font-body)!important}
+body.atlas-ui .trip-day-map{background:#f1f5f0!important}
+body.atlas-ui .trip-day-map>summary{background:#f1f5f0!important}
+body.atlas-ui #atlas-main .photo-note{background:var(--surface-photo)!important;border-color:#dfceb3!important}
+body.atlas-ui main#atlas-main section#shops .souvenir-content,body.atlas-ui main#atlas-main section#shops .shop-list{background:#fff!important;padding:0!important;border:0!important;border-radius:0!important}
+body.atlas-ui main#atlas-main section#shops .shop-row figure{background:#fff!important}
+@media(max-width:800px){
+ body.atlas-ui main#atlas-main section#shops .shop-list .shop-row{display:block!important;grid-template-columns:none!important;width:100%!important;min-width:0!important;padding:22px 0!important;margin:0!important;background:#fff!important}
+ body.atlas-ui main#atlas-main section#shops .shop-list .shop-row>figure{display:block!important;width:100%!important;min-width:100%!important;height:auto!important;position:relative!important;inset:auto!important;float:none!important;margin:0!important;padding:0!important;grid-column:auto!important;grid-row:auto!important}
+ body.atlas-ui main#atlas-main section#shops .shop-list .shop-row>figure img{display:block!important;width:100%!important;min-width:100%!important;height:210px!important;object-fit:cover!important;border-radius:8px!important}
+ body.atlas-ui main#atlas-main section#shops .shop-list .shop-row>div{display:block!important;width:100%!important;min-width:0!important;padding:0!important;margin:16px 0 0!important;grid-column:auto!important;grid-row:auto!important}
+ body.atlas-ui main#atlas-main section#shops .shop-list .shop-row>.shop-actions{display:flex!important;gap:10px!important}
+ body.atlas-ui main#atlas-main details.atlas-fold>summary.atlas-fold-summary{gap:14px!important;padding:18px 16px!important;min-height:96px!important}
+ body.atlas-ui main#atlas-main details.atlas-fold>summary.atlas-fold-summary>.atlas-fold-copy{display:flex!important;flex-direction:column!important;gap:4px!important;align-items:flex-start!important}
+ body.atlas-ui main#atlas-main .atlas-fold-copy>.atlas-fold-title{font-size:21px!important;line-height:1.45!important}
+ body.atlas-ui main#atlas-main .atlas-fold-copy>.atlas-fold-meta{font-size:12px!important;line-height:1.65!important;max-width:none!important;text-align:left!important;justify-self:start!important}
+ body.atlas-ui main#atlas-main .atlas-fold-copy>.atlas-fold-kicker{font-size:9px!important;letter-spacing:.02em!important}
+ body.atlas-ui main#atlas-main .atlas-fold-media{flex-basis:58px!important;width:58px!important;height:62px!important}
+ body.atlas-ui main#atlas-main .atlas-fold-mark{flex-basis:32px!important;width:32px!important;height:38px!important}
+ body.atlas-ui main#atlas-main .atlas-fold-mark svg{width:18px!important;height:18px!important}
+ body.atlas-ui .atlas-chevron{width:20px!important;height:20px!important;min-width:20px!important;flex-basis:20px!important}
+ body.atlas-ui main#atlas-main #shops :is(figure,img,.souvenir-photo,.shop-photo){display:block!important;visibility:visible!important;opacity:1!important;max-height:none!important}
+ body.atlas-ui main#atlas-main #shops .shop-row>figure{width:100%!important;height:auto!important;margin:0!important;grid-column:1/-1!important}
+ body.atlas-ui main#atlas-main #shops .shop-row>figure img{width:100%!important;height:210px!important;object-fit:cover!important}
+ body.atlas-ui main#atlas-main #shops .shop-row>div{padding:0!important}
+ body.atlas-ui main#atlas-main #shops .souvenir-card{display:block!important;padding:0 0 24px!important;margin:0 0 24px!important;border:0!important;border-bottom:1px solid var(--color-rule)!important;border-radius:0!important;background:#fff!important}
+ body.atlas-ui main#atlas-main #shops .souvenir-card img{width:100%!important;height:210px!important;object-fit:cover!important;border-radius:8px!important}
+ body.atlas-ui main#atlas-main #shops .souvenir-card>div{padding:16px 0 0!important}
+}

@@ -1,0 +1,67 @@
+/* Desktop companion to the warm iOS mobile edition. */
+@media (min-width:801px){
+  body.atlas-ui{--color-paper:#f5f3ed;--color-surface:#fffdf8;--color-ink:#302d28;--color-muted:#716b61;--font-display:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Helvetica Neue",sans-serif;background:#f5f3ed!important;color:#302d28!important;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif!important}
+  body.atlas-ui .atlas-topbar{height:76px!important;padding:12px 32px!important;background:rgba(245,243,237,.88)!important;border-bottom:1px solid rgba(69,62,53,.1)!important;-webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%)}
+  body.atlas-ui .atlas-search-trigger{min-height:44px!important;border:0!important;border-radius:14px!important;background:#fffdf8!important;color:#4c4841!important;box-shadow:0 2px 8px #302d2809!important}
+  body.atlas-ui .atlas-sidebar{background:#263f3a!important;border-right:0!important;box-shadow:8px 0 30px #263f3a0d!important}
+  body.atlas-ui .atlas-sidebar nav a{border-radius:14px!important;min-height:48px!important}
+  body.atlas-ui .atlas-sidebar nav a:hover{background:#34514b!important}
+  body.atlas-ui .atlas-sidebar nav a.is-active{background:#eee7d7!important;color:#302d28!important;box-shadow:none!important}
+  body.atlas-ui main#atlas-main{padding:30px 40px 72px!important;background:#f5f3ed!important}
+  body.atlas-ui main#atlas-main>:not([hidden]){max-width:1160px;margin-inline:auto}
+  body.atlas-ui main#atlas-main #home>#top{border-radius:26px!important;overflow:hidden!important;box-shadow:0 8px 30px #302d280c!important}
+  body.atlas-ui main#atlas-main :is(details.atlas-fold,#route details.day,.restaurant,.stay-card,.hotel-card){background:#fffdf8!important;border-color:#e7e1d6!important;border-radius:20px!important;box-shadow:0 3px 14px #302d2808!important;overflow:hidden}
+  body.atlas-ui main#atlas-main details.atlas-fold>summary.atlas-fold-summary{background:#fffdf8!important;border-radius:20px!important}
+  body.atlas-ui main#atlas-main .section-heading h2{color:#302d28!important;letter-spacing:-.035em!important}
+  body.atlas-ui main#atlas-main .section-heading p:last-child{color:#716b61!important}
+  body.atlas-ui .itinerary-customizer-launch{display:none!important}
+  body.atlas-ui .atlas-desktop-tools{display:flex;align-items:center;gap:8px;flex:0 0 auto;margin-left:2px;padding:4px;border-radius:17px;background:#e9e4da}
+  body.atlas-ui .atlas-desktop-tools :is(.atlas-desktop-adjust,.trip-mode-launch){position:static!important;inset:auto!important;display:inline-flex!important;align-items:center;justify-content:center;gap:8px;flex:0 0 auto;min-width:112px;min-height:42px;margin:0!important;padding:9px 14px!important;border:0!important;border-radius:13px!important;font:600 13px/1.4 inherit!important;letter-spacing:0!important;white-space:nowrap;box-shadow:none!important;cursor:pointer}
+  body.atlas-ui .atlas-desktop-tools :is(.atlas-desktop-adjust,.trip-mode-launch){background:#28594d!important;color:#fffdf8!important}
+  body.atlas-ui .atlas-desktop-tools .trip-mode-launch::before{content:none!important}
+
+  body.atlas-ui #atlas-main .flight-card :is(strong,b){font-family:var(--font-body)!important;font-style:normal!important;font-variant-numeric:tabular-nums!important;letter-spacing:-.02em!important}
+  body.atlas-ui #atlas-main .flight-card strong{font-size:25px!important;font-weight:650!important}
+  body.atlas-ui .atlas-desktop-adjust svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7}
+  body.atlas-ui .atlas-desktop-adjust:active{scale:.96}
+  body.atlas-ui .itinerary-customizer{position:fixed!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s ease!important}
+  body.atlas-ui .itinerary-customizer.is-open{opacity:1;visibility:visible}
+  body.atlas-ui .itinerary-customizer[hidden]{display:none!important}
+  body.atlas-ui .itinerary-customizer__panel{background:#fffdf8!important;border-radius:24px!important}
+  body.atlas-ui .itinerary-customizer__head{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;background:#fffdf8!important}
+  body.atlas-ui .itinerary-customizer__close{display:grid!important;place-items:center!important;flex:0 0 44px!important;width:44px!important;height:44px!important;border-radius:50%!important;background:#eae7df!important;border:0!important;color:#686158!important;line-height:1!important}
+  body.atlas-ui #itinerary-customizer .custom-step{background:#fffdf8!important}
+}
+
+body.atlas-ui :is(#sights,#food) .atlas-fold-summary .atlas-fold-media{display:none!important}
+body.atlas-ui :is(#sights,#food) .atlas-fold-summary.has-media{grid-template-columns:72px minmax(0,1fr) auto!important}
+body.atlas-ui .reservation-plan{margin:0 0 34px;padding:26px;border:1px solid #ded7ca;border-radius:22px;background:#fffdf8}
+body.atlas-ui .reservation-plan header small{color:#9a5841;font-size:10px;font-weight:700;letter-spacing:.14em}
+body.atlas-ui .reservation-plan h3{margin:6px 0 4px;font-size:26px;color:#2f312d}
+body.atlas-ui .reservation-plan header p{color:#716f67}
+body.atlas-ui .reservation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:18px}
+body.atlas-ui .reservation-grid article{display:grid;grid-template-columns:120px minmax(0,1fr) auto;align-items:center;gap:12px;padding:13px 14px;border-radius:13px;background:#f1eee6}
+body.atlas-ui .reservation-grid time{color:#9a5841;font-size:12px;font-weight:650}
+body.atlas-ui .reservation-grid b{font-size:13px}
+body.atlas-ui .reservation-grid span{padding:5px 8px;border-radius:999px;background:#e3ece7;color:#28594d;font-size:10px;font-weight:650}
+body.atlas-ui .trip-day-keypoints{margin:14px 0;padding:14px;border-radius:14px;background:#e8eee9;color:#304b44}
+body.atlas-ui .trip-day-keypoints b{display:block;margin-bottom:5px;font-size:13px}
+body.atlas-ui .trip-day-keypoints p{margin:0;font-size:11px;line-height:1.65}
+@media(max-width:800px){body.atlas-ui .reservation-plan{padding:18px}body.atlas-ui .reservation-grid{grid-template-columns:1fr}body.atlas-ui .reservation-grid article{grid-template-columns:100px minmax(0,1fr) auto}body.atlas-ui :is(#sights,#food) .atlas-fold-summary.has-media{grid-template-columns:48px minmax(0,1fr) auto!important}}
+@media (max-width:800px){
+  body.atlas-ui .atlas-desktop-tools,body.atlas-ui .atlas-desktop-adjust{display:none!important}
+  body.atlas-ui>.trip-mode-launch{display:none!important;visibility:hidden!important;pointer-events:none!important}
+  body.atlas-ui .itinerary-customizer-launch{display:none!important}
+  body.atlas-ui .itinerary-customizer{position:fixed!important;inset:0!important;display:flex!important;opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s ease!important}
+  body.atlas-ui .itinerary-customizer.is-open{opacity:1;visibility:visible}
+  body.atlas-ui .itinerary-customizer[hidden]{display:none!important}
+  body.atlas-ui .itinerary-customizer__panel{background:#fffdf8!important}
+  body.atlas-ui .itinerary-customizer__head{display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:14px!important;background:#fffdf8!important;padding-top:calc(18px + env(safe-area-inset-top))!important}
+  body.atlas-ui .itinerary-customizer__head>div{min-width:0!important}
+  body.atlas-ui .itinerary-customizer__head h2{font-size:24px!important;line-height:1.25!important}
+  body.atlas-ui .itinerary-customizer__head p{font-size:13px!important;line-height:1.65!important;margin-top:8px!important}
+  body.atlas-ui .itinerary-customizer__close{display:grid!important;place-items:center!important;flex:0 0 44px!important;width:44px!important;height:44px!important;margin:0!important;padding:0!important;border-radius:50%!important;background:#eae7df!important;border:0!important;color:#686158!important;font-size:24px!important;line-height:1!important}
+  body.atlas-ui #itinerary-customizer .custom-step{background:#fffdf8!important}
+  body.atlas-ui #itinerary-customizer .custom-days>button.is-active{background:#e8e1d4!important;border-color:#d6cbbb!important}
+  body.atlas-ui #itinerary-customizer .custom-days>button.is-active :is(b,span,strong,small){color:#302d28!important}
+}

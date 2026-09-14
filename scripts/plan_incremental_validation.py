@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 
@@ -15,6 +16,16 @@ def digest(value: object) -> str:
 
 def file_digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest() if path.is_file() else "missing"
+
+
+def runtime_digest(path: Path) -> str:
+    """Generated day data is covered by itinerary hashes, not runtime QA."""
+    source = path.read_text(encoding="utf-8")
+    if path.name == "trip-mode.js":
+        source = re.sub(r"var TRIP_MODE_DATA=.*?;(?=\s*(?:\r?\n|$))", "var TRIP_MODE_DATA=[];", source, count=1)
+    elif path.name == "itinerary-customizer.js":
+        source = re.sub(r"var titles=\[.*?\];", "var titles=[];", source, count=1)
+    return digest(source)
 
 
 def main() -> int:
@@ -39,7 +50,11 @@ def main() -> int:
         "language": groups.get("language"),
         "notes": groups.get("travel_notes"),
         "manifest": file_digest(root / "asset-manifest.json"),
-        "runtime": [file_digest(root / name) for name in ("index.html", "script.js", "styles.css")],
+        "media": {"cover": {k: profile.get("cover", {}).get(k) for k in ("image", "source_page", "download_url", "derived_from")},
+                  "places": [{"id": p.get("id"), "images": p.get("images", [])} for p in places if p.get("images")]},
+        # Generated HTML changes on every copy edit; it is not runtime source.
+        "runtime": {str(path.relative_to(root)): runtime_digest(path) for path in sorted(root.iterdir())
+                    if path.suffix in {".js", ".css"}},
     }
     current = {name: digest(value) for name, value in sections.items()}
     cache_path = root / ".validation-cache.json"
@@ -54,7 +69,7 @@ def main() -> int:
         stages = []
         if changed:
             stages.extend(["data"])
-        if any(name in changed for name in ("cover", "stays", "sights", "shopping", "experiences", "manifest")):
+        if any(name in changed for name in ("media", "manifest")):
             stages.append("media")
         if changed:
             stages.extend(["render", "strict-audit", "forward-test", "representative-browser-qa"])

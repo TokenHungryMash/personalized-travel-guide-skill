@@ -26,13 +26,17 @@ def main() -> int:
     scripts = Path(__file__).resolve().parent
     with tempfile.TemporaryDirectory(prefix="travel-cold-start-") as raw:
         root = Path(raw) / "chiang-mai"
-        run(str(scripts / "start_build.py"), str(root), "--destination", "Chiang Mai", "--country", "Thailand", "--start-date", "2026-11-10", "--days", "5")
+        run(str(scripts / "start_build.py"), str(root), "--destination", "Chiang Mai", "--country", "Thailand", "--start-date", "2026-11-10", "--days", "5", "--discussion-waived", "--user-statement", "fixture waiver")
+        state = json.loads((root / ".travel-build-state.json").read_text(encoding="utf-8"))
+        assert state["quality_mode"] == "standard", "new builds must default to the ordinary edition"
         run(str(scripts / "init_research_workspace.py"), str(root))
         brief = json.loads((root / "travel-brief.json").read_text(encoding="utf-8"))
         assert brief["start_date"] == "2026-11-10"
         assert brief["end_date"] == "2026-11-14"
 
         framing_task = json.loads((root / "research/tasks/framing.json").read_text(encoding="utf-8"))
+        assert set(framing_task["delegation_contract"]) == {"scope", "context", "handoff"}
+        assert "target_file" in framing_task["delegation_contract"]["scope"]
         framing = framing_task["neutral_json_example"]
         framing["destination"] = "Chiang Mai"
         framing["display_name"] = "清迈"

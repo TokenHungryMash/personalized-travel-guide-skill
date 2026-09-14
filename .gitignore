@@ -14,3 +14,10 @@ destination-profile.json
 render-bindings.json
 .travel-build-state.json
 trip-decisions.json
+.wrangler/
+.dev.vars
+.dev.vars.*
+node_modules/
+.venv/
+*.pem
+*.key

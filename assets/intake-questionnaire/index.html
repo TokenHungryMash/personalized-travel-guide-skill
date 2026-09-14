@@ -158,7 +158,7 @@
           <h3 class="subhead">需要特别照顾的地方</h3>
           <div class="grid">
             <div class="field full"><label for="constraints">健康、饮食、行动或时间限制</label><textarea id="constraints" name="constraints" placeholder="例如：不喜欢早起、控制步行量、海鲜过敏"></textarea></div>
-            <div class="field full"><label for="notes">其他想告诉 Agent 的内容</label><textarea id="notes" name="notes" placeholder="用自然语言说就好，例如：第一次去，重要景点不要遗漏；餐厅不要只推荐网红店。"></textarea></div>
+<div class="field full"><label for="notes">其他想告诉 Agent 的内容</label><textarea id="notes" name="notes" placeholder="用自然语言说就好，例如：第一次去，重要景点不要遗漏；喜欢特色美食，也愿意去值得体验的热门店。"></textarea></div>
           </div>
         </div>
       </details>
@@ -198,7 +198,7 @@
     const values=()=>{
       const fd=new FormData(form), data={};
       for(const [k,v] of fd.entries()) k==='interests'?(data[k]??=[]).push(v):data[k]=v.trim?.()??v;
-      data.interests??=[]; data.requestMode=form.dataset.mode||'handbook'; data.schema='travel-handbook-open-source-intake/1.1';
+      data.interests??=[]; data.requestMode=form.dataset.mode||'handbook'; data.schema='travel-handbook-super-private-intake/1.1';
       data.transportStatus='pending';
       data.stayStatus='pending';
       data.budgetPlan={level:data.budgetLevel||'',totalTrip:data.budgetAmount||''};
@@ -220,12 +220,12 @@
       const travelers=data.travelers?`${data.travelers} 人${data.relationship?`，${data.relationship}`:''}`:`人数未填写，按 2 名成人的普通同行方案处理`;
       const interests=data.interests.length?data.interests.join('、'):'未指定，按经典地标、美食、潮流街区、好逛购物与视觉氛围的年轻旅行主流组合安排';
       const lines=[
-        `请使用 build-personalized-travel-guide-open-source Skill，为我生成一份完整的 ${destination} 旅行手册。`,
+        `请使用 build-personalized-travel-guide-open-source Skill，先为我拟一份 ${destination} 的逐日行程草案。此阶段不要研究或生成完整手册；等我确认草案后，再继续制作完整旅行手册。`,
         '',`【基础信息】`,`旅行时间：${date}`,`旅行者：${travelers}`,`节奏：${data.pace||'由 Agent 决定'}`,
         '',`【预算】`,`预算定位：${data.budgetLevel||'由 Agent 给出主流预算'}`,`整趟总预算：${data.budgetAmount||'未指定，由 Agent 按主流方案估算'}`,`兴趣重点：${interests}`,
         `交通和住宿不需要搜索或推荐。如果我随消息上传了订单截图，或另外提供航班号、酒店名称及日期，请提取并整理进手册；未提供时保持“待确认”，不要阻塞行程生成。`,
         '',`【个性化要求】`,`特别想去：${data.mustGo||'未指定'}`,`明确避开：${data.avoid||'未指定'}`,`限制与照顾：${data.constraints||'未指定'}`,`其他说明：${data.notes||'未指定'}`,
-        '',`请把我选择的兴趣真正用于筛选地点和安排时间：主要行程中约三分之二的可选活动应直接匹配这些兴趣，避免为了填满模块加入低相关、重复或到处都能体验的项目。未指定偏好时，在保留首次到访经典内容的基础上，适度偏向中国年轻旅行者普遍更感兴趣的美食、潮流街区、设计审美、购物、拍照氛围和轻松夜间体验；不要强塞网红点，也不要为此增加额外的大范围搜索。所有未填写内容使用可靠、路线顺畅的默认方案。动态价格与开放信息不能可靠核验时使用保守表达，不得编造。Google Maps 评分查不到就省略，不要单独反复搜索。`
+        '',`请把我选择的兴趣真正用于筛选地点和安排时间：主要行程中约三分之二的可选活动应直接匹配这些兴趣，避免为了填满模块加入低相关、重复或到处都能体验的项目。未指定偏好时，在保留首次到访经典内容的基础上，适度偏向中国年轻旅行者普遍更感兴趣的美食、潮流街区、设计审美、购物、拍照氛围和轻松夜间体验；不排斥网红店或热门打卡点，按兴趣匹配度、路线、排队时间、预算和体验价值筛选，热度高低本身不作为入选或排除依据；无需为此增加额外的大范围搜索。所有未填写内容使用可靠、路线顺畅的默认方案。动态价格与开放信息不能可靠核验时使用保守表达，不得编造。Google Maps 评分查不到就省略，不要单独反复搜索。`
       ]; return lines.join('\n');
     };
     const recommendationText=data=>{
@@ -237,7 +237,7 @@
         '',`【旅行条件】`,`时间：${date}`,`旅行者：${travelers}`,`节奏：${data.pace||'由 Agent 决定'}`,`预算定位：${data.budgetLevel||'由 Agent 给出主流预算'}`,`整趟总预算：${data.budgetAmount||'未指定'}`,`兴趣：${interests}`,
         `特别想要：${data.mustGo||'未指定'}`,`明确避开：${data.avoid||'未指定'}`,`限制与照顾：${data.constraints||'未指定'}`,`其他说明：${data.notes||'未指定'}`,
         '',`【推荐要求】`,`请为每个候选目的地说明：为什么匹配、建议天数、最适合的玩法、季节与天气适配，以及有依据的当地旅行预算区间。无法核验的动态信息不要编造。`,
-        `最后给出一个综合首选，但等待我确认目的地后，再使用 build-personalized-travel-guide-open-source Skill 生成完整八模块手册。`
+        `最后给出一个综合首选。等我选定目的地后，使用 build-personalized-travel-guide-open-source Skill 先给逐日行程草案；再等我确认草案后生成完整八模块手册。选定目的地不代表确认行程。`
       ].join('\n');
     };
     const render=()=>{const data=values(),recommend=data.requestMode==='recommend';if(!recommend&&!data.destination){$('destination').focus();$('destination').reportValidity();return;} $('resultTitle').textContent=recommend?'你的目的地推荐需求':'你的旅行手册需求';$('requestText').textContent=recommend?recommendationText(data):text(data);$('result').classList.add('show');$('result').scrollIntoView({behavior:'smooth',block:'start'});save();};

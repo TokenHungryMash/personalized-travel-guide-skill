@@ -1,5 +1,19 @@
 # Eight-module travel guide content model
 
+Route copy: keep `transport_mode` as its supported research value; rendering localizes transport labels. When `distance_basis: coordinate_straight_line` is used, the renderer supplies one route-level explanation per day. Use optional day `route_note` for a more specific shared explanation; do not repeat the same distance disclaimer in every stop's `practical_note`. A stop's transfer fields describe arrival from its preceding stop; the display between two stops therefore uses the destination stop's fields.
+
+## Product inventory
+
+These are the existing full-handbook product defaults, not instructions to schedule every reference choice. Trip length and interests determine the scheduled subset; optional alternatives remain clearly labeled. Do not silently relax machine-enforced minimums. Exact field shapes and executable counts come from `assets/research-pack-contract.json` and the generated pack task.
+
+1. Itinerary — one day and Mini Route per trip day, ordered stops, realistic transfers, authored period descriptions and route-specific photography advice. Author each stop's practical visit note and time/queue fallback in the same pass; collect its verified coordinates during the normal place lookup. Trip Mode consumes these existing fields and must never trigger a second research pass.
+2. Sights — at least eight useful first-visit choices, split into scheduled and optional choices.
+3. Shopping — reputable shops or markets followed by a souvenir section with optional product photos.
+5. Food — destination-authored menu primer, exactly four local snacks, at least six dedicated-trip restaurants across four cuisine/scene labels, and four well-known local-chain fallbacks by default (two to four only for an explicit narrower brief or documented lack of suitable choices).
+6. Preparation — essential and confirm-ahead checklists with at least 24 useful items total.
+7. Language — five keyword and five phrase groups with five entries each, plus practical English fallback when relevant. Label that edition once as `英语备用`; group headings are plain Chinese without `(English)`、`（英语）` or `中英对照`, while English and its concise Chinese meaning stay inside the cards.
+8. Local notes — exactly five folds for weather, culture/etiquette, transport, safety and payment, with four practical topics each.
+
 ## Unnumbered framing: cover, transport and stay
 
 Include destination cover, dates, route, complete flight/train/ferry legs, arrival and departure buffers, hotel galleries, addresses, stay dates, neighborhood positioning and map links.
@@ -26,17 +40,19 @@ Separate scheduled and optional places. Provide at least eight useful first-visi
 
 ## 03 Shopping and souvenirs
 
-Curate reputable shops, markets, design stores and shopping streets. Follow them immediately with an image-led must-buy/souvenir subsection. Souvenir cards inherit the shopping cards' image ratio, typography, metadata rhythm, spacing and actions while using a distinguishable destination-compatible accent. Explain what the product is, where to buy it, how to choose it and any packing/customs caution.
+Curate reputable shops, markets, design stores and shopping streets. Follow them immediately with a must-buy/souvenir subsection; retain text-only cards when product photos are unavailable. Illustrated souvenir cards inherit the shopping cards' image ratio; text-only cards omit the visual column while retaining typography, spacing and buying advice. Explain what the product is, where to buy it, how to choose it and any packing/customs caution.
+
+Select recognizable, useful purchases before searching for images: destination classics, nationally established gifts available along the route, and practical beauty/personal-care products when relevant. Name a specific product/brand or a clearly defined useful category. Do not invent “a district's anime merchandise” or “a landmark's limited sweets” merely to fill a module. Interest-specific goods supplement these choices when their brand/product and purchase location are concrete. For Japan, user-mentioned examples such as 白色恋人 and 东京香蕉 illustrate recognizable branded gifts, not a mandatory list for every city; distinguish product origin from the current destination and verify local availability before recommending a shop. “药妆” alone is not actionable: identify the brand/category, intended use and buying checks without unsupported medical claims. Never choose a weak item because its photo is easier to obtain, or delete a useful recommendation only because its photo is unavailable.
 
 ## 04 Destination-specific experiences
 
-Adapt to the destination and traveler interests: onsen, yoga, gym, dance, spa, surfing, workshops, performances, nightlife, seasonal events or family activities. Include exact-place imagery, area, hours/weekly closure, route/base-area fit, why it fits and map/course link. Show distance from the hotel only when a hotel is selected and the distance is actually verified. In Standard mode, target three user-choice categories with two researched experiences in every category (six total). If a third complete category cannot produce two truthful, coordinate-verified and exact-image-qualified options after the bounded source ladder, `constrained` mode may render two strong categories with two options each. Record that failure in the candidate ledger; never pad the module with generic filler or unrelated images. Do not research or render extras merely because more candidates exist. Expand only when the traveler explicitly requests an experience-heavy handbook; destination abundance alone is not permission to expand. Do not use neighborhoods as the top-level disclosure taxonomy; location belongs in card metadata and routing. Do not reuse a generic Bali fitness taxonomy where a new destination has more valuable signature experiences.
+Adapt to the destination and traveler interests: onsen, yoga, gym, dance, spa, surfing, workshops, performances, nightlife, seasonal events or family activities. Include exact-place imagery, area, hours/weekly closure, route/base-area fit, why it fits and map/course link. Show distance from the hotel only when a hotel is selected and the distance is actually verified. In Standard mode, target three user-choice categories with six researched experiences total and uneven group sizes allowed. If a third category cannot produce a truthful, coordinate-verified and exact-image-qualified option after the bounded source ladder, `constrained` mode in standard only may render two strong categories with four options total and uneven group sizes allowed. Record that failure in the candidate ledger; never pad the module with generic filler or unrelated images. Do not research or render extras merely because more candidates exist. Expand only when the traveler explicitly requests an experience-heavy handbook; destination abundance alone is not permission to expand. Do not use neighborhoods as the top-level disclosure taxonomy; location belongs in card metadata and routing. Do not reuse a generic Bali fitness taxonomy where a new destination has more valuable signature experiences.
 
 Category labels must summarize the records actually inside them. Culture walks, galleries and museums belong under a culture/art heading; onsen belongs under bathing/recovery; workshops belong under craft/learning. A category whose heading and cards describe different experience types is invalid, even if the card geometry is correct.
 
 ## 05 Food guide
 
-The **worth-a-special-trip** family contains at least six individually researched restaurants. It must cover at least four genuinely distinct cuisine or dining-scene labels rather than repeating one popular category under different names. Choose the mix from the destination: representative local dishes, seafood or meat specialties, noodles/rice, casual neighborhood places and a more complete meal are useful patterns when the destination supports them. Add exactly four representative local snacks and a second restaurant family of two to four established local chains for low-effort fallback meals. Omit delivery and the former hotel-proximity family.
+The **worth-a-special-trip** family contains at least six individually researched restaurants. It must cover at least four genuinely distinct cuisine or dining-scene labels rather than repeating one popular category under different names. Choose the mix from the destination: representative local dishes, seafood or meat specialties, noodles/rice, casual neighborhood places and a more complete meal are useful patterns when the destination supports them. Add exactly four representative local snacks and a second restaurant family of four well-known established local chains by default for low-effort fallback meals. Omit delivery and the former hotel-proximity family.
 
 Start with the canonical editorial menu-reading primer: destination-specific kicker, large practical headline, explanatory introduction, at least four guidance cards and a nested collapsible dictionary of local dish/menu expressions. Do not reduce it to an unstyled list or one-line disclosure. Then separate:
 
@@ -44,17 +60,26 @@ The primer is destination-authored content, not canonical copy. Write it for a f
 
 1. **Local snacks** — exactly four food-first entries explaining what each snack is, its flavor or texture, where it is commonly found and how to order it. A representative shop may be named, but this family is not another restaurant ranking.
 2. **Worth a dedicated trip** — distinctive cooking, setting or destination significance; explain why the travel is justified. On trips of three or more days, at least three of these exact restaurant place IDs must appear in itinerary stops. Match the branch and opening hours to the day's route; label the remainder as same-area alternatives rather than leaving the entire family optional.
-3. **Dependable local chains** — two to four locally characteristic, established chains with multiple branches, predictable service and easy-to-find evidence. Treat them as low-effort backups for late arrival, queues, rain or a tired evening—not as hotel-distance claims. Name the exact branch when one is scheduled.
+3. **Dependable local chains** — four well-known, locally characteristic, established chains by default (two to four only for explicit narrower scope or a documented suitability limit) with multiple branches, predictable service and easy-to-find evidence. Treat them as low-effort backups for late arrival, queues, rain or a tired evening—not as hotel-distance claims. Name the exact branch when one is scheduled.
 
-Every restaurant includes one useful image, cuisine, venue type, signature dishes, per-person range, hours/closure, visit-day connection and direct map link. A Google rating is optional and may be recorded only when it appears during normal exact-place research; missing ratings trigger no follow-up search and never block the restaurant or handbook. Use the fastest credible image path: exact Google Maps place photo, exact-pin Street View, official venue/social media, then a reputable restaurant or listing platform. Standard mode requires a branch/name match and one batch contact-sheet review. If no usable image appears after that bounded ladder, replace the venue rather than shipping a text-only card or generic cuisine image. Every displayed rating includes a source URL and retrieval date. Never invent ratings or repeat example scores.
+Every restaurant includes one useful image, cuisine, venue type, signature dishes, per-person range, hours/closure, visit-day connection and direct map link. Record the Google rating only when it appears during the same exact-place panel visit; missing ratings trigger no follow-up search and never block the restaurant or handbook. Use the exact Google Maps place photo first, then make at most one fallback attempt using exact-pin Street View, official venue/social media or a reputable exact-place listing. standard mode requires branch/name binding plus machine decode checks and recorded dimensions (small dimensions are warnings); batch visual inspection follows image-and-source-policy.md. If both attempts fail, use an allowed identity-bound official-brand fallback or replace the venue once rather than starting a broad image search. Every displayed rating includes a source URL and retrieval date. Never invent ratings or repeat example scores.
 
 ## 06 Before departure
 
-Use **essential items** and **book/confirm ahead** only. Do not add a visa/entry family to the handbook. Render both checklist families in the same balanced two-column visual language on desktop and ordinary phone widths; fall back to one column only when needed for legibility. Store checkbox state locally.
+Use **essential items** and **book/confirm ahead** only. Do not add a visa/entry family to the handbook. Render both checklist families in the same standard two-column visual language on desktop and ordinary phone widths; fall back to one column only when needed for legibility. Store checkbox state locally.
 
 Populate both families from the target destination, dates and actual itinerary. Entry documents, rail/airport transfers, restaurant/experience bookings, weather gear, payment and connectivity must be locally relevant. Canonical Bali excursions such as Nusa Penida, Bali transport apps or tropical-only packing items must not survive in another destination unless independently required there.
 
 ## 07 Language companion
+
+| Family | Entry fields |
+| --- | --- |
+| keyword_groups / phrase_groups | term, meaning, reading (Japanese: required useful romaji) |
+| english_keyword_groups | term, meaning |
+| english_phrase_groups | sentence, meaning |
+
+`roman` is not a rendering field. Each family has five Chinese-titled groups with five entries each. Use the generated scaffold before authoring.
+
 
 Organize by scenario with collapsible groups:
 
@@ -76,7 +101,7 @@ Use exactly five folds with four titled topics each: weather/climate, culture an
 - framing: destination cover and exact-property hotel galleries.
 - 01: a Mini Route and photography note for every day; photography advice identifies real light, viewpoint, composition or timing rather than generic “take photos”. The shopping note remains data for Trip Mode only.
 - 02: one exact-place image per sight; add one genuinely different second view only for `gallery_featured` priorities.
-- 03: exact-place and product images for every shop, market and souvenir card.
+- 03: exact-place images for shops and markets; souvenir product photos are optional only after the bounded search described in image-and-source-policy.md, or an explicit user text-only request. Text-only souvenir cards retain buying advice and omit the image container.
 - 04: exact-place images for every activity, studio, spa, onsen, workshop or nightlife card.
 - 05: one image for every restaurant; use the bounded Google Maps/Street View/official-or-listing ladder and never reuse one venue's photo or generic dish as another venue.
 - 06: use icons and checklist visuals; add photography only when it carries information.
@@ -98,3 +123,15 @@ Use official venue, transport and government sources first; then reliable bookin
 - Shopping subtitles are semantic (`商场与店铺` by default; `店铺与集市` only for a real market). Inventory must reflect actual high-demand local shopping and souvenir behavior.
 - Menu guidance requires four substantive first-time-visitor cards before the collapsible dictionary. Menu-primer entries require a local term, user-language meaning and a practical ordering note.
 - Every travel-note topic must contain a substantive explanation, not a one-line placeholder.
+
+## Truthful activity grouping
+
+Keep the standard six options and three display groups, but group sizes may be uneven. Never relabel an activity to meet a category quota. In addition to existing types, use `urban_walk`, `food_culture`, `pop_culture`, and `digital_art` for matching activities. A market is not a craft workshop; browsing anime merchandise is not a performance. The activity type describes the activity, while display groups may combine related types. Shared Chinese/Japanese kanji are valid language entries; do not append language names to make fields artificially different.
+
+
+## Mainstream selection and source feasibility
+
+For unspecified preferences, prefer well-known, established restaurants, recognizable established sights and mainstream concrete purchases when route, taste and budget fit are comparable. Check official information and image feasibility during normal selection. Do not seek obscure venues merely to make recommendations look original. Popularity is a practical default, not proof of quality and not a reason for detours, unsuitable food or crowding. Keep distinct local cuisines and the user's interests represented. A chain still needs a verified exact branch; brand recognition does not make another branch's photo interchangeable. Never rank an unsuitable venue above a suitable one just because its image is easier to download. Apply the souvenir shortlist rule before searching for photos, and use the text-only fallback only after the bounded search with recorded outcomes.
+
+
+Daily photography and outfits are separate deliverables. Under photo_advice retain photography tips and include outfit_advice with women/men/practical_note; see research-data-shapes.md. Show both concrete outfits and the day's weather/route adjustment in the daily itinerary and the “摄影穿搭” tab. A portrait_tip or renamed tab alone does not satisfy outfit guidance.

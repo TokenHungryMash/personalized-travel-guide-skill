@@ -18,7 +18,7 @@ Treat explicit subculture tags literally. `二次元、动漫与游戏文化` ma
 
 ## Default audience tendency
 
-When preferences are missing or delegated to the Agent, assume a visually discerning young adult traveler from China who values recognizable highlights plus contemporary city life. Favor a balanced mix of:
+When preferences are missing or delegated to the Agent, assume a visually discerning young adult traveler from China who values recognizable highlights plus contemporary city life. Favor a standard mix of:
 
 - one or two genuinely iconic anchors rather than an exhaustive landmark checklist;
 - food, cafes or desserts that are locally meaningful rather than famous only online;
@@ -32,11 +32,13 @@ Do not force nightlife, shopping, cafes or photography onto users who excluded t
 
 ## Candidate selection
 
+For restaurants, sights and souvenirs, prefer mainstream, established and locally representative choices when traveler interest, route, budget and quality are comparable. For sights this means recognizable landmarks and established attractions; for restaurants, reputable venues with an exact branch; for souvenirs, concrete recognizable products/brands rather than vague categories or obscure novelty items. Check official information and exact-subject image feasibility during this same shortlist pass. Easier image sourcing is a tie-breaker between suitable choices, never a reason to override must-go requests or choose an unsuitable recommendation. Apply the bounded souvenir search in image-and-source-policy.md before choosing a text-only card.
+
 Shortlist before deep research. For every candidate, judge only five reusable dimensions: preference match, destination distinctiveness, route fit, practical confidence and time cost. Reject a candidate early when it fails two of the first four or consumes disproportionate travel time.
 
 Avoid low-interest filler: generic workshops available in any city, repetitive museums/temples, remote photo spots with little else nearby, commercial “traditional experiences” with weak local identity, and activities selected only to fill a category. A featured experience must answer both “why here?” and “why for this traveler?” in one concrete sentence.
 
-In Standard mode, at least four of the six experience choices should directly match the traveler's selected interests. With no selected interests, use three varied categories drawn from the destination's strongest contemporary, food/design, evening, wellness or signature-culture scenes; do not default to craft classes or formal cultural activities merely because they are easy to source. If the bounded evidence ladder forces constrained mode, all four retained choices should match the selected interests or the destination's strongest mainstream-young-adult scenes.
+In Standard mode, at least four of the six experience choices should directly match the traveler's selected interests. With no selected interests, use three varied categories drawn from the destination's strongest contemporary, food/design, evening, wellness or signature-culture scenes; do not default to craft classes or formal cultural activities merely because they are easy to source. In standard only, if the bounded evidence ladder forces constrained mode, all four retained choices should match the selected interests or the destination's strongest mainstream-young-adult scenes.
 
 ## Day construction
 
@@ -50,6 +52,7 @@ Across the trip:
 - avoid cross-city backtracking for a single weak candidate;
 - alternate dense and lighter periods, and preserve at least one realistic rest/meal buffer per half day;
 - place shopping, cafes, nightlife and optional experiences where they are already on the route;
+- author `shopping_advice.description` as two or three short paragraphs separated by newlines, normally about 100–180 Chinese characters total: exact scheduled area/shops, priority categories with reasons, suggested browsing time and one or two practical purchase checks. Use the day's existing records; do not invent discounts, stock or tax eligibility. Non-shopping days explain why and when to shop instead. Legacy `url`/`link_label` fields may remain for schema compatibility but Trip Mode does not render a jump link;
 - keep unselected niche experiences in Chapter 04 choices rather than forcing them into the daily itinerary.
 
 ## Final coherence check

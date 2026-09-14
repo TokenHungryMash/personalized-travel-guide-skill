@@ -1,0 +1,1 @@
+#miniToolToast{position:fixed;z-index:99999;left:50%;bottom:88px;max-width:82%;padding:11px 16px;border-radius:999px;background:#173f36;color:#fff;font:600 13px/1.35 sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.22);opacity:0;transform:translate(-50%,12px);pointer-events:none;transition:.2s}#miniToolToast.show{opacity:1;transform:translate(-50%,0)}

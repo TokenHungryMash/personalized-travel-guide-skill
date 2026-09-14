@@ -1,193 +1,111 @@
-#!/usr/bin/env python3
 """Create a resumable, bounded research workspace for a destination guide."""
 from __future__ import annotations
-
 import argparse
 import json
 import sys
-from datetime import date, timedelta
 from pathlib import Path
-
-if hasattr(sys.stdout, "reconfigure"):
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-
+from install_workbench_launcher import install as install_launcher
+from _travel_brief import PREFERENCE_FIELDS, resolve_brief
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 
 def write_json(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
+    path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 def load_json(path: Path) -> dict:
-    return json.loads(path.read_text(encoding="utf-8"))
-
+    return json.loads(path.read_text(encoding='utf-8'))
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("workbench", type=Path)
-    parser.add_argument("--destination")
-    parser.add_argument("--display-name")
-    parser.add_argument("--country")
-    parser.add_argument("--start-date")
-    parser.add_argument("--days", type=int)
-    parser.add_argument("--travelers", default="2")
-    parser.add_argument("--rhythm", default="relaxed")
+    parser.add_argument('workbench', type=Path)
+    parser.add_argument('--destination')
+    parser.add_argument('--display-name')
+    parser.add_argument('--country')
+    parser.add_argument('--start-date')
+    parser.add_argument('--days', type=int)
+    parser.add_argument('--brief-file', type=Path, help='current approved user brief JSON; preserve all supplied preference fields')
+    parser.add_argument('--travelers')
+    parser.add_argument('--rhythm')
     args = parser.parse_args()
     root = args.workbench.resolve()
-    state_path = root / ".travel-build-state.json"
+    state_path = root / '.travel-build-state.json'
     state = load_json(state_path) if state_path.is_file() else {}
-    destination = args.destination or state.get("destination")
-    country = args.country if args.country is not None else state.get("country")
-    start_date = args.start_date or state.get("start_date") or "pending"
-    days = args.days if args.days is not None else state.get("days")
-    if not destination or not country or not isinstance(days, int):
-        raise SystemExit("destination, country and days are required either in build state or CLI arguments")
-    if args.destination and state.get("destination") and args.destination != state["destination"]:
-        raise SystemExit("--destination conflicts with existing build state")
-    if args.start_date and state.get("start_date") not in (None, "pending", args.start_date):
-        raise SystemExit("--start-date conflicts with existing build state")
-    if days < 1:
-        raise SystemExit("--days must be positive")
-    end_date = "pending"
-    if start_date != "pending":
-        try:
-            end_date = (date.fromisoformat(start_date) + timedelta(days=days - 1)).isoformat()
-        except ValueError as exc:
-            raise SystemExit(f"start date must be YYYY-MM-DD or pending: {exc}")
-    research = root / "research"
-    plan_path = root / "research-plan.json"
+    brief = resolve_brief(root, brief_file=args.brief_file, state=state, overrides={
+        'destination': args.destination, 'display_name': args.display_name, 'country': args.country,
+        'start_date': args.start_date, 'days': args.days, 'travelers': args.travelers, 'rhythm': args.rhythm,
+    })
+    destination, country, start_date, days = (brief[key] for key in ('destination', 'country', 'start_date', 'days'))
+    requested_quality_mode = 'standard'
+    quality_mode = requested_quality_mode or 'standard'
+    research = root / 'research'
+    plan_path = root / 'research-plan.json'
     if plan_path.exists():
-        raise SystemExit(f"research workspace already exists: {plan_path}")
-
+        raise SystemExit(f'research workspace already exists: {plan_path}')
+    for relative in ('research', 'research/drafts', 'research/records', 'research/places', 'research/modules', 'research/tasks', '.research-state', '.contract-errors'):
+        directory = (root / relative).resolve()
+        if not directory.is_relative_to(root):
+            raise SystemExit(f'research directory escapes workbench: {directory}')
+        directory.mkdir(parents=True, exist_ok=True)
     n = max(4, days)
     sight_floor = max(8, days)
     souvenir_floor = 1
-    brief = {
-        "destination": destination,
-        "display_name": args.display_name or destination,
-        "country": country,
-        "start_date": start_date,
-        "end_date": end_date,
-        "days": days,
-        "travelers": args.travelers,
-        "rhythm": args.rhythm,
-        "defaults_authorized": True,
-    }
-    write_json(root / "travel-brief.json", brief)
-
-    packs: list[dict] = [
-        {"id": "framing", "file": "research/framing.json", "purpose": "封面、交通、住宿与行程分段"},
-        {"id": "places-core", "file": "research/places/core.json", "purpose": f"{sight_floor}+ 景点及机场、车站、酒店等支持节点"},
-        {"id": "places-shopping", "file": "research/places/shopping.json", "purpose": f"店铺与伴手礼；默认只为最终视觉短名单配置图片"},
-        {"id": "places-experiences", "file": "research/places/experiences.json", "purpose": "优先 6 个主流体验（3 类×2）；仅在一整类无法通过限次的真实性、坐标和图片校验时降为 2 类×2"},
-        {"id": "places-food", "file": "research/places/restaurants.json", "purpose": "专程餐厅与本地稳定连锁兜底；每家保留一张可核对门店图"},
-        {"id": "itinerary", "file": "research/itinerary.json", "purpose": f"从已冻结的合格地点中编排全部 {days} 天时段、停留、路线与 Trip Mode 建议"},
-        {"id": "modules-discovery", "file": "research/modules/discovery.json", "purpose": "购物与体验分组和行程关联"},
-        {"id": "modules-practical", "file": "research/modules/practical.json", "purpose": "餐饮菜单与出发前准备"},
-        {"id": "modules-language-notes", "file": "research/modules/language-notes.json", "purpose": "当地语言、英语备用及天气/礼仪/交通/安全/支付贴士"},
-    ]
-    plan = {
-        "schema_version": 1,
-        "destination": destination,
-        "days": days,
-        "batch_size": 2,
-        "status": "in_progress",
-        "packs": [{**item, "status": "pending"} for item in packs],
-        "rules": [
-            "每个地点必须来自目标目的地研究，不得复制参考目的地记录。",
-            "每张地点图片必须声明本地文件、来源页、来源类型和检索日期。",
-            "只完成当前最多两个相互独立的 pack，每个立即校验；单包重复失败时改用 --batch-size 1。",
-        ],
-    }
+    if requested_quality_mode:
+        brief['quality_mode'] = quality_mode
+    write_json(root / 'travel-brief.json', brief)
+    packs: list[dict] = [{'id': 'framing', 'file': 'research/framing.json', 'purpose': '封面、交通、住宿与行程分段'}, {'id': 'places-core', 'file': 'research/places/core.json', 'purpose': f'{sight_floor}+ 景点及机场、车站、酒店等支持节点'}, {'id': 'places-shopping', 'file': 'research/places/shopping.json', 'purpose': f'店铺与伴手礼；默认只为最终视觉短名单配置图片'}, {'id': 'places-experiences', 'file': 'research/places/experiences.json', 'purpose': '优先 6 个匹配兴趣的体验，分为 3 类且各类数量可不同；限次核查失败可用 2 类共 4 个'}, {'id': 'places-food', 'file': 'research/places/restaurants.json', 'purpose': '专程餐厅与本地稳定连锁兜底；每家保留一张可核对门店图'}, {'id': 'itinerary', 'file': 'research/itinerary.json', 'purpose': f'从已冻结的合格地点中编排全部 {days} 天时段、停留、路线与 Trip Mode 建议'}, {'id': 'modules-discovery', 'file': 'research/modules/discovery.json', 'purpose': '购物与体验分组和行程关联'}, {'id': 'modules-practical', 'file': 'research/modules/practical.json', 'purpose': '餐饮菜单与出发前准备'}, {'id': 'modules-language-notes', 'file': 'research/modules/language-notes.json', 'purpose': '当地语言、英语备用及天气/礼仪/交通/安全/支付贴士'}]
+    plan = {'schema_version': 1, 'destination': destination, 'days': days, 'batch_size': 2, 'status': 'in_progress', 'packs': [{**item, 'status': 'pending'} for item in packs], 'rules': ['每个地点必须来自目标目的地研究，不得复制参考目的地记录。', '每张地点图片必须声明本地文件、来源页、来源类型和检索日期。', '只完成当前最多两个相互独立的 pack，每个立即校验；单包重复失败时改用 --batch-size 1。', '使用统一生成标准：如实记录来源与坐标，图片集中复核，不能为凑数改变体验分类。']}
     write_json(plan_path, plan)
-    write_json(root / ".research-state" / "candidate-ledger.json", {
-        "schema_version": 1,
-        "destination": destination,
-        "current_pack": "framing",
-        "candidates": {},
-        "source_incidents": [],
-        "note": "Keep only compact keep/replace/pending decisions, attempted source families and rate-limit incidents. Do not store prose research here.",
-    })
+    write_json(root / '.research-state' / 'candidate-ledger.json', {'schema_version': 1, 'destination': destination, 'current_pack': 'framing', 'candidates': {}, 'source_incidents': [], 'note': 'Keep only compact keep/replace/pending decisions, attempted source families and rate-limit incidents. Do not store prose research here.'})
     research.mkdir(parents=True, exist_ok=True)
-    source_map = {
-        "framing": ["user-supplied booking evidence", "official source for a supplied transport or property identity"],
-        "itinerary": ["official tourism board", "Google Maps routing", "operator timetable"],
-        "places": ["official venue page", "Google Maps for identity and directions", "official social account"],
-        "module": ["verified place records from this research workspace", "official destination guidance"],
-    }
-    contract_path = Path(__file__).resolve().parent.parent / "assets" / "research-pack-contract.json"
+    source_map = {'framing': ['user-supplied booking evidence', 'official source for a supplied transport or property identity'], 'itinerary': ['official tourism board', 'Google Maps routing', 'operator timetable'], 'places': ['official venue page', 'Google Maps for identity and directions', 'official social account'], 'module': ['verified place records from this research workspace', 'official destination guidance']}
+    contract_path = Path(__file__).resolve().parent.parent / 'assets' / 'research-pack-contract.json'
     contract = load_json(contract_path)
-    for item in plan["packs"]:
-        family = "itinerary" if item["id"] == "itinerary" else "places" if item["id"].startswith("places-") else "module" if item["id"].startswith("modules-") else "framing"
-        required = {
-            "framing": contract["packs"]["framing"]["required_paths"],
-            "itinerary": contract["packs"]["itinerary"]["item_required_paths"],
-            "places": ["stable id", "type", "display_name", "map_query", "source_url", "description/why worth visiting", "type-specific fields exactly as listed by this task", "image declarations only at the count stated by this task; every declaration names file, direct download_url unless an existing local file decodes, source_page, media_class/original_media_class, verification_evidence path and identity-specific visual_confirmation_note; visual flags begin false and watermark_checked becomes true only after full-size inspection"],
-            "module": ["canonical group objects", "wrapped {place_id: stable-id} references or complete practical entries", "destination-specific copy", "use references/research-data-shapes.md"],
-        }[family]
-        exact_requirements = {
-            "framing": contract["packs"]["framing"]["required_paths"],
-            "places-core": [f"object with sights ({sight_floor}+) and support arrays", "sights need id/type/display_name/map_query/source_url, useful description and hours/closures/duration; when Google is accessible, look up every sight once for score and review count, retaining a verified score even when count is absent", "ordinary sights declare exactly 1 image; only gallery_featured sights declare 2", "support contains itinerary-only transport nodes and a user-supplied stay when available"],
-            "places-shopping": [f"object with shops and souvenirs arrays", "records need stable IDs, destination-specific buying value and source", "only the final traveler-facing visual shortlist declares one exact image per item; do not create galleries"],
-            "places-shops": ["destination-scaled shop records", "id/type/display_name/map_query/source_url", "description/hours/closed_days", "category/buying_tip/brand_highlights/scheduled_label", "1+ exact-place image declaration; no souvenir-only fields"],
-            "places-souvenirs": ["destination-scaled unique souvenir records", "id/type/display_name/map_query/source_url", "concise specific description", "why_buy/best_for/where_to_buy/buying_tip", "1+ exact product image declaration; no shop category/brand fields"],
-            "places-experiences": ["Standard target: exactly 6 experience records across 3 controlled experience_type categories, 2 records per category", "Constrained fallback: exactly 4 records across 2 categories, 2 per category, only after the third category fails its bounded identity/coordinate/image ladder; record the failure in .research-state/candidate-ledger.json", "id/type/display_name/map_query/source_url", "description >=60 chars", "hours/closed_days/experience_type/category/scheduled_label", "hazardous boolean; risk_assessment >=45 chars only when true", "1+ exact-place image declaration"],
-            "places-food": ["dedicated restaurant and dependable local-chain fallback inventory; delivery and hotel-proximity groups are omitted", "id/type/local_name/english_name/display_name/map_query/source_url", "description >=45 chars explaining why worth visiting", "hours/closed_days/cuisine/signature_dishes as researched display copy naming 2+ specific dishes/price_per_person", "when Google is accessible, look up every restaurant once and attempt both score and review count; retain a verified score when count is absent", "only two different venue access failures may establish that Google is unavailable for the run; never use stop-loss to sample only part of an accessible inventory", "do not retry one venue with alternate languages, keyword variants, mirrors or network workarounds", "a batch with zero ratings is complete only when Google is unavailable or no queried venue exposes a reliable score", "each final restaurant declares one exact-venue image from the bounded entity/coordinates/official/listing ladder; replace a venue when no usable image is available", "use references/research-data-shapes.md for exact containers"],
-            "places-support": ["all itinerary-only airport/station/transport nodes with stable id/type/display_name/map_query/source_url; transport nodes do not require images", "confirmed hotel records require hours/closed_days and 2 image declarations; do not invent a hotel or hotel images when stay status is pending"],
-            "modules-discovery": ["object with shopping and experiences module payloads", "all items use wrapped {place_id: stable-id} references", "use experience_mode=standard for 3 groups×2; use experience_mode=constrained for 2 groups×2 only when the candidate ledger records why a third qualified type was unavailable"],
-            "modules-practical": ["object with food and preparation payloads", "food has a destination-authored menu_primer, exactly 4 local_snacks, 6+ dedicated_trip restaurants across 4+ cuisine/scene labels, and 2-4 reliable_chains that are established local chains suitable as low-effort fallbacks; delivery and near_stay are omitted", "for trips of 3+ days, at least 3 dedicated_trip restaurant place_ids must also appear in itinerary stops; choose branches compatible with that day's route and opening hours", f"preparation essentials and confirm_ahead total {max(24, days * 3)}+ practical items"],
-            "modules-language-notes": ["object with language and travel_notes payloads", "local language and reusable English fallback each retain five keyword and five phrase groups", "all group titles are Chinese; English/destination-language text appears inside cards with Chinese meanings", "travel_notes contains exactly five default categories: climate, etiquette/culture, transport, safety, payment; each has four titled practical topics"],
-        }
-        if item["id"] == "itinerary":
-            required = [f"JSON array with exactly {days} day objects", *contract["packs"]["itinerary"]["item_required_paths"], "2+ stops (3+ on non-arrival/departure days)", "each stop has place_id/arrival_time/dwell_minutes/transport_mode/transfer_minutes/distance_km/estimated_cost"]
+    for item in plan['packs']:
+        family = 'itinerary' if item['id'] == 'itinerary' else 'places' if item['id'].startswith('places-') else 'module' if item['id'].startswith('modules-') else 'framing'
+        required = {'framing': contract['packs']['framing']['required_paths'], 'itinerary': contract['packs']['itinerary']['item_required_paths'], 'places': ['stable id', 'type', 'display_name', 'map_query', 'source_url', 'description/why worth visiting', 'type-specific fields exactly as listed by this task', 'image declarations only at the count stated by this task; every declaration names file, direct download_url unless an existing local file decodes, source_page, media_class/original_media_class, verification_evidence path and identity-specific visual_confirmation_note; visual flags begin false and watermark_checked becomes true only after full-size inspection'], 'module': ['canonical group objects', 'wrapped {place_id: stable-id} references or complete practical entries', 'destination-specific copy', 'use references/research-data-shapes.md']}[family]
+        exact_requirements = {'framing': contract['packs']['framing']['required_paths'], 'places-core': [f'object with sights ({sight_floor}+) and support arrays', 'prefer mainstream, recognizable established sights when traveler interest and route fit are comparable; check official information and image feasibility during selection; sights need id/type/display_name/map_query/source_url, useful description and hours/closures/duration; follow references/google-place-lookup.md and attempt every selected sight during normal identity research, retaining any visible score even when review count is absent', 'ordinary sights declare exactly 1 image; only gallery_featured sights declare 2', 'support contains itinerary-only transport nodes and a user-supplied stay when available'], 'places-shopping': [f'object with shops and souvenirs arrays', 'records need stable IDs, mainstream recognizable concrete products/brands, buying value and source; compare image feasibility among equally suitable products; follow content-model.md section 03; do not select unsuitable products solely because photos are easy', 'shops declare one exact image; souvenirs use images: [] only after the bounded official plus one exact-product alternate search, with actual URLs/results in .research-state/candidate-ledger.json, or explicit user text-only preference; render text-only buying advice; do not create galleries'], 'places-shops': ['destination-scaled shop records', 'id/type/display_name/map_query/source_url', 'description/hours/closed_days', 'category/buying_tip/brand_highlights/scheduled_label', '1+ exact-place image declaration; no souvenir-only fields'], 'places-souvenirs': ['destination-scaled unique souvenir records', 'id/type/display_name/map_query/source_url', 'concise specific description', 'why_buy/best_for/where_to_buy/buying_tip', 'seek an exact product image first; apply image-and-source-policy.md bounded search and record actual URLs/results before images: []; no shop category/brand fields'], 'places-experiences': ['Standard target: exactly 6 experience records across 3 controlled experience_type categories, uneven category sizes allowed; classify the real activity, never relabel to meet quotas', 'Constrained fallback: exactly 4 records across 2 categories, uneven category sizes allowed, only after the third category fails its bounded identity/coordinate/image ladder; record the failure in .research-state/candidate-ledger.json', 'id/type/display_name/map_query/source_url', 'description >=60 chars', 'hours/closed_days/experience_type/category/scheduled_label', 'hazardous boolean; risk_assessment >=45 chars only when true', '1+ exact-place image declaration'], 'places-food': ['prefer well-known established restaurants with verifiable official information and image feasibility when route/taste/budget fit; retain exact branch identity; do not seek obscure venues merely for novelty; dedicated restaurant and dependable local-chain fallback inventory; delivery and hotel-proximity groups are omitted', 'id/type/local_name/english_name/display_name/map_query/source_url', 'description >=45 chars explaining why worth visiting', 'hours/closed_days/cuisine/signature_dishes as researched display copy naming 2+ specific dishes/price_per_person', 'follow references/google-place-lookup.md: resolve every selected restaurant by exact name plus address/branch during normal identity research, capture any visible score and review count, and record no_visible_rating when an opened panel has no attributable score', 'retry an actual access failure for the same venue once with a shorter exact query; stop further Google requests only after two different venues fail consecutively after retries, and reset that streak after any successful panel', 'never use the access stop-loss to sample only part of an accessible inventory or use alternate-language loops, mirrors or network workarounds', 'a batch with zero ratings is complete only when its ledger truthfully records opened panels without visible scores or the documented two-place access stop', 'each final restaurant declares one exact-venue image from the bounded entity/coordinates/official/listing ladder; replace a venue when no usable image is available', 'use references/research-data-shapes.md for exact containers'], 'places-support': ['all itinerary-only airport/station/transport nodes with stable id/type/display_name/map_query/source_url; transport nodes do not require images', 'confirmed hotel records require hours/closed_days and 2 image declarations; do not invent a hotel or hotel images when stay status is pending'], 'modules-discovery': ['object with shopping and experiences module payloads', 'all items use wrapped {place_id: stable-id} references', 'use experience_mode=standard for 3 groups with 6 total options; use experience_mode=constrained for 2 groups with 4 total options only when the candidate ledger records why a third qualified type was unavailable'], 'modules-practical': ['object with food and preparation payloads', 'food has a destination-authored menu_primer, exactly 4 local_snacks, 6+ dedicated_trip restaurants across 4+ cuisine/scene labels, and 4 reliable_chains by default: distinct well-known local chains suitable as low-effort fallbacks (2-4 only for explicit narrower scope or documented suitability limits); delivery and near_stay are omitted', "for trips of 3+ days, at least 3 dedicated_trip restaurant place_ids must also appear in itinerary stops; choose branches compatible with that day's route and opening hours", f'preparation essentials and confirm_ahead total {max(24, days * 3)}+ practical items'], 'modules-language-notes': ['object with language and travel_notes payloads', 'local language and reusable English fallback each retain five keyword and five phrase groups', 'all group titles are Chinese; English/destination-language text appears inside cards with Chinese meanings', 'travel_notes contains exactly five default categories: climate, etiquette/culture, transport, safety, payment; each has four titled practical topics']}
+        if item['id'] == 'itinerary':
+            required = [f'JSON array with exactly {days} day objects', *contract['packs']['itinerary']['item_required_paths'], '2+ stops (3+ on non-arrival/departure days)', 'each stop has place_id/arrival_time/dwell_minutes/transport_mode/transfer_minutes/distance_km/estimated_cost']
         else:
-            required = exact_requirements.get(item["id"], required)
-        query_topics = {
-            "framing": ["official travel guide", "airport transport", "where to stay"],
-            "places-core": ["top attractions official", "attractions Google Maps", "airport station official"],
-            "places-shopping": ["best shopping streets markets", "local souvenirs what to buy", "shopping Google Maps"],
-            "places-experiences": ["signature local experiences", "cultural activities official", "experiences Google Maps"],
-            "places-food": ["best restaurants Google Maps", "destination cuisine types", "dependable local restaurant chains exact branches"],
-            "places-support": ["airport station official", "public transport official", "visitor information"],
-            "modules-discovery": ["shopping guide itinerary areas", "local experience categories"],
-            "modules-practical": ["menu terms dining etiquette", "entry requirements packing payment transport"],
-            "modules-language-notes": ["travel phrases pronunciation", "travel safety etiquette local rules"],
-        }
-        topics = query_topics.get(item["id"], ["daily itinerary route"] if family == "itinerary" else [item["purpose"]])
-        task = {
-            "task_id": item["id"],
-            "target_file": item["file"],
-            "purpose": item["purpose"],
-            "required_fields": required,
-            "suggested_sources": source_map[family],
-            "search_queries": [f"{destination} {topic}" for topic in topics],
-            "contract_schema": "assets/research-pack-contract.json",
-            "neutral_json_example": contract["packs"][item["id"]].get("example") if item["id"] == "framing" else contract["packs"]["itinerary"].get("example_item") if item["id"] == "itinerary" else None,
-            "completion_rule": "Save researched JSON to target_file. Completion means this exact required_fields list is satisfied; file existence alone is not completion. Before closing an image-bearing pack, each declaration must either point to a local file that already decodes or pass direct URL, image MIME and minimum-dimension probing; source-page or guessed filename alone is incomplete. Image file may omit download_url only when that local file already exists and decodes.",
-            "execution_rule": "Work only within the current bounded batch. For named venues, perform cheap identity, coordinate and image URL/MIME/dimension feasibility before freezing the place. Do not download final assets yet. Write and validate this pack before expanding scope. Generated requirements and named JSON-pointer errors are sufficient; do not read validator source unless an error remains unexplained.",
-        }
-        if item["id"] == "framing":
-            task["writing_rules"] = ["Cover title/title_lines are short editorial phrases and never repeat city, dates, duration or traveler count."]
-        elif item["id"] == "itinerary":
-            task["writing_rules"] = [
-                "Apply references/itinerary-selection-logic.md over the existing candidate pool before writing prose.",
-                "Explicit preferences outrank defaults; roughly two thirds of discretionary scheduled stops should match selected interests.",
-                "Use one geographic area and one primary anchor per full day, then compatible secondary places, meal/rest time and at most one optional evening extension.",
-                "Run one final coherence check for repetition, backtracking, hours, meals/rest and late-to-early transitions; do not launch a new broad search for this check.",
-            ]
-        elif item["id"] in {"places-experiences", "modules-discovery"}:
-            task["writing_rules"] = [
-                "At least four of six Standard-mode experiences directly match selected interests.",
-                "Every selected experience must explain both why it is distinctive here and why it fits this traveler; reject generic filler.",
-                "Do not pad a failed category. After bounded failure, use constrained mode with four strong options and preserve the failure reason in the candidate ledger.",
-            ]
-        task_path = research / "tasks" / f"{item['id']}.json"
+            required = exact_requirements.get(item['id'], required)
+        exact_requirements['modules-practical'].append('dedicated_trip and reliable_chains are flat arrays of {"place_id":"id"}; NEVER group objects with title/items. Group wrappers would hide restaurants from counts and itinerary linkage.')
+        exact_requirements['modules-discovery'].append('shopping is an array of title/items category groups referencing shop IDs only. Souvenirs live in places/shopping.json.souvenirs and render automatically in their dedicated section; never reference them inside shopping groups.')
+        if family == 'places':
+            required.append('Every image declares visual_subject_type from observed pixels: place_exterior/place_interior/dish/product/landscape. Use official_photo only for an actual official-source photograph; Google user photos remain real_photo. Do not stamp verification flags to satisfy validation.')
+
+        query_topics = {'framing': ['official travel guide', 'neighborhood geography', 'seasonal travel information'], 'places-core': ['top attractions official', 'attractions Google Maps', 'airport station official'], 'places-shopping': ['best shopping streets markets', 'local souvenirs what to buy', 'shopping Google Maps'], 'places-experiences': ['signature local experiences', 'cultural activities official', 'experiences Google Maps'], 'places-food': ['best restaurants Google Maps', 'destination cuisine types', 'dependable local restaurant chains exact branches'], 'places-support': ['airport station official', 'public transport official', 'visitor information'], 'modules-discovery': ['shopping guide itinerary areas', 'local experience categories'], 'modules-practical': ['menu terms dining etiquette', 'entry requirements packing payment transport'], 'modules-language-notes': ['travel phrases pronunciation', 'travel safety etiquette local rules']}
+        topics = query_topics.get(item['id'], ['daily itinerary route'] if family == 'itinerary' else [item['purpose']])
+        task = {'task_id': item['id'], 'outfit_contract': 'Every itinerary day needs photo_advice.outfit_advice: {women, men, practical_note}, all non-empty strings. Give two practical outfits suited to season, walking and planned places; shared adjustments cover layers/rain/venue dress rules without inventing a forecast. Render in main itinerary and Trip Mode. See research-data-shapes.md.', 'souvenir_media': 'For products use kind=souvenir (type/place_kind aliases accepted), product_name or exact local display_name, official_url, optional verified brand_name. Product helper reads body/lazy/srcset/JSON-LD images and follows at most two exact same-site links; never use nearby street images. Search the exact official product first, then one reputable exact-product retailer/tourism source if needed; record actual URLs, outcomes and fallback reason in .research-state/candidate-ledger.json. Only after bounded search fails or explicit access restrictions block it, keep images: [] and buying advice; never skip lookup merely because images are optional. Explicit user text-only requests are exempt. Honor product_media_status/next_action; standard brand fallback remains explicitly official_brand_asset, never product photography.', 'candidate_readback': 'research_image_candidates.py prints validated structured candidate URLs/source pages/coordinates to stdout. Use them directly; no extra read call. For recovery use inspect_research_json.py with the exact printed source_file path as one quoted argument; do not invent filenames or ad hoc JSON parsers.', 'page_probe': 'Use scripts/probe_official_page.py URL --output research/drafts/page.json --timeout 10 for official title/description/og:image metadata. Standard library only; never assume requests/bs4 or compose complex Python one-liners through PowerShell. Read status; candidates are not identity or visual verification.', 'map_delivery': 'New builds require exactly one reviewed offline overview per day with all scheduled stops; do not automatically add local views; follow references/screenshot-map-workflow.md. First attempt original street-map capture. Only after evidenced failure use references/offline-map-fallback.md; no online-map fallback. Route lists alone are not offline maps.', 'tip_priority': 'Each travel note requires explicit priority 必须/建议/随缘 based on actual constraints, not title matching or quotas.', 'target_file': item['file'], 'purpose': item['purpose'], 'required_fields': required, 'suggested_sources': source_map[family], 'search_queries': [f'{destination} {topic}' for topic in topics], 'contract_schema': 'assets/research-pack-contract.json', 'neutral_json_example': contract['packs'][item['id']].get('example') if item['id'] == 'framing' else contract['packs']['itinerary'].get('example_item') if item['id'] == 'itinerary' else None, 'execution_rule': 'Work only within the current bounded batch. For named venues, perform cheap identity, coordinate and image URL/MIME/dimension feasibility before freezing the place. Do not download final assets yet. Write and validate this pack before expanding scope. Generated requirements and named JSON-pointer errors are sufficient; do not read validator source unless an error remains unexplained.', 'delegation_contract': {'scope': 'Write only target_file for this task; do not edit other packs, the compiled profile, runtime files or final HTML.', 'context': 'Use travel-brief.json, this task JSON, the assigned frozen IDs/area boundary and only directly relevant references. Do not load the full conversation or unrelated packs.', 'handoff': 'Validate target_file immediately, then report its path and only unresolved source incidents or proposed frozen-ID replacements.'}}
+        task['shape_reference'] = 'Read references/research-data-shapes.md before authoring. Use validate_research_pack.py --scaffold PACK for exact fields. Language: local term/meaning/reading (Japanese reading required); English phrases use sentence/meaning. Place type is the renderer family, not temple/shrine/nightlife. Stop order must include dwell and transfer time.'
+        task['execution_policy'] = {'unit': 'pack', 'agent_mode': 'single_agent_default', 'subagents_require_explicit_user_request': True, 'record_timers_required': False, 'image_dimensions': 'advisory', 'individual_visual_evidence': False, 'constrained_experiences_allowed': True}
+        task['record_writing'] = 'Write the complete canonical pack atomically to target_file and validate it once. Use the pack scaffold for unfamiliar shapes. Record-level tools are recovery aids only.'
+        task['work_units'] = 'Use references/production-flow.md. Research a complete pack batch with concurrent independent lookups; reuse facts across modules.'
+        task['failure_counter'] = 'After repeated failure of the same operation, inspect its actual error and change the method. Preserve valid packs and repair only the affected data.'
+        task['runner_commands'] = 'Use the verified Python interpreter or the generated workbench travel.ps1 for supported actions. Its absolute path binds the workbench. Whole-pack authoring needs no timer or assembly commands.'
+        task['completion_rule'] = 'Save researched JSON to target_file and validate required_fields. Images need an identity-bearing source page and valid acquisition metadata; use an existing decoded local file or a verified direct image URL. Small dimensions alone are advisory. Do not fabricate download or visual evidence.'
+        task['brief_file'] = 'travel-brief.json'
+        task['traveler_preferences'] = {key: brief[key] for key in PREFERENCE_FIELDS if key in brief}
+        task['brief_rule'] = 'Use the current approved brief and itinerary-outline.md; preserve its travelers, interests, constraints and exclusions in research/framing.json.trip and selection. These inputs are already supplied; do not ask the questionnaire again. The linked brief owns any additional user fields.'
+        if item['id'] == 'framing':
+            task['neutral_json_example']['trip'].update({key: brief[key] for key in ('start_date', 'end_date', 'days', 'travelers', 'rhythm', 'interests', 'constraints')})
+            task['writing_rules'] = ['Cover title/title_lines are short editorial phrases and never repeat city, dates, duration or traveler count.', 'Cover identity must name the depicted venue and consulted source; image URL alone is insufficient. For this build same-place cover photos, declare derived_from and identical provenance URLs.']
+            task['writing_rules'] += ['Prepare dining_plan from the approved itinerary meals: date, meal, place_id for named venues, title, category, budget, note; genuinely unassigned meals use flexible=true and a valid itinerary date. Scheduled places require coordinate_source with url/note/precision; image declarations require an observed source_identity_note. Reuse researched facts; do not add restaurants merely to fill this overview. An empty array is appropriate only when no meals are specified.', 'Prepare time_anchors with at most four reliable fixed appointments, pickups or departure deadlines: time, title, note, href. If none are confirmed, use an empty array; ordinary planned sightseeing times are not fixed anchors.']
+        elif item['id'] == 'itinerary':
+            task['writing_rules'] = ['Apply references/itinerary-selection-logic.md over the existing candidate pool before writing prose.', 'Explicit preferences outrank defaults; roughly two thirds of discretionary scheduled stops should match selected interests.', 'Use one geographic area and one primary anchor per full day, then compatible secondary places, meal/rest time and at most one optional evening extension.', 'Run one final coherence check for repetition, backtracking, hours, meals/rest and late-to-early transitions; do not launch a new broad search for this check.']
+        elif item['id'] in {'places-experiences', 'modules-discovery'}:
+            task['writing_rules'] = ['At least four of six experiences directly match selected interests.', 'Every selected experience must explain both why it is distinctive here and why it fits this traveler; reject generic filler.', 'Do not pad a failed category. After bounded failure, use constrained mode with four strong options and preserve the failure reason in the candidate ledger.']
+        if item['id'].startswith('places-'):
+            task.setdefault('writing_rules', []).append('For image declarations record source_identity_note describing observed exact-subject identity; an official domain is not proof. For scheduled coordinates record coordinate_source with actual source url, observation note, and precision entrance/building/area. Do not invent evidence to satisfy fields.')
+        task_path = research / 'tasks' / f"{item['id']}.json"
         write_json(task_path, task)
-        item["task_file"] = str(task_path.relative_to(root)).replace("\\", "/")
+        item['task_file'] = str(task_path.relative_to(root)).replace('\\', '/')
     write_json(plan_path, plan)
-    print(f"PASS research workspace created: {plan_path}")
-    print(f"CONTINUE: python research_status.py {root}")
+    print(f'PASS research workspace created: {plan_path}')
+    launcher = install_launcher(root)
+    print(f'OPTIONAL POWERSHELL LAUNCHER: {launcher}')
+    # Argument arrays are independent of the host tool API and shell quoting.
+    print('CONTINUE_ARGV: ' + json.dumps([sys.executable, '-X', 'utf8', str(Path(__file__).resolve().parent / 'research_status.py'), str(root.resolve())], ensure_ascii=False))
     return 0
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     raise SystemExit(main())

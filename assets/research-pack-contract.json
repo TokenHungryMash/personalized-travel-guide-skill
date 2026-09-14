@@ -14,8 +14,10 @@
         "display_name": "示例城市",
         "country": "Sample Country",
         "year": "2026",
-        "trip": {"start_date": "2026-11-10", "end_date": "2026-11-14", "days": 5, "rhythm": "relaxed", "travelers": "2", "interests": [], "constraints": []},
-        "cover": {"kicker": "SAMPLE CITY · FIVE DAYS", "title": "示例城市五日行", "summary": "用一条清晰主轴串联城市与周边。", "image": "assets/cover-sample.jpg", "tags": ["城市", "文化"]},
+        "time_anchors": [],
+        "dining_plan": [],
+        "trip": {"start_date": "2026-11-10", "end_date": "2026-11-14", "days": 5, "rhythm": "relaxed", "travelers": "2", "interests": [], "constraints": [], "quality_mode": "standard"},
+        "cover": {"kicker": "SAMPLE CITY · FIVE DAYS", "title": "沿河慢行", "summary": "用一条清晰主轴串联城市与周边。", "image": "assets/cover-sample.jpg", "tags": ["城市", "文化"]},
         "transport": {"status": "pending", "legs": []},
         "stays": [{"status": "pending", "place_id": null, "check_in": null, "check_out": null, "notes": "住宿待确认"}],
         "render_bindings_file": "render-bindings.json"
@@ -41,8 +43,8 @@
           {"place_id": "place-01", "arrival_time": "09:00", "dwell_minutes": 60, "transport_mode": "步行", "transfer_minutes": 0, "distance_km": 0, "estimated_cost": "免费", "practical_note": "从主入口沿树荫步道进入，先看核心景观再到河岸休息。", "time_guard": "10:10 前离开，排队超过 20 分钟就跳过"},
           {"place_id": "place-02", "arrival_time": "11:00", "dwell_minutes": 60, "transport_mode": "步行", "transfer_minutes": 15, "distance_km": 1.0, "estimated_cost": "待核对", "practical_note": "先参观主展厅，再根据体力选择户外区域，避免重复折返。", "time_guard": "12:15 作为收尾线，预留 15 分钟步行换乘"}
         ],
-        "shopping_advice": {"title": "按路线购买", "description": "只买便携物品。", "url": "https://example.invalid/", "link_label": "查看指南"},
-        "photo_advice": {"title": "河岸光线", "lighting": "日落前侧光。", "suitable_shots": ["从桥头拍河道纵深", "用寺院屋檐框住街景"], "portrait_tip": "避开礼拜动线。", "shooting_plan": [{"time": "09:30", "title": "古城门·侧光", "note": "站在门洞阴影边缘，让城墙和街道同时进入画面。"}, {"time": "17:20", "title": "河岸·蓝调", "note": "日落后多等十五分钟，用栏杆作前景保留水面倒影。"}]}
+        "shopping_advice": {"title": "按路线购买", "description": "只买便携物品。"},
+        "photo_advice": {"title": "河岸光线", "lighting": "日落前侧光。", "suitable_shots": ["从桥头拍河道纵深", "用寺院屋檐框住街景"], "portrait_tip": "避开礼拜动线。", "outfit_advice": {"women": "轻薄外套搭直筒长裤与已穿习惯的步行鞋；用暖色围巾呼应河岸街景。", "men": "针织上衣叠穿外套，配长裤与舒适运动鞋；深浅层次适合街景人像。", "practical_note": "这些是搭配参考，可按个人风格互换；按当日预报增减衣层，参拜时遵守现场着装要求。"}, "shooting_plan": [{"time": "09:30", "title": "古城门·侧光", "note": "站在门洞阴影边缘，让城墙和街道同时进入画面。"}, {"time": "17:20", "title": "河岸·蓝调", "note": "日落后多等十五分钟，用栏杆作前景保留水面倒影。"}]}
       }
     }
   }

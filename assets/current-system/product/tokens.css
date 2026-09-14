@@ -1,0 +1,11 @@
+:root {
+ --color-paper: oklch(97% .012 85); --color-surface: oklch(99% .006 85);
+ --color-ink: oklch(28% .035 161); --color-muted: oklch(49% .025 161);
+ --color-accent: oklch(39% .066 165); --color-rule: oklch(87% .018 90);
+ --color-sand: oklch(92% .025 85); --color-rust: oklch(48% .10 40);
+ --font-display: Georgia, 'STSong', 'SimSun', serif;
+ --font-body: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+ --space-xs: .5rem; --space-sm: 1rem; --space-md: 1.5rem; --space-lg: 2rem; --space-xl: 3rem;
+ --text-xs: .75rem; --text-sm: .875rem; --text-body: 1rem; --text-title: clamp(30px,3vw,48px);
+ --radius-card: 16px; --radius-input: 8px; --ease-out: cubic-bezier(.16,1,.3,1); --dur-short: 180ms;
+}
