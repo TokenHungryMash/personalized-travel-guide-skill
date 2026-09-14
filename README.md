@@ -36,7 +36,7 @@
 需要 Python 3.10+、Pillow，以及 Agent 提供的联网研究能力。不同宿主的工具和浏览器权限可能不同。Windows 找不到运行时时，可将 `TRAVEL_GUIDE_PYTHON` 指向已有且包含 Pillow 的 Python 可执行文件。脚本从本 Skill 根目录执行，内容生成在独立工作目录。
 
 ```text
-python scripts/start_build.py <workbench> --destination Fukuoka --country Japan --start-date 2026-11-04 --days 6 --itinerary-approved --user-statement "按这版做"
+python scripts/start_build.py <workbench> --destination <城市> --country <国家> --start-date YYYY-MM-DD --days <天数> --itinerary-approved --user-statement "按这版做"
 python scripts/advance_build.py <workbench>
 ```
 
@@ -67,16 +67,6 @@ node scripts/test_cloud_currencies.cjs
 ```
 
 自动检查不能代替图片主体核实或浏览器交互检查。检查记录必须对应实际输出；浏览器不可用时只能交付明确标注的预览。
-
-## 在其他 Agent 中冷启动测试
-
-DeepSeek 等宿主需要提供联网检索、文件读写和 Python 执行能力；完整验收还需要图片查看与浏览器交互能力。单纯对话模型不能独立执行整条流程。先运行 `scripts/runtime_preflight.py` 检查环境。核心流程不依赖 Codex 工具名称；Windows 的 `travel.ps1` 是可选启动器，默认沿用初始化时的 Python，可用 `TRAVEL_GUIDE_PYTHON` 显式覆盖。
-
-建议使用新解压的 Skill 和空工作目录，在新会话中发送：
-
-> 请读取并使用 build-personalized-travel-guide-open-source，冷启动生成福冈 2026-11-04 至 2026-11-09 的完整旅行手册，2 名成人，主流预算，兴趣为美食、购物、城市漫游、夜生活、动漫与游戏文化。无需讨论路线，直接生成；不搜索或推荐航班和酒店，未提供订单就保持待确认。使用全新工作目录，不读取或复用之前的福冈手册和测试数据。请实际检索并核对来源、图片主体与坐标，按 Skill 完成渲染和验收。记录失败命令、实际错误和修复方式；缺少浏览器或其他能力时如实标记未验收，不伪造通过记录。最后报告输出目录、耗时、check_handoff 结果及剩余问题。
-
-先关注流程能否走通，再人工复核路线、图片和地图。`research_status.py` 在研究尚未完成时返回 2 并打印下一批任务，不应因此反复重试初始化。
 
 ## 许可
 
