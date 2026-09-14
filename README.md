@@ -1,6 +1,6 @@
 # 旅行攻略 Skill 3.0
 
-**推荐在 Codex 中使用本 Skill，并选择 GPT 5.6 SOL 或能力更强的模型。WorkBuddy 的适配与测试暂时仍需改进，目前仅供尝试，存在流程卡住、停止推进或无法完成生成的风险。**
+**推荐在 Codex 中使用本 Skill，并选择 GPT 5.6 SOL 或能力更强的模型。**
 
 本次升级围绕旅行中的实际使用，优化界面、旅行模式和攻略生成流程，让行程、参考资料与开销记录更方便集中管理。
 
@@ -29,44 +29,21 @@
 
 航班与酒店仅整理用户提供的预订事实，未提供时保持待确认。
 
-1. 下载完整仓库或发布 ZIP，将文件夹放入支持本地 Skill 的 Agent 的技能目录。
-2. 安装后首次调用该 Skill，Agent 应立即打开或附上 `assets/intake-questionnaire/index.html`；也可以说：`使用 $build-personalized-travel-guide-open-source 开始制作旅行手册。`
+1. 下载完整仓库，将文件夹放入支持本地 Skill 的 Agent 技能目录。
+2. 在 Codex 中说：`使用 $build-personalized-travel-guide-open-source 开始制作旅行手册。`
 3. 提交问卷后，Agent 先给逐日行程草案。回复确认后才开始生成完整网页；只有明确说“不要讨论，直接生成”时才跳过草案确认。
 
-需要 Python 3.10+、Pillow，以及 Agent 提供的联网研究能力。不同宿主的工具和浏览器权限可能不同。Windows 找不到运行时时，可将 `TRAVEL_GUIDE_PYTHON` 指向已有且包含 Pillow 的 Python 可执行文件。脚本从本 Skill 根目录执行，内容生成在独立工作目录。
+运行环境需要 Python 3.10+、Pillow，以及联网检索、文件读写、图片查看和浏览器交互能力。
 
-```text
-python scripts/start_build.py <workbench> --destination <城市> --country <国家> --start-date YYYY-MM-DD --days <天数> --itinerary-approved --user-statement "按这版做"
-python scripts/advance_build.py <workbench>
-```
+## 交付内容
 
-控制器提示下一步；Agent 完成研究与源数据后编译、下载图片、渲染并检查。最终交付 `check_handoff.py` 输出并验收通过的自包含离线 HTML；工作目录的 `index.html` 依赖同目录资源，仅供完整工作目录内预览，不能单独分享。
+完成后会生成一份可直接打开的离线 HTML 手册，无需解压。导航链接和共享功能需要联网。
 
-## 地图与图片
+如需与同行伙伴共同使用，可以选择部署到 Cloudflare。云端版支持共享链接、图片、PDF、同行成员、记账、分摊和还款，并可设置访问码。
 
-新生成的手机／离线地图优先使用真实道路底图截图、完整地点名称和行程顺序连线。制图阶段在获准的浏览器中联网加载底图，逐张核对后可导入正文与旅行模式，或用 `scripts/pack_phone_maps.cjs` 生成带完整名单和放大查看器的单文件地图。手机查看内嵌图片无需地图 CDN 或 WebGL。连线不是实际导航路线；桌面离线测试与手机实测须分别记录。明确要求交互地图或维护现有在线手册时保留在线方案，详见 `references/screenshot-map-workflow.md`。
+## 隐私
 
-餐厅、景点和纪念品在兴趣、路线与预算适合时优先主流且有代表性的选择，并同步检查资料与图片可得性。纪念品先查官方具体商品，再按需查一个可靠的同商品来源；记录查找结果后才可降级为无图卡片，不能因为图片可选就跳过查找。图片必须对应真实地点或准确标注为关联品牌素材，保留来源说明。图片预览用于实际核对，文件能下载不代表主体正确。Google 评分查不到可以省略，不编造动态开放时间与价格。
-
-## 模板与隐私
-
-当前模板是中性组件框架，不附带个人订单、目的地实拍照片、字体文件或地图缓存。旧版兼容模板保留公开的巴厘岛编辑示例，不能作为新目的地事实来源。用户生成的数据和图片不属于本项目示例。
-
-问卷默认存储在本机浏览器。共享部署为可选功能，需要用户授权并配置自己的 Cloudflare 资源。发布前会询问是否设置访问码保护隐私，已有明确选择则沿用；共享后的账目与附件按部署方式保存，不应再视为仅本地数据。
-
-## 检查与开发
-
-以下是维护检查，不是安装前置条件；宿主要求的安全审查仍需执行。Python 测试用 `python -m unittest discover -s scripts -p "test_*.py"` 统一运行，不要逐个裸跑需要参数的辅助脚本。PowerShell 启动器受策略限制时使用已验证的 Python 直接运行，不绕过执行策略。历史目的地浏览器测试不随 ZIP 分发；路线几何测试使用合成图片，不依赖旧目的地素材。
-
-```text
-python scripts/audit_skill_consistency.py
-python scripts/test_content_integrity.py
-python scripts/test_public_release.py
-node scripts/test_online_route_map.cjs
-node scripts/test_cloud_currencies.cjs
-```
-
-自动检查不能代替图片主体核实或浏览器交互检查。检查记录必须对应实际输出；浏览器不可用时只能交付明确标注的预览。
+问卷内容默认保存在本机浏览器。仓库不包含个人订单、私人旅行手册或云端访问凭据。云端分享为可选功能，部署时可使用访问码保护手册及共享资料。
 
 ## 许可
 
