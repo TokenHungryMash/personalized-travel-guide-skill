@@ -1,0 +1,160 @@
+/* Keep Tokyo's editorial pairing; give practical text a clear scale. */
+:root{--paper:#fffefa;--soft:#f1f0e8;--accent:#8d442c;--dark:#263f34;--line:#cac9bd;--type-section:clamp(32px,3.6vw,48px);--type-place:24px;--type-label:20px}
+.cover .film-title h1{font-size:clamp(112px,20vw,276px);letter-spacing:-.055em}
+.film-shade{background:linear-gradient(180deg,#102c2c66,#102c2c10 35%,#102c2cbf)}
+.district:nth-of-type(even){background:transparent}
+.reading-columns{gap:32px}
+.reading-columns h3{margin-bottom:20px}
+.colophon a{overflow-wrap:anywhere}
+.day-tabs{grid-template-columns:repeat(8,minmax(0,1fr))}
+.section-head h2{font-size:var(--type-section)}
+.heading-phrase{display:inline-block;max-width:100%}
+.section-deck p:not(.section-english){text-wrap:pretty}
+.editorial-table h4,.reading-columns h3,.subheading h3,h3.subheading,.check-columns h3,.day-aside h3{font:700 var(--type-label)/1.6 var(--font-body);letter-spacing:0}
+.timeline-item h4,.address-card h3{font:700 var(--type-place)/1.5 var(--font-body);letter-spacing:0;text-wrap:pretty;overflow-wrap:break-word}
+.place-open strong{font:700 16px/1.6 var(--font-body);white-space:normal;overflow:visible;text-overflow:clip}
+.day-title{line-height:1.4}
+.district-copy h4{line-height:1.5}
+.free-time{padding:13px 0;font-size:16px;border-bottom:1px solid var(--line);line-height:1.8}
+.editorial-table p,.reading-columns p{max-width:42em}
+@media(max-width:600px){
+ :root{--type-section:30px;--type-place:21px;--type-label:19px}
+ body{font-size:16px}
+ .cover .film-title h1{font-size:clamp(96px,26vw,156px)}
+ .cover .film-title h1 span{font-size:34px;letter-spacing:.12em}
+ .film-title{padding-bottom:30px}
+ .film-bottom>p{font-size:15px}
+ .film-edition{font-size:11px}
+ .map-caption{font-size:14px}
+ .section-head h2{line-height:1.45;letter-spacing:0;text-wrap:balance}
+ .section-deck .section-english{font-size:13px;letter-spacing:.04em}
+ .cover-intro h2{font-size:32px;line-height:1.5}
+ .cover-intro .lead{font-size:20px;line-height:1.8}
+ .district-copy p,.editorial-table p,.timeline-item p,.address-card>p,.aside-note p{font-size:16px;line-height:1.85}
+ .place-open strong{font-size:16px}
+ .day-title{font-size:28px;line-height:1.45}
+ .note-fold summary h3{font-size:23px}
+ input,textarea,select{font-size:16px}
+}
+
+/* Whole-book editorial review: a large English chapter face, calm Chinese reading. */
+:root{--chapter-gap:112px;--panel-gap:40px;--line:#c9c9bd}
+.chapter{padding-top:var(--chapter-gap)}
+.section-head{margin-bottom:48px}
+.folio{display:flex;justify-content:space-between;gap:20px;padding-top:18px;font-size:12px;letter-spacing:.08em}
+.folio span:last-child{font-size:11px;letter-spacing:.06em}
+.section-head h2{padding:28px 0 0;text-wrap:initial}
+.section-display{display:block;font:900 clamp(48px,7.2vw,96px)/.98 var(--font-display);letter-spacing:-.045em;color:var(--ink);text-wrap:balance;overflow-wrap:normal}
+.section-chinese{display:block;font:400 clamp(28px,2.5vw,34px)/1.5 var(--font-serif);letter-spacing:0;margin-top:24px}
+.section-summary{font-size:16px;line-height:1.85;max-width:47em;margin-top:16px;padding-bottom:28px;border-bottom:1px solid var(--ink);text-wrap:pretty}
+.section-head:after{content:'';display:block;border-bottom:1px solid var(--ink);margin-top:-1px}
+.district{padding-top:0}
+.district+.district{margin-top:88px}
+.district-title{padding-block:24px;grid-template-columns:54px minmax(0,1fr) auto}
+.district-title>span{font:800 30px/1 var(--font-display);color:var(--ink)}
+.district-title h3{font-size:34px}
+.district-title p{font:800 14px/1.4 var(--font-display);letter-spacing:.03em;color:var(--ink)}
+.district figure img{height:auto;aspect-ratio:2.25;outline:1px solid #00000014;outline-offset:-1px}
+.district .photo-craft img{aspect-ratio:2.77;object-position:center}
+.district .photo-jimbaran img{object-position:50% 60%}
+.district .photo-sanur img{object-position:50% 52%}
+.district-copy{padding-block:30px 28px}
+#area-ubud,#area-uluwatu{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);column-gap:48px}
+#area-ubud .district-title,#area-uluwatu .district-title,#area-ubud .shortlist,#area-uluwatu .shortlist{grid-column:1/-1}
+#area-ubud figure img,#area-uluwatu figure img{height:100%;aspect-ratio:4/3;min-height:430px}
+#area-ubud .district-copy,#area-uluwatu .district-copy{display:block;padding-top:0}
+#area-ubud .district-copy>p,#area-uluwatu .district-copy>p{margin-top:22px}
+#area-ubud .district-copy aside,#area-uluwatu .district-copy aside{border:0;border-top:1px solid var(--line);padding:20px 0 0;margin-top:24px;display:grid;grid-template-columns:64px 1fr;gap:12px}
+#area-ubud .district-copy aside p,#area-uluwatu .district-copy aside p{margin:0}
+#area-ubud .shortlist,#area-uluwatu .shortlist{margin-top:28px}
+.food-feature,.culture-split{gap:48px;align-items:center;margin-bottom:48px}
+.food-feature img{height:auto;aspect-ratio:1.25;object-position:center}
+.culture-split img{height:auto;aspect-ratio:1.25}
+.shopping-feature{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:48px;align-items:center;margin-bottom:48px}
+.shopping-feature img{height:auto;aspect-ratio:2.2;object-position:center;outline:1px solid #00000014;outline-offset:-1px}
+.shopping-feature h3{font:400 30px/1.55 var(--font-serif);margin-bottom:20px}
+.shopping-feature p{font-size:16px;line-height:1.85}
+.day-tabs{gap:0;border-block:1px solid var(--ink);margin-bottom:36px}
+.day-tabs button{border:0;min-height:108px;padding:16px 8px;background:transparent}
+.day-tabs button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.day-tabs span{font:800 36px/1 var(--font-display);display:block;letter-spacing:-.03em}
+.day-tabs small{margin-top:10px;font-size:13px}
+.day-layout>.day-aside{padding-top:0}
+.day-aside img{height:auto;aspect-ratio:1.5;object-position:center}
+.day-aside article{padding-block:24px}
+.day-aside h4{font-size:16px}
+.day-layout>div>.kicker{font:800 16px/1.4 var(--font-display);letter-spacing:.04em;color:var(--ink)}
+.timeline-item{padding-block:28px;grid-template-columns:64px minmax(0,1fr)}
+.timeline-item time{font:800 20px/1.5 var(--font-display);color:var(--accent)}
+.editorial-table article{padding-block:28px}
+.gift-grid,.four-notes,.reservation-grid{row-gap:32px}
+.gift-grid article>span,.four-notes article>span{font:800 36px/1 var(--font-display);color:var(--ink);margin-bottom:18px}
+.directory-grid{column-gap:40px;row-gap:24px}
+.address-card{padding-block:24px}
+.address-meta{letter-spacing:.025em}
+.note-fold summary{padding-block:26px}
+.note-fold summary h3{font-size:26px}
+#prepare>.reading-columns{padding:28px;background:var(--soft);margin-bottom:36px}
+.emergency-strip{grid-template-columns:200px minmax(0,1fr);gap:32px;background:var(--soft);border:0;margin-bottom:28px}
+.emergency-strip strong{font:700 24px/1.5 var(--font-body)}
+#tools>.tool-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+#tools>.tool-links>*{justify-content:space-between;padding:20px 16px}
+#tools textarea{min-height:180px;background:var(--soft)}
+@media(max-width:900px){
+ :root{--chapter-gap:80px}
+ #area-ubud,#area-uluwatu{display:block}
+ #area-ubud figure img,#area-uluwatu figure img{height:auto;aspect-ratio:1.7;min-height:0}
+ #area-ubud .district-copy,#area-uluwatu .district-copy{padding-top:24px}
+ .shopping-feature{gap:28px}
+ .day-tabs span{font-size:30px}
+}
+@media(max-width:600px){
+ :root{--chapter-gap:72px;--panel-gap:28px}
+ .section-head{margin-bottom:32px}
+ .folio{font-size:10px;letter-spacing:.035em;gap:12px}
+ .folio span:last-child{font-size:9px;max-width:100px;text-align:right}
+ .section-head h2{padding-top:24px}
+ .section-display{font-size:clamp(38px,11vw,60px);line-height:1;letter-spacing:-.035em;text-wrap:balance}
+ .section-chinese{font-size:26px;margin-top:20px;line-height:1.5}
+ .section-summary{font-size:16px;margin-top:14px;padding-bottom:24px}
+ .district+.district{margin-top:60px}
+ .district-title{grid-template-columns:34px minmax(0,1fr);padding-block:20px;gap:8px 12px}
+ .district-title>span{font-size:25px}
+ .district-title h3{font-size:27px}
+ .district-title p{font-size:12px;grid-column:2}
+ .district figure img{aspect-ratio:1.45;height:auto}
+ .district .photo-craft img{aspect-ratio:2.3}
+ .district-copy{padding-block:24px}
+ .district-copy h4{font-size:24px}
+ .shopping-feature,.food-feature,.culture-split{grid-template-columns:1fr;gap:24px;margin-bottom:32px}
+ .shopping-feature h3,.food-feature h3,.culture-split h3{font-size:27px;margin-bottom:18px}
+ .food-feature img,.culture-split img{height:auto;aspect-ratio:1.35}
+ .shopping-feature img{aspect-ratio:2.2}
+ .day-tabs{gap:0;padding:0;margin-bottom:28px;scroll-snap-type:x proximity}
+ .day-tabs button{flex:0 0 86px;min-height:92px;scroll-snap-align:start;border-right:1px solid var(--line)}
+ .day-tabs span{font-size:30px}
+ .day-tabs small{font-size:12px;margin-top:8px}
+ .timeline-item{grid-template-columns:52px minmax(0,1fr);gap:16px;padding-block:24px}
+ .timeline-item time{font-size:17px}
+ .day-aside img{aspect-ratio:1.5;height:auto}
+ .directory-grid{gap:16px}
+ .gift-grid{grid-template-columns:1fr}
+ .note-fold summary h3{font-size:23px}
+ #prepare>.reading-columns{padding:24px 20px}
+ .emergency-strip{grid-template-columns:1fr;gap:16px;padding:24px 20px}
+ .emergency-strip p{grid-column:auto}
+ #tools>.tool-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ #tools>.tool-links>*{white-space:normal;padding:16px 12px;font-size:14px;text-align:left}
+}
+/* Preserve the artwork's complete composition; no arbitrary crop. */
+#area-ubud figure img,#area-uluwatu figure img,.culture-split .photo-ubud img{height:auto;min-height:0;aspect-ratio:auto}
+.section-summary{border-bottom:0}
+.section-head:after{margin-top:0}
+.stay-notes{margin-top:32px}
+.stay-notes .editorial-table article{display:block;padding-block:22px}
+.stay-notes .editorial-table h4{font:700 17px/1.6 var(--font-body);margin-bottom:10px}
+.stay-notes .editorial-table p{font-size:14px;line-height:1.85}
+@media(max-width:900px){.stay-notes{grid-column:1/-1}.stay-notes .editorial-table{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}}
+@media(max-width:600px){.stay-notes .editorial-table{display:block}.stay-notes .editorial-table p{font-size:16px}.stay-notes .editorial-table h4{font-size:18px}}
+.place-photo{margin:0 0 20px;min-width:0}.place-photo img{width:100%;height:auto;aspect-ratio:1.6;object-fit:cover;cursor:zoom-in}.place-photo figcaption{font-size:11px;line-height:1.6;color:var(--muted);margin-top:8px;font-weight:400}.place-photo.compact{max-width:360px;margin-bottom:18px}.address-card .place-photo{width:100%}#place-detail>.place-photo img{aspect-ratio:1.8;max-height:340px}.atlas-pin{overflow:visible}.atlas-pin-name{position:absolute;left:36px;top:50%;transform:translateY(-50%);font:700 12px/1.5 var(--font-body);white-space:nowrap;background:#fffefaed;color:#263f34;padding:3px 6px;max-width:150px;border-radius:2px;box-shadow:0 1px 3px #00000012}.atlas-pin-name.label-left{left:auto;right:36px}.atlas-pin-name{pointer-events:none}
+@media(max-width:600px){.atlas-pin-name{font-size:10px;max-width:100px;white-space:normal;text-align:left;line-height:1.35;padding:3px 4px;left:33px}.atlas-pin-name.label-left{left:auto;right:33px}.place-photo.compact{max-width:none}.place-photo figcaption{font-size:11px}}

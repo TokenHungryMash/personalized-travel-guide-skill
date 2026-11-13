@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "旅行杂志 content.json",
+  "description": "字段结构契约；跨文件 ID、日程键和索引上限由 validate_edition.py 检查。",
+  "type": "object",
+  "required": ["places", "days", "areas", "sources"],
+  "properties": {
+    "places": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/place"}},
+    "days": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/day"}},
+    "areas": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/area"}},
+    "sources": {"type": "object", "additionalProperties": {"$ref": "#/$defs/url"}}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "strings": {"type": "array", "items": {"type": "string"}},
+    "clock": {"type": "string", "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$"},
+    "url": {"type": "string", "pattern": "^https?://[^/\\s]+(?:[/\\?#][^\\s]*)?$", "description": "官方、可信资料或明确标注的地图搜索链接；地图链接不证明营业/预约事实。"},
+    "ids": {"type": "array", "items": {"$ref": "#/$defs/text"}, "uniqueItems": true},
+    "place": {
+      "type": "object",
+      "required": ["id", "name", "local", "area", "kind", "where", "duration", "desc", "tip", "url"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"}, "name": {"$ref": "#/$defs/text"},
+        "local": {"$ref": "#/$defs/text"}, "area": {"$ref": "#/$defs/text"},
+        "kind": {"$ref": "#/$defs/text"}, "where": {"$ref": "#/$defs/text"},
+        "duration": {"$ref": "#/$defs/text"}, "desc": {"$ref": "#/$defs/text"},
+        "tip": {"$ref": "#/$defs/text"}, "walk": {"type": "string"}, "query": {"type": "string"},
+        "url": {"$ref": "#/$defs/url"},
+        "urlKind": {"enum": ["official", "source", "map"], "description": "建议明确链接用途。"},
+        "identityScope": {"enum": ["venue", "area"], "default": "venue", "description": "area 仅用于地点本身就是街区/区域；具体场馆不得借此放宽图片身份。"}
+      }
+    },
+    "area": {
+      "type": "object", "required": ["id", "name", "en", "photo", "route", "tip", "ids", "day"],
+      "properties": {
+        "id": {"$ref": "#/$defs/text"}, "name": {"$ref": "#/$defs/text"},
+        "en": {"$ref": "#/$defs/text"}, "route": {"$ref": "#/$defs/text"}, "tip": {"$ref": "#/$defs/text"},
+        "deck": {"type": "string"}, "body": {"type": "string"}, "words": {"$ref": "#/$defs/strings"},
+        "photo": {"$ref": "#/$defs/text"}, "ids": {"$ref": "#/$defs/ids"},
+        "day": {"type": "integer", "minimum": 0, "default": 0, "description": "0-based：0=第1天，1=第2天，最大值 days.length-1；不会自动减1。"}
+      }
+    },
+    "schedule": {
+      "type": "object", "required": ["time", "duration"],
+      "properties": {
+        "time": {"$ref": "#/$defs/clock"},
+        "duration": {"type": "number", "minimum": 0}, "guard": {"type": "string"}
+      }
+    },
+    "transfer": {
+      "type": "object", "required": ["minutes", "label"],
+      "properties": {"minutes": {"type": "number", "minimum": 0}, "label": {"$ref": "#/$defs/text"}}
+    },
+    "photoPlan": {
+      "type": "object", "required": ["time", "placeId", "title", "light", "composition", "portrait", "settings"],
+      "description": "提供摄影方案时校验字段形状；是否必需、条数与正文量由内容门槛单独检查。",
+      "properties": {
+        "time": {"type": "string"}, "placeId": {"$ref": "#/$defs/text"}, "title": {"type": "string"},
+        "light": {"type": "string"}, "composition": {"type": "string"}, "portrait": {"type": "string"}, "settings": {"type": "string"}
+      }
+    },
+    "alternative": {
+      "type": "object", "required": ["trigger", "title", "replace", "time", "traffic", "check", "route"],
+      "properties": {
+        "trigger": {"$ref": "#/$defs/text"}, "title": {"$ref": "#/$defs/text"}, "replace": {"$ref": "#/$defs/text"},
+        "time": {"$ref": "#/$defs/text"}, "traffic": {"$ref": "#/$defs/text"}, "check": {"$ref": "#/$defs/text"},
+        "route": {"$ref": "#/$defs/ids"}
+      }
+    },
+    "day": {
+      "type": "object", "required": ["id", "area", "title", "lead", "move", "guard", "budget", "photo", "periods", "shopping", "stops", "schedules"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^d[1-9][0-9]*$"},
+        "area": {"$ref": "#/$defs/text"}, "title": {"$ref": "#/$defs/text"}, "lead": {"type": "string"},
+        "move": {"type": "string"}, "guard": {"type": "string"}, "budget": {"type": "string"}, "photo": {"type": "string"},
+        "periods": {"type": "array", "maxItems": 3, "items": {"type": "string"}, "description": "按上午、下午、晚间顺序展示，最多三段。"},
+        "shopping": {"$ref": "#/$defs/strings"}, "shooting": {"$ref": "#/$defs/strings"},
+        "image": {"type": "string"}, "start": {"$ref": "#/$defs/clock"}, "scheduleNote": {"type": "string"},
+        "photoExceptionReason": {"type": "string"},
+        "stops": {"type": "array", "minItems": 1, "items": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"$ref": "#/$defs/text"}}},
+        "gentle": {"$ref": "#/$defs/ids"}, "rain": {"$ref": "#/$defs/ids"},
+        "dining": {"$ref": "#/$defs/ids", "description": "当天用餐候选；必须引用当期 restaurant_groups 中的真实地点，不改变路线 stops。"},
+        "schedules": {"type": "object", "required": ["standard"], "properties": {
+          "standard": {"type": "object", "description": "键必须恰好等于本日 stops 的地点 ID，不多不少；键顺序无要求。", "additionalProperties": {"$ref": "#/$defs/schedule"}}
+        }},
+        "transfers": {"type": "object", "additionalProperties": {"$ref": "#/$defs/transfer"}},
+        "photoPlan": {"type": "array", "items": {"$ref": "#/$defs/photoPlan"}},
+        "alternatives": {"type": "array", "items": {"$ref": "#/$defs/alternative"}}
+      },
+      "allOf": [{
+        "if": {"required": ["stops"], "properties": {"stops": {"type": "array", "minItems": 2}}},
+        "then": {"required": ["transfers"], "description": "多站日的日程引擎直接读取 transfers；允许空对象，由交通内容校验决定是否还缺衔接。"}
+      }]
+    }
+  }
+}

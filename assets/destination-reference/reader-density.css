@@ -1,0 +1,61 @@
+/* Practical chapters are compact; the photographic spreads keep their scale. */
+:root{--reader-height:44px;--reader-offset:calc(var(--masthead-height) + var(--reader-height) + 12px)}
+/* Offset content targets, not the root viewport: focusing a sticky control must
+   not make the browser scroll the article to clear its own navigation bar. */
+html:has(body.overprint-edition){scroll-padding-top:0}
+.overprint-edition main :is(section,article,div,nav,header,details,label,h3)[id]{scroll-margin-top:var(--reader-offset)}
+.overprint-edition main #day-view{scroll-margin-top:calc(var(--masthead-height) + var(--reader-height))}
+.overprint-edition .reading-actions{height:var(--reader-height);gap:24px}
+.overprint-edition .reading-actions .reading-position{flex:0 1 auto;min-height:44px;max-width:38%}
+.context-shell{position:relative;display:flex;min-width:0;max-width:72%;margin-left:auto;align-items:stretch}
+.overprint-edition .reading-actions .reading-shortcuts.context-scroll{display:flex;gap:5px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;min-width:0;max-width:100%;width:auto;padding:0 1px;align-items:stretch}
+.context-scroll::-webkit-scrollbar{display:none}
+.overprint-edition .context-scroll :is(a,button){position:relative;display:inline-flex;flex:none;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 12px;border:0;border-radius:0;background:none;white-space:nowrap;font:500 12px/1.5 var(--font-body);color:var(--muted);text-decoration:none}
+.overprint-edition .context-scroll :is(a,button):hover{color:var(--ink);background:var(--soft)}
+.overprint-edition .context-scroll .is-current{color:var(--accent);background:#e9dfcf;box-shadow:inset 0 -2px var(--accent)}
+.overprint-edition .context-scroll a:after{display:none}
+.context-short{display:none}.context-shell.has-more{padding-right:30px}
+.overprint-edition .context-more{position:absolute;right:0;top:0;width:30px;height:44px;padding:0;border:0;background:var(--paper);color:var(--ink);font:400 27px/1 var(--font-display);box-shadow:-8px 0 10px var(--paper)}
+.overprint-edition .context-more[hidden]{display:none}
+.overprint-edition .chapter{margin-top:40px;padding-top:0;padding-bottom:8px;scroll-margin-top:12px}
+.overprint-edition .chapter>.section-head{padding-bottom:18px;margin-bottom:22px}
+.overprint-edition .chapter>.section-head .folio{margin-bottom:14px;font-size:10px}
+.overprint-edition .chapter>.section-head h2{gap:20px}
+.overprint-edition .chapter>.section-head h2{padding:0}
+.overprint-edition .chapter>.section-head .folio{padding-top:10px}
+.overprint-edition .chapter>.section-head .section-summary{padding:0}
+.overprint-edition .chapter>.section-head .section-display{font-size:clamp(38px,3.8vw,56px);line-height:1}
+.overprint-edition .chapter>.section-head .section-chinese{font-size:24px;line-height:1.4}
+.overprint-edition .chapter>.section-head .section-summary{font-size:14px;line-height:1.75;margin-top:14px;max-width:65em}
+.overprint-edition .reader-target,.overprint-edition #day-view{scroll-margin-top:12px}
+.overprint-edition #day-tabs{padding:4px 0;gap:4px}
+.overprint-edition #day-tabs button{padding:8px 12px;min-width:92px;min-height:52px}
+.overprint-edition #day-tabs button>span{font-size:23px}.overprint-edition #day-tabs button>small{margin-top:3px;font-size:11px}
+.overprint-edition .day-opening{padding-block:22px;gap:20px}
+.overprint-edition .day-folio>b{font-size:64px}.overprint-edition .day-opening .day-title{font-size:30px;line-height:1.5}
+.overprint-edition .day-opening-copy>p:last-child{margin-block:10px 0;font-size:15px;line-height:1.8}
+.overprint-edition .day-facts b{font-size:24px}.overprint-edition .day-facts{gap:18px}
+.overprint-edition .schedule-panel{padding-block:16px;margin-bottom:12px}
+.overprint-edition .schedule-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px}.overprint-edition .schedule-heading h4{margin:0}.overprint-edition .schedule-heading>span{font-size:10px;white-space:nowrap}
+.overprint-edition .day-layout{padding-top:12px}.overprint-edition .route-fold{margin-block:12px}
+.overprint-edition .schedule-heading h4{font-size:19px}.overprint-edition .schedule-panel>p{margin-block:8px;font-size:13px;line-height:1.7}
+.overprint-edition .route-fold>summary{padding-block:13px;min-height:44px}
+.overprint-edition .timeline-item{padding-block:22px}.overprint-edition .stop-heading h4{font-size:25px}.overprint-edition .stop-description{line-height:1.85}.overprint-edition .stop-advice{line-height:1.8}
+.overprint-edition .day-aside{padding-top:16px}.overprint-edition .day-aside article{margin-bottom:20px}.overprint-edition .day-aside p{line-height:1.85}
+.overprint-edition .editorial-table article{padding-block:17px}.overprint-edition .restaurant-pick>summary{padding-block:15px;min-height:60px}.overprint-edition .note-fold>summary{padding-block:15px;min-height:58px}
+.overprint-edition #place-results .address-card{padding-block:20px!important}
+.destination-edition.overprint-edition #cover.overprint-cover{height:calc(100svh - var(--masthead-height) - var(--reader-height))}
+@media(min-width:1000px){.overprint-edition .day-opening{grid-template-columns:90px minmax(0,1fr) 245px;align-items:start;gap:26px}.overprint-edition .day-facts{grid-column:3;grid-row:1;display:flex;flex-wrap:wrap;align-items:start;gap:15px;padding:4px 0 0 24px;border-top:0;border-left:1px solid var(--line)}.overprint-edition .day-facts>button{width:100%;margin:0;min-height:44px}}
+@media(max-width:900px){.overprint-edition .reading-actions .position-caption{display:none}.context-shell{max-width:70%}.overprint-edition .context-scroll :is(a,button){padding-inline:10px}}
+@media(max-width:700px){
+ :root{--reader-height:44px;--reader-offset:calc(var(--masthead-height) + var(--reader-height) + 12px)}
+ .overprint-edition .reading-actions{gap:12px}.overprint-edition .reading-actions .reading-position{flex:0 1 40%;max-width:40%;gap:5px}.overprint-edition #reading-location{font-size:11px}.context-shell{flex:1;max-width:65%}.overprint-edition .reading-actions .reading-shortcuts.context-scroll{gap:3px}
+ .overprint-edition .context-scroll :is(a,button){font-size:12px;padding-inline:9px;min-width:40px}.context-long{display:none}.context-short{display:inline;font:500 15px/1 var(--font-display)}.context-shell.has-more{padding-right:26px}.overprint-edition .context-more{width:26px}
+ .overprint-edition .chapter{margin-top:30px;padding-top:0;padding-bottom:6px}.overprint-edition .chapter>.section-head{padding-bottom:16px;margin-bottom:18px}.overprint-edition .chapter>.section-head .folio{font-size:8px;margin-bottom:12px}
+ .overprint-edition .chapter>.section-head .section-display{font-size:clamp(30px,8.7vw,44px)}.overprint-edition .chapter>.section-head .section-chinese{font-size:23px;margin-top:10px}.overprint-edition .chapter>.section-head .section-summary{font-size:14px;line-height:1.75;margin-top:12px}
+ .overprint-edition #day-tabs button{min-width:80px;padding:7px 9px}.overprint-edition #day-tabs button>span{font-size:22px}.overprint-edition #day-tabs button>small{font-size:10px}
+ .overprint-edition .day-opening{padding-block:19px;gap:14px;grid-template-columns:48px minmax(0,1fr)}.overprint-edition .day-folio>b{font-size:46px}.overprint-edition .day-opening .day-title{font-size:25px;line-height:1.45}.overprint-edition .day-opening-copy>p:last-child{font-size:14px;line-height:1.8}.overprint-edition .day-facts{gap:16px}.overprint-edition .day-facts b{font-size:22px}
+ .overprint-edition .timeline-item{padding-block:20px}.overprint-edition .stop-heading h4{font-size:24px}.overprint-edition #place-results .address-card{padding-block:18px!important}.overprint-edition .editorial-table article{padding-block:16px}
+ .overprint-edition .day-opening{grid-template-columns:1fr;gap:14px}.overprint-edition .day-folio{display:none}.overprint-edition .day-opening-copy{grid-column:1}.overprint-edition .day-facts{grid-column:1;display:flex;align-items:center;gap:16px;padding-top:14px}.overprint-edition .day-facts>span{font-size:10px}.overprint-edition .day-facts>button{width:auto;margin-left:auto;min-height:44px;font-size:11px;padding:8px 10px}.overprint-edition .day-facts b{font-size:21px}.overprint-edition .day-layout{padding-top:8px}.overprint-edition .schedule-panel{padding-block:12px;margin-bottom:8px}.overprint-edition .schedule-heading h4{font-size:18px}.overprint-edition .schedule-heading>span{font-size:9px}.overprint-edition .schedule-panel>p{font-size:12px;line-height:1.75}.overprint-edition .day-opening-copy>p.kicker{margin:0 0 9px}
+}
+@media(max-width:360px){.overprint-edition .day-facts{gap:10px}.overprint-edition .day-facts b{font-size:19px}.overprint-edition .day-facts>button{font-size:10px;padding:8px}.overprint-edition .schedule-heading{gap:5px}.overprint-edition .schedule-heading h4{font-size:16px}}

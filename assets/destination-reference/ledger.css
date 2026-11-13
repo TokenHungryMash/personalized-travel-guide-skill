@@ -1,0 +1,14 @@
+.ledger-controls{margin:24px 0 12px;padding-top:18px;border-top:1px solid var(--line)}
+.ledger-filter-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ledger-wide{grid-column:1/-1}.ledger-currency-totals b{font-size:26px;overflow-wrap:anywhere}
+.ledger-currency-settlement{border-top:1px solid var(--line);padding:12px 0}
+.ledger-transfer{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.destination-edition #ledger-dialog .expense-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;border-bottom:1px solid var(--line);padding:16px 0}
+.destination-edition #ledger-dialog .expense-row>div:last-child{grid-column:1/-1;display:flex;gap:18px}
+.destination-edition #ledger-dialog .expense-row small{display:block;overflow-wrap:anywhere;line-height:1.7}
+.destination-edition #ledger-dialog .expense-row b{font-size:15px;overflow-wrap:anywhere}
+.destination-edition #ledger-dialog input,.destination-edition #ledger-dialog select{min-width:0;width:100%;font-size:16px}
+.destination-edition #ledger-dialog input[type=checkbox]{width:auto}
+.destination-edition #ledger-dialog form>button{margin:10px 10px 0 0}
+.destination-edition #ledger-dialog :is(.form-grid,.ledger-filter-row)>label{min-width:0}
+@media(max-width:600px){.destination-edition #ledger-dialog .expense-row{grid-template-columns:minmax(0,1fr)}.ledger-currency-totals b{font-size:23px}.ledger-filter-row{grid-template-columns:repeat(2,minmax(0,1fr))}}

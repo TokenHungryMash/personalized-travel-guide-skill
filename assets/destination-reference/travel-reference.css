@@ -1,0 +1,98 @@
+/* Preparation, language and dining keep the magazine's paper and editorial rhythm. */
+.restaurant-group>header>p:not(.kicker){font:400 15px/1.8 var(--font-body);color:var(--muted);margin-top:12px;max-width:42ch}
+.preparation-stages{display:grid;gap:30px}.preparation-stage>header{display:flex;gap:20px;align-items:baseline;border-bottom:2px solid var(--ink);padding:16px 0}.preparation-stage>header>span{font:500 32px/1 var(--font-display);color:var(--accent)}.preparation-stage h3{font:400 26px/1.4 var(--font-serif);margin:0}.preparation-task{border-bottom:1px solid var(--line);padding:15px 0}.preparation-task .check-row{border:0;padding:0;display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:start;min-height:32px}.preparation-task .check-row small{font:400 12px/1.8 var(--font-body);color:var(--accent);white-space:nowrap}.preparation-detail{margin-left:34px}.preparation-detail>p{font-size:15px;line-height:1.8;margin:6px 0 0}.preparation-detail .editorial-source-links{font-size:12px}
+.pocket-quicklinks{display:flex;gap:12px;margin-bottom:14px}.pocket-quicklinks button{flex:1;min-height:44px;padding:9px 12px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-size:13px}.pocket-dining>summary{display:flex;align-items:center;justify-content:space-between;gap:12px}.pocket-dining>summary small{font-size:12px;color:var(--accent)}.dining-shortlist>button{width:100%;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:5px;padding:14px 0;border:0;border-top:1px solid var(--line);background:none;color:var(--ink)}.dining-shortlist strong{font-size:15px;line-height:1.7}.dining-shortlist span{font-size:13px;line-height:1.7}.dining-shortlist small{font-size:12px;line-height:1.7;color:var(--muted)}.reference-all{min-height:44px;padding:10px 0;border:0;border-bottom:1px solid var(--ink);background:none;color:var(--accent);font-size:13px}
+.travel-reference-dialog{width:min(900px,calc(100vw - 40px));max-width:none;max-height:90dvh;padding:0;background:var(--paper);color:var(--ink);border:1px solid var(--line);overflow:hidden}.travel-reference-dialog[open]{display:flex;flex-direction:column}.travel-reference-dialog>.dialog-head{flex-shrink:0;background:#263f35;color:#f9f2de;padding:16px 24px}.travel-reference-dialog .dialog-head :is(h2,p,button){color:inherit}.travel-reference-dialog .dialog-head h2{font:400 25px/1.4 var(--font-serif);margin:0}.travel-reference-dialog .dialog-head p{font-size:11px;margin:0 0 5px}.travel-reference-nav{display:flex;flex-shrink:0;border-bottom:1px solid var(--line);padding-inline:24px}.travel-reference-nav button{flex:1;min-height:44px;padding:10px 0;border:0;border-bottom:3px solid transparent;background:none;color:var(--ink);font-size:14px}.travel-reference-nav button[aria-pressed=true]{border-bottom-color:var(--accent);font-weight:700}#travel-reference-body{overflow:auto;overscroll-behavior:contain;padding:22px 24px;min-height:0;scroll-padding-top:18px}.reference-scope{font-size:13px;line-height:1.8;color:var(--muted)}.travel-reference-dialog .restaurant-group{grid-template-columns:minmax(0,1fr);gap:14px;padding-block:22px}.travel-reference-dialog .restaurant-group header h3{font-size:25px}.travel-reference-dialog .restaurant-guide-head{display:none}.travel-reference-dialog .check-summary{gap:14px}.travel-reference-dialog .check-summary button{white-space:nowrap}
+/* One scene, one reading area. Same controls and paper in the magazine and travel mode. */
+.language-workbench{padding-top:32px;margin-top:30px;border-top:2px solid var(--ink);color:var(--ink);container-type:inline-size}
+.language-workbench [hidden]{display:none!important}
+.language-workbench .lwb-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:0 0 22px}
+.language-workbench .lwb-head h3{font:400 30px/1.4 var(--font-serif);margin:0 0 6px}
+.language-workbench .lwb-head p{font:400 15px/1.7 var(--font-body);color:var(--muted);margin:0}
+.language-workbench button{min-height:44px;white-space:normal;letter-spacing:0;box-shadow:none;transition:background-color .16s,color .16s}
+.language-workbench .lwb-languages{display:flex;flex-shrink:0;align-items:stretch;border:1px solid var(--line);padding:3px;gap:3px}
+.language-workbench .lwb-languages button{border:0;padding:7px 16px;background:transparent;color:var(--ink);font:500 15px/1.4 var(--font-body)}
+.language-workbench .lwb-languages button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.language-workbench .lwb-layout{display:grid;grid-template-columns:160px minmax(0,1fr);gap:32px}
+.language-workbench .lwb-scenes{display:flex;flex-direction:column;align-self:start;border-top:1px solid var(--ink)}
+.language-workbench .lwb-scenes button{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 10px;border:0;border-bottom:1px solid var(--line);background:transparent;font:500 16px/1.4 var(--font-body);text-align:left;color:var(--ink)}
+.language-workbench .lwb-scenes button>span{visibility:hidden;color:var(--accent)}
+.language-workbench .lwb-scenes button[aria-pressed=true]{background:var(--soft);box-shadow:inset 3px 0 0 var(--accent);color:var(--accent)}
+.language-workbench .lwb-scenes button[aria-pressed=true]>span{visibility:visible}
+.language-workbench .lwb-views{display:flex;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);gap:20px;margin:0}
+.language-workbench .lwb-views button{display:flex;align-items:center;gap:7px;padding:12px 2px;border:0;border-bottom:3px solid transparent;background:transparent;color:var(--muted);font:500 16px/1.4 var(--font-body);margin-bottom:-1px}
+.language-workbench .lwb-views button small{font:400 13px/1 var(--font-body)}
+.language-workbench .lwb-views button[aria-pressed=true]{border-bottom-color:var(--accent);color:var(--ink)}
+.language-workbench .lwb-phrases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 30px}
+.language-workbench .phrase-card{min-width:0;padding:12px 0 10px;border:0;border-bottom:1px solid var(--line)}
+.language-workbench .phrase-card .phrase{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:5px 10px;width:100%;padding:0;border:0;background:none;text-align:left;color:var(--ink);border-radius:0}
+.language-workbench .phrase-card .phrase:hover{background:var(--soft)}
+.language-workbench .phrase .phrase-intent{display:block;font:500 16px/1.6 var(--font-body);margin:0}
+.language-workbench .phrase .phrase-action{display:block;font:500 14px/1.6 var(--font-body);margin:0;color:var(--accent);white-space:nowrap}
+.language-workbench .phrase .phrase-target{grid-column:1/-1;display:block;margin:0;font:400 19px/1.6 var(--font-body);overflow-wrap:anywhere}
+.language-workbench .phrase .phrase-target>span{font:inherit;line-height:inherit;color:inherit;margin:0}
+.language-workbench .phrase-help,.language-workbench .phrase-fields{border:0;margin:4px 0 0;padding:0}
+.language-workbench :is(.phrase-help,.phrase-fields)>summary{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:44px;padding:7px 0;list-style:none;font:400 14px/1.5 var(--font-body);color:var(--muted);cursor:pointer}
+.language-workbench :is(.phrase-help,.phrase-fields)>summary::-webkit-details-marker{display:none}
+.language-workbench :is(.phrase-help,.phrase-fields)>summary::after{content:'＋';color:var(--accent);font-size:18px}
+.language-workbench :is(.phrase-help,.phrase-fields)[open]>summary::after{content:'−'}
+.language-workbench .phrase-help p{font:400 15px/1.75 var(--font-body);color:var(--ink);overflow-wrap:anywhere;margin:4px 0 8px}
+.language-workbench .phrase-fields>summary{color:var(--accent)}
+.language-workbench .phrase-input{display:grid;gap:10px;padding-bottom:8px}
+.language-workbench .phrase-field-note{font:400 15px/1.7 var(--font-body);margin:0;overflow-wrap:anywhere}
+.language-workbench .phrase-input label{display:grid;gap:5px;font:400 14px/1.6 var(--font-body);color:var(--ink)}
+.language-workbench .phrase-input :is(select,input){width:100%;min-width:0;min-height:44px;padding:9px 10px;font:400 16px/1.5 var(--font-body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:0}
+.language-workbench .lwb-terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:30px;margin:0;padding:0}
+.language-workbench .lwb-term{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line);min-width:0}
+.language-workbench .lwb-term dt{font:500 17px/1.55 var(--font-body);color:var(--ink);overflow-wrap:anywhere}
+.language-workbench .lwb-term dd{font:400 15px/1.6 var(--font-body);color:var(--muted);margin:0;text-align:right;overflow-wrap:anywhere}
+.language-workbench .lwb-replies{grid-template-columns:minmax(0,1fr)}
+.language-workbench .lwb-replies .lwb-term{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.language-workbench[data-language=english] .lwb-term{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr)}
+.travel-reference-dialog .language-workbench{border:0;margin:0;padding:0}
+.travel-reference-dialog .language-workbench .lwb-head{justify-content:flex-end;margin-bottom:14px}
+.travel-reference-dialog .language-workbench .lwb-head>div:first-child{display:none}
+.travel-reference-dialog .language-workbench .lwb-languages{margin-top:0}
+.travel-reference-dialog .language-workbench .lwb-layout{grid-template-columns:130px minmax(0,1fr);gap:24px}
+.travel-reference-dialog .language-workbench .lwb-phrases,.travel-reference-dialog .language-workbench .lwb-terms{grid-template-columns:minmax(0,1fr)}
+#phrase-big:has(.phrase-subject){padding:20px 0}
+#phrase-big .phrase-subject{font:500 34px/1.5 var(--font-body);margin:0 0 20px;border-bottom:1px solid var(--line);padding-bottom:16px;overflow-wrap:anywhere}
+#phrase-big .phrase-help>summary{display:flex;justify-content:space-between;align-items:center;min-height:44px;font:400 16px/1.5 var(--font-body);cursor:pointer;list-style:none}
+#phrase-big .phrase-help>summary::after{content:'＋';color:var(--accent)}
+#phrase-big .phrase-help[open]>summary::after{content:'−'}
+#phrase-big .phrase-help p{font-size:16px;line-height:1.7;margin-top:8px}
+.overprint-edition .travel-dialog .tool-section-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
+@container (max-width:700px){
+ .language-workbench .lwb-head{display:block;margin-bottom:16px}
+ .language-workbench .lwb-head h3{font-size:27px}
+ .language-workbench .lwb-languages{width:max-content;margin-top:12px}
+ .language-workbench .lwb-layout,.travel-reference-dialog .language-workbench .lwb-layout{grid-template-columns:minmax(0,1fr);gap:14px}
+ .language-workbench .lwb-scenes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:0;gap:5px}
+ .language-workbench .lwb-scenes button{justify-content:center;padding:8px 1px;min-height:44px;border:1px solid var(--line);font-size:15px;text-align:center;gap:0}
+ .language-workbench .lwb-scenes button>span{display:none}
+ .language-workbench .lwb-scenes button[aria-pressed=true]{box-shadow:none;border-color:var(--accent);background:var(--soft);color:var(--accent)}
+ .language-workbench .lwb-views{gap:0;justify-content:space-between}
+ .language-workbench .lwb-views button{gap:5px;font-size:15px;min-height:48px;padding:10px 1px}
+ .language-workbench .lwb-phrases,.language-workbench .lwb-terms{grid-template-columns:minmax(0,1fr)}
+ .language-workbench .lwb-term{padding:10px 0}
+ .language-workbench .phrase-card{padding:10px 0 8px}
+}
+@media(max-width:700px){
+ .preparation-stage h3{font-size:23px}.preparation-detail>p{font-size:14px}
+ .travel-reference-dialog{width:100%;max-width:100%;height:100dvh;max-height:100dvh;margin:0;border:0}
+ .travel-reference-dialog>.dialog-head{padding:12px 18px}.travel-reference-dialog .dialog-head h2{font-size:23px}
+ .travel-reference-nav{padding-inline:18px}#travel-reference-body{padding:18px;padding-bottom:max(24px,env(safe-area-inset-bottom))}
+ .travel-reference-dialog .restaurant-detail dl>div{grid-template-columns:62px minmax(0,1fr)}
+ .travel-reference-dialog .restaurant-actions{display:flex;flex-wrap:wrap;gap:10px}
+ .travel-reference-dialog .editorial-source-links a{overflow-wrap:anywhere}
+}
+
+/* Compact daily lookup rows; expanded content keeps its readable type. */
+.overprint-edition #pocket-dialog .pocket-quicklinks{justify-content:flex-end;margin:0 0 8px;gap:0}
+.overprint-edition #pocket-dialog .pocket-quicklinks button{flex:none;min-height:44px;padding:6px 10px;font-size:13px;border:0;background:none}
+.overprint-edition #pocket-dialog .pocket-aside>:is(.pocket-reading,.pocket-map){margin:0;padding:0;border:0;border-bottom:1px solid var(--line)}
+.overprint-edition #pocket-dialog .pocket-aside>:is(.pocket-reading,.pocket-map)>summary{min-height:44px;padding:8px 0;margin:0;font:400 14px/1.5 var(--font-body)}
+.overprint-edition #pocket-dialog .pocket-aside>details>summary :is(small,.fold-label){font-size:12px}
+.overprint-edition #pocket-dialog .pocket-aside>details[open]{padding-bottom:12px}
+
+.travel-reference-dialog .lwb-head:not(:has(.lwb-languages)){display:none}

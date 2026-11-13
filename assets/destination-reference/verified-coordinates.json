@@ -1,0 +1,189 @@
+{
+  "airport": {
+    "longitude": 115.1673704,
+    "latitude": -8.746515,
+    "source": "https://photon.komoot.io/api/?q=I+Gusti+Ngurah+Rai+International+Airport+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Bandar Udara Internasional Ngurah Rai",
+    "note": ""
+  },
+  "sanur": {
+    "longitude": 115.2626771,
+    "latitude": -8.6737949,
+    "source": "https://photon.komoot.io/api/?q=Pantai+Sanur+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "pantai sanur",
+    "note": ""
+  },
+  "sanurmarket": {
+    "longitude": 115.2601655,
+    "latitude": -8.6852743,
+    "source": "https://photon.komoot.io/api/?q=Pasar+Sindhu+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Pasar Malam Sindhu",
+    "note": ""
+  },
+  "icon": {
+    "longitude": 115.2638955,
+    "latitude": -8.6867535,
+    "source": "https://photon.komoot.io/api/?q=ICON+BALI+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Icon Bali",
+    "note": ""
+  },
+  "palace": {
+    "longitude": 115.262707,
+    "latitude": -8.5067232,
+    "source": "https://photon.komoot.io/api/?q=Puri+Saren+Agung+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Puri Saren Agung",
+    "note": ""
+  },
+  "market": {
+    "longitude": 115.2616505,
+    "latitude": -8.5065357,
+    "source": "https://photon.komoot.io/api/?q=Ubud+Art+Market+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Art market",
+    "note": ""
+  },
+  "saraswati": {
+    "longitude": 115.2615235,
+    "latitude": -8.5058559,
+    "source": "https://photon.komoot.io/api/?q=Pura+Taman+Saraswati+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Pura Taman Saraswati",
+    "note": ""
+  },
+  "puri": {
+    "longitude": 115.2603564,
+    "latitude": -8.5051121,
+    "source": "https://photon.komoot.io/api/?q=Museum+Puri+Lukisan+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Museum Puri Lukisan",
+    "note": ""
+  },
+  "threads": {
+    "longitude": 115.2623233,
+    "latitude": -8.5046353,
+    "source": "https://photon.komoot.io/api/?q=Threads+of+Life+Ubud&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Threads of Life",
+    "note": ""
+  },
+  "hujan": {
+    "longitude": 115.2650775,
+    "latitude": -8.5073491,
+    "source": "https://photon.komoot.io/api/?q=Hujan+Locale+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Hujan Locale",
+    "note": ""
+  },
+  "bengil": {
+    "longitude": 115.2636787,
+    "latitude": -8.5177925,
+    "source": "https://photon.komoot.io/api/?q=Bebek+Bengil+Ubud&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Bebek Bengil",
+    "note": ""
+  },
+  "arma": {
+    "longitude": 115.2647695,
+    "latitude": -8.5228684,
+    "source": "https://photon.komoot.io/api/?q=Agung+Rai+Museum+of+Art+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Agung Rai Museum of Art (ARMA)",
+    "note": ""
+  },
+  "tirta": {
+    "longitude": 115.3162086,
+    "latitude": -8.4143644,
+    "source": "https://photon.komoot.io/api/?q=Pura+Tirta+Empul+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Pura Tirta Empul",
+    "note": ""
+  },
+  "jenggala": {
+    "longitude": 115.1702778,
+    "latitude": -8.7848392,
+    "source": "https://photon.komoot.io/api/?q=Jenggala+Keramik+Jimbaran&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Jenggala Keramik",
+    "note": ""
+  },
+  "cuca": {
+    "longitude": 115.1696969,
+    "latitude": -8.7728535,
+    "source": "https://photon.komoot.io/api/?q=Cuca+Restaurant+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Cuca Restaurant",
+    "note": ""
+  },
+  "uluwatu": {
+    "longitude": 115.0843428,
+    "latitude": -8.8293693,
+    "source": "https://photon.komoot.io/api/?q=Pura+Luhur+Uluwatu+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Pura Luhur Uluwatu",
+    "note": ""
+  },
+  "padang": {
+    "longitude": 115.103637,
+    "latitude": -8.8112154,
+    "source": "https://photon.komoot.io/api/?q=Pantai+Padang+Padang+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Pantai Padang Padang",
+    "note": ""
+  },
+  "pasifika": {
+    "longitude": 115.2307568,
+    "latitude": -8.7998998,
+    "source": "https://photon.komoot.io/api/?q=Museum+PASIFIKA+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Museum Pasifika",
+    "note": ""
+  },
+  "massimo": {
+    "longitude": 115.2607073,
+    "latitude": -8.7047581,
+    "source": "https://photon.komoot.io/api/?q=Massimo&limit=5&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Massimo",
+    "note": ""
+  },
+  "rice": {
+    "longitude": 115.2794557,
+    "latitude": -8.4335822,
+    "source": "https://photon.komoot.io/api/?q=Tegallalang&limit=5&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Tegallalang Rice Terraces",
+    "note": ""
+  },
+  "batuan": {
+    "longitude": 115.2760397,
+    "latitude": -8.582189,
+    "source": "https://photon.komoot.io/api/?q=Pura+Puseh+Batuan&limit=5&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Wantilan Pura Desa Puseh Pekraman Batuan",
+    "note": "寺庙公共亭参考点，非入口保证"
+  },
+  "jimbaran": {
+    "longitude": 115.1639247,
+    "latitude": -8.7808908,
+    "source": "https://nominatim.openstreetmap.org/search?q=Jimbaran+Beach+Bali&format=json&limit=2",
+    "matched_name": "Jimbaran Beach, Jalan Bukit Permai, Jimbaran, Kuta Selatan, Badung, Bali, 80361, Indonesia"
+  },
+  "karang": {
+    "longitude": 115.2655489,
+    "latitude": -8.6936622,
+    "source": "https://photon.komoot.io/api/?q=Pantai+Karang+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Jalan Pantai Karang",
+    "note": "Jalan Pantai Karang 海滩入口道路参考点"
+  },
+  "sindhu": {
+    "longitude": 115.264505,
+    "latitude": -8.6858117,
+    "source": "https://photon.komoot.io/api/?q=Sindhu+Beach&limit=5&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Sindhu Beach Market",
+    "note": "Sindhu Beach Market 海岸入口参考点"
+  },
+  "finns": {
+    "longitude": 115.1392291,
+    "latitude": -8.6669467,
+    "source": "https://www.openstreetmap.org/node/4213155289",
+    "name": "Finn’s Beach Club · Berawa"
+  },
+  "yogabarn": {
+    "longitude": 115.2658076,
+    "latitude": -8.5195828,
+    "source": "https://www.openstreetmap.org/node/4757530430",
+    "name": "Yoga Barn · 场地定位，车行入口另看官网"
+  },
+  "pepperlunch": {
+    "longitude": 115.2638955,
+    "latitude": -8.6867535,
+    "source": "https://photon.komoot.io/api/?q=ICON+BALI+Bali&limit=3&bbox=114.5%2C-9%2C116%2C-8",
+    "matched_name": "Icon Bali",
+    "note": "采用已核实的 ICON Bali 建筑定位；店铺楼层不推测。",
+    "name": "Pepper Lunch · ICON Bali 商场定位"
+  }
+}

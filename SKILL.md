@@ -1,86 +1,99 @@
 ---
 name: build-personalized-travel-guide-open-source
-description: 生成、更新或还原个性化旅行手册网页，含八模块、旅行模式与记账；支持按需 Cloudflare 共享部署。
+description: 制作、更新或还原「旅行杂志 4.0」离线网页，以大幅实景摄影和杂志排版承载完整旅行攻略，兼顾行前阅读与旅途查找。用于用户指定旅行杂志、私人城市杂志或本地 4.0 版的任务。
+metadata:
+  version: "4.0.0"
+  edition: "public"
 ---
 
-# Personalized travel handbook
+# 旅行杂志 4.0
 
-Build destination-specific content in the user’s workbench using the bundled `assets/current-system/product/` template. Do not write destination facts into the installed Skill or its template. Preserve the approved responsive interface, eight chapters, Mini Routes, Trip Mode, itinerary adjustment and saved state. The public template is an empty component scaffold, never evidence for a destination. Restoring it previews components; it is not a completed handbook.
+把用户认可的福冈杂志版转为可复用的制作方式：行前愿意读，旅途中找得到、用得上。完整版内容与分层阅读并存；个性化决定阅读顺序和行程重点，不以删去功能换取简洁。旅行后回顾暂不扩建，现有笔记、照片附件与账目保留。
 
-## 对话语言
+这是原 GitHub 3.0 Skill 的 4.0 更新，沿用 `build-personalized-travel-guide-open-source` 名称与原仓库安装入口。新建手册采用当前 4.0 引擎；既有 3.0 工作台不自动覆盖，保留原文件、存储身份和备份，按用户要求迁移。
 
-面向中文用户，安装说明、进度更新、问题说明、问卷交付和最终回复使用中文；代码、命令、路径及专有名词保留原样。用户明确要求其他语言时遵从用户。此要求约束对外回复，不声称控制宿主内部思考语言。
+## 已确认的产品方向
 
-## Installation and questionnaire entry
+- 默认静态实景摄影封面。保留大号粗黑横排刊头、城市名、天数与阅读入口，不加载视频、播放控件或视频外跳。用户今后明确要求视频时才另行实现。
+- 默认沿用已认可的福冈色彩叠印与东京夜景方向：整屏实景大图、直接叠在照片上的城市大字、正文摄影大页。都市优先真实夜景，保留夜色与彩色灯光，不把白天照片压暗冒充夜景；海岛等目的地可按主题选黄昏或实景大图并说明取舍。不能自行退回纸面标题加小图侧栏或全书双卡布局。城市名字、图像、裁切与叠字按当地内容适配，见 [视觉与素材](references/design-and-media.md)。
+- 保留完整攻略：城市介绍、总览与总路线图、街区、具体每日时间、餐饮、购物、景点文化、地点库、贴士、准备清单、语言卡和随身工具。可重组、增加章节，不随意削减这些内容域。
+- **不提供行程调整界面**。日期切换、地图筛选、收藏、搜索与当天备选仍保留；备选说明替换段落、时间、交通和确认条件，并能打开地点与导航，但不自动改写路线。不把旧版的拖拽排序、删站、路线重置或时刻编辑重新加回来。
+- 旅行模式与杂志共用字体、纸色、边线和层级。它是随身查询界面：手机优先显示当天时间轴、交通、导航和资料，桌面可并排显示地图与提示。
+- 视觉来自实景照片、裁切和排版。正文以连续纸色为底，少量颜色取自相邻照片；不把所有模块变成不同颜色的面板。大图应有适合构图的文字设计，避免大面积无内容的天空和空白。
+- 动效按内容安排，不对每张图和标题重复套同一种滑入。冻结福冈样刊的三处摄影动作是设计参考，不是新城市的次数配额；当前引擎保留封面与摄影动效，普通攻略直接可读。减少动态效果与关闭动效时恢复完整静态画面。
 
-After an authorized installation or when asked to start/open the questionnaire, expose `assets/intake-questionnaire/index.html` immediately as an actual clickable file. If the host cannot link installed assets, copy this self-contained file to the user workspace and attach/link that copy. A statement that installation succeeded or an instruction to invoke the Skill again is not questionnaire delivery. Opening the file does not require Python, Pillow, Node, restoration or tests. Honor host security review; do not add full development tests to installation. Never claim the browser opened successfully without an observed result.
+## 按任务读取
 
-## Choose the task
+| 当前任务 | 读取与操作 |
+|---|---|
+| 新城市 / 新旅程 | 先按 [新版问卷与确认流程](references/intake-workflow.md) 默认先交付预填的离线问卷，明确跳过或本次已确认路线时继续，先按 [采编工作流](references/editorial-workflow.md) 完成城市研究和独立介绍草稿，再读 [内容与功能](references/content-and-functions.md) 与 [实用内容编写契约](references/practical-editorial-standard.md)，完整采用其中语言和章节职责要求。先给逐日草案，已有批准或明确直接制作授权则继续，不重复索取确认。 |
+| 正文内容编写 / 实用程度审查 | 先读 [采编工作流](references/editorial-workflow.md) 与 [实用内容编写契约](references/practical-editorial-standard.md)，按章节职责介绍地方、比较选择或解决现场问题，并做场景试读；认识地方本身就是实用内容，不强迫背景段落转回行程建议。 |
+| 餐饮 / 行前准备 / 语言卡升级 | 读 [餐饮与随身查询更新](references/update-4.8.md)，统一四类餐饮、三阶段任务与按目的地语言分流的场景锦囊，正文和旅行模式一并实现并保留原有数据。 |
+| 地点库 / 地点图片 | 读 [城市规模与地点库标准](references/directory-standard.md)，编写 `directory-plan.json`；数量、片区覆盖与图片身份一起验收。 |
+| 旅行模式 / 摄影 / 上传 | 读 [旅行工具规范](references/travel-tools.md)，改善阅读层级，提供对应路线的出片建议，合并重复提示。 |
+| 记账与还款 | 读 [记账契约](references/ledger-contract.md)，保留旧数据，按币种独立记账、修改、筛选和结算。 |
+| 复用现有手册 / 还原福冈样刊 | 已有手册在原工作目录修改并保留数据身份；只有明确还原已认可福冈样刊才用 `--sample` 复制 [冻结参考](assets/fukuoka-reference/)。新城市使用下方默认命令。分流见 [模板使用](references/template-workflow.md)。 |
+| UI、摄影或动效修改 | 读 [视觉与素材](references/design-and-media.md)，在现有结构上修改，保留用户已认可的特征。 |
+| 构建、验收、交付 | 读 [模板使用](references/template-workflow.md) 与 [构建身份及交付验收](references/release-verification.md)，核对实际构建后再截图。代码检查不代替实看页面。 |
+| 技能维护 | 先修改本技能工作副本，运行 `scripts/audit_package.py` 与宿主技能格式校验；改动脚本时运行 `python -m unittest discover -s scripts -p "test_*.py"`。地图与分页改动分别运行 `check_map_geometry.cjs`、`check_directory_pagination.cjs`；Node 报错改动运行 `test_node_diagnostics.cjs`。地图与分页脚本接收已构建的临时工作台；诊断负例脚本无需参数。打包用 `python scripts/package_skill.py <技能目录外的新ZIP路径>`。 |
 
-Read only the applicable route and the references needed for its current stage.
+新城市默认启用 `contentCompletenessVersion=1`：构建检查正文缺失、重复与语言锦囊完整性；不设城市、地点或摄影的字数门槛。英语目的地只取消第二套翻译，不删会话、词汇或回答。勿降低标记绕过失败；字段与语言覆盖检查不是质量评分。先按实用内容编写契约完成解释，再检查，不能把“刚好能构建”当作正文完成。
 
-| Request | Route |
-| --- | --- |
-| New handbook | Follow the three gates below in order. Read [Intake](references/first-use-intake.md), then [itinerary discussion](references/itinerary-discussion.md). |
-| Existing content change | Edit the owning research packs; use [rendering](references/rendering-and-assets.md) and affected [release checks](references/release-validation.md). Preserve unchanged research and valid evidence. |
-| Exact restoration | [Current system](references/current-system.md): restore and verify the bundled snapshot. |
-| UI/runtime repair or redesign | [Maintenance](references/internal-design-and-maintenance.md) and the affected section of [UI contract](references/product-ui-contract.md). |
-| Map change | For new handbook maps require [real map screenshots](references/screenshot-map-workflow.md). If the original capture fails after bounded authorized attempts, use [offline overview fallback](references/offline-map-fallback.md); never offer online maps as recovery. Preserve historical online-guide compatibility only. Licensed local raster-cache requests use [offline preview](references/offline-map-preview.md). Exact restores retain embedded maps. |
-| Authorized shared deployment | [Current system](references/current-system.md). Preserve the approved open/免码 sharing behavior and verify the changed cloud functions. |
-| Skill diagnosis or maintenance | Inspect relevant instructions/scripts and validate the changed contracts. Do not start destination research or regenerate a handbook. |
+完整新刊要有充分展开的文章和可比较的真实选择，不以提纲代替正文。先按 [地点库与餐饮覆盖](references/directory-standard.md) 定采编范围；地点库与餐饮基线、逐日餐窗属于正式构建条件，不可通过自填较低目标或“试刊核心通过”豁免。轻松行程不等于稀少候选库。城市三问是审阅领域，不限制文章只能三段。
 
-## Boundaries
+## 当前制作基线
 
-- **New-handbook gate:** (1) collect the questionnaire output or an equivalent written brief; (2) show one compact daily itinerary proposal; (3) wait for the user to approve that displayed proposal. Do not research the full handbook, create a production workbench, download images, build maps or render HTML before gate 3. `按默认` completes intake only. The sole exception is an explicit instruction to skip discussion and generate directly.
-- A complete brief starts a compact itinerary proposal. Reuse approval already given in the current conversation. `不要讨论，直接生成` waives discussion; `按默认` waives the questionnaire, not route review. Record the actual approval/waiver in `itinerary-outline.md` when creating the workbench.
-- Use the current brief; reuse earlier destinations or personal records only when requested. Missing optional preferences use defaults. Transport/stays remain pending unless the user supplies bookings or a complete `trip-decisions.json`; this product does not research or compare flight/hotel options.
-- Resolve scripts and references from this Skill root. A persisted workbench from another root must resume with its original scripts; do not mix versions. Overseas destinations do not select the legacy international Skill. `ui_system: canonical` is for explicit legacy compatibility only.
-- Never invent venues, coordinates, hours, prices, ratings, source access or QA evidence. Verify changing facts or state uncertainty. Preserve asset provenance and repair actual failures rather than manufacturing passing records.
-- Before cloud deployment, ask once whether the user wants an access code to protect private information, unless their access-mode choice is already explicit in this conversation. Explain that anyone with an open link may access shared content; do not interpret deployment approval as approval for open access. When code protection is chosen, default to the bundled responsive access-code page plus a secure server session on both phones and computers; require no username and never use the browser-native HTTP Basic prompt unless the user explicitly requests it. Follow [cloud access choice](references/current-system.md) and wait for the choice before publishing.
-- Deployment and shared uploads follow existing user authorization. Communicate material limitations honestly; local/cloud data boundaries and the once-only deployment offer are in [intake](references/first-use-intake.md).
+采编以 [实用内容编写契约](references/practical-editorial-standard.md)、[旅行编辑语言](references/travel-editorial-voice.md) 和 [营业与日历核对](references/opening-and-calendar.md) 约束采编。默认先认识目的地，再读街区，第三章进入行程；城市、住宿与区域正文独立于日次成立。当地条件决定篇幅，营业限制先于排程，事实分段并就近给来源。大图与功能齐全不代表正文完成；先完成城市、区域和专题的实质介绍，再做视觉验收，不能交付每章一条提醒的提纲。
 
-## Production after route approval
+默认工作台使用 [目的地参考工程](assets/destination-reference/)，包含当前渲染器、餐厅折叠推荐、无图文字卡、紧凑旅行模式，以及杂志与旅行模式共用的本机笔记数据。巴厘岛旧内容和素材用于理解字段；它们未满足全部现行正文、来源及大图质量要求，复制后须先编写和换图，不能把直接构建失败视为可以关闭校验的理由。依照 [跨目的地适配](references/destination-adaptation.md) 完成新城市内容；原福冈参考保持冻结，仅用于 `--sample` 还原。
 
-Default to one agent for research, itinerary decisions, authoring and verification. Do not spawn subagents unless the user explicitly requests them for this task; a request to optimize, speed up or use defaults is not permission. Concurrent tool calls and bounded asset downloads within that one agent remain allowed. Use [standard fast path](references/production-flow.md) and [source ownership](references/single-agent-production.md). Read [delegation](references/fast-build-orchestration.md) only after an explicit delegation request.
+当前工程保留大图叠印、随章节变化的小节导航、手机底部日期与下一天入口、紧凑旅行模式、成员头像上传与备份、按日备选。新城市继续保留这些功能，不能只复制旧版 `app.js` 或只更新文档。模块顺序、城市配置和实际浏览器验收见 [当前引擎契约](references/current-engine.md)；旧更新记录仅说明演进，不构成另一套加载顺序或制作标准。
 
-Use a verified Python interpreter (on Windows see [runner setup](references/runner-command-contract.md)). Preserve the current approved inputs with `--brief-file` as described in the production flow so initialization does not drop interests, travelers or constraints. The commands below are relative to this Skill root:
+新版问卷入口为 [离线旅行问卷](assets/intake-questionnaire/index.html)。流程保持“填写需求 → 确认逐日行程 → 制作完整杂志”。当前引擎含稳定的地点图文列表、多币种记账与可编辑账目，以及旅行模式阅读和上传样式；不要从冻结样刊覆盖这些改进。
+
+## 用户要求从头制作
+
+「从头做」「不要复用旧样刊」时，保留用户确认的路线，用当前模板创建独立工作副本。重新核对目的地资料、重新获取照片、重新生成地图。旧样刊仅用于只读比对。营业、预约、交通和餐厅按运营方资料核查，并记录查阅日期。按[构建身份及交付验收](references/release-verification.md)排查重发、裁切或重新编码的旧图。
+
+## 创建独立工作副本
+
+从本技能根目录运行，目标必须是新目录或空目录：
 
 ```text
-python scripts/start_build.py <workbench> --brief-file <current-brief.json> --destination <name> --country <country> --start-date YYYY-MM-DD --days N --itinerary-approved --user-statement "<verbatim user approval>"
-python scripts/advance_build.py <workbench>
+python scripts/create_workbench.py <工作目录> --project-id <city-trip-slug>
 ```
 
-The controller supplies the next stage and current pack task. Use [pipeline](references/research-and-profile-pipeline.md) for pack ownership/dependencies, [content model](references/content-model.md) for module content, [selection](references/itinerary-selection-logic.md) for route decisions, and [data shapes](references/research-data-shapes.md) for unfamiliar fields. Read the reference needed for the current decision, not this entire list.
+脚本默认复制最新目的地参考，并生成独立存储键与 `magazine-workbench.json`。新工作副本仍含巴厘岛示例，状态为 `reference-needs-authoring`；先按模板使用说明更换所有城市内容、地图、币种、语言和身份标识，再构建交付。不要把复制成功称为新城市手册已完成。
 
-Resolve place identity, coordinates, visible rating and image feasibility in the same visit under [Google lookup](references/google-place-lookup.md). Use [image policy](references/image-and-source-policy.md) for asset acceptance. Reuse facts across chapters and Trip Mode; do not create separate enrichment passes.
+编写 JSON 前读 [字段约定](references/authoring-contract.md)：工作台附 schema、带注释的示例片段和待填写的地点库计划。`areas[].day` 从 0 起，日程键与路线地点必须对应。批量取照片使用 [清单下载入口](references/photo-pipeline.md)，只传清单路径，不把整批网址塞进命令；下载候选仍需核对主体后才能选用。正式构建在最终图注和正文渲染后检查缺字，补字后必须重建再交付。
 
-The compiled profile is the content source. Install/render through [official rendering](references/rendering-and-assets.md); repair owning packs rather than final HTML. Keep the product inventory and UI implemented by the bundle; authoring details live in the content model, not a second component-building task.
+内容初稿完成后先运行 `python -X utf8 build.py --check --preview`，在处理大图前修正数据错误；待审阅项仍会列出。正式构建前用 `--check` 检查全部数据门槛。这是只读预检，不替代来源核查、实际试读及浏览器验收。
 
-Offline maps default to exactly one full-day overview per itinerary day, preserving image resolution, full place labels and external navigation links. Do not automatically add local-area captures. Attempt the original street-map capture first; only evidenced failure permits the geographic offline-overview fallback. No online-map fallback.
+用户只要看已认可的福冈样刊时加 `--sample`。已有手册直接改原工作目录，不创建新存储键，以免让用户的笔记、收藏和账目看似丢失。
 
-## Completion and recovery
+## 制作时的判断
 
-[Release validation](references/release-validation.md) owns QA scope and the response states. Run `check_handoff.py <workbench>` after source, render and required QA work; it already runs the appropriate strict audit and forward test.
+1. 策划先从读者为什么想去出发。本产品主要面向年轻旅行者；结合具体兴趣，把当地经典、当代生活方式、有热度且有辨识度的体验一起纳入候选，再安排路线。不要让现成图片、旧样刊或交通便利先决定选题，也不要把年轻等同于人人喜欢派对。按[内容与功能](references/content-and-functions.md)筛选体验、分层推荐具体餐厅。正文先介绍目的地本身，再深入区域，之后给出日程；不把所有章节都写成路线执行提示。
+2. 先按目的地实际地形、季节、交通、文化和消费条件确定重点，再写内容与路线，不把东京或日本规则当通用模板。具体时间、餐饮候选、地址、交通、开放与预约信息需要真实来源。变化信息按出发日或最近核对日期说明；样刊估算与事实分开写。未知酒店、航班、入口或坐标不编造。
+3. 参考穷游锦囊的信息密度与说明方式，借鉴旅行杂志的摄影和对齐；用自己的文字组织内容，不整段搬运或复制其整套视觉资产。
+4. 图片优先使用已核验的可用素材。一个地点看少量候选，找到准确且足够清晰的图即停止；不同正文大图位置不重复使用同图或近似构图，同一地点的识别缩略图可以复用。大图源像素、压缩与显示尺寸分开验收，见 [视觉与素材](references/design-and-media.md)。地点照片必须对应具体地点，不能把同片区商街、品牌广告或整片区天际线配给具体公园或分店。缺图记录查找结果并采用文字行，按 [地点库标准](references/directory-standard.md) 补足覆盖。
+5. 保留真实当地底图与清楚的编号、地名。访问顺序示意与道路导航分开；地图不能只把文字堆在空底上。未知坐标留在列表，不生成猜测点。
+6. 把时间轴、地点详情、旅行模式和总图连到同一组数据。维护既有存储键与导入导出格式；新旅程使用独立键。
 
-- **In progress:** initialization, regression-test success and a completed research batch are intermediate results, not a stopping point. When `continuation_required: true` and `user_input_required: false`, send progress in commentary and execute the next action in the same turn; do not end with a final response or ask the user to say “继续”. Skill scripts report this condition but cannot enforce a host-level stop hook. Follow the controller's next action and repair named failures. A patch mismatch, bad JSON or failed optional source is a reason for a focused correction, not a request for the user to say “继续”.
-- **Waiting for review:** only after automatic gates pass, a recorded browser limitation or authorized pending human QA may allow a preview response. `final_response_allowed` permits that response; `handoff_allowed` remains false and QA stays pending.
-- **Complete:** claim full completion only after `HANDOFF ALLOWED`. Do not repeat passing checks without changed inputs or an unresolved concern.
+## 交付标准
 
-手册完成后，按 [intake](references/first-use-intake.md) 询问一次：“手册已完成。需要我帮你上传到云端，让同行人共享 PDF 文档、图片、链接和记账吗？”用户已授权部署时直接继续，不重复询问；未同意时保留本地版。云端交付必须包含附件文件与元数据、成员、账目、分摊及还款的共享，并按 [current system](references/current-system.md) 验证，不能仅上传静态网页便声称共享完成。
+当前引擎先 `build.py --preview` 试读，再 `build.py` 正式构建；后者强制核对目的地/餐饮覆盖和当前内容的审阅证据。预览文件带“待验收预览”，不能以生成 HTML 或浏览器通过替代完成采编。开篇先按实用内容契约的“开篇专项”检查，不能让认识城市退化成分天与交通建议或三条简短观察。
 
-Use [fetch recovery](references/fetch-recovery.md) for asset/map failures and [gateway recovery](references/gateway-failure-recovery.md) for platform failures. Stop repeating an unsuccessful method, preserve partial work, and diagnose its cause. A documented external blocker may require user input; workload alone does not.
+内容放行以 [实质内容的放行依据](references/release-verification.md#实质内容的放行依据) 为准：本期各章及每个旅行日都有具体问题、实际答案、正文摘录与页面位置，且证据绑定当前内容文件。构建、字数、来源字段和浏览器测试都不能单独证明实用性。旧历史摘要只用于说明演进，不能覆盖当前编写与旅行工具规则。
 
-Skill/code maintenance is complete when the requested rules and their generated tasks agree, affected regression tests and `audit_skill_consistency.py` pass, and remaining limitations are stated. Continue through fixing failures caused by the change; a first patch is not completion. UI/runtime changes additionally use the maintenance QA scope. Do not regenerate a real destination to validate an instruction-only edit.
+主要成果是一份自包含 HTML：摄影、字体、底图、代码内嵌，可直接离线打开；地图导航与外部来源链接仍需联网。给出实际文件链接。不要把源码目录或截图当作完整手册交付。
 
-Use the single [production standard](references/production-standard.md). No edition selection or quality-tier question is needed.
+构建器按封面、正文、地点用途压缩内嵌照片，保留源文件与地图清晰度；`qa-size/report.json` 记录实际体积、最终文件哈希和重复图片占用，默认超过 30 MiB 警告。参数与验收见 [构建身份及交付验收](references/release-verification.md)。
 
+实际打开桌面和手机模拟页面，检查封面、目录、全部片区专题的图文对应、时间轴、地点库、贴士和旅行模式四个工具；重点是大图主体、粗黑横字、对齐、折行、滚动与点击。正文修订也要回读旅行模式中的逐站介绍、营业条件、购买建议与备选，不能只验收杂志外层。修复发现的问题，再说明验证范围。用户资料与笔记保存在当前浏览器，不声称已具备跨设备同步、云共享或完整旅行后回顾；迁移须导出再导入。
 
-### Paired delivery
-Use the self-contained offline HTML as the primary artifact, never the workbench index.html alone or a handbook ZIP. [Release validation](references/release-validation.md#export-acceptance-record) owns export creation, hash-bound acceptance and pending-review exceptions. Tell the user: “双击离线 HTML 即可在本地离线打开，无需解压；导航外链与共享功能需要联网。”
+新城市运行 `python scripts/audit_directory.py <工作目录>`，检查地点与图片身份记录、有效文件和缺图说明，再人工检查地区／兴趣覆盖和照片主体。真实底图必须实看，HTTP 成功或有效图片文件不代表内容正确；403 提示页、空图和被阻断的瓦片不能作为地图交付。旅行工具按上述规范测试上传、每日摄影、账目修改与多币种结算。
 
+素材权利与模板来源见 [来源说明](references/provenance.md)。新城市事实和用户私人数据写入工作副本，不回填进已安装技能的参考模板。
 
-
-The [UI contract](references/product-ui-contract.md) owns priority labels and single-image layout; apply those existing components without a separate redesign pass.
-
-## Explicit cold starts
-When the user explicitly requests 冷启动/不复用/independent rebuild, use `start_build.py <new-empty-workbench> ... --cold-start`. Do not resume any matching old workbench. Reuse Skill code and the empty product template only; reacquire destination facts, images, maps and QA evidence. Do not copy a prior handbook’s research packs, authoring scripts, downloaded media or validation records. Retain prior builds unchanged.
+新作完成全套交付检查；修订只复查受影响内容与功能，具体范围及命令见 [构建身份及交付验收](references/release-verification.md)。

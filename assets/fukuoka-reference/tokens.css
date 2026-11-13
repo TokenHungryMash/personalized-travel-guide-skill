@@ -1,0 +1,13 @@
+/* Existing Fukuoka type and colours, extended for a photographic issue. */
+:root{
+ --paper:oklch(98% .012 85);--ink:oklch(22% .014 62);--dark:oklch(29% .02 168);
+ --accent:oklch(46% .11 37);--muted:oklch(48% .015 68);--line:oklch(79% .016 80);
+ --soft:oklch(94% .014 85);--reader-surface:var(--soft);--rule:var(--ink);
+ --color-paper:var(--paper);--color-ink:var(--ink);--color-accent:var(--accent);--color-muted:var(--muted);--color-rule:var(--line);
+ --color-image-rule:oklch(22% .014 62 / .12);--color-focus:var(--accent);
+ --font-display:'Outfit','Arial Black',sans-serif;--font-body:'Tokyo Sans','Noto Sans SC','Microsoft YaHei',sans-serif;--font-serif:'Bali Serif','Noto Serif SC',serif;
+ --space-xs:8px;--space-sm:16px;--space-md:24px;--space-lg:32px;--space-xl:48px;--space-2xl:64px;--space-3xl:80px;
+ --text-caption:12px;--text-small:14px;--text-body:16px;--text-lead:20px;--text-title:28px;
+ --ease-out:cubic-bezier(.22,1,.36,1);--ease-in:cubic-bezier(.55,0,1,.45);--ease-in-out:cubic-bezier(.65,0,.35,1);
+ --dur-short:140ms;--rule-width:1px;--radius-card:0;--radius-input:0;
+}

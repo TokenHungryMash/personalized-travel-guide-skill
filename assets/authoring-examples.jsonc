@@ -1,0 +1,87 @@
+// 仅演示下列文件当前必需字段的形状，不是完整整本手册，也未通过正文量、图片或事实核验。
+// 不参与构建。将真实采编内容写入对应 JSON 文件；不要把占位文字当作已完成内容。
+{
+  "edition.json": {"lang": "ja", "languageName": "日语", "readerReferenceVersion": 2, "contentCompletenessVersion": 1}, // 英语目的地改为 en 或 en-*，省略重复 english 字段，不减少场景、词汇或回答
+  "content.json": {
+    "places": [{
+      "id": "district", "name": "待填写街区名", "local": "待填写当地名称",
+      "area": "待填写片区", "kind": "散步", "where": "待填写准确位置",
+      "duration": "待填写", "desc": "待采编", "walk": "待采编", "tip": "待核查",
+      "identityScope": "area", // 具体场馆/分店用 venue；省略也按 venue 检查
+      "url": "https://www.google.com/maps/search/?api=1&query=REPLACE_WITH_ENCODED_PLACE_AND_CITY",
+      "urlKind": "map" // 可以是 official / source / map；这里不冒充官网
+    }, {
+      "id": "restaurant", "name": "待填写店名", "local": "待填写当地名称", "area": "待填写片区",
+      "kind": "美食", "where": "待填写准确地址与分店", "duration": "待填写", "desc": "待采编", "tip": "待核查",
+      "url": "https://www.google.com/maps/search/?api=1&query=REPLACE_WITH_ENCODED_RESTAURANT_AND_CITY", "urlKind": "map"
+    }],
+    "areas": [{
+      "id": "district", "name": "待填写", "en": "DISTRICT NAME", "photo": "spread-district",
+      "route": "待填写区域走法", "tip": "待填写区域提示", "ids": ["district", "restaurant"], "day": 0
+    }], // 0=第1天；area.id 在全书唯一
+    "days": [{
+      "id": "d1", "area": "待填写当天区域", "title": "待填写当天标题", "lead": "待采编当天导语",
+      "move": "待核查交通", "guard": "待采编天气取舍", "budget": "待核查预算", "photo": "待采编摄影提示",
+      "periods": ["待采编上午", "待采编下午", "待采编晚间"], "shopping": [],
+      "dining": ["restaurant"], // 当天用餐候选，不自动改变 stops
+      "stops": [["上午", "district", "待填写"], ["午间", "restaurant", "待填写"]],
+      "schedules": {"standard": {
+        "district": {"time": "09:00", "duration": 60, "guard": "待核查"},
+        "restaurant": {"time": "12:00", "duration": 60, "guard": "待核查"}
+      }},
+      "transfers": {"district>restaurant": {"minutes": 20, "label": "待核查步行或公共交通"}}
+      // 这是结构示例。完整手册还需按实际内容门槛编写 alternatives、walk、photoPlan 等。
+    }],
+    "sources": {}
+  },
+  "editorial-content.json": {
+    "portrait": [["待采编城市观察标题", "待采编正文"]], // 每行恰好两个字符串
+    "stays": [["待采编住宿区域", "待核查住处取舍"]],
+    "area_sections": {
+      "district": [["待采编街区特色", "待采编当地生活、文化或空间的具体介绍", "待核查如何观察、体验及适用条件"]]
+    }, // 每个 area.id 有独立正文，不能只复制每日行程；真实内容与来源就近绑定
+    "route_experiences": [{
+      "areaId": "district", "tone": "blue", "words": ["DISTRICT", "WALK."],
+      "title": "待采编", "copy": "待采编具体体验", "extra": "待采编观察线索与适用条件",
+      "place": "district", "label": "打开该地点"
+    }], // 与 areas 同序且一一对应；place 必须在对应 area.ids 中
+    "restaurant_groups": [{
+      "name": "待采编餐厅分类", "en": "LOCAL TABLES", "items": [{
+        "id": "restaurant", "why": "待采编推荐理由", "order": "待核查怎么点",
+        "fit": "待说明哪天顺路", "budget": "待核查预算档", "note": "待核查预约与分店", "sources": ["restaurant_official"]
+      }]
+    }],
+    "food_types": [["待采编菜品", "待核查点单要点"]],
+    "shopping": [["待采编购物类别", "待核查选购提示"]],
+    "culture": [["待采编文化主题", "待核查参观提示"]],
+    "notes": {"待填写实用主题": [["待采编条目", "待核查正文"]]},
+    "reservations": [["待核查预约事项", "待核查时间", "待核查渠道"]],
+    "preparation": [{"title": "提前办理与预订", "items": [{"id": "prep-reservation", "title": "待填写具体任务", "detail": "待说明操作入口、适用条件与完成标准", "priority": "按需", "sources": ["restaurant_official"]}]}], // 正式内容按当地需要组织三阶段；旧 checklist 仅作兼容
+    "languageScenes": [{"id": "scene", "label": "待填写场景", "phrases": "待填写使用场景", "glossary": "常备 · 待填写词类", "replies": "待填写回答场景"}],
+    // 每组恰好归属一个场景；没有某类内容就省略该引用。下面示范非英语目的地。
+    // 英语目的地（edition.lang=en/en-*）改用：phrases 分组里的 {"id":"dining-bill","local":"Could we have the bill, please?","zh":"请结账。"}
+    // words 分组里的 {"local":"Service included","zh":"已含服务费"}；省略 english，不填空字符串，不另做一套英语切换。
+    "phrases": {"待填写使用场景": [{"id": "scene-phrase", "local": "待核对当地完整句", "zh": "对应中文", "roman": "待核对读音或留空", "english": "待核对备用英语完整句"}]},
+    "words": {
+      "常备 · 待填写词类": [{"local": "待核对当地词", "zh": "对应中文", "roman": "", "english": "待核对英语词"}],
+      "待填写回答场景": [{"local": "待核对常见回答", "zh": "对应中文", "roman": "", "english": "待核对英语回答"}]
+    },
+    "editorial_sources": {
+      "restaurant_official": {"title": "待替换为准确分店菜单与预约资料", "url": "https://example.com/replace-restaurant-source", "checked": "2000-01-01"},
+      "district_official": {"title": "待替换为来源标题", "url": "https://example.com/replace-with-actual-source", "checked": "2000-01-01", "claims": ["待填写该页面实际支持的事实"]} // 日期仅演示格式，正式内容必须替换为实际查阅日期
+    },
+    "section_sources": {
+      "areas:district": {"0": ["district_official"]},
+      "experiences:district": {"0": ["district_official"]}
+    } // 行索引从0起；portrait/stays/food_types/snacks/culture/shopping/notes:<主题>等正文也需各自真实来源，不可复用无关页面凑覆盖
+  },
+  "place-photos.json": {
+    "district": {"src": "media/district.jpg", "page": "https://commons.wikimedia.org/", "caption": "待核对的主体",
+      "subjectPlaceId": "district", "role": "area", "reviewed": false} // 实看主体、核对来源后再改 true
+  },
+  "directory-plan.json": {
+    "cityType": "待规划", "targetRange": null, "diningTargetRange": null,
+    "mealCoverage": {}, "diningCategoryNotes": {}, "imageCoverageTarget": 0.8, // 按 directory-standard.md 先规划；餐窗ID引用当天dining和真实餐厅
+    "photoExceptions": {} // 从 directory-audit.json 的 pendingPhotoExceptions 取 ID，填写真实查找结果
+  }
+}

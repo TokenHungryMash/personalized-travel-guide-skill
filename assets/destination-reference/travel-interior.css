@@ -1,0 +1,52 @@
+/* The travel workspace uses the same paper, ink and editorial type as the magazine. */
+.overprint-edition .travel-dialog{--travel-forest:#263f35;--travel-cream:#f9f2de;--travel-panel:#ece8dc}
+.overprint-edition .travel-dialog .dialog-head{border-bottom:1px solid var(--ink)}
+.overprint-edition .travel-dialog .tool-section-nav{background:var(--paper)}
+.overprint-edition .travel-dialog .travel-body :is(h3,h4){font-family:var(--font-serif);font-weight:400;text-wrap:balance}
+.overprint-edition .travel-dialog .travel-body :is(input,select,textarea){border-radius:2px;border:1px solid var(--line);background:#fffcf5;min-height:44px;padding:10px 12px;box-shadow:none}
+.overprint-edition .travel-dialog .travel-body input[type=checkbox]{min-height:20px;width:20px;height:20px;padding:0;accent-color:var(--accent)}
+.overprint-edition .travel-dialog :is(input,select,textarea):focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.overprint-edition .travel-dialog .file-picker{background:var(--travel-forest);border-color:var(--travel-forest);color:var(--travel-cream);min-height:48px;padding:12px 22px}
+.overprint-edition .travel-dialog .travel-note-panel{border-top:2px solid var(--ink);padding-top:16px}.overprint-edition .travel-dialog .note-scope{color:var(--accent)}
+.overprint-edition .travel-dialog .photo-plan-heading{border-bottom:2px solid var(--ink);padding-bottom:14px}.overprint-edition .travel-dialog .photo-shot{border-top:0;border-bottom:1px solid var(--line)}
+.overprint-edition .travel-dialog .reference-library{border-top:2px solid var(--ink)}
+.overprint-edition #ledger-demo{background:var(--travel-panel);border-top:2px solid var(--accent);padding:18px;margin-bottom:20px}
+.overprint-edition #ledger-demo .kicker{color:var(--accent);font-size:11px;margin:0 0 8px}.overprint-edition #ledger-demo h3{font-size:23px;margin-bottom:10px}.overprint-edition #ledger-demo p{font-size:13px;line-height:1.8;margin:8px 0}.overprint-edition #ledger-demo small{display:block;font-size:11px;line-height:1.7;margin-top:10px;color:var(--muted)}
+.overprint-edition #ledger-demo>div{display:flex;flex-wrap:wrap;gap:10px}.overprint-edition #ledger-demo button{min-height:44px;padding:10px 14px;font-size:13px;background:var(--travel-forest);color:var(--travel-cream);border:1px solid var(--travel-forest)}.overprint-edition #ledger-demo button:disabled{background:transparent;color:var(--muted);border-color:var(--line)}.overprint-edition #ledger-demo #ledger-demo-clear{background:none;color:var(--ink);border-color:var(--line)}
+.overprint-edition #ledger-demo-status:empty{display:none}
+.overprint-edition .ledger-jump{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.overprint-edition .ledger-jump button{flex:1;min-height:44px;background:var(--paper);border:1px solid var(--line);padding:8px;font-size:13px;white-space:nowrap}
+.overprint-edition #ledger-dialog .ledger-summary #ledger-totals{background:var(--travel-forest);color:var(--travel-cream);padding:20px}.overprint-edition #ledger-dialog #ledger-totals :is(b,p,small,label){color:var(--travel-cream)}.overprint-edition #ledger-dialog #ledger-totals input{color:var(--ink)}
+.overprint-edition #ledger-dialog #expense-form>h3{padding-top:18px;border-top:2px solid var(--ink);font-size:25px}
+.overprint-edition #ledger-dialog .expense-row{padding:18px 0}.overprint-edition #ledger-dialog .expense-row b{font:500 21px/1.4 var(--font-display);color:var(--accent)}.overprint-edition #ledger-dialog .expense-row>div:last-child button{min-height:44px;border:1px solid var(--line);padding:8px 16px}
+.overprint-edition .ledger-currency-settlement{background:var(--travel-panel);padding:18px!important;margin:12px 0 22px}.overprint-edition .ledger-transfer{padding-bottom:10px;border-bottom:1px solid var(--line)}.overprint-edition .ledger-transfer button{min-height:44px;padding:8px 12px;border:1px solid var(--line)}
+.overprint-edition .travel-dialog .reference-grid img{width:100%;height:auto;max-height:360px;object-fit:contain;background:var(--travel-panel)}
+@media(max-width:700px){.overprint-edition .travel-dialog .travel-body{padding-inline:18px}.overprint-edition .travel-dialog .travel-body p{font-size:14px;line-height:1.8}.overprint-edition .travel-dialog .travel-body :is(label,summary){font-size:13px}.overprint-edition .travel-dialog .travel-body :is(input,select,textarea){font-size:16px}.overprint-edition .travel-dialog .photo-shot dd{font-size:14px;line-height:1.85}.overprint-edition .travel-dialog .travel-note-panel textarea{min-height:150px;height:180px}.overprint-edition #ledger-dialog .ledger-summary #ledger-totals{margin-top:12px}.overprint-edition #ledger-dialog .ledger-currency-totals b{font-size:28px}.overprint-edition .ledger-currency-settlement .ledger-person{max-width:100%}.overprint-edition .ledger-transfer b{flex-basis:100%;font-size:21px}.overprint-edition .ledger-filter-row{gap:12px}.overprint-edition .travel-dialog .reference-grid{grid-template-columns:minmax(0,1fr)}.overprint-edition .travel-dialog .file-row{display:flex;flex-wrap:wrap;gap:8px 14px}.overprint-edition .travel-dialog .file-row>:first-child{flex-basis:100%;min-width:0}}
+
+.overprint-edition .travel-dialog .travel-note-panel h3 label{font:inherit;font-size:25px}.overprint-edition .travel-files-heading{border-bottom:2px solid var(--ink);margin-bottom:18px;padding-bottom:12px}.overprint-edition .travel-files-heading .kicker{color:var(--accent)}.overprint-edition #ledger-demo button:disabled{opacity:1}
+
+/* Keep directory reading width independent from thumbnail height. */
+.destination-edition #place-results .address-card {align-content:start;row-gap:12px}
+.destination-edition #place-results .address-card h3 {min-height:0}
+.destination-edition #place-results .address-folio {display:none}
+.destination-edition #place-results .address-copy {display:block}
+.destination-edition #place-results .directory-duration {margin-top:12px}
+.destination-edition #place-results .directory-actions {align-self:start}
+.destination-edition #place-results .directory-photo {overflow:visible;height:auto}
+.destination-edition #place-results .directory-photo>button {aspect-ratio:4/3;height:auto}
+.destination-edition #place-results .directory-credit {position:static;display:block;text-align:left;padding:5px 0;min-height:0;background:none}
+@media(max-width:700px) {
+ .destination-edition #place-results .address-card {grid-template-columns:100px minmax(0,1fr);grid-template-rows:auto auto auto auto auto auto;gap:8px 16px}
+ .destination-edition #place-results .address-copy {display:contents}
+ .destination-edition #place-results .directory-photo {grid-column:1;grid-row:1/4;width:100px;aspect-ratio:auto}
+ .destination-edition #place-results .directory-meta {grid-column:2;grid-row:1;margin:0}
+ .destination-edition #place-results .address-card h3 {grid-column:2;grid-row:2;margin:0}
+ .destination-edition #place-results .directory-local {grid-column:2;grid-row:3;margin:0}
+ .destination-edition #place-results .directory-description {grid-column:1/-1;grid-row:4;margin:12px 0 0;line-height:1.9}
+ .destination-edition #place-results .directory-duration {grid-column:1/-1;grid-row:5;margin:4px 0}
+ .destination-edition #place-results .directory-actions {grid-column:1/-1;grid-row:6;margin:0;gap:20px}
+ .destination-edition #place-results .address-text-only :is(.directory-meta,h3,.directory-local) {grid-column:1/-1}
+ .destination-edition #place-results .directory-day {display:none}
+}
+
+/* Day conditions share the alternatives fold; stop conditions stay beside each stop. */
+.pocket-day-guard{border-top:1px solid var(--line);padding-block:14px;margin:0}.pocket-day-guard h4{font-size:16px;margin:0 0 8px}.pocket-day-guard p,.pocket-time-guard{font-size:15px;line-height:1.8}.pocket-time-guard{border-left:2px solid var(--accent);padding-left:12px;margin:12px 0}.pocket-time-guard>span{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}

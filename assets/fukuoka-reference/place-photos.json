@@ -1,0 +1,143 @@
+{
+  "hakata": {
+    "src": "media/hakata.jpg",
+    "caption": "博多站与 JR 博多城 · Wikimedia 资料照片",
+    "page": "https://en.wikipedia.org/wiki/Hakata_Station",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/e/e6/JR_Hakata_City_2011_Jan.jpg"
+  },
+  "kushida": {
+    "src": "media/kushida.jpg",
+    "caption": "栉田神社 · Wikimedia 资料照片",
+    "page": "https://en.wikipedia.org/wiki/Kushida_Shrine",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Kushidajinjafukuoka01.jpg"
+  },
+  "tochoji": {
+    "src": "media/tochoji.jpg",
+    "caption": "东长寺 · Wikimedia 资料照片",
+    "page": "https://en.wikipedia.org/wiki/T%C5%8Dch%C5%8D-ji",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/1/19/Touchouji02.jpg"
+  },
+  "canal": {
+    "src": "media/canal.jpg",
+    "caption": "博多运河城 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A3%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%86%E3%82%A3%E5%8D%9A%E5%A4%9A",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Canalcityhakata2019.jpg/1920px-Canalcityhakata2019.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "ohori": {
+    "src": "media/editorial-ohori-bridge.webp",
+    "caption": "大濠公园石桥与浮见堂 · © Fukuoka Prefecture Tourism Association",
+    "page": "https://www.crossroadfukuoka.jp/business/photo/860"
+  },
+  "castle": {
+    "src": "media/castle.jpg",
+    "caption": "福冈城迹与舞鹤公园 · Wikimedia 资料照片",
+    "page": "https://en.wikipedia.org/wiki/Fukuoka_Castle",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Fukuoka_Castle_Simonohasi_Otemon_gate.JPG"
+  },
+  "kawabata": {
+    "src": "media/kawabata.jpg",
+    "caption": "川端通商店街 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E5%B7%9D%E7%AB%AF%E9%80%9A%E5%95%86%E5%BA%97%E8%A1%97",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Kawabata_doori_2011.jpg/1280px-Kawabata_doori_2011.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "nakasu": {
+    "src": "media/editorial-nakasu.webp",
+    "caption": "中洲屋台与那珂川夜色 · © Fukuoka Prefecture Tourism Association",
+    "page": "https://www.crossroadfukuoka.jp/en/photo/2396"
+  },
+  "tenjin": {
+    "src": "media/tenjin.jpg",
+    "caption": "天神地下街 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E5%A4%A9%E7%A5%9E%E5%9C%B0%E4%B8%8B%E8%A1%97",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Tenjin-underground-mall.jpg/1280px-Tenjin-underground-mall.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "daimyo": {
+    "src": "media/daimyo.jpg",
+    "caption": "大名与天神西侧 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%90%8D%20%28%E7%A6%8F%E5%B2%A1%E5%B8%82%29",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/0/07/Daimyoumachi01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  "artmuseum": {
+    "src": "media/artmuseum.jpg",
+    "caption": "福冈市美术馆 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E5%B8%82%E7%BE%8E%E8%A1%93%E9%A4%A8",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Fukuoka_Art_Museum_1.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  "tower": {
+    "src": "media/tower.jpg",
+    "caption": "福冈塔 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E3%82%BF%E3%83%AF%E3%83%BC",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Fukuoka_Tower_2010-01-18.jpg/1280px-Fukuoka_Tower_2010-01-18.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "momochi": {
+    "src": "media/editorial-momochi.webp",
+    "caption": "海滨百道与福冈塔 · © Fukuoka Prefecture Tourism Association",
+    "page": "https://www.crossroadfukuoka.jp/en/photo/374"
+  },
+  "dazaifu": {
+    "src": "media/dazaifu.jpg",
+    "caption": "太宰府天满宫 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BA%80%E5%AE%AE",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/1280px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "kyuhaku": {
+    "src": "media/kyuhaku.jpg",
+    "caption": "九州国立博物馆 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E4%B9%9D%E5%B7%9E%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Kyushu_National_Museum_%E4%B9%9D%E5%B7%9E%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8_01.jpg/1280px-Kyushu_National_Museum_%E4%B9%9D%E5%B7%9E%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8_01.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "dazaifustation": {
+    "src": "media/dazaifustation.jpg",
+    "caption": "太宰府站与参道 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E5%A4%AA%E5%AE%B0%E5%BA%9C%E9%A7%85",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Dazaifu-Station-Ekisha-2023.jpg/1280px-Dazaifu-Station-Ekisha-2023.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "airport": {
+    "src": "media/airport.jpg",
+    "caption": "福冈机场 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E7%A9%BA%E6%B8%AF",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Fukuoka_Airport_Domestic_Terminal.jpg/1920px-Fukuoka_Airport_Domestic_Terminal.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "yanagibashi": {
+    "src": "media/yanagibashi.jpg",
+    "caption": "柳桥连合市场 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E6%A9%8B%E9%80%A3%E5%90%88%E5%B8%82%E5%A0%B4",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Yanagibashi_Rengo_Ichiba_by_LWY_in_Fukuoka.jpg/1920px-Yanagibashi_Rengo_Ichiba_by_LWY_in_Fukuoka.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "machiya": {
+    "src": "media/machiya.jpg",
+    "caption": "博多町家故乡馆 · Wikimedia 资料照片",
+    "page": "https://ja.wikipedia.org/wiki/%E3%80%8C%E5%8D%9A%E5%A4%9A%E7%94%BA%E5%AE%B6%E3%80%8D%E3%81%B5%E3%82%8B%E3%81%95%E3%81%A8%E9%A4%A8",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Hakata-Machiya_Furusato_Museum_20170918.jpg/1920px-Hakata-Machiya_Furusato_Museum_20170918.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  "ramen": {
+    "src": "media/editorial-ramen.webp",
+    "caption": "福冈豚骨拉面 · © Fukuoka Prefecture Tourism Association",
+    "page": "https://www.crossroadfukuoka.jp/en/photo/416"
+  },
+  "nightwalk": {
+    "src": "media/editorial-nightwalk.webp",
+    "caption": "中洲沿河屋台夜景 · © Fukuoka Prefecture Tourism Association",
+    "page": "https://www.crossroadfukuoka.jp/en/photo/2390"
+  },
+  "dazaifu-street": {
+    "src": "media/editorial-dazaifu-street.webp",
+    "caption": "太宰府天满宫参道 · © Fukuoka Prefecture Tourism Association",
+    "page": "https://www.crossroadfukuoka.jp/en/photo/438"
+  },
+  "ohori-garden": {
+    "src": "media/editorial-ohori-garden.webp",
+    "caption": "大濠公园日本庭园 · © Fukuoka Prefecture Tourism Association",
+    "page": "https://www.crossroadfukuoka.jp/en/photo/1114"
+  },
+  "tenjin-night": {
+    "src": "media/editorial-tenjin-night.webp",
+    "caption": "天神屋台夜景 · © Fukuoka Prefecture Tourism Association",
+    "page": "https://www.crossroadfukuoka.jp/en/photo/2403"
+  },
+  "bay-city": {
+    "src": "media/editorial-bay-city.webp",
+    "caption": "福冈塔与博多湾 · © Fukuoka Prefecture Tourism Association",
+    "page": "https://www.crossroadfukuoka.jp/en/photo/1219"
+  }
+}

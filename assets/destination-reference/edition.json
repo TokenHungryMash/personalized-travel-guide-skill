@@ -1,0 +1,68 @@
+{
+  "slug": "bali-8d-v4-test",
+  "city": "巴厘岛",
+  "english": "BALI",
+  "span": "八天七晚",
+  "country": "INDONESIA",
+  "daysEnglish": "EIGHT",
+  "currency": "IDR",
+  "currencyName": "印尼盾",
+  "currencySymbol": "Rp ",
+  "lang": "id",
+  "languageName": "印尼语",
+  "budget": 6000000,
+  "cover": "cover-bali",
+  "coverLine": "沙努尔 · 苍古 · 乌布 · 金巴兰",
+  "coverNote": "海边四晚，乌布三晚。<br>一次海滩派对，一堂瑜伽课，几顿认真选的饭。",
+  "openingTitle": "SLOW<br>ISLAND.",
+  "openingLead": "两次换房，<br>八天各有自己的速度。",
+  "intro": "从沙努尔住两晚开始，第 2 天去苍古体验海滩俱乐部，再转进乌布住三晚，安排瑜伽、寺庙和梯田，最后到金巴兰住两晚。住宿仍只换两次，西岸派对留出完整半天。",
+  "portraitTitle": "海边与山间，<br>不是同一种巴厘岛。",
+  "portraitLead": "巴厘岛在爪哇以东，是印度尼西亚群岛的一部分。机场在南部，乌布在内陆；地图上的一小段距离，往往需要一段完整车程。",
+  "foodPhoto": "spread-food",
+  "foodWords": [
+    "AT THE",
+    "TABLE."
+  ],
+  "foodTitle": "香料、米饭，<br>还有一顿海边晚餐。",
+  "foodLead": "当地风味、海景晚餐、早午餐与连锁简餐，各留几家选择。先看店名和位置，点开再查推荐菜、预算与哪天去；夜市和海鲜市场单独列在后面。",
+  "culturePhoto": "culture-photo",
+  "cultureWords": [
+    "LIVING",
+    "TRADITIONS."
+  ],
+  "cultureTitle": "看见供品，<br>也看见它背后的生活。",
+  "cultureLead": "寺庙仍在举行仪式，稻田仍在生产，美术馆把这些日常留在画里。",
+  "cultureCopy": "参观时不跨越祭祀边界，不为了构图挪动物品。看过村落和田间之后，再去一座美术馆，画面中的人物与树木会有不同的分量。",
+  "verification": "既有巴厘岛资料与准确配图复用；2026-11-11 重新核对猴林官方参观页面。旅游税官网本次访问受限，未写死税额与资格；签证、申报、节日与门票均提供官方入口并要求按实际日期核对。 2026-11-11 补核 FINNS 官网、Yoga Barn 日常课与入口、Ibu Mangku 官方分店菜单入口，以及 Pepper Lunch 品牌与 ICON 店铺信息。Google 评分未采集。 2026-11-11 餐饮扩展核对 Mak Beng 旅游局资料、Sundara、Milk & Madu、Pison、McDonald’s 官方页面及 Pizza Hut Sanur 的 Grab 店铺页；未添加未核实评分。",
+  "overviewIds": [
+    "airport",
+    "sanur",
+    "finns",
+    "palace",
+    "rice",
+    "tirta",
+    "jimbaran",
+    "uluwatu"
+  ],
+  "overviewNames": {
+    "palace": "乌布中心",
+    "airport": "DPS 机场",
+    "sanur": "沙努尔",
+    "jimbaran": "金巴兰",
+    "finns": "苍古 · FINNS"
+  },
+  "legacyMotionKeys": [],
+  "backupFormat": "bali-8d-v4-test-backup",
+  "editorTitle": "把海岛，<br>读成自己的节奏。",
+  "experienceLead": "沿着海岸、乌布与南部走，给每段旅程留一组独立的摄影与体验。转场、抵达与返程按实际交通留出余量。",
+  "coverCredit": "SANUR COAST / BALI",
+  "closingPhoto": "spread-jimbaran",
+  "closingWords": [
+    "SLOW",
+    "DOWN."
+  ],
+  "closingCopy": "把喜欢的海岸，<br>留给下一次慢慢走。",
+  "coverMood": "coast",
+  "coverMoodReason": "海岛以真实海岸摄影承载主题；都市新作优先真实夜景，不能把白天图压暗冒充夜景。"
+}

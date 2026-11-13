@@ -1,0 +1,102 @@
+{
+  "hakata": {
+    "longitude": 130.420681,
+    "latitude": 33.589803,
+    "source": "https://en.wikipedia.org/wiki/Hakata_Station"
+  },
+  "kushida": {
+    "longitude": 130.41047222,
+    "latitude": 33.59297222,
+    "source": "https://en.wikipedia.org/wiki/Kushida_Shrine"
+  },
+  "tochoji": {
+    "longitude": 130.4141,
+    "latitude": 33.5952,
+    "source": "https://en.wikipedia.org/wiki/T%C5%8Dch%C5%8D-ji"
+  },
+  "kawabata": {
+    "longitude": 130.4102258,
+    "latitude": 33.5925534,
+    "source": "https://photon.komoot.io/api/?q=%E5%B7%9D%E7%AB%AF%E9%80%9A%E5%95%86%E5%BA%97%E8%A1%97+%E7%A6%8F%E5%B2%A1&limit=1&bbox=130.2%2C33.4%2C130.65%2C33.75",
+    "matched_name": "川端商店街"
+  },
+  "canal": {
+    "longitude": 130.41055556,
+    "latitude": 33.59111111,
+    "source": "https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A3%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%86%E3%82%A3%E5%8D%9A%E5%A4%9A"
+  },
+  "nakasu": {
+    "longitude": 130.405295,
+    "latitude": 33.593647,
+    "source": "https://ja.wikipedia.org/wiki/%E4%B8%AD%E6%B4%B2"
+  },
+  "tenjin": {
+    "longitude": 130.3997043,
+    "latitude": 33.5896437,
+    "source": "https://photon.komoot.io/api/?q=%E5%A4%A9%E7%A5%9E%E5%9C%B0%E4%B8%8B%E8%A1%97+%E7%A6%8F%E5%B2%A1&limit=1&bbox=130.2%2C33.4%2C130.65%2C33.75",
+    "matched_name": "天神地下街"
+  },
+  "daimyo": {
+    "longitude": 130.3948531,
+    "latitude": 33.5891937,
+    "source": "https://photon.komoot.io/api/?q=Daimyo+Fukuoka&limit=5&bbox=130.38%2C33.57%2C130.42%2C33.61",
+    "matched_name": ""
+  },
+  "ohori": {
+    "longitude": 130.37625,
+    "latitude": 33.58586111,
+    "source": "https://en.wikipedia.org/wiki/%C5%8Chori_Park"
+  },
+  "castle": {
+    "longitude": 130.38305556,
+    "latitude": 33.585,
+    "source": "https://en.wikipedia.org/wiki/Fukuoka_Castle"
+  },
+  "artmuseum": {
+    "longitude": 130.3797313,
+    "latitude": 33.583939,
+    "source": "https://photon.komoot.io/api/?q=%E7%A6%8F%E5%B2%A1%E5%B8%82%E7%BE%8E%E8%A1%93%E9%A4%A8+%E7%A6%8F%E5%B2%A1&limit=1&bbox=130.2%2C33.4%2C130.65%2C33.75",
+    "matched_name": "福岡市美術館"
+  },
+  "tower": {
+    "longitude": 130.35138889,
+    "latitude": 33.59308333,
+    "source": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E3%82%BF%E3%83%AF%E3%83%BC"
+  },
+  "momochi": {
+    "longitude": 130.3507794,
+    "latitude": 33.5948717,
+    "source": "https://photon.komoot.io/api/?q=%E3%82%B7%E3%83%BC%E3%82%B5%E3%82%A4%E3%83%89%E3%82%82%E3%82%82%E3%81%A1+%E7%A6%8F%E5%B2%A1&limit=1&bbox=130.2%2C33.4%2C130.65%2C33.75",
+    "matched_name": "シーサイドももち海浜公園"
+  },
+  "dazaifu": {
+    "longitude": 130.53486111,
+    "latitude": 33.52152778,
+    "source": "https://ja.wikipedia.org/wiki/%E5%A4%AA%E5%AE%B0%E5%BA%9C%E5%A4%A9%E6%BA%80%E5%AE%AE"
+  },
+  "kyuhaku": {
+    "longitude": 130.53829722,
+    "latitude": 33.51835556,
+    "source": "https://ja.wikipedia.org/wiki/%E4%B9%9D%E5%B7%9E%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8"
+  },
+  "dazaifustation": {
+    "longitude": 130.53140833,
+    "latitude": 33.51903611,
+    "source": "https://ja.wikipedia.org/wiki/%E5%A4%AA%E5%AE%B0%E5%BA%9C%E9%A7%85"
+  },
+  "yanagibashi": {
+    "longitude": 130.40833333,
+    "latitude": 33.58305556,
+    "source": "https://ja.wikipedia.org/wiki/%E6%9F%B3%E6%A9%8B%E9%80%A3%E5%90%88%E5%B8%82%E5%A0%B4"
+  },
+  "airport": {
+    "longitude": 130.45166667,
+    "latitude": 33.58444444,
+    "source": "https://ja.wikipedia.org/wiki/%E7%A6%8F%E5%B2%A1%E7%A9%BA%E6%B8%AF"
+  },
+  "machiya": {
+    "longitude": 130.41138889,
+    "latitude": 33.59363889,
+    "source": "https://ja.wikipedia.org/wiki/%E3%80%8C%E5%8D%9A%E5%A4%9A%E7%94%BA%E5%AE%B6%E3%80%8D%E3%81%B5%E3%82%8B%E3%81%95%E3%81%A8%E9%A4%A8"
+  }
+}

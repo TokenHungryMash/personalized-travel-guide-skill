@@ -1,0 +1,555 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "旅行杂志 editorial-content.json",
+  "description": "当前 edition-renderer.py 的正文结构契约。地点引用及 route_experiences 与 areas 的对应关系由 destination_content.py 检查；不把样刊段落数量当通用要求。",
+  "type": "object",
+  "required": [
+    "portrait",
+    "stays",
+    "route_experiences",
+    "food_types",
+    "shopping",
+    "culture",
+    "notes",
+    "reservations",
+    "phrases"
+  ],
+  "properties": {
+    "portrait": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/pair"
+      }
+    },
+    "stays": {
+      "$ref": "#/$defs/table"
+    },
+    "route_experiences": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/routeExperience"
+      }
+    },
+    "restaurant_groups": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/restaurantGroup"
+      }
+    },
+    "food_types": {
+      "$ref": "#/$defs/table"
+    },
+    "snacks": {
+      "$ref": "#/$defs/table"
+    },
+    "shopping": {
+      "$ref": "#/$defs/table"
+    },
+    "culture": {
+      "$ref": "#/$defs/table"
+    },
+    "notes": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/table"
+      }
+    },
+    "reservations": {
+      "$ref": "#/$defs/table"
+    },
+    "checklist": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/strings"
+      }
+    },
+    "phrases": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/pair"
+            },
+            {
+              "$ref": "#/$defs/phrase"
+            }
+          ]
+        }
+      }
+    },
+    "source_labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "editorial_sources": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "url",
+          "title",
+          "checked"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "$ref": "#/$defs/text"
+          },
+          "checked": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+          }
+        }
+      }
+    },
+    "section_sources": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        }
+      }
+    },
+    "editorial_advice": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "area_sections": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/table"
+      }
+    },
+    "preparation": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/preparationStage"
+      },
+      "description": "优先于旧 checklist；按行前阶段组织具体操作与完成条件。"
+    },
+    "words": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/pair"
+            },
+            {
+              "$ref": "#/$defs/word"
+            }
+          ]
+        }
+      }
+    },
+    "languageScenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/languageScene"
+      },
+      "description": "场景入口将会话、常备词与回答关联到同一处；每组恰好归属一个场景。非英语目的地各行须有 english；edition.lang 为 en 或 en-* 时仅需 local 英语。"
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "strings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pair": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "string"
+      },
+      "description": "渲染器按两个字符串解包，例如标题/正文或当地语言/中文。"
+    },
+    "row": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "首项是标题，其余字符串逐段显示；双换行也可分段。不得用对象、空行或数值。"
+    },
+    "table": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/row"
+      }
+    },
+    "routeExperience": {
+      "type": "object",
+      "required": [
+        "tone",
+        "words",
+        "title",
+        "copy",
+        "extra",
+        "place",
+        "label"
+      ],
+      "properties": {
+        "areaId": {
+          "$ref": "#/$defs/text"
+        },
+        "tone": {
+          "$ref": "#/$defs/text"
+        },
+        "words": {
+          "$ref": "#/$defs/strings"
+        },
+        "title": {
+          "type": "string"
+        },
+        "copy": {
+          "type": "string"
+        },
+        "extra": {
+          "type": "string"
+        },
+        "place": {
+          "$ref": "#/$defs/text"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "restaurantGroup": {
+      "type": "object",
+      "required": [
+        "name",
+        "en",
+        "items"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "en": {
+          "type": "string"
+        },
+        "intro": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/restaurant"
+          }
+        }
+      }
+    },
+    "restaurant": {
+      "type": "object",
+      "required": [
+        "id",
+        "why",
+        "order",
+        "fit",
+        "budget",
+        "note"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/text"
+        },
+        "why": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "fit": {
+          "type": "string"
+        },
+        "budget": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "sources": {
+          "$ref": "#/$defs/sourceIds"
+        }
+      }
+    },
+    "sourceIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/text"
+      }
+    },
+    "preparationTask": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "detail",
+        "priority"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^(?:c[0-9]+|prep-[a-z0-9]+(?:-[a-z0-9]+)*)$",
+          "description": "沿用旧 cN 勾选语义；新增任务使用稳定 prep-* ID，不依赖显示顺序。"
+        },
+        "title": {
+          "$ref": "#/$defs/text"
+        },
+        "detail": {
+          "$ref": "#/$defs/text"
+        },
+        "priority": {
+          "enum": [
+            "必须",
+            "建议",
+            "按需"
+          ]
+        },
+        "sources": {
+          "$ref": "#/$defs/sourceIds"
+        }
+      },
+      "additionalProperties": false
+    },
+    "preparationStage": {
+      "type": "object",
+      "required": [
+        "title",
+        "items"
+      ],
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/text"
+        },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/preparationTask"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "phraseOption": {
+      "type": "object",
+      "required": [
+        "value",
+        "label"
+      ],
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/text"
+        },
+        "label": {
+          "$ref": "#/$defs/text"
+        },
+        "english": {
+          "$ref": "#/$defs/text"
+        }
+      },
+      "additionalProperties": false
+    },
+    "phraseInput": {
+      "type": "object",
+      "required": [
+        "key",
+        "label",
+        "required",
+        "options",
+        "placeholder"
+      ],
+      "properties": {
+        "key": {
+          "$ref": "#/$defs/text"
+        },
+        "label": {
+          "$ref": "#/$defs/text"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "options": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/phraseOption"
+          }
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "englishLabel": {
+          "$ref": "#/$defs/text"
+        },
+        "englishPlaceholder": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "phrase": {
+      "type": "object",
+      "required": [
+        "id",
+        "local",
+        "zh",
+        "roman"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/text"
+        },
+        "local": {
+          "$ref": "#/$defs/text"
+        },
+        "zh": {
+          "$ref": "#/$defs/text"
+        },
+        "roman": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "input": {
+          "$ref": "#/$defs/phraseInput"
+        },
+        "english": {
+          "$ref": "#/$defs/text"
+        },
+        "subjectFrom": {
+          "$ref": "#/$defs/text",
+          "description": "复用另一句的 input 与持久化值；目标必须带 input，不能与本句 input 同时出现。"
+        }
+      },
+      "additionalProperties": false,
+      "not": {
+        "required": [
+          "input",
+          "subjectFrom"
+        ]
+      }
+    },
+    "word": {
+      "type": "object",
+      "required": [
+        "local",
+        "zh",
+        "roman"
+      ],
+      "properties": {
+        "local": {
+          "$ref": "#/$defs/text"
+        },
+        "zh": {
+          "$ref": "#/$defs/text"
+        },
+        "roman": {
+          "type": "string"
+        },
+        "english": {
+          "$ref": "#/$defs/text"
+        }
+      },
+      "additionalProperties": false
+    },
+    "languageScene": {
+      "type": "object",
+      "required": [
+        "id",
+        "label"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"
+        },
+        "label": {
+          "$ref": "#/$defs/text"
+        },
+        "phrases": {
+          "$ref": "#/$defs/text"
+        },
+        "glossary": {
+          "$ref": "#/$defs/text"
+        },
+        "replies": {
+          "$ref": "#/$defs/text"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "phrases"
+          ]
+        },
+        {
+          "required": [
+            "glossary"
+          ]
+        },
+        {
+          "required": [
+            "replies"
+          ]
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "not": {
+          "required": [
+            "preparation"
+          ]
+        }
+      },
+      "then": {
+        "required": [
+          "checklist"
+        ]
+      }
+    }
+  ]
+}

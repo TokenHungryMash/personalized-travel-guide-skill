@@ -1,0 +1,42 @@
+.offline-map{margin:28px 0 32px;border-block:1px solid var(--ink)}
+.atlas-heading{display:flex;justify-content:space-between;gap:16px;padding:16px 0;font:800 12px/1.5 var(--font-display);letter-spacing:.07em}
+.atlas-heading>span:last-child{font:400 12px/1.5 var(--font-body);color:var(--muted);letter-spacing:0}
+.atlas-art{position:relative;width:100%;isolation:isolate;background:#f4f1e8}
+.atlas-art img{width:100%;height:auto;aspect-ratio:14/11;object-fit:contain;display:block;outline:1px solid #00000010;outline-offset:-1px}
+.atlas-pin{position:absolute;transform:translate(-50%,-50%);width:44px;height:44px;padding:0;border:0;display:grid;place-items:center;background:transparent;z-index:1}
+.atlas-pin span{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#263f34;color:#fffefa;border:2px solid #fffefa;font:800 13px/1 var(--font-display);box-shadow:0 1px 3px #0003}
+.atlas-pin.stay-pin span{background:#8d442c}
+.atlas-pin:hover{background:transparent}.atlas-pin:hover span{background:#171715;outline:2px solid #fffefa}
+.atlas-pin:active{transform:translate(-50%,-50%)}
+.atlas-caption{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.atlas-caption p{font-size:13px;line-height:1.7;margin:0}
+.atlas-caption small{display:block;font-size:12px;color:var(--muted)}
+.atlas-caption i{display:inline-block;width:22px;border-top:2px dashed #8e5941;margin-right:8px;vertical-align:middle}
+.atlas-expand{font-size:13px;min-height:44px;padding:10px 14px;background:transparent}
+.atlas-index{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}
+.atlas-index li{display:flex;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);min-width:0;align-items:start}
+.atlas-number{font:800 20px/1.5 var(--font-display);flex:0 0 28px;color:var(--accent);padding-top:5px}
+.atlas-index li>div{min-width:0}
+.atlas-index button{font:700 15px/1.6 var(--font-body);text-align:left;white-space:normal;border:0;padding:5px 0;background:none;min-height:36px}
+.atlas-index small{display:block;font-size:12px;line-height:1.6;color:var(--muted);overflow-wrap:anywhere}
+.atlas-notes{padding:14px 0;font-size:12px;color:var(--muted)}
+.atlas-notes summary{cursor:pointer;min-height:32px;padding-top:6px}
+.atlas-notes p{margin-top:10px;font-size:13px;line-height:1.8}
+.map-credit{font-size:12px;line-height:1.7;color:var(--muted)}
+.route-strip{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line);margin-bottom:24px}
+.route-strip a{display:block;font-size:16px;line-height:1.7;padding:13px 0;border-bottom:1px solid var(--line);white-space:normal;min-height:48px}
+.route-label{font-size:13px;margin-bottom:12px}.original-map{margin-block:20px}.original-map summary{padding:16px 0;cursor:pointer;font-size:15px}.original-map .offline-map{margin-top:0}
+#map-dialog{width:min(1280px,calc(100% - 24px));max-height:94dvh;padding:24px}#map-title{font-size:22px;line-height:1.5}
+.map-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.map-toolbar button{min-height:44px}.map-toolbar [aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.map-help{font-size:14px;margin-block:14px}.map-pan{height:58dvh;overflow:auto;background:#f4f1e8;overscroll-behavior:contain;touch-action:pan-x pan-y;border:1px solid var(--line)}
+#map-large-wrap{max-width:none}#map-large{max-width:none!important;width:100%;height:auto;object-fit:contain}#map-large-wrap .atlas-pin span{width:34px;height:34px;font-size:15px}
+#overview-map{min-width:0}#overview-map .offline-map{margin-top:0}
+@media(max-width:600px){
+ #map-dialog{padding:16px;width:calc(100% - 12px)}#map-title{font-size:18px}.map-toolbar{gap:8px}.map-toolbar button{padding:9px 12px;font-size:14px}.map-pan{height:48dvh}
+ .atlas-heading{font-size:11px;letter-spacing:.04em}.atlas-caption{gap:12px;align-items:start}.atlas-caption p{font-size:12px}.atlas-caption small{font-size:12px;max-width:12em}.atlas-expand{padding:9px 10px;font-size:12px}
+ .atlas-index{grid-template-columns:1fr}.atlas-index li{padding:10px 0}.atlas-index button{min-height:44px;font-size:16px;padding-block:7px}.atlas-index small{font-size:13px}.atlas-index li>div{flex:1}.atlas-number{padding-top:10px}
+ .atlas-pin span{width:26px;height:26px;font-size:12px}.atlas-pin{width:44px;height:44px}
+ .day-tabs{display:flex;overflow-x:auto}.day-tabs button{flex:0 0 86px}.route-strip a{font-size:16px}
+}
+#map-large-wrap{margin-inline:auto}
+@media(max-width:600px){.map-pan{height:min(48dvh,calc((100vw - 46px)*.7857))}}

@@ -1,0 +1,13 @@
+{
+  "name": "travel-magazine-v4-reference",
+  "version": "4.0.0",
+  "private": true,
+  "scripts": {
+    "check": "node check-editorial.cjs && node check-cascade.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "31.0.0",
+    "css-tree": "3.2.1",
+    "fake-indexeddb": "6.2.8"
+  }
+}

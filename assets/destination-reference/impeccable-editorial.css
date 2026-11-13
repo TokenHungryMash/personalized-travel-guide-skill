@@ -1,0 +1,139 @@
+/* Tokyo review edition: photographic opening, quiet reading, precise interfaces. */
+.overprint-edition{--paper:#f5f1e7;--ink:#202a24;--accent:#8c432f;--muted:#65675c;--line:#c8c5b8;--soft:#e9e6d9}
+.overprint-edition ::selection{background:#dce49e;color:#19352d}
+.overprint-edition :is(input,textarea){caret-color:var(--accent)}
+.overprint-edition :is(button,a,input,select,textarea,summary):focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.overprint-edition .topbar{border-top:4px solid var(--ink)}
+.overprint-edition .masthead>span{letter-spacing:-.04em;font-size:38px}
+.overprint-edition .masthead>small{letter-spacing:.12em}
+.overprint-edition #pocket-open{background:#233f34;color:#fbf5e3;padding-inline:22px}
+.overprint-edition .reading-actions .is-current{color:#7b3928;background:#e9e5d7}
+.overprint-edition .cover-ink-content{width:calc(100% - 112px);max-width:1440px;padding-top:24px;padding-bottom:32px}
+.overprint-edition .cover-ink-meta{border-bottom:0;font-size:12px;color:#fff7e1}
+.overprint-edition .cover-ink-title{margin-top:clamp(22px,4vh,48px);padding:0}
+.overprint-edition .cover-ink-title>p{display:none}
+.overprint-edition #cover.overprint-cover #cover-title{font-size:clamp(80px,var(--cover-title-vw,22vw),340px);color:#edf2ac;letter-spacing:-.04em;line-height:.82}
+.overprint-edition .cover-city{font-size:clamp(34px,4vw,60px);color:#fff8e8;text-shadow:0 2px 10px #09261d,0 1px 2px #09261d;letter-spacing:.08em}
+.overprint-edition .cover-ink-footer{margin-top:auto;border-color:#f6f0df88;align-items:end;padding-top:22px}
+.overprint-edition .cover-ink-footer p{font:400 clamp(18px,1.8vw,26px)/1.8 var(--font-serif);max-width:30em;color:#fff9e7;text-shadow:0 2px 14px #061913}
+.overprint-edition .cover-read{background:#e8edac;color:#233c31;min-height:58px;padding-inline:28px;font-size:14px;gap:38px;box-shadow:none}
+.overprint-edition .cover-read:hover{background:#fff9e7}
+.overprint-edition .cover-photo-credit{padding-block:12px;border-bottom:1px solid var(--line)}
+.overprint-edition .issue-ribbon{display:none}
+.issue-days{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));padding-block:24px;border-bottom:1px solid var(--ink)}
+.issue-days button{display:flex;align-items:center;gap:14px;text-align:left;background:transparent;color:var(--ink);border:0;border-right:1px solid var(--line);padding:8px 20px;min-height:70px}
+.issue-days button:first-child{padding-left:0}.issue-days button:last-child{border-right:0}
+.issue-days button>span{font:400 36px/1 var(--font-display);color:var(--accent);font-variant-numeric:tabular-nums}
+.issue-days button>strong{font:500 12px/1.8 var(--font-body);max-width:9em;min-width:0;white-space:normal;word-break:keep-all;overflow-wrap:normal}
+.issue-days button>span{flex-shrink:0}
+.issue-days button:hover{background:var(--soft)}
+.overprint-edition .edition-opening{grid-template-columns:1.1fr 1fr;gap:8%;padding-block:64px}
+.overprint-edition .edition-opening h2{font-size:clamp(34px,4.2vw,62px);line-height:1.35;letter-spacing:-.02em;text-wrap:balance}
+.overprint-edition .editor-lead{border:0;padding:22px 0 0;max-width:28em;font-size:17px}
+.overprint-edition .edition-opening>div:last-child{border-top:1px solid var(--ink);padding-top:22px}
+.overprint-edition .edition-opening>div:last-child>p{font-size:15px;line-height:2;max-width:38em}
+.overprint-edition .edition-opening>div:last-child>p.small{font-size:12px;color:var(--muted)}
+.overprint-edition .journal-contents{grid-template-columns:.9fr 2fr;padding:48px;gap:64px;background:#243c32}
+.overprint-edition .contents-intro h2{font-size:clamp(50px,5.5vw,80px);letter-spacing:-.04em}
+.overprint-edition .contents-stats{gap:28px}.overprint-edition .contents-stats b{font-size:30px}
+.overprint-edition .toc-entry{padding-block:19px}.overprint-edition .toc-copy strong{font:400 21px/1.5 var(--font-serif)}
+.overprint-edition .chapter>.section-head{padding:20px 0 25px 100px;border-top:2px solid var(--ink)}
+.overprint-edition .chapter>.section-head:before{top:46px;font-size:68px}
+.overprint-edition .chapter>.section-head h2{display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;gap:28px}
+.overprint-edition .chapter>.section-head .section-chinese{font:400 clamp(30px,3.2vw,46px)/1.35 var(--font-serif);color:var(--ink);margin:0}
+.overprint-edition .chapter>.section-head .section-display{font:600 clamp(16px,1.8vw,26px)/1.2 var(--font-display);letter-spacing:-.02em;max-width:15em;text-align:right;color:var(--accent)}
+.overprint-edition .chapter>.section-head .folio{margin-bottom:18px;font-size:10px;color:var(--muted)}
+.overprint-edition .chapter>.section-head .section-summary{margin-top:18px;font-size:14px;line-height:1.9;max-width:62em}
+.overprint-edition .essay-running{border-top:2px solid var(--ink);font-size:13px;padding-block:16px}
+.overprint-edition .essay-running span:last-child{font:400 22px/1.5 var(--font-serif)}
+.overprint-edition .essay-copy{grid-template-columns:1.2fr 1fr;gap:9%;padding-block:38px}
+.overprint-edition .essay-copy h3{font-size:clamp(30px,3.1vw,44px);letter-spacing:-.02em;line-height:1.4;max-width:16em}
+.overprint-edition .essay-practical{padding-left:28px;border-left:1px solid var(--line)}
+.overprint-edition .essay-copy p{font-size:16px;line-height:1.95}
+.overprint-edition .ink-scene .ink-words{letter-spacing:-.04em}
+.overprint-edition .route-essays a{border-left:0;border-bottom:1px solid var(--line);padding:12px 0 18px}
+.overprint-edition .editorial-table>article{padding-block:22px}.overprint-edition .editorial-table h4{font-size:21px;line-height:1.5}
+.overprint-edition .day-opening{background:transparent;border-block:1px solid var(--line);padding:24px 0;gap:30px}
+.overprint-edition .day-opening .day-title{font-size:36px;line-height:1.45}
+.overprint-edition .day-facts{border-color:var(--line)}
+.overprint-edition .timeline-item{padding-block:24px}.overprint-edition .stop-heading h4{font-size:25px}
+.overprint-edition .day-tab[aria-selected=true]{background:#263f35;color:#f9f2de}
+.overprint-edition .directory-search{background:var(--soft);padding:18px;gap:16px;border-top:1px solid var(--ink)}
+.overprint-edition .directory-search input{background:var(--paper)}
+.overprint-edition .restaurant-group{border-top:1px solid var(--ink);padding-top:22px}
+.overprint-edition .restaurant-group>header .kicker{display:none}
+.overprint-edition .tool-links>button span{font-size:12px}.overprint-edition .tool-links>button small{font-size:13px}
+@media(max-width:1000px){.issue-days button{padding-inline:12px;gap:9px}.issue-days button>span{font-size:28px}.overprint-edition .journal-contents{padding:32px;gap:32px}}
+@media(max-width:700px){
+ .overprint-edition .masthead>span{font-size:20px}.overprint-edition #pocket-open{padding-inline:12px}
+ .overprint-edition .cover-ink-content{width:calc(100% - 40px);padding:18px 0 24px}
+ .overprint-edition .cover-ink-meta{font-size:10px;padding-bottom:0;align-items:start}
+ .overprint-edition .cover-ink-title{margin-top:42px;padding:0}
+ .overprint-edition #cover.overprint-cover #cover-title{font-size:var(--cover-title-mobile,24.8vw);line-height:.86;letter-spacing:-.04em}
+ .overprint-edition .cover-city{font-size:29px;margin-top:16px;text-align:right}
+ .overprint-edition .cover-ink-footer{display:block;padding-top:14px}
+ .overprint-edition .cover-ink-footer p{font-size:18px;line-height:1.7;max-width:100%}
+ .overprint-edition .cover-read{display:flex;justify-content:space-between;margin-top:18px;min-height:48px;padding:10px 16px;font-size:13px}
+ .issue-days{grid-template-columns:repeat(3,minmax(0,1fr));padding-block:12px}
+ .issue-days button{padding:12px 8px!important;min-height:96px;border-right:1px solid var(--line);align-items:start;flex-direction:column;gap:7px;white-space:normal}
+ .issue-days button:nth-child(3n){border-right:0}.issue-days button:nth-child(-n+3){border-bottom:1px solid var(--line)}
+ .issue-days button>span{font-size:23px}.issue-days button>strong{font-size:11px;line-height:1.7}
+ .overprint-edition .edition-opening{padding-block:34px;display:block}.overprint-edition .edition-opening h2{font-size:36px}.overprint-edition .editor-lead{font-size:15px;padding-top:8px}
+ .overprint-edition .edition-opening>div:last-child{margin-top:26px;padding-top:18px}.overprint-edition .edition-opening>div:last-child>p{font-size:15px}
+ .overprint-edition .journal-contents{padding:26px 20px}.overprint-edition .contents-intro h2{font-size:48px}.overprint-edition .contents-stats{gap:14px}.overprint-edition .contents-stats b{font-size:24px}
+ .overprint-edition .toc-copy strong{font-size:18px}.overprint-edition .toc-copy small{font-size:12px;line-height:1.6}.overprint-edition .toc-entry{padding-block:16px}
+ .overprint-edition .chapter>.section-head{padding:16px 0 20px 48px;margin-bottom:20px}
+ .overprint-edition .chapter>.section-head:before{font-size:36px;top:43px}
+ .overprint-edition .chapter>.section-head h2{display:flex;flex-direction:column-reverse;align-items:start;gap:10px}
+ .overprint-edition .chapter>.section-head .section-chinese{font-size:27px;line-height:1.4}
+ .overprint-edition .chapter>.section-head .section-display{font-size:14px;letter-spacing:.02em;max-width:none;text-align:left}
+ .overprint-edition .chapter>.section-head .folio{font-size:9px;margin-bottom:15px}
+ .overprint-edition .chapter>.section-head .section-summary{margin-left:-48px;font-size:14px;margin-top:17px;line-height:1.85}
+ .overprint-edition .essay-running{font-size:11px}.overprint-edition .essay-running span:last-child{font-size:19px}
+ .overprint-edition .essay-copy{padding-block:25px}.overprint-edition .essay-copy h3{font-size:30px;line-height:1.45}.overprint-edition .essay-copy p{font-size:15px}
+ .overprint-edition .essay-practical{padding-left:0;border-left:0;padding-top:21px}
+ .overprint-edition .day-opening{padding:16px 0;background:transparent}.overprint-edition .day-opening .day-title{font-size:27px;margin-block:12px}
+ .overprint-edition .timeline-item{padding-block:18px}.overprint-edition .stop-heading h4{font-size:23px}
+ .overprint-edition .directory-search{padding:14px 12px;gap:12px}
+ .overprint-edition .editorial-table>article{padding-block:18px}.overprint-edition .editorial-table h4{font-size:20px}
+}
+@media(max-width:360px){.overprint-edition .masthead>span{font-size:17px}.overprint-edition .cover-ink-content{width:calc(100% - 32px)}.overprint-edition .cover-ink-footer p{font-size:16px}.overprint-edition .chapter>.section-head .section-chinese{font-size:25px}}
+
+.issue-days{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}@media(max-width:700px){.issue-days{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Long-form practical guidance: short paragraphs and sources at the decision. */
+.overprint-edition .editorial-table>article>div{min-width:0;max-width:46em}
+.overprint-edition .editorial-table>article>div>p{margin:0 0 14px;line-height:1.95;font-size:15px}
+.overprint-edition .editorial-table>article>div>p:last-child{margin-bottom:0}
+.overprint-edition .editorial-source-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px!important;padding-top:10px;border-top:1px solid var(--line);font-size:12px!important}
+.overprint-edition .editorial-source-links a{font-size:12px;line-height:1.7;color:var(--accent);text-underline-offset:4px}
+.overprint-edition .city-portrait-body>section{padding-block:22px}
+.overprint-edition .city-portrait-body>section>p{font-size:16px;line-height:1.95;margin-bottom:14px}
+@media(max-width:700px){.overprint-edition .editorial-table>article{gap:12px}.overprint-edition .editorial-table>article>div>p{font-size:15px}.overprint-edition .editorial-source-links a{display:inline-flex;align-items:center;min-height:36px}.overprint-edition .city-portrait-body>section>p{font-size:15px}}
+
+/* 4.7: independent city reading and separate light/dark contents surfaces. */
+.overprint-edition #menu-dialog .toc-entry{color:var(--ink);border-color:var(--line)}
+.overprint-edition #menu-dialog .toc-copy strong{color:var(--ink)}
+.overprint-edition #menu-dialog .toc-copy small{color:#565d51;opacity:1;font-weight:400}
+.overprint-edition #menu-dialog :is(.toc-number,.toc-arrow){color:#6d472e}
+.overprint-edition #menu-dialog .toc-entry:hover{background:#e9e6d9}
+.overprint-edition .journal-contents .toc-copy small{color:#e1e4d4;opacity:1}
+.overprint-edition .area-introduction{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:baseline;margin:30px 0 25px;padding-bottom:22px;border-bottom:1px solid var(--ink)}
+.overprint-edition .area-introduction h3{font:400 clamp(28px,3vw,42px)/1.4 var(--font-serif);margin:0;letter-spacing:0}
+.overprint-edition .area-introduction>p{font-size:16px;line-height:1.9;margin:0;color:var(--ink);max-width:38em}
+.overprint-edition .area-reading{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.43fr);gap:50px;align-items:start}
+.overprint-edition .district-section{border-bottom:1px solid var(--line);padding:0 0 24px;margin-bottom:24px;min-width:0}
+.overprint-edition .district-section:last-child{margin-bottom:0;border-bottom:0}
+.overprint-edition .district-section h4{font:400 25px/1.5 var(--font-serif);margin:0 0 12px;color:var(--ink)}
+.overprint-edition .district-section>p{font-size:16px;line-height:1.95;margin:0 0 12px;color:var(--ink);max-width:44em}
+.overprint-edition .area-notebook{padding:4px 0 20px;min-width:0}
+.overprint-edition .area-notebook h4{font:500 19px/1.65 var(--font-body);margin:0 0 12px;color:var(--ink)}
+.overprint-edition .area-notebook p{font-size:15px;line-height:1.9;margin:0 0 14px;color:var(--ink)}
+.overprint-edition .area-geography{margin-top:28px;border-top:1px solid var(--line);padding-top:20px}
+.overprint-edition .area-itinerary-link{border-top:1px solid var(--ink);padding-top:16px;margin-top:16px;display:flex;justify-content:flex-end}
+.overprint-edition .editorial-source-links a{overflow-wrap:anywhere}
+@media(max-width:900px){.overprint-edition .area-reading{grid-template-columns:1fr;gap:24px}.overprint-edition .area-notebook{border-top:1px solid var(--line);padding-top:22px}.overprint-edition .area-notebook>p{max-width:48em}}
+@media(max-width:700px){.overprint-edition .area-introduction{display:block;margin-top:22px;padding-bottom:18px}.overprint-edition .area-introduction h3{font-size:27px;margin-bottom:10px}.overprint-edition .area-introduction>p{font-size:15px}.overprint-edition .district-section h4{font-size:22px}.overprint-edition .district-section>p{font-size:15px}.overprint-edition .district-section{padding-bottom:20px;margin-bottom:20px}.overprint-edition .area-reading{gap:16px}.overprint-edition #menu-dialog .toc-copy small{font-size:12px;line-height:1.7}}
+
+/* Each photograph keeps its own focal point at mobile width. */
+@media(max-width:700px){.overprint-edition img[data-editorial-crop]{object-position:var(--editorial-position-mobile)!important}}

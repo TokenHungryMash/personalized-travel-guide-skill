@@ -1,0 +1,1638 @@
+{
+  "places": [
+    {
+      "id": "airport",
+      "name": "伍拉·赖国际机场",
+      "local": "I Gusti Ngurah Rai International Airport",
+      "area": "机场",
+      "kind": "交通",
+      "where": "DPS；国内与国际航站楼分别确认",
+      "duration": "按航班",
+      "desc": "抵达后先完成入境、取行李与上车，第一天不安排跨岛观光。",
+      "tip": "司机集合点、航站楼和联系方式提前存好。返程按航空公司要求倒推到场时间。",
+      "url": "https://bali-airport.com/",
+      "query": "I Gusti Ngurah Rai International Airport Bali"
+    },
+    {
+      "id": "sanur",
+      "name": "沙努尔海滨",
+      "local": "Pantai Sanur",
+      "area": "沙努尔",
+      "kind": "海滩",
+      "where": "Sanur 东海岸；步道分段选取",
+      "duration": "60–90 分钟",
+      "desc": "把第一段海风留在东岸。这里适合清晨沿海散步，也适合在阴凉处看海。",
+      "tip": "地图点是海滨参考点，非酒店入口。海况与潮位会改变岸边体验，不把平静照片当作可下水保证。",
+      "url": "https://www.indonesia.travel/gb/en/destination/bali-nusa-tenggara/bali/sanur0",
+      "query": "Pantai Sanur Bali"
+    },
+    {
+      "id": "karang",
+      "name": "卡朗海滩",
+      "local": "Pantai Karang",
+      "area": "沙努尔",
+      "kind": "海滩",
+      "where": "Jalan Pantai Karang 尽头一带",
+      "duration": "45–60 分钟",
+      "desc": "从主街转进短巷，早餐后的海边就离日常生活很近。选一小段走，不必把整条岸线走完。",
+      "tip": "清晨观景与游泳是两件事；关注当天潮汐、旗帜和现场工作人员提示。",
+      "url": "https://www.indonesia.travel/gb/en/destination/bali-nusa-tenggara/bali/sanur0",
+      "query": "Pantai Karang Bali"
+    },
+    {
+      "id": "sindhu",
+      "name": "辛杜海滩",
+      "local": "Pantai Sindhu",
+      "area": "沙努尔",
+      "kind": "海滩",
+      "where": "Sanur 海岸北段",
+      "duration": "45–60 分钟",
+      "desc": "沙努尔的另一个散步起点。适合沿海看传统船只，再转回街边吃饭。",
+      "tip": "别把餐厅躺椅当公共设施，坐下前确认消费与使用规则。",
+      "url": "https://www.indonesia.travel/gb/en/destination/bali-nusa-tenggara/bali/sanur0",
+      "query": "Pantai Sindhu Bali"
+    },
+    {
+      "id": "massimo",
+      "name": "Massimo 意式餐厅",
+      "local": "Massimo Italian Restaurant",
+      "area": "沙努尔",
+      "kind": "美食",
+      "where": "Jalan Danau Tamblingan 228",
+      "duration": "60–90 分钟",
+      "desc": "当你想从香料、烤肉和米饭里换一顿口味时，可以选披萨、意面或冰淇淋。",
+      "tip": "冰淇淋外带队伍与餐厅就座分开判断；想吃正餐先问桌位，不必跟错队。",
+      "url": "https://www.massimobali.com/massimomenu/",
+      "query": "Massimo Italian Restaurant Bali"
+    },
+    {
+      "id": "sanurmarket",
+      "name": "辛杜夜市",
+      "local": "Pasar Sindhu",
+      "area": "沙努尔",
+      "kind": "美食",
+      "where": "Jalan Danau Tamblingan 北段；按摊位选择",
+      "duration": "45–60 分钟",
+      "desc": "用一顿分量不大的晚饭认识炒饭、沙爹和水果饮料。先看菜名与标价，再各选一样。",
+      "tip": "摊位营业与菜单并不统一；选择现做热食，不将这里当作必须打卡的一餐。",
+      "url": "https://www.indonesia.travel/gb/en/destination/bali-nusa-tenggara/bali/sanur0",
+      "query": "Pasar Sindhu Bali"
+    },
+    {
+      "id": "icon",
+      "name": "ICON BALI",
+      "local": "ICON BALI",
+      "area": "沙努尔",
+      "kind": "购物",
+      "where": "沙努尔主街与海岸之间",
+      "duration": "60–90 分钟",
+      "desc": "雨天或午后太热时，用室内商场完成补给、吃饭和休息，给海滨步行留体力。",
+      "tip": "把它作为天气备选；不为购物绕远，确认具体店铺和当日安排。",
+      "url": "https://iconbalimall.com/",
+      "query": "ICON BALI Bali"
+    },
+    {
+      "id": "palace",
+      "name": "乌布王宫",
+      "local": "Puri Saren Agung",
+      "area": "乌布中心",
+      "kind": "文化",
+      "where": "Jalan Raya Ubud 与 Jalan Suweta 路口",
+      "duration": "30–45 分钟",
+      "desc": "从王宫街口理解乌布中心的尺度：市场、画廊、寺庙和餐厅并不遥远，适合分段步行。",
+      "tip": "只进入对游客开放的区域。晚间演出单独核对当日场次与票务，参观不代表已包含演出票。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Puri Saren Agung Bali"
+    },
+    {
+      "id": "market",
+      "name": "乌布艺术市场",
+      "local": "Ubud Art Market",
+      "area": "乌布中心",
+      "kind": "购物",
+      "where": "王宫街口及周边市场区域",
+      "duration": "45–60 分钟",
+      "desc": "把一两个上午留给慢慢比较材质、做工与价格。喜欢一只篮子，也要想好它在行李箱里的位置。",
+      "tip": "市场位置和摊位分布可能调整；先看现场入口。议价礼貌进行，不把试穿、询价视为购买承诺。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Ubud Art Market Bali"
+    },
+    {
+      "id": "saraswati",
+      "name": "萨拉斯瓦蒂水宫",
+      "local": "Pura Taman Saraswati",
+      "area": "乌布中心",
+      "kind": "文化",
+      "where": "Jalan Raya Ubud，靠近 Jalan Kajeng",
+      "duration": "30–45 分钟",
+      "desc": "莲池和砖石建筑适合在步行途中停一站，和附近美术馆组成一段安静的文化时间。",
+      "tip": "开放区域、服装要求和摄影规则看现场；水宫参观不等于所有祭祀空间可进入。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Pura Taman Saraswati Bali"
+    },
+    {
+      "id": "puri",
+      "name": "Puri Lukisan 美术馆",
+      "local": "Museum Puri Lukisan",
+      "area": "乌布中心",
+      "kind": "文化",
+      "where": "Jalan Raya Ubud",
+      "duration": "90–120 分钟",
+      "desc": "看过寺庙与村落之后，再看巴厘绘画中的人物、树木和生活场景，画面会更容易读懂。",
+      "tip": "优先看感兴趣的展厅；工作坊与常规参观分开预约。可作为雨天的主要活动。",
+      "url": "https://purilukisanmuseum.com/",
+      "query": "Museum Puri Lukisan Bali"
+    },
+    {
+      "id": "threads",
+      "name": "Threads of Life 织物店",
+      "local": "Threads of Life",
+      "area": "乌布中心",
+      "kind": "购物",
+      "where": "Jalan Kajeng 24；与其他画廊、染坊地址区分",
+      "duration": "45–60 分钟",
+      "desc": "为一块织物多问几句话：来自哪里、使用什么纤维、怎样染色与护理。它比大量买纪念品更适合慢慢挑。",
+      "tip": "本版指 Kajeng 店；品牌还有画廊和染坊，导航先核对分店。不要把购买店当上课集合点。",
+      "url": "https://threadsoflife.com/pages/contact",
+      "query": "Threads of Life Ubud"
+    },
+    {
+      "id": "hujan",
+      "name": "Hujan Locale",
+      "local": "Hujan Locale",
+      "area": "乌布中心",
+      "kind": "美食",
+      "where": "Jalan Sri Wedari",
+      "duration": "90–120 分钟",
+      "desc": "留一顿时间充足的印尼风味晚餐，围绕香料、蔬菜与肉类搭配点餐，适合两人分食几道菜。",
+      "tip": "订位时说明人数与饮食限制。菜单和附加税费看当日版本，不按旧攻略价格下单。",
+      "url": "https://hujanlocale.com/booking/",
+      "query": "Hujan Locale Bali"
+    },
+    {
+      "id": "campuhan",
+      "name": "Campuhan 山脊步道",
+      "local": "Campuhan Ridge Walk",
+      "area": "乌布西侧",
+      "kind": "散步",
+      "where": "Campuhan 山谷入口附近",
+      "duration": "60–90 分钟",
+      "desc": "把步道留给较凉爽的早晨，走到觉得舒服的位置就折返。远处绿坡比拍满一条路线更值得慢看。",
+      "tip": "雨后湿滑、部分路段少遮阴；不把它当全天候散步。携水，雷雨时取消。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Campuhan Ridge Walk Bali"
+    },
+    {
+      "id": "monkey",
+      "name": "乌布猴林",
+      "local": "Sacred Monkey Forest Sanctuary",
+      "area": "乌布南侧",
+      "kind": "自然",
+      "where": "Padangtegal；Jalan Monkey Forest",
+      "duration": "90–120 分钟",
+      "desc": "林荫、石桥与寺庙景观构成另一种乌布。猴子是野生动物，观察距离比近距离合影更重要。",
+      "tip": "不喂食、不触摸；收起易被拿走的小物，遵守园方标识。官网当前开放 09:00–18:00、末入 17:00，出发前复核。",
+      "url": "https://monkeyforestubud.com/visit/",
+      "query": "Sacred Monkey Forest Sanctuary Bali"
+    },
+    {
+      "id": "bengil",
+      "name": "Bebek Bengil 乌布店",
+      "local": "Bebek Bengil",
+      "area": "乌布南侧",
+      "kind": "美食",
+      "where": "Jalan Hanoman；乌布分店",
+      "duration": "60–90 分钟",
+      "desc": "把脆皮鸭作为进入乌布后的第一顿正餐。坐下来吃，比提着行李连续跑几个景点更合适。",
+      "tip": "确认乌布分店与套餐构成；想要庭园座位可询问，但不把偏好当作保证。",
+      "url": "https://bebekbengil.co.id/",
+      "query": "Bebek Bengil Ubud"
+    },
+    {
+      "id": "arma",
+      "name": "ARMA 美术馆",
+      "local": "Agung Rai Museum of Art",
+      "area": "乌布南侧",
+      "kind": "文化",
+      "where": "Jalan Made Lebah",
+      "duration": "90–120 分钟",
+      "desc": "绘画与庭园放在同一次参观里。这里适合把午后放慢，也能让不想逛市场的同行者有自己的选择。",
+      "tip": "文化课程、演出和展览按当期安排；园区散步不能替代已预约的活动时间。",
+      "url": "https://armamuseumubud.com/en",
+      "query": "Agung Rai Museum of Art Bali"
+    },
+    {
+      "id": "cooking",
+      "name": "Casa Luna 烹饪课",
+      "local": "Casa Luna Cooking School",
+      "area": "乌布中心",
+      "kind": "体验",
+      "where": "按预订确认信中的具体场地集合",
+      "duration": "半天",
+      "desc": "从菜单里挑最想理解的几道菜，学一次香料处理，再在旅途后半程点餐时认出它们。",
+      "tip": "不同课程内容与场地可能不同；本地图只标餐厅参考位置，不作课堂集合点。预约后填入确认地址。",
+      "url": "https://casalunabali.com/casa-luna-cooking-school/",
+      "query": "Casa Luna Ubud Bali"
+    },
+    {
+      "id": "rice",
+      "name": "德格拉朗梯田",
+      "local": "Tegallalang Rice Terrace",
+      "area": "乌布北侧",
+      "kind": "自然",
+      "where": "Ceking / Tegallalang 区域",
+      "duration": "60–90 分钟",
+      "desc": "从山坡上看灌溉田块，再选择一小段田间路径。绿色随农时改变，不必追求宣传图里的同一种颜色。",
+      "tip": "园区、咖啡馆和秋千可能分开收费；明确入口、包含项目与返程上车点。大雨后取消下田。",
+      "url": "https://www.indonesia.travel/uk/en/destination/bali-nusa-tenggara/bali/ubud---tegallalang-rice-terrace-a-charm-of-the-green-in-ubud",
+      "query": "Ceking Rice Terrace Bali"
+    },
+    {
+      "id": "tirta",
+      "name": "圣泉寺",
+      "local": "Pura Tirta Empul",
+      "area": "乌布北侧",
+      "kind": "文化",
+      "where": "Manukaya，Tampaksiring",
+      "duration": "60–90 分钟",
+      "desc": "参观泉水、院落与祭祀空间，先理解使用方式，再决定是否参与仪式。旁观也可以是一种完整体验。",
+      "tip": "按现场要求穿着与进入；净身仪式不是必须参加的娱乐项目，遵从工作人员和当地信众指引。",
+      "url": "https://diparda.gianyarkab.go.id/destinasi/tirta-empul-temple",
+      "query": "Pura Tirta Empul Bali"
+    },
+    {
+      "id": "gunungkawi",
+      "name": "古农卡威石窟寺",
+      "local": "Gunung Kawi Tampaksiring",
+      "area": "乌布北侧",
+      "kind": "文化",
+      "where": "Tampaksiring 山谷",
+      "duration": "90–120 分钟",
+      "desc": "石刻与河谷地形适合对文化遗产有兴趣的人。台阶数量和爬升意味着它应替换一站，而非额外追加。",
+      "tip": "雨后台阶可能滑；不想爬楼梯就选圣泉寺，午后雷雨时不下谷。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Gunung Kawi Tampaksiring Bali"
+    },
+    {
+      "id": "goagajah",
+      "name": "象窟",
+      "local": "Goa Gajah",
+      "area": "乌布东南",
+      "kind": "文化",
+      "where": "Bedulu，乌布东南侧",
+      "duration": "45–60 分钟",
+      "desc": "洞口雕刻和院落适合做转场日的一次短停，给车程一个有内容的中场。",
+      "tip": "按宗教场所着装；台阶和地面情况需现场判断。与酒店入住时间冲突时可取消。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Goa Gajah Bali"
+    },
+    {
+      "id": "mas",
+      "name": "马斯木雕村",
+      "local": "Desa Mas",
+      "area": "乌布南侧",
+      "kind": "工艺",
+      "where": "Mas 村，Jalan Raya Mas 沿线",
+      "duration": "60–90 分钟",
+      "desc": "把注意力放在木材纹理、雕刻细节与工坊制作过程，先看再买。这里是散布的村落，不是一间统一商店。",
+      "tip": "地图为村落参考点；请司机按实际选定工坊下车，避免把每个带看点都当义务购物。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Mas Gianyar Bali"
+    },
+    {
+      "id": "batuan",
+      "name": "巴图安寺",
+      "local": "Pura Puseh Batuan",
+      "area": "工艺走廊",
+      "kind": "文化",
+      "where": "Batuan 村，Sukawati 区域",
+      "duration": "45–60 分钟",
+      "desc": "在乌布往南的转场途中，停下来观察砖石雕饰和院落层次。",
+      "tip": "开放情况以当天仪式为准；穿着与纱笼按现场要求，不越过限制线。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Pura Puseh Batuan Bali"
+    },
+    {
+      "id": "sukawati",
+      "name": "苏卡瓦提艺术市场",
+      "local": "Pasar Seni Sukawati",
+      "area": "工艺走廊",
+      "kind": "购物",
+      "where": "Sukawati 镇中心",
+      "duration": "45–60 分钟",
+      "desc": "这里适合有明确手工艺采购目标时替换马斯一站。先分清木雕、纺织和批量纪念品，不靠价格猜手作。",
+      "tip": "当天已去乌布市场就不必重复；行李与停车时间计入转场。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Pasar Seni Sukawati Bali"
+    },
+    {
+      "id": "jimbaran",
+      "name": "金巴兰海滩",
+      "local": "Pantai Jimbaran",
+      "area": "金巴兰",
+      "kind": "海滩",
+      "where": "Jimbaran Bay，选靠近酒店的一段",
+      "duration": "60–90 分钟",
+      "desc": "黄昏只做两件事：走一小段海岸，坐下来吃晚饭。用这段空白接住前几天的参观与车程。",
+      "tip": "海滩长，不同餐厅入口相距较远；先确认具体店名和回程接送点。",
+      "url": "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/bali---romantic-jimbaran-beach",
+      "query": "Pantai Jimbaran Bali"
+    },
+    {
+      "id": "kedonganan",
+      "name": "Kedonganan 鱼市",
+      "local": "Pasar Ikan Kedonganan",
+      "area": "金巴兰北侧",
+      "kind": "美食",
+      "where": "金巴兰湾北侧，渔港附近",
+      "duration": "30–45 分钟",
+      "desc": "适合对鱼获与市场有兴趣的人清晨短看。不想处理选鱼、称重和加工，直接去明码标价的餐厅更省心。",
+      "tip": "称重、加工费和最终总价先确认；湿滑地面穿防滑鞋，不进入作业区域。",
+      "url": "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/bali---romantic-jimbaran-beach",
+      "query": "Pasar Ikan Kedonganan Bali"
+    },
+    {
+      "id": "jenggala",
+      "name": "Jenggala 陶瓷店",
+      "local": "Jenggala Keramik",
+      "area": "金巴兰",
+      "kind": "购物",
+      "where": "Jalan Uluwatu II，Jimbaran 店",
+      "duration": "45–60 分钟",
+      "desc": "挑一只实际会使用的杯子或碗，为八天带回一个能进入日常的物件。",
+      "tip": "彩绘陶瓷课程成品需烧制；官网提示通常 5–7 天。第 8 天不能默认当场取走，体验须提前安排或询问寄送。",
+      "url": "https://jenggala.com/paint-a-pot/",
+      "query": "Jenggala Keramik Jimbaran"
+    },
+    {
+      "id": "cuca",
+      "name": "Cuca",
+      "local": "Cuca Restaurant",
+      "area": "金巴兰",
+      "kind": "美食",
+      "where": "Jalan Yoga Perkanthi，Jimbaran",
+      "duration": "90–120 分钟",
+      "desc": "适合把一晚留给以分享小盘为主的完整用餐体验。让晚餐本身成为活动，白天少排一站。",
+      "tip": "提前看菜单和订位；当天已在海滩吃海鲜，就把它改到另一晚，而不是连吃两顿。",
+      "url": "https://www.cucabali.com/",
+      "query": "Cuca Restaurant Bali"
+    },
+    {
+      "id": "uluwatu",
+      "name": "乌鲁瓦图寺",
+      "local": "Pura Luhur Uluwatu",
+      "area": "乌鲁瓦图",
+      "kind": "文化",
+      "where": "Pecatu 西南悬崖",
+      "duration": "60–90 分钟",
+      "desc": "沿崖边看寺庙与海岸的关系，黄昏前抵达比最后十分钟冲向观景点更从容。",
+      "tip": "收好眼镜、手机等物品，远离悬崖边缘；舞蹈表演另核对票务与天气，未订到就只参观。",
+      "url": "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/pura-luhur-uluwatu",
+      "query": "Pura Luhur Uluwatu Bali"
+    },
+    {
+      "id": "padang",
+      "name": "Padang Padang 海滩",
+      "local": "Pantai Padang Padang",
+      "area": "乌鲁瓦图",
+      "kind": "海滩",
+      "where": "Pecatu；有下行台阶",
+      "duration": "60–90 分钟",
+      "desc": "小海湾的尺度与沙努尔完全不同。下海湾前先看台阶、潮位与当天人流，留体力给傍晚。",
+      "tip": "需要走台阶；不适合用作保证轻松的雨天方案。海况不佳就留在安全观景位置。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Pantai Padang Padang Bali"
+    },
+    {
+      "id": "melasti",
+      "name": "Melasti 海滩",
+      "local": "Pantai Melasti",
+      "area": "南部半岛",
+      "kind": "海滩",
+      "where": "Ungasan 南岸",
+      "duration": "90–120 分钟",
+      "desc": "如果偏爱宽阔海滩而不是小海湾，可用它替换 Padang Padang。临海公路和崖壁让南岸地形更直观。",
+      "tip": "与乌鲁瓦图并非步行相邻；不要同时塞进多个海滩。现场费用、开放路段和海况另确认。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Pantai Melasti Ungasan Bali"
+    },
+    {
+      "id": "nusadua",
+      "name": "努沙杜瓦海滨",
+      "local": "Pantai Nusa Dua",
+      "area": "南部东岸",
+      "kind": "海滩",
+      "where": "Nusa Dua 度假区海岸",
+      "duration": "半天",
+      "desc": "偏好设施较集中的海边休息时，作为金巴兰或乌鲁瓦图的替换方向。",
+      "tip": "本版不额外排一整天跨区；先看酒店与实际海滩入口，再决定是否值得转场。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Pantai Nusa Dua Bali"
+    },
+    {
+      "id": "pasifika",
+      "name": "Pasifika 博物馆",
+      "local": "Museum PASIFIKA",
+      "area": "努沙杜瓦",
+      "kind": "文化",
+      "where": "Nusa Dua，BTDC 区域",
+      "duration": "90–120 分钟",
+      "desc": "不想在南部继续晒太阳时，可以把一个下午换成绘画与艺术收藏。",
+      "tip": "与乌布美术馆取向不同；根据兴趣择一，不把所有室内景点都当必须参观。",
+      "url": "https://museum-pasifika.com/",
+      "query": "Museum PASIFIKA Bali"
+    },
+    {
+      "id": "tanahlot",
+      "name": "海神庙",
+      "local": "Tanah Lot",
+      "area": "西海岸",
+      "kind": "文化",
+      "where": "Beraban 西海岸，偏离本次主线",
+      "duration": "半天",
+      "desc": "留作下一次或大幅替换日程时的候选。它的海边寺庙景观有吸引力，但需要为道路交通留出空间。",
+      "tip": "不在本次八天里追加；若坚持前往，用它替换整段海岸活动并重算车程。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Tanah Lot Bali"
+    },
+    {
+      "id": "spa",
+      "name": "乌布休息与按摩时段",
+      "local": "Ubud spa appointment",
+      "area": "乌布",
+      "kind": "休息",
+      "where": "按选定且已确认的场所地址",
+      "duration": "60–90 分钟",
+      "desc": "给八天留一个不必赶路的下午。选安静、明码标价且能沟通力度与禁忌的场所。",
+      "tip": "这是预留时段，不是已核实的店铺推荐；选店后再填地址。有不适先告知服务人员。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Ubud spa appointment Bali"
+    },
+    {
+      "id": "coffee",
+      "name": "乌布咖啡与阅读时段",
+      "local": "Ubud coffee break",
+      "area": "乌布",
+      "kind": "休息",
+      "where": "当天路线附近，自选咖啡馆",
+      "duration": "45–60 分钟",
+      "desc": "让一段咖啡时间吸收天气、交通和体力的不确定性。能坐下来聊天，比再跨区拍一张照片更适合这次节奏。",
+      "tip": "这是自由时段，不提供虚构店名或坐标；在地图中不作为具体景点标注。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Ubud coffee break Bali"
+    },
+    {
+      "id": "beachrest",
+      "name": "海边自由下午",
+      "local": "Beach rest time",
+      "area": "海岸",
+      "kind": "休息",
+      "where": "已预订酒店或附近海岸",
+      "duration": "半天",
+      "desc": "不提前规定这半天必须做什么。游泳、午睡、散步都可以，海况不合适就留在酒店。",
+      "tip": "不是景点或酒店预订；没有独立导航坐标。",
+      "url": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+      "query": "Beach rest time Bali"
+    },
+    {
+      "id": "finns",
+      "name": "FINNS Beach Club",
+      "local": "FINNS Beach Club · Berawa",
+      "area": "苍古 · Berawa",
+      "kind": "体验",
+      "where": "Jl. Pantai Berawa，Tibubeneng，Canggu；以官网入口定位为准",
+      "duration": "4–5 小时",
+      "desc": "下午游泳、听 DJ，接着看西岸日落。它是以社交和派对为主的海滩俱乐部，适合想把半天交给音乐与海边的人；喜欢安静则留在沙努尔。",
+      "tip": "第 2 天主线。普通入场与日床不是一回事：官网列免费入场，日床、包厢按日期与最低消费预约；活动日另查。官网标注 adults-only，同行有未成年人先核年龄要求。返程接送提前约好。",
+      "url": "https://finnsbeachclub.com/",
+      "query": "FINNS Beach Club Berawa Bali"
+    },
+    {
+      "id": "yogabarn",
+      "name": "The Yoga Barn",
+      "local": "The Yoga Barn · Ubud",
+      "area": "乌布中心",
+      "kind": "体验",
+      "where": "Jl. Sukma Kesuma，Peliatan，Ubud；车行走主入口，Pengosekan 小径仅限步行",
+      "duration": "约 2 小时，含签到",
+      "desc": "在庭园里的练习空间上一堂课，体验乌布的瑜伽生活。按当天课表和自己的经验选 beginner / open level，不需要安排整套静修行程。",
+      "tip": "第 3 天下午预留。日常课现场登记、不支持线上预订；白天课前 30 分钟开放登记，晚间课提前 1 小时，先到先得。单次 Rp180,000（2026-11-11 官网）；具体开课时刻以课表为准，工作坊规则另查。",
+      "url": "https://theyogabarn.com/classes/daily-classes/",
+      "query": "The Yoga Barn Ubud Jalan Sukma Kesuma"
+    },
+    {
+      "id": "ibumangku",
+      "name": "Ibu Mangku 鸡饭 · 乌布店",
+      "local": "Nasi Ayam Kedewatan Ibu Mangku · Ubud",
+      "area": "乌布北侧",
+      "kind": "美食",
+      "where": "Jl. Raya Kedewatan No.18，Kedewatan，Ubud；勿选到外区分店",
+      "duration": "45–60 分钟",
+      "desc": "想吃一顿巴厘家常香料味，选招牌 Nasi Ayam：米饭配鸡肉与小菜，份量比整套餐厅菜单更好下决定。它在乌布中心西北侧，需要专门留一段车程。",
+      "tip": "当地风味优先项。第 5 天可在回乌布途中绕去 Kedewatan 吃午餐，多留约 30–45 分钟交通缓冲，不必先进中心区再折返。辣酱可另放，预算档为日常简餐，实际看分店菜单。",
+      "url": "https://linktr.ee/nasiayamkedewatanibumangku",
+      "query": "Nasi Ayam Kedewatan Ibu Mangku Ubud Jalan Raya Kedewatan 18"
+    },
+    {
+      "id": "pepperlunch",
+      "name": "Pepper Lunch · ICON Bali",
+      "local": "Pepper Lunch — ICON Mall Bali",
+      "area": "沙努尔",
+      "kind": "美食",
+      "where": "ICON Bali，Jl. Danau Tamblingan，Sanur；店位以商场当日目录为准",
+      "duration": "45–60 分钟",
+      "desc": "想吃熟悉的米饭与肉类、懒得重新研究菜单时，选这家铁板饭连锁。适合在沙努尔逛商场或雨天接一顿，不必为它跨区。",
+      "tip": "连锁备选。第 2 天出发去苍古前用午餐，或留作沙努尔雨备；参考招牌牛肉胡椒饭，按实际菜单选肉类。预算档为商场简餐，套餐、饮料与税费现场确认。",
+      "url": "https://dineout.grab.com/id/id/restaurants/pepper-lunch-icon-mall-bali--6-C6KURF5CLKAJVT",
+      "query": "Pepper Lunch ICON Bali Sanur"
+    },
+    {
+      "id": "makbeng",
+      "name": "Warung Mak Beng · 沙努尔",
+      "local": "Warung Mak Beng Sanur",
+      "area": "沙努尔",
+      "kind": "美食",
+      "where": "Jl. Hang Tuah No.45，Sanur Kaja",
+      "duration": "45–60 分钟",
+      "desc": "鱼汤、炸鱼和米饭组成一套，是沙努尔很直接的一顿当地午餐。想吃海鲜又不想研究长菜单时可以选它。",
+      "tip": "第 1–2 天沙努尔午餐备选。原店在沙努尔北端，先看与住处的距离；若排队影响下午接送，改附近简餐。",
+      "url": "https://denpasartourism.com/en/culinary/warung-mak-beng",
+      "query": "Warung Mak Beng Sanur Bali"
+    },
+    {
+      "id": "sundara",
+      "name": "Sundara · 金巴兰",
+      "local": "Sundara at Four Seasons Jimbaran Bay",
+      "area": "金巴兰",
+      "kind": "美食",
+      "where": "Four Seasons Resort Bali at Jimbaran Bay，Jalan Bukit Permai",
+      "duration": "60–90 分钟",
+      "desc": "海景、烧烤和海鲜结合的一顿晚餐，适合想把日落与正餐放在同一处的人。",
+      "tip": "第 6–7 天晚餐备选，与 Cuca 或海鲜大排档选一顿。先订餐桌；餐厅用餐不代表包含泳池、日床或其他设施。",
+      "url": "https://www.sundarabali.com/location/sundara/",
+      "query": "Sundara at Four Seasons Jimbaran Bay Bali"
+    },
+    {
+      "id": "milkmadu",
+      "name": "Milk & Madu · 乌布",
+      "local": "Milk & Madu Ubud",
+      "area": "乌布中心",
+      "kind": "美食",
+      "where": "Jl. Suweta No.3，Ubud",
+      "duration": "60–90 分钟",
+      "desc": "靠近王宫的全天餐饮咖啡馆，早午餐、披萨与咖啡适合不同胃口的人一起吃。",
+      "tip": "第 4 天王宫附近早餐或午餐备选。热门时段先看候位；当天仍有博物馆与街区散步，不为一餐长等。",
+      "url": "https://milkandmadu.com/",
+      "query": "Milk & Madu Ubud Bali"
+    },
+    {
+      "id": "pison",
+      "name": "Pison · 乌布",
+      "local": "Pison Ubud",
+      "area": "乌布中心",
+      "kind": "美食",
+      "where": "Jl. Hanoman No.10X，Ubud",
+      "duration": "45–60 分钟",
+      "desc": "Hanoman 路上的咖啡馆，提供西式与亚洲风味餐食；适合下午喝咖啡，也能顺便解决简餐。",
+      "tip": "第 3 天课后或第 4 天步行时段备选，认准 Ubud Hanoman No.10X 分店。点咖啡与日式饭碗等按当前菜单；不保证能拿到稻田景观座位。",
+      "url": "https://pisonindonesia.com/pison-ubud/",
+      "query": "Pison Ubud Bali"
+    },
+    {
+      "id": "mcdsanur",
+      "name": "McDonald’s · 沙努尔",
+      "local": "McDonald's Sanur Bali",
+      "area": "沙努尔",
+      "kind": "美食",
+      "where": "Jl. By Pass Ngurah Rai No.109，Sanur",
+      "duration": "45–60 分钟",
+      "desc": "熟悉的汉堡、薯条与快餐组合，适合赶时间、外带或想简单吃一餐的时候。",
+      "tip": "第 1–2 天住在附近时可选。门店在绕城主路旁，先确认到店与上车点；菜品和早餐供应以当地菜单为准。",
+      "url": "https://www.mcdonalds.co.id/locations",
+      "query": "McDonald's Sanur Bali Bali"
+    },
+    {
+      "id": "pizzahut",
+      "name": "Pizza Hut · 沙努尔",
+      "local": "Pizza Hut Sanur",
+      "area": "沙努尔",
+      "kind": "美食",
+      "where": "Jl. I Gusti Ngurah Rai No.15，By Pass Sanur",
+      "duration": "45–60 分钟",
+      "desc": "披萨连锁，适合同伴分食，或雨天用熟悉的口味解决一餐。",
+      "tip": "第 1–2 天沙努尔晚餐备选。店址与菜单参考 Grab 店铺页；先核人数与披萨尺寸，套餐、外送和堂食价格可能不同。",
+      "url": "https://dineout.grab.com/id/en/restaurants/pizza-hut-sanur--IDGFSTI00000rge",
+      "query": "Pizza Hut Sanur Bali"
+    }
+  ],
+  "days": [
+    {
+      "id": "d1",
+      "area": "沙努尔",
+      "title": "抵达，先住到海边",
+      "lead": "机场接送只做一段。放好行李后，视抵达时间去海岸短走，第一晚尽量早休息。",
+      "stops": [
+        [
+          "落地后",
+          "airport",
+          "取行李、集合与接送"
+        ],
+        [
+          "傍晚",
+          "sanur",
+          "海边短走，晚到可取消"
+        ],
+        [
+          "晚餐",
+          "massimo",
+          "按入住与体力决定"
+        ]
+      ],
+      "gentle": [
+        "sanur",
+        "massimo"
+      ],
+      "rain": [
+        "massimo"
+      ],
+      "image": "sanur",
+      "move": "DPS → 沙努尔：预留约 45–90 分钟车程，拥堵或接机等待另加；酒店未定，不写最后一公里。",
+      "guard": "晚到就取消海滨散步，在酒店附近解决晚饭。",
+      "budget": "单人餐饮约 Rp250,000–450,000；接机按车另询价。",
+      "photo": "海边朝向东，抵达晚不保证看到夕阳；拍岸边船与天空即可。",
+      "start": "14:00",
+      "schedules": {
+        "standard": {
+          "airport": {
+            "time": "14:00",
+            "duration": 90,
+            "guard": "取行李、集合与接送。出发前确认营业时间与交通。"
+          },
+          "sanur": {
+            "time": "17:00",
+            "duration": 60,
+            "guard": "海边短走，晚到可取消。出发前确认营业时间与交通。"
+          },
+          "massimo": {
+            "time": "18:30",
+            "duration": 90,
+            "guard": "按入住与体力决定。出发前确认营业时间与交通。"
+          }
+        }
+      },
+      "transfers": {
+        "airport>sanur": {
+          "minutes": 90,
+          "label": "预留接送／包车；含路况缓冲"
+        },
+        "sanur>massimo": {
+          "minutes": 25,
+          "label": "预留步行与短途接送"
+        }
+      },
+      "scheduleNote": "示例按 14:00 已抵达机场编排；晚到则取消散步。",
+      "periods": [
+        "机场接送只做一段。放好行李后，视抵达时间去海岸短走，第一晚尽量早休息。",
+        "DPS → 沙努尔：预留约 45–90 分钟车程，拥堵或接机等待另加；酒店未定，不写最后一公里。",
+        "晚到就取消海滨散步，在酒店附近解决晚饭。"
+      ],
+      "shopping": [],
+      "shooting": [
+        "海边朝向东，抵达晚不保证看到夕阳；拍岸边船与天空即可。"
+      ],
+      "alternatives": [
+        {
+          "trigger": "晚到 / 累了",
+          "title": "入住后就近吃饭",
+          "replace": "取消海滨散步与指定餐厅，先完成接送和入住。",
+          "route": [],
+          "time": "按实际抵达安排",
+          "traffic": "从机场直达已订住处，不为散步额外绕行。",
+          "check": "确认接送集合点和酒店联系方法。"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "area": "沙努尔 · 苍古",
+      "title": "从东岸日出，到 FINNS 的日落",
+      "lead": "早起看海，回酒店补一觉。午餐后出发去 Berawa，把下午到日落完整留给 FINNS；当天不再加夜市或另一家 beach club。",
+      "stops": [
+        [
+          "06:00",
+          "karang",
+          "天气好再早起；回酒店早餐与休息"
+        ],
+        [
+          "11:30",
+          "pepperlunch",
+          "ICON Bali 简单午餐，出发前用洗手间"
+        ],
+        [
+          "14:30",
+          "finns",
+          "游泳、音乐与日落；晚餐在场内解决"
+        ]
+      ],
+      "gentle": [
+        "karang",
+        "sindhu",
+        "beachrest",
+        "sanurmarket"
+      ],
+      "rain": [
+        "icon",
+        "pepperlunch",
+        "beachrest"
+      ],
+      "image": "sanur",
+      "move": "ICON Bali → FINNS 按 2 小时车程预留，繁忙时还可能更久；19:30 左右离场，回沙努尔另预留 1.5–2.5 小时。以上是排程缓冲，不是实时导航。",
+      "guard": "不喜欢派对或不愿跨区，就用原沙努尔海岸＋Sindhu 夜市方案替换这半天。预约日床注意最晚入场条件，别买与 14:30 抵达不符的早到套餐。",
+      "budget": "普通餐饮与饮品按 Rp500,000–900,000 / 人做编辑预算；FINNS 日床、活动与跨区往返车费另算，按官网所选日期核对。",
+      "photo": "海边日落与泳池是同一段时间；拍照时给同行者和其他客人留空间。",
+      "start": "06:00",
+      "schedules": {
+        "standard": {
+          "karang": {
+            "time": "06:00",
+            "duration": 45,
+            "guard": "天气允许再看日出；之后回酒店早餐、休息。"
+          },
+          "pepperlunch": {
+            "time": "11:30",
+            "duration": 60,
+            "guard": "12:30 左右启程去 Berawa；午餐可换同商场其他餐厅。"
+          },
+          "finns": {
+            "time": "14:30",
+            "duration": 300,
+            "guard": "建议停留到 19:30，含游泳、日落和场内晚餐；不是已订日床时段。"
+          }
+        }
+      },
+      "transfers": {
+        "karang>pepperlunch": {
+          "minutes": 20,
+          "label": "短途步行或接送；中间空档留给酒店早餐与休息"
+        },
+        "pepperlunch>finns": {
+          "minutes": 120,
+          "label": "跨区接送到 Berawa；按拥堵留余量"
+        }
+      },
+      "scheduleNote": "FINNS 日床尚未预订。主线含长距离往返；雨天或想安静休息，整段改为沙努尔，不再叠加俱乐部。",
+      "periods": [
+        "早起看海，回酒店补一觉。午餐后出发去 Berawa，把下午到日落完整留给 FINNS；当天不再加夜市或另一家 beach club。",
+        "ICON Bali → FINNS 按 2 小时车程预留，繁忙时还可能更久；19:30 左右离场，回沙努尔另预留 1.5–2.5 小时。以上是排程缓冲，不是实时导航。",
+        "不喜欢派对或不愿跨区，就用原沙努尔海岸＋Sindhu 夜市方案替换这半天。预约日床注意最晚入场条件，别买与 14:30 抵达不符的早到套餐。"
+      ],
+      "shopping": [],
+      "shooting": [
+        "海边日落与泳池是同一段时间；拍照时给同行者和其他客人留空间。"
+      ],
+      "alternatives": [
+        {
+          "trigger": "雨天 / 不跨区",
+          "title": "留在沙努尔",
+          "replace": "取消苍古 FINNS 往返与海滩停留；改 ICON BALI 逛店和简餐。",
+          "route": [
+            "icon",
+            "pepperlunch"
+          ],
+          "time": "约 1–2 小时，编辑建议",
+          "traffic": "在沙努尔内安排接送；商场入口仍可能需要短走。",
+          "check": "先确认店铺营业；已订日床核对取消条件。"
+        },
+        {
+          "trigger": "不想派对",
+          "title": "海岸与夜市选着走",
+          "replace": "用沙努尔海滨与辛杜夜市替换 FINNS；不额外保留西岸往返。",
+          "route": [
+            "sanur",
+            "sanurmarket"
+          ],
+          "time": "下午休息，傍晚约 1–2 小时",
+          "traffic": "两段按实际住处选择交通，累了只去吃饭。",
+          "check": "仅天气合适时走海岸；夜市摊位按当天营业选择。"
+        }
+      ]
+    },
+    {
+      "id": "d3",
+      "area": "沙努尔 · 乌布",
+      "title": "换到乌布，留一段时间给 Yoga Barn",
+      "lead": "上午换酒店，中午吃脆皮鸭，寄存行李后休息。下午去 Yoga Barn 选一堂适合自己的课，傍晚回住处附近喝点东西。",
+      "stops": [
+        [
+          "09:00",
+          "sanur",
+          "退房后直达乌布"
+        ],
+        [
+          "11:30",
+          "bengil",
+          "脆皮鸭午餐；之后入住或寄存、休息"
+        ],
+        [
+          "14:30",
+          "yogabarn",
+          "预留签到与一堂课的时间，以当日班表为准"
+        ],
+        [
+          "17:00",
+          "coffee",
+          "回酒店附近坐一会，晚饭就近安排"
+        ]
+      ],
+      "gentle": [
+        "bengil",
+        "yogabarn"
+      ],
+      "rain": [
+        "bengil",
+        "arma"
+      ],
+      "image": "ubud",
+      "move": "沙努尔 → 乌布预留约 2 小时；午餐后留出入住和休息。步行可从 Pengosekan 入口进入 Yoga Barn，打车走 Jalan Sukma Kesuma 主入口。",
+      "guard": "14:30–16:30 是可用时间窗，不代表每天有 15:00 的课。先看当天课表，白天提前 30 分钟到场；满班、无合适课程或太累时，改 ARMA 美术馆或酒店休息。",
+      "budget": "单人餐饮约 Rp300,000–550,000（编辑预算），日常单课另 Rp180,000（官网核对价）；酒店与跨区接送另计。",
+      "photo": "Yoga Barn 庭园和建筑可先询问拍摄许可；练习中以课堂要求为准。",
+      "start": "09:00",
+      "schedules": {
+        "standard": {
+          "sanur": {
+            "time": "09:00",
+            "duration": 30,
+            "guard": "退房、上车；途中不加购物站。"
+          },
+          "bengil": {
+            "time": "11:30",
+            "duration": 60,
+            "guard": "午饭后先入住或寄存，给下午课程留出休息时间。"
+          },
+          "yogabarn": {
+            "time": "14:30",
+            "duration": 120,
+            "guard": "签到＋课程的预留窗口；按当天班表调整，日常课现场排队登记。"
+          },
+          "coffee": {
+            "time": "17:00",
+            "duration": 60,
+            "guard": "在酒店附近选店；晚饭就近，不再跨区。"
+          }
+        }
+      },
+      "transfers": {
+        "sanur>bengil": {
+          "minutes": 120,
+          "label": "预留跨区接送与路况缓冲"
+        },
+        "bengil>yogabarn": {
+          "minutes": 30,
+          "label": "同区步行或接送；空档用于入住、休息"
+        },
+        "yogabarn>coffee": {
+          "minutes": 30,
+          "label": "回酒店附近，自由选店"
+        }
+      },
+      "scheduleNote": "Yoga Barn 的日常课不接受线上预订；这里保留时间窗，课次与签到时刻以当天官方班表为准。",
+      "periods": [
+        "上午换酒店，中午吃脆皮鸭，寄存行李后休息。下午去 Yoga Barn 选一堂适合自己的课，傍晚回住处附近喝点东西。",
+        "沙努尔 → 乌布预留约 2 小时；午餐后留出入住和休息。步行可从 Pengosekan 入口进入 Yoga Barn，打车走 Jalan Sukma Kesuma 主入口。",
+        "14:30–16:30 是可用时间窗，不代表每天有 15:00 的课。先看当天课表，白天提前 30 分钟到场；满班、无合适课程或太累时，改 ARMA 美术馆或酒店休息。"
+      ],
+      "shopping": [],
+      "shooting": [
+        "Yoga Barn 庭园和建筑可先询问拍摄许可；练习中以课堂要求为准。"
+      ],
+      "alternatives": [
+        {
+          "trigger": "满班 / 无合适课程",
+          "title": "改看 ARMA",
+          "replace": "取消瑜伽课，确认开放后改 ARMA；保留转场、入住和午餐。",
+          "route": [
+            "arma"
+          ],
+          "time": "约 1–1.5 小时，编辑建议",
+          "traffic": "从实际住处确认接送，不把地图距离当步行距离。",
+          "check": "先查美术馆开放信息；展区之间可能有露天庭院。"
+        },
+        {
+          "trigger": "晚到 / 累了",
+          "title": "今天只转场",
+          "replace": "取消课程与额外咖啡行程，入住后在住处休息。",
+          "route": [],
+          "time": "余下半天留给休息",
+          "traffic": "先到乌布酒店安顿行李。",
+          "check": "不为赶课压缩午餐、入住与交通时间。"
+        }
+      ]
+    },
+    {
+      "id": "d4",
+      "area": "乌布中心",
+      "title": "王宫、织物与一顿好晚饭",
+      "lead": "今天围绕中心街区步行。上午看建筑和画，午后休息，晚餐留给印尼风味。",
+      "stops": [
+        [
+          "09:00",
+          "palace",
+          "开放区域参观"
+        ],
+        [
+          "10:00",
+          "saraswati",
+          "莲池与外院"
+        ],
+        [
+          "11:00",
+          "puri",
+          "按兴趣挑展厅"
+        ],
+        [
+          "15:30",
+          "threads",
+          "织物与天然染色"
+        ],
+        [
+          "晚餐",
+          "hujan",
+          "建议提前订位"
+        ]
+      ],
+      "gentle": [
+        "palace",
+        "puri",
+        "hujan"
+      ],
+      "rain": [
+        "puri",
+        "threads",
+        "hujan"
+      ],
+      "image": "ubud",
+      "move": "王宫—水宫—美术馆在同一中心片区；Kajeng 店和晚餐仍需逐段确认人行道，过街慢走。",
+      "guard": "雨大或很热时，市场和织物店二选一；午后至少留出一段回酒店休息。",
+      "budget": "单人餐饮、参观与短途交通约 Rp500,000–900,000；购物另计。",
+      "photo": "拍建筑先找到不挡路的位置，摊主和信众入镜前征求同意。",
+      "start": "09:00",
+      "schedules": {
+        "standard": {
+          "palace": {
+            "time": "09:00",
+            "duration": 45,
+            "guard": "开放区域参观。出发前确认营业时间与交通。"
+          },
+          "saraswati": {
+            "time": "10:00",
+            "duration": 45,
+            "guard": "莲池与外院。出发前确认营业时间与交通。"
+          },
+          "puri": {
+            "time": "11:00",
+            "duration": 120,
+            "guard": "按兴趣挑展厅。出发前确认营业时间与交通。"
+          },
+          "threads": {
+            "time": "15:30",
+            "duration": 60,
+            "guard": "织物与天然染色。出发前确认营业时间与交通。"
+          },
+          "hujan": {
+            "time": "18:00",
+            "duration": 120,
+            "guard": "建议提前订位。出发前确认营业时间与交通。"
+          }
+        }
+      },
+      "transfers": {
+        "palace>saraswati": {
+          "minutes": 15,
+          "label": "预留步行与短途接送"
+        },
+        "saraswati>puri": {
+          "minutes": 15,
+          "label": "预留步行与短途接送"
+        },
+        "puri>threads": {
+          "minutes": 20,
+          "label": "预留步行与短途接送"
+        },
+        "threads>hujan": {
+          "minutes": 20,
+          "label": "预留步行与短途接送"
+        }
+      },
+      "scheduleNote": "建议时刻包含用餐、休息和交通空档；包车、演出与餐厅均尚未预订。",
+      "periods": [
+        "今天围绕中心街区步行。上午看建筑和画，午后休息，晚餐留给印尼风味。",
+        "王宫—水宫—美术馆在同一中心片区；Kajeng 店和晚餐仍需逐段确认人行道，过街慢走。",
+        "雨大或很热时，市场和织物店二选一；午后至少留出一段回酒店休息。"
+      ],
+      "shopping": [],
+      "shooting": [
+        "拍建筑先找到不挡路的位置，摊主和信众入镜前征求同意。"
+      ],
+      "alternatives": [
+        {
+          "trigger": "雨天",
+          "title": "缩短户外，看一座馆",
+          "replace": "取消水宫、市场与连续街走；以 Puri Lukisan 为主，有余量才看织物店。",
+          "route": [
+            "puri",
+            "threads"
+          ],
+          "time": "约 1.5–2 小时，编辑建议",
+          "traffic": "按雨势在两个地点间安排接送；展区庭院仍有露天路段。",
+          "check": "核对馆、店营业，暴雨时可整段取消。"
+        },
+        {
+          "trigger": "少走路",
+          "title": "王宫与美术馆二选一",
+          "replace": "取消水宫与织物店，将午后留给酒店；只选一个重点。",
+          "route": [
+            "palace",
+            "puri"
+          ],
+          "time": "约 1 小时，编辑建议",
+          "traffic": "依实际住处选择一处接送，不依次完成两张卡。",
+          "check": "按开放区域参观，餐厅预约另行保留或取消。"
+        }
+      ]
+    },
+    {
+      "id": "d5",
+      "area": "乌布北侧",
+      "title": "梯田与泉水，半天向北走",
+      "lead": "早出发看梯田，再去圣泉寺；午后回乌布。若下雨，把整段换成烹饪课或美术馆。",
+      "stops": [
+        [
+          "08:00",
+          "rice",
+          "选一条短路径"
+        ],
+        [
+          "10:30",
+          "tirta",
+          "文化参观"
+        ],
+        [
+          "午后",
+          "spa",
+          "酒店休息或已预约按摩"
+        ],
+        [
+          "傍晚",
+          "market",
+          "体力够再逛"
+        ]
+      ],
+      "gentle": [
+        "tirta",
+        "spa"
+      ],
+      "rain": [
+        "cooking",
+        "spa"
+      ],
+      "image": "rice",
+      "move": "包车连走北侧两站，往返交通与参观合计约半天；不要再向金塔马尼追加一整段山路。",
+      "guard": "下大雨、雷雨或田埂湿滑就取消梯田；烹饪课要有确认名额，不能临时保证。",
+      "budget": "单人餐饮、参观约 Rp400,000–750,000；包车、按摩或课程另计。",
+      "photo": "田块是生产空间；站在允许的路径上拍摄，不踩入作物。",
+      "start": "08:00",
+      "schedules": {
+        "standard": {
+          "rice": {
+            "time": "08:00",
+            "duration": 90,
+            "guard": "选一条短路径。出发前确认营业时间与交通。"
+          },
+          "tirta": {
+            "time": "10:30",
+            "duration": 90,
+            "guard": "文化参观。出发前确认营业时间与交通。"
+          },
+          "spa": {
+            "time": "14:00",
+            "duration": 120,
+            "guard": "酒店休息或已预约按摩。出发前确认营业时间与交通。"
+          },
+          "market": {
+            "time": "17:00",
+            "duration": 60,
+            "guard": "体力够再逛。出发前确认营业时间与交通。"
+          }
+        }
+      },
+      "transfers": {
+        "rice>tirta": {
+          "minutes": 45,
+          "label": "预留接送／包车；含路况缓冲"
+        },
+        "tirta>spa": {
+          "minutes": 90,
+          "label": "预留接送／包车；含路况缓冲"
+        },
+        "spa>market": {
+          "minutes": 30,
+          "label": "预留步行与短途接送"
+        }
+      },
+      "scheduleNote": "建议时刻包含用餐、休息和交通空档；包车、演出与餐厅均尚未预订。",
+      "periods": [
+        "早出发看梯田，再去圣泉寺；午后回乌布。若下雨，把整段换成烹饪课或美术馆。",
+        "包车连走北侧两站，往返交通与参观合计约半天；不要再向金塔马尼追加一整段山路。",
+        "下大雨、雷雨或田埂湿滑就取消梯田；烹饪课要有确认名额，不能临时保证。"
+      ],
+      "shopping": [],
+      "shooting": [
+        "田块是生产空间；站在允许的路径上拍摄，不踩入作物。"
+      ],
+      "alternatives": [
+        {
+          "trigger": "大雨 / 路滑",
+          "title": "取消北侧田间路线",
+          "replace": "取消梯田与圣泉寺，确认开放后在乌布看 ARMA。",
+          "route": [
+            "arma"
+          ],
+          "time": "约 1.5–2 小时，编辑建议",
+          "traffic": "取消北侧接送并与司机确认调整，恶劣天气就留在住处。",
+          "check": "美术馆并非全程室内，庭院间仍需避雨。"
+        },
+        {
+          "trigger": "已有名额",
+          "title": "用烹饪课替换半日",
+          "replace": "仅在已确认名额时，用 Casa Luna 课程替换梯田和寺庙半日。",
+          "route": [
+            "cooking"
+          ],
+          "time": "以已确认课程时长为准",
+          "traffic": "按课程集合点另确认接送；当天不同时赶北线。",
+          "check": "先确认日期、名额、费用与接送，不承诺临时报名。"
+        },
+        {
+          "trigger": "少走路",
+          "title": "今天不下田",
+          "replace": "取消田埂与晚间市场，把酒店休息作为主要安排。",
+          "route": [],
+          "time": "半日或全天自由休息",
+          "traffic": "已约车辆和活动先联系调整。",
+          "check": "休息无需补一个景点。"
+        }
+      ]
+    },
+    {
+      "id": "d6",
+      "area": "乌布 · 金巴兰",
+      "title": "沿工艺走廊回到海岸",
+      "lead": "从乌布往南，只挑一处文化短停。下午办理入住，黄昏在金巴兰走走，晚饭不赶场。",
+      "stops": [
+        [
+          "上午",
+          "batuan",
+          "途中短停"
+        ],
+        [
+          "下午",
+          "jenggala",
+          "看陶瓷；可取消"
+        ],
+        [
+          "黄昏",
+          "jimbaran",
+          "酒店附近海岸"
+        ],
+        [
+          "晚餐",
+          "cuca",
+          "或改海边海鲜，二选一"
+        ]
+      ],
+      "gentle": [
+        "jimbaran",
+        "cuca"
+      ],
+      "rain": [
+        "jenggala",
+        "cuca"
+      ],
+      "image": "jimbaran",
+      "move": "乌布 → 金巴兰按约 2–3 小时或更长车程预留，观光停留另计。车况决定取消哪一站。",
+      "guard": "堵车就直接去酒店。今天去 Jenggala 以选购为主，不假设彩绘成品能赶上返程。",
+      "budget": "单人餐饮约 Rp450,000–850,000；接送、购物另计。",
+      "photo": "黄昏拍海岸和餐桌，把拍照时间放在点菜前，避免饭凉。",
+      "start": "09:30",
+      "schedules": {
+        "standard": {
+          "batuan": {
+            "time": "09:30",
+            "duration": 60,
+            "guard": "途中短停。出发前确认营业时间与交通。"
+          },
+          "jenggala": {
+            "time": "14:00",
+            "duration": 60,
+            "guard": "看陶瓷；可取消。出发前确认营业时间与交通。"
+          },
+          "jimbaran": {
+            "time": "17:00",
+            "duration": 60,
+            "guard": "酒店附近海岸。出发前确认营业时间与交通。"
+          },
+          "cuca": {
+            "time": "18:30",
+            "duration": 120,
+            "guard": "或改海边海鲜，二选一。出发前确认营业时间与交通。"
+          }
+        }
+      },
+      "transfers": {
+        "batuan>jenggala": {
+          "minutes": 150,
+          "label": "预留接送／包车；含路况缓冲"
+        },
+        "jenggala>jimbaran": {
+          "minutes": 45,
+          "label": "预留接送／包车；含路况缓冲"
+        },
+        "jimbaran>cuca": {
+          "minutes": 20,
+          "label": "预留步行与短途接送"
+        }
+      },
+      "scheduleNote": "建议时刻包含用餐、休息和交通空档；包车、演出与餐厅均尚未预订。",
+      "periods": [
+        "从乌布往南，只挑一处文化短停。下午办理入住，黄昏在金巴兰走走，晚饭不赶场。",
+        "乌布 → 金巴兰按约 2–3 小时或更长车程预留，观光停留另计。车况决定取消哪一站。",
+        "堵车就直接去酒店。今天去 Jenggala 以选购为主，不假设彩绘成品能赶上返程。"
+      ],
+      "shopping": [],
+      "shooting": [
+        "黄昏拍海岸和餐桌，把拍照时间放在点菜前，避免饭凉。"
+      ],
+      "alternatives": [
+        {
+          "trigger": "堵车 / 晚到",
+          "title": "直接到金巴兰酒店",
+          "replace": "取消巴图安和 Jenggala 中途停留，安顿行李后就近用餐。",
+          "route": [],
+          "time": "以实际转场耗时为准",
+          "traffic": "接送直达酒店；不要按地图上的短距离压缩预留。",
+          "check": "餐厅若已预约需联系调整。"
+        },
+        {
+          "trigger": "雨天",
+          "title": "只留室内选购",
+          "replace": "取消黄昏海岸；若转场顺利，入住后选看 Jenggala。",
+          "route": [
+            "jenggala"
+          ],
+          "time": "约 45–60 分钟，编辑建议",
+          "traffic": "先放行李再确定是否出门；车程由实际住处决定。",
+          "check": "确认营业，不临时保证彩绘课程或成品交付。"
+        }
+      ]
+    },
+    {
+      "id": "d7",
+      "area": "乌鲁瓦图",
+      "title": "一个海湾，一段悬崖",
+      "lead": "上午慢起床。下午海滩和寺庙各选一段，想看 Kecak 先确认票，晚上回金巴兰。",
+      "stops": [
+        [
+          "午后",
+          "padang",
+          "海湾与休息"
+        ],
+        [
+          "下午",
+          "uluwatu",
+          "崖边寺庙，留出余量"
+        ],
+        [
+          "晚间",
+          "jimbaran",
+          "回住处附近吃饭"
+        ]
+      ],
+      "gentle": [
+        "uluwatu",
+        "jimbaran"
+      ],
+      "rain": [
+        "pasifika",
+        "cuca"
+      ],
+      "image": "uluwatu",
+      "move": "海滩与寺庙之间靠车接续；司机等候、傍晚回程和演出结束后的交通一并商量。",
+      "guard": "海况不好就不下水；雷雨取消悬崖段，雨备会改去努沙杜瓦，先重确认交通。",
+      "budget": "单人餐饮、门票约 Rp400,000–800,000；演出、包车另计。",
+      "photo": "落日不保证出现。站在护栏内，先收好可能被猴子拿走的物品。",
+      "start": "13:00",
+      "schedules": {
+        "standard": {
+          "padang": {
+            "time": "13:00",
+            "duration": 90,
+            "guard": "海湾与休息。出发前确认营业时间与交通。"
+          },
+          "uluwatu": {
+            "time": "15:30",
+            "duration": 180,
+            "guard": "崖边寺庙，留出余量。出发前确认营业时间与交通。"
+          },
+          "jimbaran": {
+            "time": "20:00",
+            "duration": 60,
+            "guard": "回住处附近吃饭。出发前确认营业时间与交通。"
+          }
+        }
+      },
+      "transfers": {
+        "padang>uluwatu": {
+          "minutes": 45,
+          "label": "预留接送／包车；含路况缓冲"
+        },
+        "uluwatu>jimbaran": {
+          "minutes": 75,
+          "label": "预留接送／包车；含路况缓冲"
+        }
+      },
+      "scheduleNote": "建议时刻包含用餐、休息和交通空档；包车、演出与餐厅均尚未预订。",
+      "periods": [
+        "上午慢起床。下午海滩和寺庙各选一段，想看 Kecak 先确认票，晚上回金巴兰。",
+        "海滩与寺庙之间靠车接续；司机等候、傍晚回程和演出结束后的交通一并商量。",
+        "海况不好就不下水；雷雨取消悬崖段，雨备会改去努沙杜瓦，先重确认交通。"
+      ],
+      "shopping": [],
+      "shooting": [
+        "落日不保证出现。站在护栏内，先收好可能被猴子拿走的物品。"
+      ],
+      "alternatives": [
+        {
+          "trigger": "雷雨 / 海况差",
+          "title": "取消悬崖与海滩",
+          "replace": "不去 Padang Padang 和乌鲁瓦图；天气允许出门时可改 Pasifika。",
+          "route": [
+            "pasifika"
+          ],
+          "time": "看展约 1.5–2 小时，另留车程",
+          "traffic": "这是改去努沙杜瓦的跨区方案，需要重新确认车辆与往返时间。",
+          "check": "先查博物馆开放；恶劣天气不勉强跨区。"
+        },
+        {
+          "trigger": "少走路",
+          "title": "留在金巴兰休息",
+          "replace": "取消海湾台阶与寺庙路线，晚餐就在住处附近。",
+          "route": [],
+          "time": "整段下午可休息",
+          "traffic": "取消原接送前核对约定；不为补日落再赶另一片海滩。",
+          "check": "海况不佳不下水，天气不合适连海岸散步也取消。"
+        }
+      ]
+    },
+    {
+      "id": "d8",
+      "area": "金巴兰 · 机场",
+      "title": "最后一顿早餐，慢慢离开",
+      "lead": "返程日只保留能随时取消的海边短走。先确认航班，再决定早餐与退房安排。",
+      "stops": [
+        [
+          "早餐后",
+          "jimbaran",
+          "有余量才散步"
+        ],
+        [
+          "按航班",
+          "airport",
+          "按航司要求提前到场"
+        ]
+      ],
+      "gentle": [
+        "airport"
+      ],
+      "rain": [
+        "airport"
+      ],
+      "image": "jimbaran",
+      "move": "金巴兰 → DPS 按约 30–60 分钟起算并额外预留拥堵；实际以酒店位置、当日路况与航司要求倒推。",
+      "guard": "不安排跨区景点、不增加船程。返程早班直接出发。",
+      "budget": "单人早餐与零星消费约 Rp150,000–300,000；送机另计。",
+      "photo": "把相机收好，最后看一次海就够了。",
+      "start": "08:00",
+      "schedules": {
+        "standard": {
+          "jimbaran": {
+            "time": "08:00",
+            "duration": 60,
+            "guard": "有余量才散步。出发前确认营业时间与交通。"
+          },
+          "airport": {
+            "time": "12:00",
+            "duration": 120,
+            "guard": "按航司要求提前到场。出发前确认营业时间与交通。"
+          }
+        }
+      },
+      "transfers": {
+        "jimbaran>airport": {
+          "minutes": 60,
+          "label": "预留接送／包车；含路况缓冲"
+        }
+      },
+      "scheduleNote": "返程时间仅示例；按实际航班和航司到场要求倒推，早餐也可取消。",
+      "periods": [
+        "返程日只保留能随时取消的海边短走。先确认航班，再决定早餐与退房安排。",
+        "金巴兰 → DPS 按约 30–60 分钟起算并额外预留拥堵；实际以酒店位置、当日路况与航司要求倒推。",
+        "不安排跨区景点、不增加船程。返程早班直接出发。"
+      ],
+      "shopping": [],
+      "shooting": [
+        "把相机收好，最后看一次海就够了。"
+      ],
+      "alternatives": [
+        {
+          "trigger": "早班 / 时间紧",
+          "title": "取行李后直去机场",
+          "replace": "取消早餐后的散步与任何跨区停留。",
+          "route": [
+            "airport"
+          ],
+          "time": "按航班与航司要求倒推",
+          "traffic": "先确认退房、行李、司机与航站楼。",
+          "check": "不新增船程或临时景点，交通余量不能拿来购物。"
+        }
+      ]
+    }
+  ],
+  "areas": [
+    {
+      "id": "sanur",
+      "name": "沙努尔",
+      "en": "THE QUIET COAST",
+      "photo": "spread-sanur",
+      "deck": "住在安静东岸，也留半天去西岸。",
+      "body": "沙努尔适合落地后的两晚：海岸步道、早餐店和住处之间容易安排。第 1 天先休息，第 2 天清晨看海，再前往苍古的 FINNS 体验音乐与日落。两种海边生活各留一段；如果想全程安静，第 2 天就留在沙努尔，用海滨散步和夜市替换跨区往返。",
+      "route": "卡朗海滩 → 海滨步道 → 辛杜夜市",
+      "tip": "这一段以沙努尔当地散步和吃饭为主。FINNS 位于苍古，跨区往返与交通预留见第 2 天行程。",
+      "ids": [
+        "karang",
+        "sindhu",
+        "massimo",
+        "sanurmarket"
+      ],
+      "words": [
+        "EAST",
+        "COAST."
+      ],
+      "day": 1
+    },
+    {
+      "id": "ubud",
+      "name": "乌布中心",
+      "en": "ART & EVERYDAY LIFE",
+      "photo": "spread-ubud",
+      "deck": "沿着一条街，看建筑、绘画和织物。",
+      "body": "王宫街口只是乌布的起点。美术馆、织物店和餐桌，让这里不只是稻田照片的背景。中心区看似紧凑，路面、台阶和车辆仍会影响步行速度；把上午与傍晚拆开走，比一次连续逛六小时更舒服。下雨时，进入一座馆也不会损失这一天的内容。 第 3 天先体验 Yoga Barn 的日常课，第 4 天再逛王宫、美术馆与织物店，练习和看展不用挤在一起。",
+      "route": "王宫 → 水宫 → Puri Lukisan → Threads of Life",
+      "tip": "同行者想看的东西不同，可以约好明确集合点，分开逛一小时。",
+      "ids": [
+        "yogabarn",
+        "palace",
+        "puri",
+        "threads",
+        "hujan"
+      ],
+      "words": [
+        "INTO",
+        "UBUD."
+      ],
+      "day": 3
+    },
+    {
+      "id": "north",
+      "name": "乌布北侧",
+      "en": "WATER & RICE",
+      "photo": "spread-rice",
+      "deck": "田里的绿色，会随季节改变。",
+      "body": "梯田是仍在生产的土地，圣泉寺是仍被使用的宗教场所。把这两件事放在心里，参观会比单纯找机位有意思。北侧半天路线只保留两个重点；天气不好时整段替换，别为一张预期中的照片在雨里等待，也不必把每种秋千和咖啡体验都买一遍。",
+      "route": "德格拉朗 → 圣泉寺 → 回乌布休息",
+      "tip": "稻田、秋千与咖啡馆未必同一张票；入口处先问清包含范围。",
+      "ids": [
+        "rice",
+        "tirta",
+        "gunungkawi",
+        "cooking"
+      ],
+      "words": [
+        "RICE &",
+        "WATER."
+      ],
+      "day": 4
+    },
+    {
+      "id": "craft",
+      "name": "工艺与庭园",
+      "en": "MADE BY HAND",
+      "photo": "spread-craft",
+      "deck": "带回一件你愿意长期用的东西。",
+      "body": "木雕、织物和陶瓷不是一种购物。前者要看木材和细节，织物要问纤维与洗护，陶瓷还要考虑重量、烧制和运输。把这些信息放进购买决定里，才能避免把“当地手作”变成统一的标签。转场日只选一处停留，留意行李与入住时间。",
+      "route": "马斯或 Batuan → 金巴兰 → Jenggala",
+      "tip": "体验课先问成品何时取。临返程才预约，可能来不及带走。",
+      "ids": [
+        "mas",
+        "batuan",
+        "sukawati",
+        "jenggala"
+      ],
+      "words": [
+        "MADE",
+        "BY HAND."
+      ],
+      "day": 5
+    },
+    {
+      "id": "jimbaran",
+      "name": "金巴兰",
+      "en": "DINNER BY THE SEA",
+      "photo": "spread-jimbaran",
+      "deck": "把傍晚留在离住处不远的地方。",
+      "body": "金巴兰适合做旅程的尾声。海岸、晚餐和机场之间的关系相对清楚，最后两晚不必再换房。这里可以选沙滩海鲜，也可以专门订一顿餐厅；一晚选一种就好。看海是主线，菜单和帐单是需要认真看清的细节。",
+      "route": "酒店休息 → 海岸散步 → 一顿晚饭",
+      "tip": "海鲜先确认重量、做法、税费与总价。避免只看一张大拼盘照片。",
+      "ids": [
+        "jimbaran",
+        "kedonganan",
+        "cuca",
+        "jenggala"
+      ],
+      "words": [
+        "SALT &",
+        "SUPPER."
+      ],
+      "day": 5
+    },
+    {
+      "id": "uluwatu",
+      "name": "乌鲁瓦图与南岸",
+      "en": "WHERE LAND ENDS",
+      "photo": "spread-uluwatu",
+      "deck": "选一个海湾，就给悬崖留得出时间。",
+      "body": "南部半岛在地图上不大，路上却未必快。Padang Padang、Melasti 和乌鲁瓦图的体验各有不同，没必要在同一下午全部串起。本版保留一个海湾和一座寺庙；如果更想放空，直接删掉海湾，下午晚些再出门。晚间表演值得提前确认，但不是旅行成功与否的标准。",
+      "route": "Padang Padang → 乌鲁瓦图寺 → 回金巴兰",
+      "tip": "海湾有台阶，寺庙在悬崖边。大雨时整段替换，避免勉强走湿滑路面。",
+      "ids": [
+        "padang",
+        "uluwatu",
+        "melasti",
+        "pasifika"
+      ],
+      "words": [
+        "LAND’S",
+        "END."
+      ],
+      "day": 6
+    }
+  ],
+  "sources": {
+    "bali": "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali",
+    "sanur": "https://www.indonesia.travel/gb/en/destination/bali-nusa-tenggara/bali/sanur0",
+    "jimbaran": "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/bali---romantic-jimbaran-beach",
+    "uluwatu": "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/pura-luhur-uluwatu",
+    "rice": "https://www.indonesia.travel/uk/en/destination/bali-nusa-tenggara/bali/ubud---tegallalang-rice-terrace-a-charm-of-the-green-in-ubud",
+    "tirta": "https://diparda.gianyarkab.go.id/destinasi/tirta-empul-temple",
+    "monkey": "https://monkeyforestubud.com/visit/",
+    "monkeyrules": "https://monkeyforestubud.com/guidelines-faq/",
+    "puri": "https://purilukisanmuseum.com/",
+    "arma": "https://armamuseumubud.com/en",
+    "massimo": "https://www.massimobali.com/massimomenu/",
+    "hujan": "https://hujanlocale.com/booking/",
+    "bengil": "https://bebekbengil.co.id/",
+    "cuca": "https://www.cucabali.com/",
+    "threads": "https://threadsoflife.com/pages/contact",
+    "jenggala": "https://jenggala.com/paint-a-pot/",
+    "cooking": "https://casalunabali.com/casa-luna-cooking-school/",
+    "levy": "https://lovebali.baliprov.go.id/",
+    "weather": "https://www.bmkg.go.id/cuaca/prakiraan-cuaca/51.04.05",
+    "entry": "https://www.imigrasi.go.id/",
+    "airport": "https://bali-airport.com/",
+    "arrival": "https://allindonesia.imigrasi.go.id/",
+    "FINNS 入场与预订": "https://finnsbeachclub.com/",
+    "Yoga Barn 课表与费用": "https://theyogabarn.com/classes/daily-classes/",
+    "Yoga Barn 入口": "https://theyogabarn.com/contact/",
+    "Ibu Mangku 分店菜单": "https://linktr.ee/nasiayamkedewatanibumangku",
+    "Pepper Lunch 品牌门店": "https://pepperlunch.id/Outlets",
+    "Pepper Lunch ICON 店铺": "https://dineout.grab.com/id/id/restaurants/pepper-lunch-icon-mall-bali--6-C6KURF5CLKAJVT",
+    "Warung Mak Beng · 沙努尔": "https://denpasartourism.com/en/culinary/warung-mak-beng",
+    "Sundara · 金巴兰": "https://www.sundarabali.com/location/sundara/",
+    "Milk & Madu · 乌布": "https://milkandmadu.com/",
+    "Pison · 乌布": "https://pisonindonesia.com/pison-ubud/",
+    "McDonald’s · 沙努尔": "https://www.mcdonalds.co.id/locations",
+    "Pizza Hut · 沙努尔": "https://dineout.grab.com/id/en/restaurants/pizza-hut-sanur--IDGFSTI00000rge",
+    "Sundara 餐饮特色": "https://www.fourseasons.com/jimbaranbay/dining/",
+    "Milk & Madu 分店地址": "https://linktr.ee/milknmadulocations"
+  }
+}

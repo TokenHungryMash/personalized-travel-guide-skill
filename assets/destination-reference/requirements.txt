@@ -1,0 +1,3 @@
+Pillow>=10
+fonttools[woff]>=4.50
+jsonschema>=4.23,<5

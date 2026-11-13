@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "已选用的地点照片",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object", "required": ["src", "page", "caption", "subjectPlaceId", "role", "reviewed"],
+    "properties": {
+      "src": {"type": "string", "minLength": 1}, "mobileSrc": {"type": "string", "minLength": 1},
+      "page": {"type": "string", "pattern": "^https?://[^/\\s]+(?:[/\\?#][^\\s]*)?$"},
+      "caption": {"type": "string", "pattern": "\\S"},
+      "subjectPlaceId": {"type": "string", "minLength": 1},
+      "role": {"enum": ["venue", "interior", "product", "area"]},
+      "reviewed": {"type": "boolean", "description": "只有实际看图、核对主体后才能设 true；搜索命中不等于审核。"}
+    }
+  }
+}

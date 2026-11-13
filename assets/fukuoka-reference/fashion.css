@@ -1,0 +1,141 @@
+/* Fashion edition: oversized type, full-width real photographs, useful field guide.
+ * Official photographs are attributed in each caption. No location generation or colour filters.
+ */
+body.fashion-edition{--fashion-dark:oklch(18% .01 70);--fashion-light:oklch(96% .01 80);--fashion-muted:oklch(76% .012 80);--fashion-rule:oklch(42% .015 80);--fashion-gutter:max(48px,calc((100vw - 1280px)/2));--fashion-photo-height:clamp(480px,78svh,1000px)}
+.fashion-edition .film-cover{min-height:min(900px,calc(100svh - 66px))}
+.fashion-edition .issue-ribbon{margin-top:0;border-top:0;padding:24px 0;font-size:12px}
+.fashion-opening{margin:0 0 48px}.fashion-opening-title{padding:40px 0 24px}
+.fashion-opening-title>p{font:400 17px/1.6 var(--font-serif);margin:0 0 16px}
+.fashion-opening-title h2{font:800 clamp(76px,13.1vw,180px)/1.02 var(--font-display);letter-spacing:-.035em;margin:0;min-width:0}
+.fashion-opening-title h2>span{display:inline-block;white-space:nowrap}
+.fashion-opening-title>div{display:flex;justify-content:space-between;gap:24px;font:400 12px/1.6 var(--font-body);letter-spacing:.04em;margin-top:24px}
+.fashion-opening-photo>figure,.fashion-afterword-photo>figure{margin:0}
+.fashion-opening-photo img{display:block;width:100%;height:var(--fashion-photo-height);object-fit:cover;object-position:50% 54%}
+.fashion-opening-photo figcaption,.fashion-afterword-photo figcaption{padding:12px var(--fashion-gutter);margin:0;font:400 12px/1.7 var(--font-body);color:var(--muted)}
+.fashion-opening-note{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:80px;padding:48px 0 24px;align-items:start}
+.fashion-opening-note>.editor-lead{font:400 clamp(34px,3.9vw,54px)/1.45 var(--font-serif);margin:0}
+.fashion-opening-note>div{max-width:38em}.fashion-opening-note>div>p{font:400 16px/1.95 var(--font-body);margin:0 0 16px}
+.fashion-opening-note a{display:inline-flex;align-items:center;font:500 14px/1.6 var(--font-body);min-height:44px;text-underline-offset:6px}
+.fashion-opening-note>div>.issue-assumptions{font-size:12px;color:var(--muted);margin-top:20px}
+.fashion-edition .journal-contents{padding-block:36px;border-top:1px solid var(--ink)}
+/* Display chapters; utility controls retain their original text size. */
+.fashion-edition .chapter{padding-top:88px}.fashion-edition .section-head{grid-template-columns:minmax(0,1fr);margin-bottom:40px;border-top:1px solid var(--ink)}
+.fashion-edition .section-head h2{padding:24px 0 20px}.fashion-edition .section-display{font:800 clamp(64px,9.2vw,124px)/1.02 var(--font-display);letter-spacing:-.035em}
+.fashion-edition .section-chinese{font:400 28px/1.5 var(--font-serif);margin-top:20px}.fashion-edition .section-summary{max-width:50em;font-size:16px;line-height:1.9;padding-bottom:20px}.fashion-edition .chapter-index{gap:0 28px}
+.fashion-bleed{position:relative;left:50%;width:100vw;margin-inline-start:-50vw}.fashion-bleed>figure{margin:0}
+.fashion-bleed img{display:block;width:100%;height:var(--fashion-photo-height);object-fit:cover}
+.fashion-bleed figcaption{padding:12px var(--fashion-gutter);margin:0;font:400 12px/1.7 var(--font-body);color:var(--muted)}
+.fashion-coast{margin-bottom:48px}.fashion-coast .fashion-bleed img{object-position:62% 48%}
+.fashion-caption-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.7fr);gap:64px;align-items:end;padding:36px 0 44px}
+.fashion-caption-row h3{font:800 clamp(64px,8vw,112px)/1.02 var(--font-display);letter-spacing:-.035em;margin:0}
+.fashion-caption-row>div{max-width:26em;padding-bottom:6px}.fashion-caption-row p{font:400 17px/1.9 var(--font-body);margin:0 0 14px}.fashion-caption-row p:first-child{font-size:13px;color:var(--accent)}
+/* Wide night, lake and coast spreads alternate with close-up street diptychs. */
+.fashion-edition #neighbourhoods .district-guide{margin-top:80px}
+.fashion-edition .district-title{grid-template-columns:44px minmax(0,1fr) auto;gap:20px;padding-top:24px}.fashion-edition .district-title h3{font-size:clamp(36px,4.2vw,60px);line-height:1.35}.fashion-edition .district-title>p{font-size:15px}.fashion-edition .district-title>span{font-size:30px}
+.fashion-edition #neighbourhoods .district-spread{grid-template-columns:minmax(0,1.5fr) minmax(0,.75fr);gap:48px}
+.fashion-edition #neighbourhoods .district-spread figure img{aspect-ratio:1.1;max-height:none}
+.fashion-edition #neighbourhoods .district-lead h4{font-size:clamp(30px,3vw,42px);line-height:1.5}.fashion-edition #neighbourhoods .district-lead>p{font-size:16px;line-height:1.95}
+.fashion-edition #neighbourhoods .spread-river .district-spread,.fashion-edition #neighbourhoods .spread-panorama .district-spread,.fashion-edition #neighbourhoods .spread-coast .district-spread{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 64px}
+.fashion-edition #neighbourhoods .spread-river .district-spread>figure,.fashion-edition #neighbourhoods .spread-panorama .district-spread>figure,.fashion-edition #neighbourhoods .spread-coast .district-spread>figure{grid-column:1/-1;grid-row:1;position:relative;left:50%;width:100vw;margin-inline-start:-50vw}
+.fashion-edition #neighbourhoods .spread-river .district-spread figure img,.fashion-edition #neighbourhoods .spread-panorama .district-spread figure img,.fashion-edition #neighbourhoods #area-momochi .district-spread figure img{width:100%;height:var(--fashion-photo-height);aspect-ratio:auto;object-fit:cover}
+.fashion-edition #neighbourhoods .spread-river figcaption,.fashion-edition #neighbourhoods .spread-panorama figcaption,.fashion-edition #neighbourhoods .spread-coast figcaption{padding-inline:var(--fashion-gutter);margin-top:12px;font-size:12px}
+.fashion-edition #neighbourhoods .spread-river .district-spread .district-lead,.fashion-edition #neighbourhoods .spread-panorama .district-spread .district-lead,.fashion-edition #neighbourhoods .spread-coast .district-spread .district-lead{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:12px 64px;max-width:none}
+.fashion-edition .spread-coast .district-lead>.kicker{grid-column:1;margin:0;align-self:end}.fashion-edition .spread-coast .district-lead>h4{grid-column:1;grid-row:2/4;margin:0;max-width:12em}
+.fashion-edition .spread-coast .district-lead>p:not(.kicker){grid-column:2}.fashion-edition .spread-coast .district-lead>p:not(.kicker):not(.district-route){grid-row:1/3;margin:0}.fashion-edition .spread-coast .district-lead>.district-route{grid-row:3;margin:0;padding:0}
+.fashion-edition #neighbourhoods .spread-pair .district-spread{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.fashion-edition #neighbourhoods .spread-pair .district-spread figure img{aspect-ratio:4/5;object-fit:cover}.fashion-edition #neighbourhoods .spread-pair .district-spread .district-lead{grid-column:1/-1;grid-row:2;max-width:50em}
+.fashion-edition .district-companion{padding:0;align-self:start}.fashion-edition #neighbourhoods .spread-closing .district-spread{grid-template-columns:minmax(0,1.5fr) minmax(0,.75fr)}.fashion-edition #neighbourhoods .spread-closing .district-spread figure img{aspect-ratio:1.1}
+.fashion-edition .district-practical{margin-top:32px}
+/* A dark photographic interlude with clear links to practical dining information. */
+.fashion-night{background:var(--fashion-dark);color:var(--fashion-light);margin-top:80px;padding:56px 0 64px}.fashion-night header{margin-bottom:28px}
+.fashion-night header>p{font:400 14px/1.6 var(--font-body);margin:0 0 20px;color:var(--fashion-muted)}
+.fashion-night h2{font:800 clamp(76px,12.5vw,180px)/1.02 var(--font-display);letter-spacing:-.035em;margin:0}.fashion-night h2 br{display:none}
+.fashion-night-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.7fr);gap:64px;align-items:center}
+.fashion-night-layout>figure{margin:0;min-width:0}.fashion-night-layout img{display:block;width:100%;height:auto;aspect-ratio:1.1;object-fit:cover}
+.fashion-night-layout figcaption{font:400 12px/1.8 var(--font-body);color:var(--fashion-muted);margin-top:12px}
+.fashion-night-layout>div{max-width:28em}.fashion-night-layout p{font:400 17px/1.95 var(--font-body);margin:0 0 24px}.fashion-night-layout .night-chinese{font:400 clamp(28px,3vw,42px)/1.5 var(--font-serif);margin-bottom:28px}
+.fashion-night a{color:inherit}.fashion-night-layout>div>a{display:flex;align-items:center;min-height:48px;font:400 14px/1.6 var(--font-body);padding:10px 0;border-bottom:1px solid var(--fashion-rule);text-decoration:none}.fashion-night :focus-visible{outline-color:var(--fashion-light)}
+.fashion-night .image-reveal-veil{background:var(--fashion-dark)}
+.fashion-edition .food-feature{grid-template-columns:minmax(0,1.35fr) minmax(0,.7fr);gap:64px;align-items:center}.fashion-edition .food-feature figure{padding:0;background:none}.fashion-edition .food-feature img{aspect-ratio:1.05;height:auto}.fashion-edition .food-feature h3{font-size:clamp(32px,3.7vw,52px)}
+.fashion-edition .shopping-feature{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.fashion-edition #directory .section-display,.fashion-edition #fieldnotes .section-display,.fashion-edition #prepare .section-display,.fashion-edition #tools .section-display{font-size:clamp(52px,7.5vw,108px)}
+.fashion-edition #directory .section-summary,.fashion-edition #fieldnotes .section-summary{font-size:15px}
+.fashion-afterword{margin-top:80px}.fashion-afterword-photo img{display:block;width:100%;height:var(--fashion-photo-height);object-fit:cover;object-position:center}
+.fashion-afterword-copy{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:64px;padding-top:36px;align-items:start}
+.fashion-afterword-copy h2{font:800 clamp(68px,9vw,128px)/1.02 var(--font-display);letter-spacing:-.035em;margin:0}.fashion-afterword-copy>div{padding-top:4px}
+.fashion-afterword-copy p{font:400 16px/1.95 var(--font-body);margin:0 0 20px}.fashion-afterword-copy .afterword-chinese{font:400 30px/1.55 var(--font-serif)}
+.fashion-afterword-copy a{display:inline-flex;align-items:center;min-height:44px;font:500 14px/1.6 var(--font-body);text-underline-offset:6px}
+@media(max-width:1100px){
+ body.fashion-edition{--fashion-gutter:32px;--fashion-photo-height:clamp(420px,72svh,840px)}
+ .fashion-opening-note{gap:48px}.fashion-caption-row{gap:48px}.fashion-edition #neighbourhoods .district-spread{gap:32px}.fashion-edition #neighbourhoods .district-lead h4{font-size:32px}.fashion-night-layout{gap:36px}.fashion-night-layout .night-chinese{font-size:30px}.fashion-edition .food-feature{gap:40px}.fashion-afterword-copy{gap:40px}
+}
+@media(max-width:850px){
+ body.fashion-edition{--fashion-gutter:24px;--fashion-photo-height:clamp(400px,66svh,720px)}
+ .fashion-opening-title h2{font-size:clamp(72px,13vw,110px)}.fashion-opening-note{gap:32px}.fashion-opening-note>.editor-lead{font-size:34px}.fashion-edition .section-display{font-size:clamp(60px,9.4vw,90px)}
+ .fashion-edition .district-title h3{font-size:38px}.fashion-edition .district-title>p{font-size:12px}
+ .fashion-edition #neighbourhoods .district-spread{grid-template-columns:minmax(0,1fr);gap:24px}.fashion-edition #neighbourhoods .district-spread>figure{grid-column:1;grid-row:1}.fashion-edition #neighbourhoods .district-spread .district-lead{grid-column:1;grid-row:2;max-width:48em}.fashion-edition #neighbourhoods .district-spread figure img{aspect-ratio:1.6}
+ .fashion-edition #neighbourhoods .spread-pair .district-spread{grid-template-columns:repeat(2,minmax(0,1fr))}.fashion-edition #neighbourhoods .spread-pair .district-spread figure img{aspect-ratio:4/5}
+ .fashion-edition #neighbourhoods .spread-closing .district-spread{grid-template-columns:minmax(0,1fr)}.fashion-edition #neighbourhoods .spread-closing .district-spread figure img{aspect-ratio:1.5}
+ .fashion-night{padding-block:40px}.fashion-night-layout{grid-template-columns:minmax(0,1fr);gap:28px}.fashion-night-layout img{aspect-ratio:1.5}.fashion-night-layout>div{max-width:38em}.fashion-night h2{font-size:clamp(72px,13vw,110px)}
+ .fashion-afterword-copy{grid-template-columns:minmax(0,1fr);gap:28px}.fashion-afterword-copy h2{font-size:clamp(72px,11vw,100px)}
+}
+@media(max-width:600px){
+ body.fashion-edition{--fashion-gutter:18px;--fashion-photo-height:clamp(400px,65svh,660px)}
+ .fashion-edition .film-cover{min-height:calc(100svh - 60px)}.fashion-edition .issue-ribbon{padding-block:16px}
+ .fashion-opening{margin-bottom:28px}.fashion-opening-title{padding:28px 0 20px}.fashion-opening-title>p{font-size:16px;margin-bottom:16px}.fashion-opening-title h2{font-size:clamp(66px,17vw,102px);line-height:1.02}.fashion-opening-title h2>span{display:block}.fashion-opening-title>div{font-size:11px;letter-spacing:0;margin-top:20px;gap:16px}
+ .fashion-opening-photo img{object-position:52% center}.fashion-opening-photo figcaption,.fashion-bleed figcaption,.fashion-afterword-photo figcaption{font-size:11px;line-height:1.8;padding-block:10px}
+ .fashion-opening-note{grid-template-columns:minmax(0,1fr);gap:24px;padding-top:28px}.fashion-opening-note>.editor-lead{font-size:30px}.fashion-opening-note>div>p{font-size:16px;line-height:1.9}.fashion-opening-note>div>.issue-assumptions{font-size:12px}
+ .fashion-edition .chapter{padding-top:52px}.fashion-edition .section-head{margin-bottom:28px}.fashion-edition .section-display{font-size:clamp(44px,11.7vw,66px);line-height:1.02}.fashion-edition .section-chinese{font-size:24px;margin-top:16px}.fashion-edition .section-summary{font-size:15px;padding-bottom:16px}
+ .fashion-edition #directory .section-display,.fashion-edition #fieldnotes .section-display,.fashion-edition #prepare .section-display,.fashion-edition #tools .section-display{font-size:clamp(42px,11vw,62px)}
+ .fashion-edition .chapter-index{gap:0 20px}.fashion-edition .journal-contents{padding-block:24px}
+ .fashion-caption-row{grid-template-columns:minmax(0,1fr);gap:24px;padding:24px 0 16px}.fashion-caption-row h3{font-size:clamp(62px,16vw,94px)}.fashion-caption-row p{font-size:16px;line-height:1.85}.fashion-caption-row>div{max-width:none}.fashion-coast .fashion-bleed img{object-position:60% center}
+ .fashion-edition #neighbourhoods .district-guide{margin-top:48px}.fashion-edition .district-title{grid-template-columns:30px minmax(0,1fr);gap:8px 12px}.fashion-edition .district-title h3{font-size:34px}.fashion-edition .district-title>span{font-size:24px}.fashion-edition .district-title>p{font-size:11px}
+ .fashion-edition #neighbourhoods .district-guide .district-spread{grid-template-columns:minmax(0,1fr);gap:24px}.fashion-edition #neighbourhoods .district-guide .district-spread .district-lead{display:block;grid-column:1;grid-row:2;max-width:none}.fashion-edition #neighbourhoods .district-guide .district-spread>figure{grid-column:1;grid-row:1}
+ .fashion-edition #neighbourhoods .district-guide .district-spread figure img{aspect-ratio:1.25;height:auto;max-height:none}
+ .fashion-edition #neighbourhoods .spread-river .district-spread figure img,.fashion-edition #neighbourhoods .spread-panorama .district-spread figure img,.fashion-edition #neighbourhoods #area-momochi .district-spread figure img{height:var(--fashion-photo-height);aspect-ratio:auto;object-fit:cover}
+ .fashion-edition #neighbourhoods .spread-river figcaption,.fashion-edition #neighbourhoods .spread-panorama figcaption,.fashion-edition #neighbourhoods .spread-coast figcaption{font-size:11px;line-height:1.8;margin-top:10px}
+ .fashion-edition #neighbourhoods .district-guide .district-lead h4{font-size:30px;line-height:1.5;margin:8px 0 16px}.fashion-edition #neighbourhoods .district-guide .district-lead>p{font-size:16px;line-height:1.9}.fashion-edition #neighbourhoods .district-guide .district-lead>.kicker{font-size:12px}.fashion-edition #neighbourhoods .district-guide .district-lead>.district-route{font-size:14px;margin-top:16px}
+ .fashion-edition #neighbourhoods .spread-pair .district-spread{grid-template-columns:minmax(0,1fr);gap:24px}.fashion-edition #neighbourhoods .spread-pair .district-spread>figure{grid-column:1;grid-row:1}.fashion-edition #neighbourhoods .spread-pair .district-companion{grid-column:1;grid-row:2}.fashion-edition #neighbourhoods .spread-pair .district-spread .district-lead{grid-column:1;grid-row:3}.fashion-edition #neighbourhoods .spread-pair .district-spread figure img{aspect-ratio:1.2}
+ .fashion-edition .district-practical{margin-top:24px}
+ .fashion-night{margin-top:48px;padding-block:32px}.fashion-night header>p{font-size:12px;margin-bottom:16px}.fashion-night h2{font-size:clamp(74px,20vw,116px);line-height:1.02}.fashion-night h2 br{display:initial}
+ .fashion-night-layout{gap:24px}.fashion-night-layout img{aspect-ratio:1.05}.fashion-night-layout .night-chinese{font-size:30px;margin-bottom:20px}.fashion-night-layout p{font-size:16px;line-height:1.9}.fashion-night-layout figcaption{font-size:11px}
+ .fashion-edition .food-feature,.fashion-edition .shopping-feature{grid-template-columns:minmax(0,1fr);gap:28px}.fashion-edition .food-feature figure{padding:0}.fashion-edition .food-feature img{aspect-ratio:1.1}.fashion-edition .food-feature h3{font-size:34px}
+ .fashion-afterword{margin-top:48px}.fashion-afterword-copy{padding-top:24px;gap:28px}.fashion-afterword-copy h2{font-size:clamp(58px,15.2vw,90px);line-height:1.04}.fashion-afterword-copy .afterword-chinese{font-size:28px}
+}
+@media(max-width:370px){.fashion-opening-title h2{font-size:64px}.fashion-edition .section-display{font-size:42px}.fashion-edition #directory .section-display,.fashion-edition #fieldnotes .section-display,.fashion-edition #prepare .section-display,.fashion-edition #tools .section-display{font-size:40px}.fashion-caption-row h3{font-size:60px}.fashion-afterword-copy h2{font-size:56px}}
+@media print{
+ .fashion-bleed,.fashion-edition #neighbourhoods .district-spread>figure{position:static!important;width:100%!important;left:auto!important;margin-inline:0!important}
+ .fashion-opening-photo img,.fashion-bleed img,.fashion-afterword-photo img,.fashion-edition #neighbourhoods .district-spread figure img{height:auto!important;max-height:400px!important;object-fit:contain!important}
+ .fashion-opening-note,.fashion-caption-row,.fashion-afterword-copy,.fashion-night-layout{display:block}.fashion-night{background:none;color:var(--ink);padding:24px 0}.fashion-night header>p,.fashion-night-layout figcaption{color:var(--muted)}
+ .fashion-opening-title h2,.fashion-night h2,.fashion-caption-row h3,.fashion-afterword-copy h2{font-size:64px}.fashion-edition .section-display{font-size:48px}
+}
+
+/* Browser visual audit, 2026-11-11: word separation and landmark-safe crops. */
+.fashion-opening-title h2,.fashion-edition .section-display,.fashion-caption-row h3,.fashion-night h2,.fashion-afterword-copy h2{word-spacing:.13em}
+.fashion-edition .section-head .folio>span{white-space:nowrap}
+.fashion-coast .photo-momochi img,.fashion-edition #neighbourhoods #area-momochi .district-spread figure img{object-position:88% center;transform:none!important}
+.fashion-edition #area-momochi .image-drift-shell{transform:none!important}
+@media(min-width:601px){
+ .fashion-coast .fashion-bleed img,.fashion-edition #neighbourhoods #area-momochi .district-spread figure img{height:auto;aspect-ratio:2800/1867;object-fit:contain}
+}
+@media(max-width:600px){
+ .fashion-edition .section-head .folio{font-size:10px;letter-spacing:0;gap:12px}
+ .fashion-coast .fashion-bleed img{object-position:88% center}
+}
+html[data-motion=off]{scroll-behavior:auto}
+
+.fashion-edition #day-tabs{height:auto;overflow:visible}
+@media(max-width:600px){
+ .fashion-edition .journey-map-sheet:not(.enlarged){min-width:0;width:100%}
+ .fashion-edition .journey-map-caption button{width:100%}
+}
+
+@media(max-width:600px){
+ .fashion-edition .cover .film-title h1{font-size:clamp(48px,17.5vw,105px);white-space:nowrap;letter-spacing:-.045em}
+}
+
+@media(max-width:370px){
+ .fashion-edition .day-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+ .fashion-edition .day-facts>span{white-space:nowrap}
+ .fashion-edition .day-facts>button{grid-column:1/-1;justify-self:start}
+}

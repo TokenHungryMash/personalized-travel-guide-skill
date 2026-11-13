@@ -1,0 +1,54 @@
+/* Travel tools: readable text, consistent section spacing, accessible upload controls. */
+.destination-edition .travel-dialog{font-size:16px;line-height:1.8;color:var(--ink);box-sizing:border-box}
+.destination-edition .travel-dialog .travel-body{min-width:0;overflow-wrap:anywhere}
+.destination-edition .travel-dialog .travel-body p{font-size:16px;line-height:1.85;margin:10px 0 16px}
+.destination-edition .travel-dialog .travel-body :is(h3,h4){line-height:1.45;letter-spacing:0;font-size:21px;margin:0 0 12px}
+.destination-edition .travel-dialog .travel-body :is(label,summary){font-size:15px;line-height:1.7}
+.destination-edition .travel-dialog .travel-body :is(.small,small,.note-scope,.kicker){font-size:13px;line-height:1.7}
+.destination-edition .travel-dialog :is(input,select,textarea){font-size:16px;line-height:1.7}
+.destination-edition .travel-dialog .tool-section-nav button{font-size:14px;line-height:1.5;min-height:48px}
+.destination-edition .travel-dialog .pocket-stop{padding:22px 0;gap:16px}
+.destination-edition .travel-dialog .pocket-stop-body>p{margin:8px 0 14px}
+.destination-edition .travel-dialog .pocket-stop-actions{gap:8px 16px}
+.destination-edition .travel-dialog .pocket-stop-actions :is(a,button){min-height:40px;display:inline-flex;align-items:center;font-size:14px}
+.destination-edition .travel-dialog .pocket-reading{padding:8px 0}
+.destination-edition .travel-dialog .travel-notes-grid{gap:28px}
+.destination-edition .travel-dialog .travel-note-panel textarea{min-height:200px;height:240px;line-height:1.9;padding:14px}
+.destination-edition .travel-dialog .file-picker{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:10px 20px;margin:12px 0;background:#27221c;color:#fff;border:1px solid #27221c;border-radius:2px;cursor:pointer;font-size:15px;line-height:1.5;max-width:100%;box-sizing:border-box}
+.destination-edition .travel-dialog .file-picker:hover{background:#814b32;border-color:#814b32}
+.destination-edition .travel-dialog .file-picker:focus-within{outline:3px solid #aa6e47;outline-offset:4px}
+.destination-edition .travel-dialog .file-picker input[type=file]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;margin:0;padding:0}
+.destination-edition .travel-dialog .file-picker input:disabled{cursor:wait}
+.destination-edition .travel-dialog .file-row{gap:16px;padding:18px 0}
+.destination-edition .travel-dialog .file-row a{overflow-wrap:anywhere}
+.destination-edition .travel-dialog .file-row button{min-height:40px;font-size:14px}
+.destination-edition .travel-dialog .photo-plan-heading{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:8px}
+.destination-edition .travel-dialog .photo-plan-heading h3{font-size:25px}
+.destination-edition .travel-dialog .photo-plan-heading span{font-size:13px;color:var(--muted)}
+.destination-edition .travel-dialog .photo-shot-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;margin:8px 0 28px}
+.destination-edition .travel-dialog .photo-shot{padding:20px 0;border-top:1px solid var(--line);min-width:0}
+.destination-edition .travel-dialog .photo-shot .shot-time{font-size:13px;color:#814b32;margin:0 0 5px}
+.destination-edition .travel-dialog .photo-shot h4{font-size:20px;margin:0 0 12px}
+.destination-edition .travel-dialog .photo-shot dl{margin:0;display:grid;grid-template-columns:2em minmax(0,1fr);gap:8px 14px}
+.destination-edition .travel-dialog .photo-shot dt{font-size:13px;color:var(--muted);padding-top:3px}
+.destination-edition .travel-dialog .photo-shot dd{margin:0;font-size:16px;line-height:1.8}
+.destination-edition .travel-dialog .photo-shot button{margin-top:12px;min-height:40px;font-size:14px}
+.destination-edition .travel-dialog .reference-library{border-top:1px solid var(--line);padding-top:22px}
+.destination-edition .travel-dialog .reference-upload-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px}
+.destination-edition .travel-dialog #reference-status{margin:0;font-size:13px}
+.destination-edition .travel-dialog .reference-grid:empty{display:none}
+.destination-edition .travel-dialog .storage-note{margin-top:16px;font-size:13px}
+.destination-edition .travel-dialog #ledger-totals p{font-size:14px;line-height:1.8}
+.destination-edition .travel-dialog .ledger-currency-settlement{padding:20px 0}
+@media(max-width:700px){
+ .destination-edition dialog.travel-dialog:is(#pocket-dialog,#ledger-dialog,#files-dialog,#photos-dialog,#notes-dialog){--travel-pad:20px;width:100%;max-width:100vw;margin:0;left:0;right:0;border:0}
+ .destination-edition .travel-dialog .photo-shot-list{grid-template-columns:minmax(0,1fr);margin-bottom:16px}
+ .destination-edition .travel-dialog .photo-plan-heading h3{font-size:23px}
+ .destination-edition .travel-dialog .travel-body{padding-top:24px}
+ .destination-edition .travel-dialog .tool-section-nav button{font-size:13px;padding:8px 2px}
+ .destination-edition .travel-dialog .dialog-head h2{font-size:14px}
+ .destination-edition .travel-dialog .travel-note-panel textarea{height:190px;min-height:160px}
+ .destination-edition .travel-dialog .photo-shot{padding:18px 0}
+ .destination-edition .travel-dialog .ledger-filter-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:360px){.destination-edition dialog.travel-dialog:is(#pocket-dialog,#ledger-dialog,#files-dialog,#photos-dialog,#notes-dialog){--travel-pad:16px}.destination-edition .travel-dialog .tool-section-nav button{font-size:12px}.destination-edition .travel-dialog .photo-shot dl{gap:8px 10px}}

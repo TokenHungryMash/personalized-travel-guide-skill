@@ -1,0 +1,56 @@
+{
+  "cover-bali": {
+    "src": "media/sanur.jpg",
+    "page": "https://www.indonesia.travel/gb/en/destination/bali-nusa-tenggara/bali/sanur0",
+    "caption": "沙努尔海岸 · Indonesia Travel"
+  },
+  "spread-sanur": {
+    "src": "media/completed-karang.jpg",
+    "caption": "卡朗海滩 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/ESEAP2018_Sunrise_at_Pantai_Karang.jpg/960px-ESEAP2018_Sunrise_at_Pantai_Karang.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:ESEAP2018_Sunrise_at_Pantai_Karang.jpg",
+    "fileTitle": "File:ESEAP2018 Sunrise at Pantai Karang.jpg",
+    "author": "2ndoct",
+    "license": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "spread-ubud": {
+    "src": "media/accurate-palace.jpg",
+    "caption": "Ubud Palace · Wikimedia / Wikipedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Ubud_Palace_%282022%29.jpg/330px-Ubud_Palace_%282022%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Ubud_Palace",
+    "credit": "作者与许可见来源页面"
+  },
+  "spread-rice": {
+    "src": "media/rice.jpg",
+    "page": "https://www.indonesia.travel/uk/en/destination/bali-nusa-tenggara/bali/ubud---tegallalang-rice-terrace-a-charm-of-the-green-in-ubud",
+    "caption": "德格拉朗梯田 · Indonesia Travel"
+  },
+  "spread-craft": {
+    "src": "media/craft.jpg",
+    "page": "https://jenggala.com/paint-a-pot/",
+    "caption": "Jenggala 陶瓷彩绘 · 场所官网"
+  },
+  "spread-jimbaran": {
+    "src": "media/jimbaran.jpg",
+    "page": "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/bali---romantic-jimbaran-beach",
+    "caption": "金巴兰海岸 · Indonesia Travel"
+  },
+  "spread-uluwatu": {
+    "src": "media/uluwatu.jpg",
+    "page": "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/pura-luhur-uluwatu",
+    "caption": "乌鲁瓦图崖岸 · Indonesia Travel"
+  },
+  "spread-food": {
+    "src": "media/food.jpg",
+    "page": "https://www.cucabali.com/",
+    "caption": "Cuca 菜品摄影 · 非当日菜单承诺"
+  },
+  "culture-photo": {
+    "src": "media/accurate-tirta.jpg",
+    "caption": "Tirta Empul · Wikimedia / Wikipedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Bali_-_bathing_%28Melukat%29_at_Pura_Tirta_Empul_%282025%29_-_img_07.jpg/330px-Bali_-_bathing_%28Melukat%29_at_Pura_Tirta_Empul_%282025%29_-_img_07.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Tirta_Empul",
+    "credit": "作者与许可见来源页面"
+  }
+}

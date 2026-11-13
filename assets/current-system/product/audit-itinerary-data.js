@@ -1,1 +1,0 @@
-window.BALI_ITINERARY=[];

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "地点库覆盖计划",
+  "type": "object",
+  "required": [
+    "targetRange",
+    "photoExceptions"
+  ],
+  "properties": {
+    "cityType": {
+      "type": "string",
+      "description": "metropolis / city / island / small / multi-city，正式构建按此查规划基线"
+    },
+    "tripDays": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "targetRange": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "description": "按城市规模与旅行需求填写 [最少,最多]，不是实际地点数。"
+    },
+    "scaleException": {
+      "type": "string",
+      "description": "旧版字段仅供读取；不再豁免正式覆盖检查"
+    },
+    "imageCoverageTarget": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 0.8
+    },
+    "photoExceptions": {
+      "type": "object",
+      "default": {},
+      "description": "缺图地点ID→实际查找结果和采用文字卡的理由；空串不算已登记。",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "\\S"
+      }
+    },
+    "diningTargetRange": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "cityType",
+          "days"
+        ],
+        "properties": {
+          "cityType": {
+            "type": "string"
+          },
+          "days": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          }
+        }
+      }
+    },
+    "scopeOverride": {
+      "type": "object",
+      "required": [
+        "reason",
+        "targetRange",
+        "diningTargetRange"
+      ],
+      "description": "已有用户明确范围，或有来源的客观可用性限制；不接受执行者时间/素材不足"
+    },
+    "diningCategoryNotes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "mealCoverage": {
+      "type": "object",
+      "description": "日ID → meals:{lunch:[主选ID,备选ID],dinner:[...]}; 不适用写明确原因，与当天dining及真实餐厅相连"
+    }
+  }
+}

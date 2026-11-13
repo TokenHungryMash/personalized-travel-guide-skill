@@ -1,0 +1,318 @@
+{
+  "sanur": {
+    "src": "media/place-sanur.jpg",
+    "caption": "地点或场所官方配图 · 沙努尔海滨",
+    "source": "https://www.indonesia.travel/contentassets/8acab2beb11446afa4f7ab701a5431fa/sanur0.jpg",
+    "page": "https://www.indonesia.travel/gb/en/destination/bali-nusa-tenggara/bali/sanur0"
+  },
+  "threads": {
+    "src": "media/place-threads.jpg",
+    "caption": "地点或场所官方配图 · Threads of Life 织物店",
+    "source": "http://threadsoflife.com/cdn/shop/files/threads_of_life_shop_1.jpg?v=1744904099",
+    "page": "https://threadsoflife.com/pages/contact"
+  },
+  "hujan": {
+    "src": "media/place-hujan.jpg",
+    "caption": "地点或场所官方配图 · Hujan Locale",
+    "source": "https://hujanlocale.com/wp-content/uploads/2025/02/HUL-Default-Social-Share-Image.png",
+    "page": "https://hujanlocale.com/booking/"
+  },
+  "cooking": {
+    "src": "media/place-cooking.jpg",
+    "caption": "地点或场所官方配图 · Casa Luna 烹饪课",
+    "source": "https://casalunabali.com/wp-content/uploads/2026/05/Honeymoon_Cooking_Class_6-1.jpeg",
+    "page": "https://casalunabali.com/casa-luna-cooking-school/"
+  },
+  "rice": {
+    "src": "media/place-rice.jpg",
+    "caption": "地点或场所官方配图 · 德格拉朗梯田",
+    "source": "https://www.indonesia.travel/contentassets/d69d691322b240c093cd49e15ea4bbcd/ubud---tegallalang-rice-terrace-a-charm-of-the-green-in-ubud.webp",
+    "page": "https://www.indonesia.travel/uk/en/destination/bali-nusa-tenggara/bali/ubud---tegallalang-rice-terrace-a-charm-of-the-green-in-ubud"
+  },
+  "jimbaran": {
+    "src": "media/place-jimbaran.jpg",
+    "caption": "地点或场所官方配图 · 金巴兰海滩",
+    "source": "https://www.indonesia.travel/contentassets/df4c001b6d814223b31ca8414dc78273/jimbaran_banner.jpg",
+    "page": "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/bali---romantic-jimbaran-beach"
+  },
+  "jenggala": {
+    "src": "media/place-jenggala.jpg",
+    "caption": "地点或场所官方配图 · Jenggala 陶瓷店",
+    "source": "https://jenggala.com/wp-content/uploads/2018/07/select-bisque.jpg",
+    "page": "https://jenggala.com/paint-a-pot/"
+  },
+  "uluwatu": {
+    "src": "media/place-uluwatu.jpg",
+    "caption": "地点或场所官方配图 · 乌鲁瓦图寺",
+    "source": "https://www.indonesia.travel/contentassets/335d8543432141b7885b9c75bcf53fef/pura-luhur-uluwatu.jpg",
+    "page": "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/pura-luhur-uluwatu"
+  },
+  "cuca": {
+    "src": "media/food.jpg",
+    "caption": "Cuca 菜品 · 餐厅官方配图",
+    "page": "https://www.cucabali.com/"
+  },
+  "arma": {
+    "src": "media/ubud.jpg",
+    "caption": "ARMA 官网展示的绘画 · 非馆舍外观",
+    "page": "https://armamuseumubud.com/en"
+  },
+  "airport": {
+    "src": "media/accurate-airport.jpg",
+    "caption": "Ngurah Rai International Airport · Wikimedia / Wikipedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Ngurah_Rai_Internasional_Airport_Welcome_Sign.jpg/330px-Ngurah_Rai_Internasional_Airport_Welcome_Sign.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Ngurah_Rai_International_Airport",
+    "credit": "作者与许可见来源页面"
+  },
+  "palace": {
+    "src": "media/accurate-palace.jpg",
+    "caption": "Ubud Palace · Wikimedia / Wikipedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Ubud_Palace_%282022%29.jpg/330px-Ubud_Palace_%282022%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Ubud_Palace",
+    "credit": "作者与许可见来源页面"
+  },
+  "puri": {
+    "src": "media/accurate-puri.jpg",
+    "caption": "Puri Lukisan 美术馆标牌 · Wikimedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Puri_Lukisan_Museum4.JPG/330px-Puri_Lukisan_Museum4.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Puri_Lukisan_Museum",
+    "credit": "作者与许可见来源页面"
+  },
+  "monkey": {
+    "src": "media/accurate-monkey.jpg",
+    "caption": "Ubud Monkey Forest · Wikimedia / Wikipedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Monkey_Forest.jpg/330px-Monkey_Forest.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Ubud_Monkey_Forest",
+    "credit": "作者与许可见来源页面"
+  },
+  "tirta": {
+    "src": "media/accurate-tirta.jpg",
+    "caption": "Tirta Empul · Wikimedia / Wikipedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Bali_-_bathing_%28Melukat%29_at_Pura_Tirta_Empul_%282025%29_-_img_07.jpg/330px-Bali_-_bathing_%28Melukat%29_at_Pura_Tirta_Empul_%282025%29_-_img_07.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Tirta_Empul",
+    "credit": "作者与许可见来源页面"
+  },
+  "gunungkawi": {
+    "src": "media/accurate-gunungkawi.jpg",
+    "caption": "Gunung Kawi · Wikimedia / Wikipedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Bali_-_Gunung_Kawi_%282025%29_-_img_07.jpg/330px-Bali_-_Gunung_Kawi_%282025%29_-_img_07.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Gunung_Kawi",
+    "credit": "作者与许可见来源页面"
+  },
+  "goagajah": {
+    "src": "media/accurate-goagajah.jpg",
+    "caption": "Goa Gajah · Wikimedia / Wikipedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Bali_-_Goa_Gajah_%282022%29_-_img_20.jpg/330px-Bali_-_Goa_Gajah_%282022%29_-_img_20.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Goa_Gajah",
+    "credit": "作者与许可见来源页面"
+  },
+  "tanahlot": {
+    "src": "media/accurate-tanahlot.jpg",
+    "caption": "Tanah Lot · Wikimedia / Wikipedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/TanahLot_2014.JPG/330px-TanahLot_2014.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Tanah_Lot",
+    "credit": "作者与许可见来源页面"
+  },
+  "karang": {
+    "src": "media/completed-karang.jpg",
+    "caption": "卡朗海滩 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/ESEAP2018_Sunrise_at_Pantai_Karang.jpg/960px-ESEAP2018_Sunrise_at_Pantai_Karang.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:ESEAP2018_Sunrise_at_Pantai_Karang.jpg",
+    "fileTitle": "File:ESEAP2018 Sunrise at Pantai Karang.jpg",
+    "author": "2ndoct",
+    "license": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "campuhan": {
+    "src": "media/completed-campuhan.jpg",
+    "caption": "Campuhan 山脊步道 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Campuhan_ridge_walk_Ubud_Bali_20120827c.jpg/960px-Campuhan_ridge_walk_Ubud_Bali_20120827c.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Campuhan_ridge_walk_Ubud_Bali_20120827c.jpg",
+    "fileTitle": "File:Campuhan ridge walk Ubud Bali 20120827c.jpg",
+    "author": "Tigerente",
+    "license": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "bengil": {
+    "src": "media/completed-bengil.jpg",
+    "caption": "Bebek Bengil 乌布店 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Bebek_Bengil_%2852416696729%29.jpg/960px-Bebek_Bengil_%2852416696729%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Bebek_Bengil_(52416696729).jpg",
+    "fileTitle": "File:Bebek Bengil (52416696729).jpg",
+    "author": "Thank You (25 Millions ) views from Fresno, USA",
+    "license": "CC BY 2.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "mas": {
+    "src": "media/completed-mas.jpg",
+    "caption": "马斯木雕村 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Mas_Woodcarvers_1993_-_panoramio.jpg/960px-Mas_Woodcarvers_1993_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Mas_Woodcarvers_1993_-_panoramio.jpg",
+    "fileTitle": "File:Mas Woodcarvers 1993 - panoramio.jpg",
+    "author": "Scotia",
+    "license": "CC BY 3.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "market": {
+    "src": "media/completed-market.jpg",
+    "caption": "乌布艺术市场 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Ubud_Market_in_Bali.jpg/960px-Ubud_Market_in_Bali.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Ubud_Market_in_Bali.jpg",
+    "fileTitle": "File:Ubud Market in Bali.jpg",
+    "author": "Julia Kado",
+    "license": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "batuan": {
+    "src": "media/completed-batuan.jpg",
+    "caption": "巴图安寺 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Pura_batuan_gianyar.jpg/960px-Pura_batuan_gianyar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Pura_batuan_gianyar.jpg",
+    "fileTitle": "File:Pura batuan gianyar.jpg",
+    "author": "Chainwit.",
+    "license": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "sukawati": {
+    "src": "media/completed-sukawati.jpg",
+    "caption": "苏卡瓦提艺术市场 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Market_of_Sukawati%2C_Sukawati%2C_Bali_200507-10.jpg/960px-Market_of_Sukawati%2C_Sukawati%2C_Bali_200507-10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Market_of_Sukawati,_Sukawati,_Bali_200507-10.jpg",
+    "fileTitle": "File:Market of Sukawati, Sukawati, Bali 200507-10.jpg",
+    "author": "",
+    "license": "CC BY-SA 3.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "kedonganan": {
+    "src": "media/completed-kedonganan.jpg",
+    "caption": "Kedonganan 鱼市 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Kedonganan_%2847144506392%29.jpg/960px-Kedonganan_%2847144506392%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Kedonganan_(47144506392).jpg",
+    "fileTitle": "File:Kedonganan (47144506392).jpg",
+    "author": "Jorge Franganillo",
+    "license": "CC BY 2.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "padang": {
+    "src": "media/completed-padang.jpg",
+    "caption": "Padang Padang 海滩 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Padang_Padang_Beach_Bali.jpg/960px-Padang_Padang_Beach_Bali.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Padang_Padang_Beach_Bali.jpg",
+    "fileTitle": "File:Padang Padang Beach Bali.jpg",
+    "author": "TMFalkner",
+    "license": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "saraswati": {
+    "src": "media/final-saraswati.jpg",
+    "caption": "乌布萨拉斯瓦蒂水宫 · Wikimedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Pura_Taman_Saraswati_%28Ubud%2C_Bali%2C_Indonesia%29.jpg/960px-Pura_Taman_Saraswati_%28Ubud%2C_Bali%2C_Indonesia%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Pura_Taman_Saraswati_(Ubud,_Bali,_Indonesia).jpg"
+  },
+  "melasti": {
+    "src": "media/completed-melasti.jpg",
+    "caption": "Melasti 海滩 · 地点参考照片",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Melasti_Beach_east_view_2.jpg/960px-Melasti_Beach_east_view_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Melasti_Beach_east_view_2.jpg",
+    "fileTitle": "File:Melasti Beach east view 2.jpg",
+    "author": "Dare2Leap",
+    "license": "CC BY-SA 4.0",
+    "credit": "Wikimedia Commons；作者与许可见来源页面"
+  },
+  "nusadua": {
+    "src": "media/final-nusadua.jpg",
+    "caption": "努沙杜瓦海岸 · Wikimedia 配图",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Nusa_Dua_Bali.jpg/330px-Nusa_Dua_Bali.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Nusa_Dua"
+  },
+  "spa": {
+    "src": "media/final-spa.jpg",
+    "caption": "按摩活动示意 · 尚未指定店铺",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Spa_Picture_2.jpg/330px-Spa_Picture_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Massage"
+  },
+  "coffee": {
+    "src": "media/final-coffee.jpg",
+    "caption": "咖啡活动示意 · 尚未指定咖啡店",
+    "source": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Latte_and_dark_coffee.jpg/330px-Latte_and_dark_coffee.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "page": "https://en.wikipedia.org/wiki/Coffee"
+  },
+  "beachrest": {
+    "src": "media/final-beachrest.jpg",
+    "caption": "沙努尔海岸休息时段 · 海岸参考照片，非预订场所",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sanur_Beach_Bali_Indonesia_-_panoramio_%2811%29.jpg/960px-Sanur_Beach_Bali_Indonesia_-_panoramio_%2811%29.jpg",
+    "page": "https://domabali.com/en/bali/sanur/sindhu/"
+  },
+  "massimo": {
+    "src": "media/final-massimo.jpg",
+    "caption": "Massimo 餐厅官方配图",
+    "source": "https://massimobali.com/wp-content/uploads/2022/07/IMG_4418-copy.jpg",
+    "page": "https://www.massimobali.com/"
+  },
+  "icon": {
+    "src": "media/final-icon.jpg",
+    "caption": "ICON BALI 商场官方配图",
+    "source": "https://iconbalimall.com/wp-content/uploads/2026/04/ICON-BALI.jpg",
+    "page": "https://iconbalimall.com/"
+  },
+  "pasifika": {
+    "src": "media/final-pasifika.jpg",
+    "caption": "Pasifika 博物馆官网展示的画作 · 非馆舍外观",
+    "source": "https://static.wixstatic.com/media/68da49_09e5dfcb07a64f40aeeb032a7f09bf8d~mv2.jpg",
+    "page": "https://museum-pasifika.com/"
+  },
+  "sanurmarket": {
+    "src": "media/final-sanurmarket.jpg",
+    "caption": "辛杜市场 · 登巴萨旅游局配图",
+    "source": "https://denpasartourism.com/storage/3/20241202881kP.jpg",
+    "page": "https://denpasartourism.com/en/destination/shindu-traditional-market"
+  },
+  "sindhu": {
+    "src": "media/final-sindhu.jpg",
+    "caption": "辛杜所在的沙努尔海岸 · 区域参考照片",
+    "source": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/250217_Sanur_Beach_03.jpg/960px-250217_Sanur_Beach_03.jpg",
+    "page": "https://domabali.com/en/bali/sanur/sindhu/"
+  },
+  "finns": {
+    "src": "media/finns-aerial.webp",
+    "caption": "FINNS Beach Club · 官方场地照片",
+    "page": "https://finnsbeachclub.com/"
+  },
+  "yogabarn": {
+    "src": "media/yogabarn-official.webp",
+    "caption": "The Yoga Barn · 官方练习场地照片",
+    "page": "https://theyogabarn.com/contact/"
+  },
+  "pison": {
+    "src": "media/dining-pison.jpg",
+    "caption": "Pison 乌布店 · 官方场所照片",
+    "page": "https://pisonindonesia.com/pison-ubud/",
+    "source": "https://pisonindonesia.com/wp-content/uploads/2025/10/13-1-scaled-1.webp",
+    "role": "thumbnail",
+    "rights": "原网站权利人所有；保留出处，非开放许可声明"
+  },
+  "makbeng": {
+    "src": "media/dining-makbeng.jpg",
+    "caption": "Warung Mak Beng · 登巴萨旅游局资料照片",
+    "page": "https://denpasartourism.com/en/culinary/warung-mak-beng",
+    "source": "https://denpasartourism.com/storage/images/culinaries/mka_beng.png",
+    "role": "thumbnail",
+    "rights": "原网站权利人所有；保留出处，非开放许可声明"
+  },
+  "pepperlunch": {
+    "src": "media/dining-pepperlunch.jpg",
+    "caption": "Pepper Lunch · ICON Bali 门店页面餐品示意，非门店实景",
+    "page": "https://dineout.grab.com/id/id/restaurants/pepper-lunch-icon-mall-bali--6-C6KURF5CLKAJVT",
+    "source": "https://dineout.grab.com/api/image-proxy?url=https%3A%2F%2Fhuawei-food-cms.grab.com%2Fcompressed_webp%2Fmerchants%2F6-C6KURF5CLKAJVT%2Fdineinhero%2Fdff0b230a39d46df952945d49a0c3788_1758419772118257126.webp",
+    "role": "thumbnail",
+    "rights": "原网站权利人所有；保留出处，非开放许可声明"
+  },
+  "pizzahut": {
+    "src": "media/dining-pizzahut.jpg",
+    "caption": "Pizza Hut · 沙努尔门店页面餐品示意，非门店实景",
+    "page": "https://dineout.grab.com/id/en/restaurants/pizza-hut-sanur--IDGFSTI00000rge",
+    "source": "https://dineout.grab.com/api/image-proxy?url=https%3A%2F%2Fhuawei-food-cms.grab.com%2Fcompressed_webp%2Fmerchants%2FIDGFSTI00000rge%2Fdineinhero%2F6945dec4dfb14e74b52f240fe4739cca_1776310934451907696.webp",
+    "role": "thumbnail",
+    "rights": "原网站权利人所有；保留出处，非开放许可声明"
+  }
+}

@@ -1,0 +1,165 @@
+/* Impeccable Operate pass: a field notebook, with consistent controls and ledger hierarchy. */
+.overprint-edition .travel-dialog{--travel-forest:#263f35;--travel-cream:#f9f2de;--travel-panel:#ece8dc;--travel-muted:#625f53;caret-color:var(--accent)}
+.overprint-edition .travel-dialog .dialog-head{background:var(--travel-forest);color:var(--travel-cream);border:0;padding-block:18px}
+.overprint-edition .travel-dialog .dialog-head :is(h2,button,small){color:var(--travel-cream)}
+.overprint-edition .travel-dialog .travel-brand>span{letter-spacing:-.03em}
+.overprint-edition .travel-dialog .dialog-head [data-close]{min-width:44px;min-height:44px}
+.overprint-edition .travel-dialog .tool-context-host{border-bottom:1px solid var(--ink)}
+.overprint-edition .travel-dialog .tool-section-nav [aria-current]{color:var(--travel-forest);box-shadow:inset 0 -3px var(--travel-forest)}
+.overprint-edition .travel-dialog .tool-section-nav [aria-current]:after{display:none}
+.overprint-edition .travel-dialog .travel-body{scrollbar-color:#b3b4a4 var(--paper)}
+.overprint-edition .travel-dialog .travel-body :is(h3,h4){letter-spacing:0}
+.overprint-edition .travel-dialog :is(button,a,summary){text-underline-offset:4px}
+.overprint-edition .travel-dialog .travel-body :is(input:not([type=file]),select,textarea){background:#fffcf5;border-color:#b6b3a4;border-radius:2px}
+.overprint-edition .travel-dialog .travel-body :is(input,select,textarea)::placeholder{color:#777365;opacity:1}
+.overprint-edition .travel-dialog :is(button,a,summary):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.overprint-edition .travel-dialog .dialog-head :focus-visible{outline-color:#f2d781}
+.overprint-edition .travel-dialog .travel-body :is(button,a):active{filter:brightness(.94)}
+.overprint-edition .travel-dialog button:disabled{cursor:default}
+.overprint-edition .travel-dialog .pocket-day-intro{border-bottom:1px solid var(--ink)}
+.overprint-edition #pocket-dialog .pocket-aside{border-top:0}
+.overprint-edition #pocket-dialog .pocket-stop{border-top:1px solid var(--line)}
+.overprint-edition #pocket-dialog .pocket-stop time{color:var(--accent);font-variant-numeric:tabular-nums}
+.overprint-edition #pocket-dialog .pocket-stop-actions .pocket-navigate{background:var(--travel-forest);border-color:var(--travel-forest);color:var(--travel-cream)}
+.overprint-edition #pocket-dialog .pocket-stop-actions :is(a,button){min-height:44px;border-radius:2px}
+.overprint-edition #pocket-dialog .pocket-stop-more>summary{min-height:44px;color:var(--travel-muted)}
+.overprint-edition .travel-dialog .travel-files-heading .kicker,.overprint-edition #ledger-demo>.kicker{display:none}
+.overprint-edition .travel-dialog .travel-files-heading{padding-bottom:12px;border-bottom:1px solid var(--ink)}
+.overprint-edition .travel-dialog .photo-plan-heading{border-bottom:1px solid var(--ink)}
+.overprint-edition .travel-dialog .photo-shot{padding-block:22px}
+.overprint-edition .travel-dialog .photo-shot h4{line-height:1.5;margin-bottom:18px}
+.overprint-edition .travel-dialog .photo-shot dt{color:var(--travel-muted);font-size:12px}
+.overprint-edition .travel-dialog .photo-shot dd{line-height:1.8}
+.overprint-edition .travel-dialog .reference-library{border-top:1px solid var(--ink)}
+.overprint-edition .travel-dialog .reference-grid img{object-fit:contain;background:var(--travel-panel)}
+.overprint-edition .travel-dialog .file-picker{border:1px solid var(--travel-forest);border-radius:2px;background:var(--travel-forest);color:var(--travel-cream);min-height:48px;margin-block:18px;padding:12px 20px}
+.overprint-edition .travel-dialog .file-picker:focus-within{outline:2px solid var(--accent);outline-offset:3px}
+.overprint-edition .travel-dialog .file-row{padding-block:18px;border-color:var(--line)}
+.overprint-edition .travel-dialog .file-row img{object-fit:contain;background:var(--travel-panel)}
+.overprint-edition .travel-dialog .file-row :is(button,a){min-height:44px;display:inline-flex;align-items:center}
+.overprint-edition .travel-dialog .travel-note-panel{border-top:0;padding-top:0}
+.overprint-edition .travel-dialog .travel-note-panel h3{margin:0 0 16px}
+.overprint-edition .travel-dialog .travel-note-panel textarea{border:1px solid #b6b3a4;line-height:1.9;padding:16px;resize:vertical}
+.overprint-edition .travel-dialog .note-scope{color:var(--travel-muted);font-size:12px}
+.overprint-edition .travel-dialog .travel-notes-heading>.kicker{display:none}
+.overprint-edition .travel-dialog .travel-notes-heading{justify-content:flex-end;margin:0 0 18px;padding:0}
+.overprint-edition .travel-dialog .travel-notes-heading [data-notes-status]{font-size:12px;margin:0;color:var(--travel-muted)}
+.overprint-edition .travel-dialog .travel-notes-grid{gap:24px}
+.overprint-edition .travel-dialog .travel-note-panel .note-scope{margin:0 0 8px}
+.overprint-edition .travel-dialog .travel-note-panel h3{margin-bottom:8px}
+.overprint-edition #ledger-dialog .ledger-summary #ledger-totals{margin:0;padding:22px;background:var(--travel-forest);border-radius:2px 2px 0 0}
+.overprint-edition #ledger-dialog #ledger-totals p{opacity:1}
+.overprint-edition #ledger-dialog .ledger-currency-totals{display:flex;flex-wrap:wrap;gap:8px 24px;margin:14px 0 20px}
+.overprint-edition #ledger-dialog .ledger-currency-totals p{margin:0!important}
+.overprint-edition #ledger-dialog .ledger-currency-totals b{font:500 30px/1.2 var(--font-display);color:var(--travel-cream);font-variant-numeric:tabular-nums}
+.overprint-edition #ledger-dialog #ledger-totals>label{border-top:1px solid #f9f2de40;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.overprint-edition #ledger-dialog #ledger-totals input{width:120px;margin:0;background:#fffcf5;color:var(--ink);border:0}
+.overprint-edition #ledger-dialog .ledger-jump{gap:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0 0 24px;border:1px solid var(--travel-forest);border-top:0}
+.overprint-edition #ledger-dialog .ledger-jump button{border:0;border-right:1px solid var(--line);min-height:48px;background:transparent;color:var(--travel-forest);font-weight:500}
+.overprint-edition #ledger-dialog .ledger-jump button:last-child{border-right:0}
+.overprint-edition #ledger-demo{padding:16px 0;background:transparent;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 0 18px}
+.overprint-edition #ledger-demo h3{font:500 17px/1.5 var(--font-body);margin:0 0 8px}
+.overprint-edition #ledger-demo p{margin:6px 0 12px;font-size:13px;line-height:1.75}
+.overprint-edition #ledger-demo small{font-size:12px;line-height:1.6;color:var(--travel-muted)}
+.overprint-edition #ledger-demo>div{gap:8px}
+.overprint-edition #ledger-dialog .ledger-summary>p.small{font-size:12px;color:var(--travel-muted);line-height:1.8}
+.overprint-edition #ledger-dialog .fx-box{border-top:0;border-bottom:1px solid var(--line);padding-block:0}
+.overprint-edition #ledger-dialog .fx-box>summary{min-height:44px;align-content:center}
+.overprint-edition #ledger-dialog .ledger-member-fold{margin-top:0;border-block:1px solid var(--line);padding-block:0}
+.overprint-edition #ledger-dialog .ledger-member-fold>summary{min-height:48px;padding-block:12px}
+.overprint-edition #ledger-dialog .ledger-member{border:0;border-bottom:1px solid var(--line);background:transparent;padding:8px 0}
+.overprint-edition #ledger-dialog #expense-form{border-top:0;padding-top:20px;margin-top:0}
+.overprint-edition #ledger-dialog #expense-form>h3{border-top:0;padding-top:0;font-size:25px;margin:0 0 20px}
+.overprint-edition #ledger-dialog #expense-form .primary{background:var(--travel-forest);border-color:var(--travel-forest);min-height:48px}
+.overprint-edition #ledger-dialog .form-grid{gap:16px}
+.overprint-edition #ledger-dialog .ledger-controls{padding-bottom:18px}
+.overprint-edition #ledger-dialog .ledger-controls h3{font-size:25px;margin:0 0 20px}
+.overprint-edition #ledger-dialog .ledger-filter-row{gap:12px}
+.overprint-edition #ledger-dialog #ledger-csv{min-height:44px;border:1px solid var(--line);padding:8px 14px}
+.overprint-edition #ledger-dialog .expense-row strong{font-size:15px;line-height:1.6}
+.overprint-edition #ledger-dialog .expense-row small{font-size:12px;line-height:1.8;color:var(--travel-muted);margin-top:4px}
+.overprint-edition #ledger-dialog .expense-row b{font-family:var(--font-body);font-weight:500;font-size:19px}
+.overprint-edition #ledger-dialog #settlement{background:transparent;padding:24px 0 0;border-top:1px solid var(--ink)}
+.overprint-edition #ledger-dialog #settlement h3{font-size:23px}
+.overprint-edition #ledger-dialog .ledger-currency-settlement{background:var(--travel-panel);padding:18px!important;border:0;border-radius:2px}
+.overprint-edition #ledger-dialog .ledger-currency-settlement h4{font:600 15px/1.5 var(--font-body);letter-spacing:.04em}
+.overprint-edition #ledger-dialog .ledger-transfer{gap:8px;line-height:1.8}
+.overprint-edition #ledger-dialog .ledger-transfer b{font:500 19px/1.4 var(--font-body)}
+.overprint-edition #ledger-dialog #ledger-repayment-form>button{background:var(--travel-forest);color:var(--travel-cream);min-height:48px}
+@media(hover:hover){.overprint-edition .travel-dialog .tool-day-nav button:not([aria-pressed=true]):hover,.overprint-edition #ledger-dialog .ledger-jump button:hover{background:var(--travel-panel)}.overprint-edition .travel-dialog .file-picker:hover{background:#355545}}
+@media(min-width:851px){.overprint-edition #ledger-dialog .ledger-layout{grid-template-columns:minmax(250px,.8fr) minmax(0,1.2fr);gap:32px 44px}.overprint-edition #ledger-dialog .ledger-entry{border-left:1px solid var(--line);padding-left:32px}.overprint-edition .travel-dialog .travel-body{padding-block:28px 36px}}
+@media(max-width:850px){.overprint-edition .travel-dialog .dialog-head{padding-block:8px}.overprint-edition .travel-dialog .tool-context{display:block}.overprint-edition .travel-dialog .tool-day-nav{padding-top:4px}.overprint-edition .travel-dialog .tool-section-nav button{min-height:44px}}
+@media(max-width:700px){
+ .overprint-edition .travel-dialog .travel-body{padding:18px 18px calc(24px + env(safe-area-inset-bottom))}
+ .overprint-edition .travel-dialog .travel-body p{font-size:14px;line-height:1.8}
+ .overprint-edition .travel-dialog .travel-body :is(input:not([type=file]):not([type=checkbox]),select,textarea){font-size:16px}
+ .overprint-edition .travel-dialog .tool-day-nav button{min-height:44px;font-size:18px}
+ .overprint-edition .travel-dialog .tool-section-nav button{font-size:12px;min-height:44px;color:var(--travel-muted)}
+ .overprint-edition .travel-dialog .tool-section-nav [aria-current]{color:var(--travel-forest)}
+ .overprint-edition #pocket-content .pocket-day-intro h3{font-size:22px;line-height:1.45;margin-bottom:8px}
+ .overprint-edition #pocket-dialog .pocket-stop{grid-template-columns:52px minmax(0,1fr);gap:14px;padding:18px 0}
+ .overprint-edition #pocket-dialog .pocket-stop h4{font-size:21px;line-height:1.4}
+ .overprint-edition #pocket-dialog .pocket-stop time{font-size:21px}
+ .overprint-edition #pocket-dialog .pocket-stop .schedule-transfer{padding-top:8px;border-top:1px dotted var(--line);margin-top:6px;color:var(--travel-muted)}
+ .overprint-edition .travel-dialog .photo-shot dd{font-size:14px}
+ .overprint-edition #ledger-dialog .ledger-layout{gap:24px}
+ .overprint-edition #ledger-dialog .ledger-summary #ledger-totals{padding:18px}
+ .overprint-edition #ledger-dialog .ledger-currency-totals{gap:8px 20px;margin:12px 0 16px}
+ .overprint-edition #ledger-dialog .ledger-currency-totals b{font-size:25px}
+ .overprint-edition #ledger-dialog #ledger-totals>label{font-size:12px}
+ .overprint-edition #ledger-dialog #ledger-totals>p{font-size:12px;margin-bottom:0}
+ .overprint-edition #ledger-dialog .ledger-jump{margin-bottom:18px}
+ .overprint-edition #ledger-demo h3{font-size:16px}
+ .overprint-edition #ledger-demo p{font-size:13px}
+ .overprint-edition #ledger-dialog .expense-row{grid-template-columns:minmax(0,1fr) auto;gap:10px 12px}
+ .overprint-edition #ledger-dialog .expense-row>div:first-child{grid-column:1/-1}
+ .overprint-edition #ledger-dialog .expense-row>div:last-child{display:flex;gap:8px}
+ .overprint-edition #ledger-dialog .expense-row>div:last-child button{padding-inline:12px}
+ .overprint-edition #ledger-dialog .ledger-currency-settlement{padding:16px!important}
+ .overprint-edition #ledger-dialog .ledger-transfer b{flex-basis:100%;margin:3px 0}
+ .overprint-edition .travel-dialog .file-picker{width:100%;max-width:none}
+}
+@media(max-width:360px){.overprint-edition .travel-dialog .travel-body{padding-inline:16px}.overprint-edition .travel-dialog .tool-section-nav button{font-size:11px}.overprint-edition #ledger-dialog .ledger-currency-totals b{font-size:23px}.overprint-edition #pocket-dialog .pocket-stop{gap:10px}}
+
+/* Quick entry: keep the daily task ahead of demonstration and optional fields. */
+.overprint-edition #ledger-dialog .ledger-summary #ledger-totals{padding:16px 18px}
+.overprint-edition #ledger-dialog .ledger-currency-totals{margin:8px 0 12px;gap:6px 18px}
+.overprint-edition #ledger-dialog .ledger-currency-totals b{font-size:26px}
+.overprint-edition #ledger-dialog #ledger-totals>label{padding-top:10px}
+.overprint-edition #ledger-dialog #ledger-totals>p{font-size:12px;line-height:1.65}
+.overprint-edition #ledger-dialog .ledger-jump{margin-bottom:0}
+.overprint-edition #ledger-dialog :is(.ledger-help,.ledger-extra){border:0;border-bottom:1px solid var(--line);padding:0;margin:0}
+.overprint-edition #ledger-dialog :is(.ledger-help,.ledger-extra)>summary{font-size:13px;min-height:44px;padding:12px 0;cursor:pointer;color:var(--travel-muted)}
+.overprint-edition #ledger-dialog .ledger-help p{font-size:12px;line-height:1.8}
+.overprint-edition #ledger-dialog .ledger-extra{margin-bottom:14px}
+.overprint-edition #ledger-dialog .ledger-extra>.form-grid{padding:8px 0 14px}
+.overprint-edition #ledger-dialog #expense-form{padding-top:16px}
+.overprint-edition #ledger-dialog #expense-form>h3{font-size:23px;margin-bottom:14px}
+.overprint-edition #ledger-dialog #expense-form .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.overprint-edition #ledger-dialog #expense-form .ledger-title-field{grid-column:1/-1}
+.overprint-edition #ledger-dialog #expense-form .form-grid label{font-size:12px;gap:5px;min-width:0}
+.overprint-edition #ledger-dialog #expense-form :is(input:not([type=checkbox]),select){min-height:44px;padding:9px 10px;width:100%;min-width:0}
+.overprint-edition #ledger-dialog #expense-form fieldset{padding:14px 0 4px;margin:12px 0 0}
+.overprint-edition #ledger-dialog #split-members{gap:8px}
+.overprint-edition #ledger-dialog #split-members label{min-height:44px;padding:6px 10px;font-size:13px}
+.overprint-edition #ledger-dialog #split-members .ledger-avatar{width:24px;height:24px;font-size:12px}
+.overprint-edition #ledger-dialog #expense-message:empty{display:none}
+.overprint-edition #ledger-dialog #ledger-demo{margin-top:22px;margin-bottom:0;padding:16px 0}
+.overprint-edition #ledger-dialog #ledger-demo p{font-size:12px;margin-block:6px}
+.overprint-edition #ledger-dialog .ledger-member-fold>p{font-size:12px;line-height:1.7;margin-block:8px}
+.overprint-edition #ledger-dialog .ledger-member{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-block:8px}
+.overprint-edition #ledger-dialog .member-photo-picker{flex:1;min-width:120px}
+.overprint-edition #ledger-dialog .ledger-member button{min-height:44px;padding:8px 10px;font-size:12px}
+.overprint-edition #ledger-dialog .ledger-member button[data-remove-member]{color:var(--accent)}
+.overprint-edition #ledger-dialog .member-actions{display:flex;flex-wrap:wrap;gap:6px}
+.overprint-edition #ledger-dialog #members-list{display:block;margin-block:12px}
+.overprint-edition #ledger-dialog #undo-member-delete{min-height:44px;margin-top:8px;width:auto}
+.overprint-edition #ledger-dialog :is(.inactive-members,#undo-member-delete){grid-column:1/-1}
+.overprint-edition #ledger-dialog .inactive-members{border:0;padding:0;margin:8px 0}
+.overprint-edition #ledger-dialog .inactive-members>summary{min-height:44px;font-size:13px;padding-block:12px}
+.overprint-edition #ledger-dialog .member-photo-picker b{overflow-wrap:anywhere}
+.overprint-edition #ledger-dialog .member-photo-picker small{font-size:11px}
+.overprint-edition #ledger-dialog .ledger-member-fold #member-form{gap:8px;margin-block:12px;align-items:end}
+.overprint-edition #ledger-dialog .ledger-member-fold #member-form label{flex:1;min-width:0;font-size:12px}
+.overprint-edition #ledger-dialog .ledger-member-fold #member-form button{min-height:44px;padding:10px 14px}
+@media(max-width:850px){.overprint-edition #ledger-dialog .ledger-layout{gap:16px}.overprint-edition #ledger-dialog .ledger-currency-totals b{font-size:24px}.overprint-edition #ledger-dialog #expense-form>.primary{width:100%}.overprint-edition #ledger-dialog .ledger-member-fold{border-top:0}}
